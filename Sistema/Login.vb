@@ -17,9 +17,8 @@ Public Class Login
         Try
             Dim dt As DataSet = clsMysql.EjecutaStore(sp_ValidaUsuarioLogin, pwd)
         Catch ex As Exception
-                MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
+            MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
         End Try
-
     End Sub
 
 #End Region
