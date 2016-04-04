@@ -14,11 +14,13 @@ Public Class Login
 #Region "SUB FUNCTION"
 
     Public Sub ValidaUsuario(ByVal pwd As String)
-        Try
-            Dim dt As DataSet = clsMysql.EjecutaStore(sp_ValidaUsuarioLogin, pwd)
-        Catch ex As Exception
-            MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
-        End Try
+        Me.Visible = False
+        Principal.Show()
+        'Try
+        '    Dim dt As DataSet = clsMysql.EjecutaStore(sp_ValidaUsuarioLogin, pwd)
+        'Catch ex As Exception
+        '    MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
+        'End Try
     End Sub
 
 #End Region
