@@ -133,6 +133,8 @@
     <None Include="Resources\portada.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\icon %281%29.png" />
+    <Content Include="Resources\icon.png" />
     <None Include="Resources\cancelar.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\delete.png" />

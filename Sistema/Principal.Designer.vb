@@ -22,10 +22,13 @@ Partial Class Principal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -65,6 +68,9 @@ Partial Class Principal
         Me.ACTIVO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabUsuarios = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.cmbRedUsu = New System.Windows.Forms.ComboBox()
+        Me.FechaNacUsu = New System.Windows.Forms.DateTimePicker()
         Me.txtRefUsu = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.btnCancelarUsu = New System.Windows.Forms.Button()
@@ -93,15 +99,9 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabRedes = New System.Windows.Forms.TabPage()
-        Me.TabServ = New System.Windows.Forms.TabPage()
-        Me.TabReconexion = New System.Windows.Forms.TabPage()
-        Me.TabAdeudos = New System.Windows.Forms.TabPage()
-        Me.TabPagos = New System.Windows.Forms.TabPage()
-        Me.TabCorte = New System.Windows.Forms.TabPage()
-        Me.TabPago = New System.Windows.Forms.TabPage()
-        Me.FechaNacUsu = New System.Windows.Forms.DateTimePicker()
-        Me.cmbRedUsu = New System.Windows.Forms.ComboBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.txtCuotaRed = New System.Windows.Forms.TextBox()
+        Me.cmbTamanoRed = New System.Windows.Forms.ComboBox()
         Me.txtRefRed = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.btnCancelarRed = New System.Windows.Forms.Button()
@@ -119,9 +119,16 @@ Partial Class Principal
         Me.Label30 = New System.Windows.Forms.Label()
         Me.txtFiltroRed = New System.Windows.Forms.TextBox()
         Me.dtGridRed = New System.Windows.Forms.DataGridView()
-        Me.cmbTamanoRed = New System.Windows.Forms.ComboBox()
-        Me.txtCuotaRed = New System.Windows.Forms.TextBox()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabServ = New System.Windows.Forms.TabPage()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.cmbEstatusRed = New System.Windows.Forms.ComboBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -139,12 +146,83 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabReconexion = New System.Windows.Forms.TabPage()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabAdeudos = New System.Windows.Forms.TabPage()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.TabPagos = New System.Windows.Forms.TabPage()
+        Me.FecFinPagos = New System.Windows.Forms.DateTimePicker()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.txtMontoPagos = New System.Windows.Forms.TextBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.txtDescPagos = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.txtAnioPagos = New System.Windows.Forms.TextBox()
+        Me.txtMesesPagos = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.txtSubPagos = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.txtNombrePagos = New System.Windows.Forms.TextBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.dtGridPagos = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FecInicioPagos = New System.Windows.Forms.DateTimePicker()
+        Me.TabCorte = New System.Windows.Forms.TabPage()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.cmbAdminCorte = New System.Windows.Forms.ComboBox()
+        Me.FechaFin = New System.Windows.Forms.DateTimePicker()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.dtGridCorte = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -158,11 +236,21 @@ Partial Class Principal
         Me.Panel4.SuspendLayout()
         CType(Me.dtGridUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabRedes.SuspendLayout()
-        Me.TabServ.SuspendLayout()
         Me.Panel5.SuspendLayout()
         CType(Me.dtGridRed, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabServ.SuspendLayout()
         Me.Panel6.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabReconexion.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabAdeudos.SuspendLayout()
+        Me.TabPagos.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        CType(Me.dtGridPagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabCorte.SuspendLayout()
+        Me.Panel9.SuspendLayout()
+        CType(Me.dtGridCorte, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -278,7 +366,6 @@ Partial Class Principal
         Me.TabControl1.Controls.Add(Me.TabAdeudos)
         Me.TabControl1.Controls.Add(Me.TabPagos)
         Me.TabControl1.Controls.Add(Me.TabCorte)
-        Me.TabControl1.Controls.Add(Me.TabPago)
         Me.TabControl1.Font = New System.Drawing.Font("Palatino Linotype", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(5, 3)
         Me.TabControl1.Name = "TabControl1"
@@ -543,8 +630,8 @@ Partial Class Principal
         '
         'Column1
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column1.HeaderText = "NOMBRE"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -590,6 +677,7 @@ Partial Class Principal
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.btnPagar)
         Me.Panel4.Controls.Add(Me.cmbRedUsu)
         Me.Panel4.Controls.Add(Me.FechaNacUsu)
         Me.Panel4.Controls.Add(Me.txtRefUsu)
@@ -614,6 +702,37 @@ Partial Class Principal
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(381, 431)
         Me.Panel4.TabIndex = 6
+        '
+        'btnPagar
+        '
+        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnPagar.Image = Global.Sistema.My.Resources.Resources.money
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPagar.Location = New System.Drawing.Point(268, 185)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(105, 36)
+        Me.btnPagar.TabIndex = 26
+        Me.btnPagar.Text = "PAGAR"
+        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnPagar.UseVisualStyleBackColor = True
+        Me.btnPagar.Visible = False
+        '
+        'cmbRedUsu
+        '
+        Me.cmbRedUsu.FormattingEnabled = True
+        Me.cmbRedUsu.Location = New System.Drawing.Point(113, 185)
+        Me.cmbRedUsu.Name = "cmbRedUsu"
+        Me.cmbRedUsu.Size = New System.Drawing.Size(121, 26)
+        Me.cmbRedUsu.TabIndex = 25
+        '
+        'FechaNacUsu
+        '
+        Me.FechaNacUsu.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FechaNacUsu.Location = New System.Drawing.Point(113, 154)
+        Me.FechaNacUsu.Name = "FechaNacUsu"
+        Me.FechaNacUsu.Size = New System.Drawing.Size(121, 25)
+        Me.FechaNacUsu.TabIndex = 23
+        Me.FechaNacUsu.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
         '
         'txtRefUsu
         '
@@ -842,8 +961,8 @@ Partial Class Principal
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewTextBoxColumn1.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
@@ -890,79 +1009,6 @@ Partial Class Principal
         Me.TabRedes.Text = "REDES"
         Me.TabRedes.UseVisualStyleBackColor = True
         '
-        'TabServ
-        '
-        Me.TabServ.Controls.Add(Me.Panel6)
-        Me.TabServ.Controls.Add(Me.DataGridView1)
-        Me.TabServ.Location = New System.Drawing.Point(4, 26)
-        Me.TabServ.Name = "TabServ"
-        Me.TabServ.Size = New System.Drawing.Size(1204, 478)
-        Me.TabServ.TabIndex = 3
-        Me.TabServ.Text = "TIPO SERVICIO"
-        Me.TabServ.UseVisualStyleBackColor = True
-        '
-        'TabReconexion
-        '
-        Me.TabReconexion.Location = New System.Drawing.Point(4, 26)
-        Me.TabReconexion.Name = "TabReconexion"
-        Me.TabReconexion.Size = New System.Drawing.Size(1204, 478)
-        Me.TabReconexion.TabIndex = 4
-        Me.TabReconexion.Text = "RECONEXION"
-        Me.TabReconexion.UseVisualStyleBackColor = True
-        '
-        'TabAdeudos
-        '
-        Me.TabAdeudos.Location = New System.Drawing.Point(4, 26)
-        Me.TabAdeudos.Name = "TabAdeudos"
-        Me.TabAdeudos.Size = New System.Drawing.Size(1204, 478)
-        Me.TabAdeudos.TabIndex = 5
-        Me.TabAdeudos.Text = "REVISAR ADEUDOS"
-        Me.TabAdeudos.UseVisualStyleBackColor = True
-        '
-        'TabPagos
-        '
-        Me.TabPagos.Location = New System.Drawing.Point(4, 26)
-        Me.TabPagos.Name = "TabPagos"
-        Me.TabPagos.Size = New System.Drawing.Size(1204, 478)
-        Me.TabPagos.TabIndex = 6
-        Me.TabPagos.Text = "VER PAGOS "
-        Me.TabPagos.UseVisualStyleBackColor = True
-        '
-        'TabCorte
-        '
-        Me.TabCorte.Location = New System.Drawing.Point(4, 26)
-        Me.TabCorte.Name = "TabCorte"
-        Me.TabCorte.Size = New System.Drawing.Size(1204, 478)
-        Me.TabCorte.TabIndex = 7
-        Me.TabCorte.Text = "CORTE DE CAJA"
-        Me.TabCorte.UseVisualStyleBackColor = True
-        '
-        'TabPago
-        '
-        Me.TabPago.Location = New System.Drawing.Point(4, 26)
-        Me.TabPago.Name = "TabPago"
-        Me.TabPago.Size = New System.Drawing.Size(1204, 478)
-        Me.TabPago.TabIndex = 8
-        Me.TabPago.Text = "REALIZAR PAGO"
-        Me.TabPago.UseVisualStyleBackColor = True
-        '
-        'FechaNacUsu
-        '
-        Me.FechaNacUsu.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechaNacUsu.Location = New System.Drawing.Point(113, 154)
-        Me.FechaNacUsu.Name = "FechaNacUsu"
-        Me.FechaNacUsu.Size = New System.Drawing.Size(121, 25)
-        Me.FechaNacUsu.TabIndex = 23
-        Me.FechaNacUsu.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
-        '
-        'cmbRedUsu
-        '
-        Me.cmbRedUsu.FormattingEnabled = True
-        Me.cmbRedUsu.Location = New System.Drawing.Point(113, 185)
-        Me.cmbRedUsu.Name = "cmbRedUsu"
-        Me.cmbRedUsu.Size = New System.Drawing.Size(121, 26)
-        Me.cmbRedUsu.TabIndex = 25
-        '
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.txtCuotaRed)
@@ -985,6 +1031,22 @@ Partial Class Principal
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(381, 431)
         Me.Panel5.TabIndex = 10
+        '
+        'txtCuotaRed
+        '
+        Me.txtCuotaRed.Location = New System.Drawing.Point(111, 215)
+        Me.txtCuotaRed.Name = "txtCuotaRed"
+        Me.txtCuotaRed.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtCuotaRed.Size = New System.Drawing.Size(121, 24)
+        Me.txtCuotaRed.TabIndex = 27
+        '
+        'cmbTamanoRed
+        '
+        Me.cmbTamanoRed.FormattingEnabled = True
+        Me.cmbTamanoRed.Location = New System.Drawing.Point(113, 168)
+        Me.cmbTamanoRed.Name = "cmbTamanoRed"
+        Me.cmbTamanoRed.Size = New System.Drawing.Size(121, 25)
+        Me.cmbTamanoRed.TabIndex = 26
         '
         'txtRefRed
         '
@@ -1134,9 +1196,9 @@ Partial Class Principal
         Me.Label29.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.Location = New System.Drawing.Point(3, 16)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(131, 21)
+        Me.Label29.Size = New System.Drawing.Size(101, 21)
         Me.Label29.TabIndex = 4
-        Me.Label29.Text = "Datos de Usuario"
+        Me.Label29.Text = "Datos de Red"
         '
         'Label30
         '
@@ -1169,24 +1231,65 @@ Partial Class Principal
         Me.dtGridRed.Size = New System.Drawing.Size(773, 437)
         Me.dtGridRed.TabIndex = 7
         '
-        'cmbTamanoRed
+        'DataGridViewTextBoxColumn5
         '
-        Me.cmbTamanoRed.FormattingEnabled = True
-        Me.cmbTamanoRed.Location = New System.Drawing.Point(113, 168)
-        Me.cmbTamanoRed.Name = "cmbTamanoRed"
-        Me.cmbTamanoRed.Size = New System.Drawing.Size(121, 25)
-        Me.cmbTamanoRed.TabIndex = 26
+        Me.DataGridViewTextBoxColumn5.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 30
         '
-        'txtCuotaRed
+        'DataGridViewTextBoxColumn6
         '
-        Me.txtCuotaRed.Location = New System.Drawing.Point(111, 215)
-        Me.txtCuotaRed.Name = "txtCuotaRed"
-        Me.txtCuotaRed.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtCuotaRed.Size = New System.Drawing.Size(121, 24)
-        Me.txtCuotaRed.TabIndex = 27
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle10
+        Me.DataGridViewTextBoxColumn6.HeaderText = "NUM RED"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.HeaderText = "ENCARGADO"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.HeaderText = "FECHA NAC"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 70
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.HeaderText = "RED"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Width = 70
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.HeaderText = "SERVICIO"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn10.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
+        Me.DataGridViewTextBoxColumn10.Width = 80
+        '
+        'TabServ
+        '
+        Me.TabServ.Controls.Add(Me.Panel6)
+        Me.TabServ.Controls.Add(Me.DataGridView1)
+        Me.TabServ.Location = New System.Drawing.Point(4, 26)
+        Me.TabServ.Name = "TabServ"
+        Me.TabServ.Size = New System.Drawing.Size(1204, 478)
+        Me.TabServ.TabIndex = 3
+        Me.TabServ.Text = "TIPO SERVICIO"
+        Me.TabServ.UseVisualStyleBackColor = True
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.cmbEstatusRed)
+        Me.Panel6.Controls.Add(Me.Label23)
         Me.Panel6.Controls.Add(Me.Button2)
         Me.Panel6.Controls.Add(Me.Button3)
         Me.Panel6.Controls.Add(Me.Button4)
@@ -1197,10 +1300,28 @@ Partial Class Principal
         Me.Panel6.Controls.Add(Me.TextBox4)
         Me.Panel6.Controls.Add(Me.Label33)
         Me.Panel6.Controls.Add(Me.Label34)
-        Me.Panel6.Location = New System.Drawing.Point(523, 21)
+        Me.Panel6.Location = New System.Drawing.Point(511, 19)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(381, 431)
         Me.Panel6.TabIndex = 12
+        '
+        'cmbEstatusRed
+        '
+        Me.cmbEstatusRed.FormattingEnabled = True
+        Me.cmbEstatusRed.Location = New System.Drawing.Point(120, 194)
+        Me.cmbEstatusRed.Name = "cmbEstatusRed"
+        Me.cmbEstatusRed.Size = New System.Drawing.Size(121, 25)
+        Me.cmbEstatusRed.TabIndex = 22
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(47, 194)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(56, 20)
+        Me.Label23.TabIndex = 21
+        Me.Label23.Text = "Estatus"
         '
         'Button2
         '
@@ -1322,7 +1443,7 @@ Partial Class Principal
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16})
-        Me.DataGridView1.Location = New System.Drawing.Point(17, 21)
+        Me.DataGridView1.Location = New System.Drawing.Point(5, 19)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(490, 437)
@@ -1372,49 +1493,746 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn16.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
         Me.DataGridViewTextBoxColumn16.Width = 80
         '
-        'DataGridViewTextBoxColumn5
+        'TabReconexion
         '
-        Me.DataGridViewTextBoxColumn5.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 30
+        Me.TabReconexion.Controls.Add(Me.Panel7)
+        Me.TabReconexion.Controls.Add(Me.Label41)
+        Me.TabReconexion.Controls.Add(Me.TextBox8)
+        Me.TabReconexion.Controls.Add(Me.DataGridView2)
+        Me.TabReconexion.Location = New System.Drawing.Point(4, 26)
+        Me.TabReconexion.Name = "TabReconexion"
+        Me.TabReconexion.Size = New System.Drawing.Size(1204, 478)
+        Me.TabReconexion.TabIndex = 4
+        Me.TabReconexion.Text = "RECONEXION"
+        Me.TabReconexion.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn6
+        'Panel7
+        '
+        Me.Panel7.Controls.Add(Me.ComboBox1)
+        Me.Panel7.Controls.Add(Me.DateTimePicker2)
+        Me.Panel7.Controls.Add(Me.TextBox1)
+        Me.Panel7.Controls.Add(Me.Label24)
+        Me.Panel7.Controls.Add(Me.Button7)
+        Me.Panel7.Controls.Add(Me.TextBox2)
+        Me.Panel7.Controls.Add(Me.Label31)
+        Me.Panel7.Controls.Add(Me.Label35)
+        Me.Panel7.Controls.Add(Me.Button8)
+        Me.Panel7.Controls.Add(Me.Label36)
+        Me.Panel7.Controls.Add(Me.TextBox5)
+        Me.Panel7.Controls.Add(Me.Label37)
+        Me.Panel7.Controls.Add(Me.TextBox6)
+        Me.Panel7.Controls.Add(Me.Label38)
+        Me.Panel7.Controls.Add(Me.TextBox7)
+        Me.Panel7.Controls.Add(Me.Label39)
+        Me.Panel7.Controls.Add(Me.Label40)
+        Me.Panel7.Location = New System.Drawing.Point(819, 42)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(381, 431)
+        Me.Panel7.TabIndex = 10
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(113, 185)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 25)
+        Me.ComboBox1.TabIndex = 25
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(113, 154)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(121, 24)
+        Me.DateTimePicker2.TabIndex = 23
+        Me.DateTimePicker2.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(113, 266)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.TextBox1.Size = New System.Drawing.Size(219, 67)
+        Me.TextBox1.TabIndex = 22
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(24, 271)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(78, 20)
+        Me.Label24.TabIndex = 21
+        Me.Label24.Text = "Referencia"
+        '
+        'Button7
+        '
+        Me.Button7.BackgroundImage = Global.Sistema.My.Resources.Resources.cancelar
+        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.Location = New System.Drawing.Point(201, 348)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(118, 36)
+        Me.Button7.TabIndex = 20
+        Me.Button7.Text = "CANCELAR"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button7.UseVisualStyleBackColor = True
+        Me.Button7.Visible = False
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(113, 227)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.TextBox2.Size = New System.Drawing.Size(121, 24)
+        Me.TextBox2.TabIndex = 19
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Location = New System.Drawing.Point(3, 232)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(104, 20)
+        Me.Label31.TabIndex = 18
+        Me.Label31.Text = "Precio Toma $"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(60, 190)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(35, 20)
+        Me.Label35.TabIndex = 16
+        Me.Label35.Text = "Red"
+        '
+        'Button8
+        '
+        Me.Button8.BackgroundImage = Global.Sistema.My.Resources.Resources.add
+        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.Location = New System.Drawing.Point(77, 348)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(118, 36)
+        Me.Button8.TabIndex = 15
+        Me.Button8.Text = "REACTIVAR"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button8.UseVisualStyleBackColor = True
+        Me.Button8.Visible = False
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.Location = New System.Drawing.Point(24, 155)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(81, 20)
+        Me.Label36.TabIndex = 11
+        Me.Label36.Text = "Fecha Nac."
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(113, 118)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(219, 24)
+        Me.TextBox5.TabIndex = 10
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.Location = New System.Drawing.Point(14, 118)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(97, 20)
+        Me.Label37.TabIndex = 9
+        Me.Label37.Text = "Ape Materno"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(113, 87)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(219, 24)
+        Me.TextBox6.TabIndex = 8
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.Location = New System.Drawing.Point(14, 87)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(91, 20)
+        Me.Label38.TabIndex = 7
+        Me.Label38.Text = "Ape Paterno"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(113, 56)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(219, 24)
+        Me.TextBox7.TabIndex = 6
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(40, 61)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(65, 20)
+        Me.Label39.TabIndex = 5
+        Me.Label39.Text = "Nombre"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.Location = New System.Drawing.Point(3, 16)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(131, 21)
+        Me.Label40.TabIndex = 4
+        Me.Label40.Text = "Datos de Usuario"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(22, 8)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(44, 20)
+        Me.Label41.TabIndex = 9
+        Me.Label41.Text = "Filtro"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(72, 4)
+        Me.TextBox8.Multiline = True
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(157, 28)
+        Me.TextBox8.TabIndex = 8
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AllowUserToOrderColumns = True
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
+        Me.DataGridView2.Location = New System.Drawing.Point(4, 38)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.Size = New System.Drawing.Size(812, 437)
+        Me.DataGridView2.TabIndex = 7
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        Me.DataGridViewTextBoxColumn17.Width = 30
+        '
+        'DataGridViewTextBoxColumn18
         '
         DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle12
-        Me.DataGridViewTextBoxColumn6.HeaderText = "NUM RED"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle12
+        Me.DataGridViewTextBoxColumn18.HeaderText = "NOMBRE"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn7
+        'DataGridViewTextBoxColumn19
         '
-        Me.DataGridViewTextBoxColumn7.HeaderText = "ENCARGADO"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn19.HeaderText = "APELLIDOS"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        Me.DataGridViewTextBoxColumn19.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn8
+        'DataGridViewTextBoxColumn20
         '
-        Me.DataGridViewTextBoxColumn8.HeaderText = "FECHA NAC"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 70
+        Me.DataGridViewTextBoxColumn20.HeaderText = "FECHA NAC"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        Me.DataGridViewTextBoxColumn20.ReadOnly = True
+        Me.DataGridViewTextBoxColumn20.Width = 70
         '
-        'DataGridViewTextBoxColumn9
+        'DataGridViewTextBoxColumn21
         '
-        Me.DataGridViewTextBoxColumn9.HeaderText = "RED"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Width = 70
+        Me.DataGridViewTextBoxColumn21.HeaderText = "RED"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.ReadOnly = True
+        Me.DataGridViewTextBoxColumn21.Width = 70
         '
-        'DataGridViewTextBoxColumn10
+        'DataGridViewTextBoxColumn22
         '
-        Me.DataGridViewTextBoxColumn10.HeaderText = "SERVICIO"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn10.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
-        Me.DataGridViewTextBoxColumn10.Width = 80
+        Me.DataGridViewTextBoxColumn22.HeaderText = "SERVICIO"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        Me.DataGridViewTextBoxColumn22.ReadOnly = True
+        Me.DataGridViewTextBoxColumn22.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn22.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
+        Me.DataGridViewTextBoxColumn22.Width = 80
+        '
+        'TabAdeudos
+        '
+        Me.TabAdeudos.Controls.Add(Me.WebBrowser1)
+        Me.TabAdeudos.Location = New System.Drawing.Point(4, 26)
+        Me.TabAdeudos.Name = "TabAdeudos"
+        Me.TabAdeudos.Size = New System.Drawing.Size(1204, 478)
+        Me.TabAdeudos.TabIndex = 5
+        Me.TabAdeudos.Text = "REVISAR ADEUDOS"
+        Me.TabAdeudos.UseVisualStyleBackColor = True
+        '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(1204, 478)
+        Me.WebBrowser1.TabIndex = 0
+        Me.WebBrowser1.Url = New System.Uri("http://localhost/SistemaAgua/mostrar.php?red=0&ano=0", System.UriKind.Absolute)
+        '
+        'TabPagos
+        '
+        Me.TabPagos.Controls.Add(Me.FecFinPagos)
+        Me.TabPagos.Controls.Add(Me.Panel8)
+        Me.TabPagos.Controls.Add(Me.dtGridPagos)
+        Me.TabPagos.Controls.Add(Me.FecInicioPagos)
+        Me.TabPagos.Location = New System.Drawing.Point(4, 26)
+        Me.TabPagos.Name = "TabPagos"
+        Me.TabPagos.Size = New System.Drawing.Size(1204, 478)
+        Me.TabPagos.TabIndex = 6
+        Me.TabPagos.Text = "VER PAGOS "
+        Me.TabPagos.UseVisualStyleBackColor = True
+        '
+        'FecFinPagos
+        '
+        Me.FecFinPagos.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FecFinPagos.Location = New System.Drawing.Point(519, 8)
+        Me.FecFinPagos.Name = "FecFinPagos"
+        Me.FecFinPagos.Size = New System.Drawing.Size(121, 24)
+        Me.FecFinPagos.TabIndex = 27
+        Me.FecFinPagos.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
+        '
+        'Panel8
+        '
+        Me.Panel8.Controls.Add(Me.txtMontoPagos)
+        Me.Panel8.Controls.Add(Me.Label46)
+        Me.Panel8.Controls.Add(Me.txtDescPagos)
+        Me.Panel8.Controls.Add(Me.Label45)
+        Me.Panel8.Controls.Add(Me.txtAnioPagos)
+        Me.Panel8.Controls.Add(Me.txtMesesPagos)
+        Me.Panel8.Controls.Add(Me.Label42)
+        Me.Panel8.Controls.Add(Me.txtSubPagos)
+        Me.Panel8.Controls.Add(Me.Label43)
+        Me.Panel8.Controls.Add(Me.Label44)
+        Me.Panel8.Controls.Add(Me.txtNombrePagos)
+        Me.Panel8.Controls.Add(Me.Label48)
+        Me.Panel8.Controls.Add(Me.Label49)
+        Me.Panel8.Location = New System.Drawing.Point(819, 42)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(381, 431)
+        Me.Panel8.TabIndex = 13
+        '
+        'txtMontoPagos
+        '
+        Me.txtMontoPagos.Location = New System.Drawing.Point(100, 287)
+        Me.txtMontoPagos.Name = "txtMontoPagos"
+        Me.txtMontoPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtMontoPagos.Size = New System.Drawing.Size(121, 24)
+        Me.txtMontoPagos.TabIndex = 27
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label46.Location = New System.Drawing.Point(51, 291)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(42, 20)
+        Me.Label46.TabIndex = 26
+        Me.Label46.Text = "Total"
+        '
+        'txtDescPagos
+        '
+        Me.txtDescPagos.Location = New System.Drawing.Point(100, 250)
+        Me.txtDescPagos.Name = "txtDescPagos"
+        Me.txtDescPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtDescPagos.Size = New System.Drawing.Size(121, 24)
+        Me.txtDescPagos.TabIndex = 25
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label45.Location = New System.Drawing.Point(14, 254)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(79, 20)
+        Me.Label45.TabIndex = 24
+        Me.Label45.Text = "Descuento"
+        '
+        'txtAnioPagos
+        '
+        Me.txtAnioPagos.Location = New System.Drawing.Point(100, 184)
+        Me.txtAnioPagos.Name = "txtAnioPagos"
+        Me.txtAnioPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtAnioPagos.Size = New System.Drawing.Size(121, 24)
+        Me.txtAnioPagos.TabIndex = 23
+        '
+        'txtMesesPagos
+        '
+        Me.txtMesesPagos.Location = New System.Drawing.Point(100, 109)
+        Me.txtMesesPagos.Multiline = True
+        Me.txtMesesPagos.Name = "txtMesesPagos"
+        Me.txtMesesPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtMesesPagos.Size = New System.Drawing.Size(255, 69)
+        Me.txtMesesPagos.TabIndex = 22
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(48, 109)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(50, 20)
+        Me.Label42.TabIndex = 21
+        Me.Label42.Text = "Meses"
+        '
+        'txtSubPagos
+        '
+        Me.txtSubPagos.Location = New System.Drawing.Point(100, 214)
+        Me.txtSubPagos.Name = "txtSubPagos"
+        Me.txtSubPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtSubPagos.Size = New System.Drawing.Size(121, 24)
+        Me.txtSubPagos.TabIndex = 19
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.Location = New System.Drawing.Point(14, 218)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(80, 20)
+        Me.Label43.TabIndex = 18
+        Me.Label43.Text = "Submonto"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.Location = New System.Drawing.Point(57, 184)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(37, 20)
+        Me.Label44.TabIndex = 16
+        Me.Label44.Text = "Año"
+        '
+        'txtNombrePagos
+        '
+        Me.txtNombrePagos.Location = New System.Drawing.Point(100, 79)
+        Me.txtNombrePagos.Name = "txtNombrePagos"
+        Me.txtNombrePagos.Size = New System.Drawing.Size(255, 24)
+        Me.txtNombrePagos.TabIndex = 6
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label48.Location = New System.Drawing.Point(37, 83)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(61, 20)
+        Me.Label48.TabIndex = 5
+        Me.Label48.Text = "Usuario"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label49.Location = New System.Drawing.Point(3, 16)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(107, 21)
+        Me.Label49.TabIndex = 4
+        Me.Label49.Text = "Datos de Pago"
+        '
+        'dtGridPagos
+        '
+        Me.dtGridPagos.AllowUserToAddRows = False
+        Me.dtGridPagos.AllowUserToDeleteRows = False
+        Me.dtGridPagos.AllowUserToOrderColumns = True
+        Me.dtGridPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtGridPagos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28})
+        Me.dtGridPagos.Location = New System.Drawing.Point(4, 38)
+        Me.dtGridPagos.Name = "dtGridPagos"
+        Me.dtGridPagos.ReadOnly = True
+        Me.dtGridPagos.Size = New System.Drawing.Size(812, 437)
+        Me.dtGridPagos.TabIndex = 11
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.ReadOnly = True
+        Me.DataGridViewTextBoxColumn23.Width = 30
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle13
+        Me.DataGridViewTextBoxColumn24.HeaderText = "NOMBRE"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        Me.DataGridViewTextBoxColumn25.HeaderText = "APELLIDOS"
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        Me.DataGridViewTextBoxColumn25.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn26
+        '
+        Me.DataGridViewTextBoxColumn26.HeaderText = "FECHA NAC"
+        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        Me.DataGridViewTextBoxColumn26.ReadOnly = True
+        Me.DataGridViewTextBoxColumn26.Width = 70
+        '
+        'DataGridViewTextBoxColumn27
+        '
+        Me.DataGridViewTextBoxColumn27.HeaderText = "RED"
+        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
+        Me.DataGridViewTextBoxColumn27.ReadOnly = True
+        Me.DataGridViewTextBoxColumn27.Width = 70
+        '
+        'DataGridViewTextBoxColumn28
+        '
+        Me.DataGridViewTextBoxColumn28.HeaderText = "SERVICIO"
+        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        Me.DataGridViewTextBoxColumn28.ReadOnly = True
+        Me.DataGridViewTextBoxColumn28.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn28.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
+        Me.DataGridViewTextBoxColumn28.Width = 80
+        '
+        'FecInicioPagos
+        '
+        Me.FecInicioPagos.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FecInicioPagos.Location = New System.Drawing.Point(360, 8)
+        Me.FecInicioPagos.Name = "FecInicioPagos"
+        Me.FecInicioPagos.Size = New System.Drawing.Size(121, 24)
+        Me.FecInicioPagos.TabIndex = 23
+        Me.FecInicioPagos.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
+        '
+        'TabCorte
+        '
+        Me.TabCorte.Controls.Add(Me.Label56)
+        Me.TabCorte.Controls.Add(Me.cmbAdminCorte)
+        Me.TabCorte.Controls.Add(Me.FechaFin)
+        Me.TabCorte.Controls.Add(Me.Panel9)
+        Me.TabCorte.Controls.Add(Me.dtGridCorte)
+        Me.TabCorte.Controls.Add(Me.FechaInicio)
+        Me.TabCorte.Location = New System.Drawing.Point(4, 26)
+        Me.TabCorte.Name = "TabCorte"
+        Me.TabCorte.Size = New System.Drawing.Size(1204, 478)
+        Me.TabCorte.TabIndex = 7
+        Me.TabCorte.Text = "CORTE DE CAJA"
+        Me.TabCorte.UseVisualStyleBackColor = True
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label56.Location = New System.Drawing.Point(51, 9)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(107, 20)
+        Me.Label56.TabIndex = 33
+        Me.Label56.Text = "Administrador"
+        '
+        'cmbAdminCorte
+        '
+        Me.cmbAdminCorte.FormattingEnabled = True
+        Me.cmbAdminCorte.Location = New System.Drawing.Point(164, 6)
+        Me.cmbAdminCorte.Name = "cmbAdminCorte"
+        Me.cmbAdminCorte.Size = New System.Drawing.Size(190, 25)
+        Me.cmbAdminCorte.TabIndex = 32
+        '
+        'FechaFin
+        '
+        Me.FechaFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FechaFin.Location = New System.Drawing.Point(519, 6)
+        Me.FechaFin.Name = "FechaFin"
+        Me.FechaFin.Size = New System.Drawing.Size(121, 24)
+        Me.FechaFin.TabIndex = 31
+        Me.FechaFin.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
+        '
+        'Panel9
+        '
+        Me.Panel9.Controls.Add(Me.Button10)
+        Me.Panel9.Controls.Add(Me.TextBox15)
+        Me.Panel9.Controls.Add(Me.Label47)
+        Me.Panel9.Controls.Add(Me.TextBox16)
+        Me.Panel9.Controls.Add(Me.Label50)
+        Me.Panel9.Controls.Add(Me.TextBox19)
+        Me.Panel9.Controls.Add(Me.Label52)
+        Me.Panel9.Controls.Add(Me.TextBox20)
+        Me.Panel9.Controls.Add(Me.Label54)
+        Me.Panel9.Controls.Add(Me.Label55)
+        Me.Panel9.Location = New System.Drawing.Point(819, 40)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(381, 431)
+        Me.Panel9.TabIndex = 29
+        '
+        'Button10
+        '
+        Me.Button10.BackgroundImage = Global.Sistema.My.Resources.Resources.add
+        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button10.Location = New System.Drawing.Point(114, 264)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(140, 36)
+        Me.Button10.TabIndex = 28
+        Me.Button10.Text = "CORTE DE CAJA"
+        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button10.UseVisualStyleBackColor = True
+        Me.Button10.Visible = False
+        '
+        'TextBox15
+        '
+        Me.TextBox15.Location = New System.Drawing.Point(150, 186)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.TextBox15.Size = New System.Drawing.Size(121, 24)
+        Me.TextBox15.TabIndex = 27
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.Location = New System.Drawing.Point(101, 190)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(42, 20)
+        Me.Label47.TabIndex = 26
+        Me.Label47.Text = "Total"
+        '
+        'TextBox16
+        '
+        Me.TextBox16.Location = New System.Drawing.Point(150, 149)
+        Me.TextBox16.Name = "TextBox16"
+        Me.TextBox16.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.TextBox16.Size = New System.Drawing.Size(121, 24)
+        Me.TextBox16.TabIndex = 25
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label50.Location = New System.Drawing.Point(64, 153)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(79, 20)
+        Me.Label50.TabIndex = 24
+        Me.Label50.Text = "Descuento"
+        '
+        'TextBox19
+        '
+        Me.TextBox19.Location = New System.Drawing.Point(150, 113)
+        Me.TextBox19.Name = "TextBox19"
+        Me.TextBox19.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.TextBox19.Size = New System.Drawing.Size(121, 24)
+        Me.TextBox19.TabIndex = 19
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label52.Location = New System.Drawing.Point(64, 117)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(80, 20)
+        Me.Label52.TabIndex = 18
+        Me.Label52.Text = "Submonto"
+        '
+        'TextBox20
+        '
+        Me.TextBox20.Location = New System.Drawing.Point(150, 70)
+        Me.TextBox20.Name = "TextBox20"
+        Me.TextBox20.Size = New System.Drawing.Size(121, 24)
+        Me.TextBox20.TabIndex = 6
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label54.Location = New System.Drawing.Point(87, 74)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(58, 20)
+        Me.Label54.TabIndex = 5
+        Me.Label54.Text = "# Pagos"
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label55.Location = New System.Drawing.Point(3, 16)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(107, 21)
+        Me.Label55.TabIndex = 4
+        Me.Label55.Text = "Datos de Pago"
+        '
+        'dtGridCorte
+        '
+        Me.dtGridCorte.AllowUserToAddRows = False
+        Me.dtGridCorte.AllowUserToDeleteRows = False
+        Me.dtGridCorte.AllowUserToOrderColumns = True
+        Me.dtGridCorte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtGridCorte.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34})
+        Me.dtGridCorte.Location = New System.Drawing.Point(4, 36)
+        Me.dtGridCorte.Name = "dtGridCorte"
+        Me.dtGridCorte.ReadOnly = True
+        Me.dtGridCorte.Size = New System.Drawing.Size(812, 437)
+        Me.dtGridCorte.TabIndex = 28
+        '
+        'DataGridViewTextBoxColumn29
+        '
+        Me.DataGridViewTextBoxColumn29.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
+        Me.DataGridViewTextBoxColumn29.ReadOnly = True
+        Me.DataGridViewTextBoxColumn29.Width = 30
+        '
+        'DataGridViewTextBoxColumn30
+        '
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn30.DefaultCellStyle = DataGridViewCellStyle14
+        Me.DataGridViewTextBoxColumn30.HeaderText = "NOMBRE"
+        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
+        Me.DataGridViewTextBoxColumn30.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn31
+        '
+        Me.DataGridViewTextBoxColumn31.HeaderText = "APELLIDOS"
+        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
+        Me.DataGridViewTextBoxColumn31.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn32
+        '
+        Me.DataGridViewTextBoxColumn32.HeaderText = "FECHA NAC"
+        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
+        Me.DataGridViewTextBoxColumn32.ReadOnly = True
+        Me.DataGridViewTextBoxColumn32.Width = 70
+        '
+        'DataGridViewTextBoxColumn33
+        '
+        Me.DataGridViewTextBoxColumn33.HeaderText = "RED"
+        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
+        Me.DataGridViewTextBoxColumn33.ReadOnly = True
+        Me.DataGridViewTextBoxColumn33.Width = 70
+        '
+        'DataGridViewTextBoxColumn34
+        '
+        Me.DataGridViewTextBoxColumn34.HeaderText = "SERVICIO"
+        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
+        Me.DataGridViewTextBoxColumn34.ReadOnly = True
+        Me.DataGridViewTextBoxColumn34.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn34.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
+        Me.DataGridViewTextBoxColumn34.Width = 80
+        '
+        'FechaInicio
+        '
+        Me.FechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FechaInicio.Location = New System.Drawing.Point(392, 7)
+        Me.FechaInicio.Name = "FechaInicio"
+        Me.FechaInicio.Size = New System.Drawing.Size(121, 24)
+        Me.FechaInicio.TabIndex = 30
+        Me.FechaInicio.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
         '
         'Principal
         '
@@ -1448,13 +2266,28 @@ Partial Class Principal
         CType(Me.dtGridUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabRedes.ResumeLayout(False)
         Me.TabRedes.PerformLayout()
-        Me.TabServ.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.dtGridRed, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabServ.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabReconexion.ResumeLayout(False)
+        Me.TabReconexion.PerformLayout()
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabAdeudos.ResumeLayout(False)
+        Me.TabPagos.ResumeLayout(False)
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        CType(Me.dtGridPagos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabCorte.ResumeLayout(False)
+        Me.TabCorte.PerformLayout()
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
+        CType(Me.dtGridCorte, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1466,21 +2299,21 @@ Partial Class Principal
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabAdmin As System.Windows.Forms.TabPage
-    Friend WithEvents TabUsuarios As System.Windows.Forms.TabPage
-    Friend WithEvents TabRedes As System.Windows.Forms.TabPage
-    Friend WithEvents TabServ As System.Windows.Forms.TabPage
-    Friend WithEvents TabReconexion As System.Windows.Forms.TabPage
-    Friend WithEvents TabAdeudos As System.Windows.Forms.TabPage
-    Friend WithEvents TabPagos As System.Windows.Forms.TabPage
-    Friend WithEvents TabCorte As System.Windows.Forms.TabPage
-    Friend WithEvents TabPago As System.Windows.Forms.TabPage
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtFiltro As System.Windows.Forms.TextBox
-    Friend WithEvents dtGridAdmin As System.Windows.Forms.DataGridView
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents btnCancelar As System.Windows.Forms.Button
+    Friend WithEvents txtPwd1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents txtPwd As System.Windows.Forms.TextBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents btnNuevo As System.Windows.Forms.Button
+    Friend WithEvents btnEliminar As System.Windows.Forms.Button
+    Friend WithEvents btnModificar As System.Windows.Forms.Button
+    Friend WithEvents btnAdd As System.Windows.Forms.Button
+    Friend WithEvents cmbTipoAdmin As System.Windows.Forms.ComboBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents txtMaterno As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents txtPaterno As System.Windows.Forms.TextBox
@@ -1488,22 +2321,19 @@ Partial Class Principal
     Friend WithEvents txtNombre As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtFiltro As System.Windows.Forms.TextBox
+    Friend WithEvents dtGridAdmin As System.Windows.Forms.DataGridView
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ACTIVO As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents btnEliminar As System.Windows.Forms.Button
-    Friend WithEvents btnModificar As System.Windows.Forms.Button
-    Friend WithEvents btnAdd As System.Windows.Forms.Button
-    Friend WithEvents cmbTipoAdmin As System.Windows.Forms.ComboBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents btnNuevo As System.Windows.Forms.Button
-    Friend WithEvents btnCancelar As System.Windows.Forms.Button
-    Friend WithEvents txtPwd1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents txtPwd As System.Windows.Forms.TextBox
-    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents TabUsuarios As System.Windows.Forms.TabPage
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents cmbRedUsu As System.Windows.Forms.ComboBox
+    Friend WithEvents FechaNacUsu As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtRefUsu As System.Windows.Forms.TextBox
+    Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents btnCancelarUsu As System.Windows.Forms.Button
     Friend WithEvents txtPrecioTomaUsu As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
@@ -1523,16 +2353,13 @@ Partial Class Principal
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents txtFiltroUsu As System.Windows.Forms.TextBox
     Friend WithEvents dtGridUsuarios As System.Windows.Forms.DataGridView
-    Friend WithEvents txtRefUsu As System.Windows.Forms.TextBox
-    Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cmbRedUsu As System.Windows.Forms.ComboBox
-    Friend WithEvents FechaNacUsu As System.Windows.Forms.DateTimePicker
+    Friend WithEvents TabRedes As System.Windows.Forms.TabPage
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents txtCuotaRed As System.Windows.Forms.TextBox
     Friend WithEvents cmbTamanoRed As System.Windows.Forms.ComboBox
@@ -1559,7 +2386,10 @@ Partial Class Principal
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TabServ As System.Windows.Forms.TabPage
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents cmbEstatusRed As System.Windows.Forms.ComboBox
+    Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
@@ -1577,4 +2407,82 @@ Partial Class Principal
     Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TabReconexion As System.Windows.Forms.TabPage
+    Friend WithEvents Panel7 As System.Windows.Forms.Panel
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents Label35 As System.Windows.Forms.Label
+    Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Label36 As System.Windows.Forms.Label
+    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents Label37 As System.Windows.Forms.Label
+    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents Label38 As System.Windows.Forms.Label
+    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents Label39 As System.Windows.Forms.Label
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents Label41 As System.Windows.Forms.Label
+    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn22 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TabAdeudos As System.Windows.Forms.TabPage
+    Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
+    Friend WithEvents TabPagos As System.Windows.Forms.TabPage
+    Friend WithEvents FecFinPagos As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Panel8 As System.Windows.Forms.Panel
+    Friend WithEvents txtMontoPagos As System.Windows.Forms.TextBox
+    Friend WithEvents Label46 As System.Windows.Forms.Label
+    Friend WithEvents txtDescPagos As System.Windows.Forms.TextBox
+    Friend WithEvents Label45 As System.Windows.Forms.Label
+    Friend WithEvents txtAnioPagos As System.Windows.Forms.TextBox
+    Friend WithEvents txtMesesPagos As System.Windows.Forms.TextBox
+    Friend WithEvents Label42 As System.Windows.Forms.Label
+    Friend WithEvents txtSubPagos As System.Windows.Forms.TextBox
+    Friend WithEvents Label43 As System.Windows.Forms.Label
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents txtNombrePagos As System.Windows.Forms.TextBox
+    Friend WithEvents Label48 As System.Windows.Forms.Label
+    Friend WithEvents Label49 As System.Windows.Forms.Label
+    Friend WithEvents dtGridPagos As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn23 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn24 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn25 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn26 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn27 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn28 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FecInicioPagos As System.Windows.Forms.DateTimePicker
+    Friend WithEvents TabCorte As System.Windows.Forms.TabPage
+    Friend WithEvents Label56 As System.Windows.Forms.Label
+    Friend WithEvents cmbAdminCorte As System.Windows.Forms.ComboBox
+    Friend WithEvents FechaFin As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Panel9 As System.Windows.Forms.Panel
+    Friend WithEvents Button10 As System.Windows.Forms.Button
+    Friend WithEvents TextBox15 As System.Windows.Forms.TextBox
+    Friend WithEvents Label47 As System.Windows.Forms.Label
+    Friend WithEvents TextBox16 As System.Windows.Forms.TextBox
+    Friend WithEvents Label50 As System.Windows.Forms.Label
+    Friend WithEvents TextBox19 As System.Windows.Forms.TextBox
+    Friend WithEvents Label52 As System.Windows.Forms.Label
+    Friend WithEvents TextBox20 As System.Windows.Forms.TextBox
+    Friend WithEvents Label54 As System.Windows.Forms.Label
+    Friend WithEvents Label55 As System.Windows.Forms.Label
+    Friend WithEvents dtGridCorte As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn29 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn30 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn31 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn32 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn33 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn34 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FechaInicio As System.Windows.Forms.DateTimePicker
+    Friend WithEvents btnPagar As System.Windows.Forms.Button
 End Class
