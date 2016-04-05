@@ -51,6 +51,7 @@
       <HintPath>..\..\..\MySql.Data 6.1\MySql.Data.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -68,6 +69,7 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion\clsSQLClient.vb" />
     <Compile Include="Conexion\Conexion.vb" />
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
@@ -138,9 +140,6 @@
     <Content Include="Resources\newuser.png" />
     <None Include="Resources\newuser1.png" />
     <None Include="Resources\icon %282%29.png" />
-    <None Include="Resources\icon %281%29.png" />
-    <Content Include="Resources\icon.png" />
-    <None Include="Resources\icon1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
