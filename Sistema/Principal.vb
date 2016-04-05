@@ -131,7 +131,7 @@ Public Class Principal
 
     Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
         Dim frmPagos As New Pago1
-        frmPagos()
+        frmPagos.ShowDialog()
     End Sub
 
 #Region "ADMINISTRADORES"
@@ -187,7 +187,7 @@ Public Class Principal
         btnCancelarUsu.Visible = True
     End Sub
 
-    Private Sub dtGridUsu_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dtGridUsu.CellContentClick
+    Private Sub dtGridUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtGridUsuarios.CellContentClick
         Dim clave As Integer = Nothing
         If e.ColumnIndex = 0 Then
             clave = CInt(dtGridAdmin.Rows(e.RowIndex).Cells(1).Value)
@@ -220,6 +220,30 @@ Public Class Principal
 #Region "REDES"
 
 #End Region
+
+#End Region
+
+#Region "PERDIDA FOCUS TAB'S"
+
+    Private Sub TabAdmin_Leave(sender As Object, e As EventArgs) Handles TabAdmin.Leave
+        dtGridAdmin.DataSource = Nothing
+        txtFiltro.Text = ""
+        LimpiarCamposAdmin()
+    End Sub
+
+    Private Sub TabUsuarios_Leave(sender As Object, e As EventArgs) Handles TabUsuarios.Leave
+        dtGridUsuarios.DataSource = Nothing
+        txtFiltroUsu.Text = ""
+        LimpiarCamposUsuarios()
+    End Sub
+
+#End Region
+
+#Region "ENTER FOCUS TAB'S"
+
+    Private Sub TabAdmin_Enter(sender As Object, e As EventArgs) Handles TabAdmin.Enter
+
+    End Sub
 
 #End Region
 

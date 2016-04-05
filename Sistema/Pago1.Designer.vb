@@ -22,7 +22,6 @@ Partial Class Pago1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Pago1))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -67,13 +66,13 @@ Partial Class Pago1
         Me.btnPago = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PnlAportacion = New System.Windows.Forms.Panel()
         Me.lblSubMonto = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.PnlAportacion.SuspendLayout()
@@ -548,17 +547,6 @@ Partial Class Pago1
         Me.Button6.Text = "Ver"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.Red
-        Me.Panel2.BackgroundImage = Global.Sistema.My.Resources.Resources.deduda
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.ForeColor = System.Drawing.Color.Red
-        Me.Panel2.Location = New System.Drawing.Point(11, 46)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(94, 100)
-        Me.Panel2.TabIndex = 110
-        '
         'Label30
         '
         Me.Label30.AutoSize = True
@@ -619,12 +607,23 @@ Partial Class Pago1
         '
         'Panel1
         '
-        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
+        Me.Panel1.BackgroundImage = Global.Sistema.My.Resources.Resources.portada
         Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel1.Location = New System.Drawing.Point(134, 3)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(736, 120)
         Me.Panel1.TabIndex = 166
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Red
+        Me.Panel2.BackgroundImage = Global.Sistema.My.Resources.Resources.deduda
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.ForeColor = System.Drawing.Color.Red
+        Me.Panel2.Location = New System.Drawing.Point(11, 46)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(94, 100)
+        Me.Panel2.TabIndex = 110
         '
         'Pago1
         '

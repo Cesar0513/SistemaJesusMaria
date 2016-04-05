@@ -22,16 +22,15 @@ Partial Class Principal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -41,15 +40,10 @@ Partial Class Principal
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabAdmin = New System.Windows.Forms.TabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtPwd1 = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtPwd = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
         Me.cmbTipoAdmin = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtMaterno = New System.Windows.Forms.TextBox()
@@ -68,19 +62,13 @@ Partial Class Principal
         Me.ACTIVO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabUsuarios = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.btnPagar = New System.Windows.Forms.Button()
         Me.cmbRedUsu = New System.Windows.Forms.ComboBox()
         Me.FechaNacUsu = New System.Windows.Forms.DateTimePicker()
         Me.txtRefUsu = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.btnCancelarUsu = New System.Windows.Forms.Button()
         Me.txtPrecioTomaUsu = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.btnSaveUsu = New System.Windows.Forms.Button()
-        Me.btnEliminarUsu = New System.Windows.Forms.Button()
-        Me.btnModUsu = New System.Windows.Forms.Button()
-        Me.btnAddUsu = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtMaternoUsu = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -104,11 +92,6 @@ Partial Class Principal
         Me.cmbTamanoRed = New System.Windows.Forms.ComboBox()
         Me.txtRefRed = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.btnCancelarRed = New System.Windows.Forms.Button()
-        Me.btnSaveRed = New System.Windows.Forms.Button()
-        Me.btnEliminaRed = New System.Windows.Forms.Button()
-        Me.btnModificarRed = New System.Windows.Forms.Button()
-        Me.btnAddRed = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtEncargadoRed = New System.Windows.Forms.TextBox()
@@ -129,11 +112,6 @@ Partial Class Principal
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.cmbEstatusRed = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
@@ -152,11 +130,9 @@ Partial Class Principal
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.Button8 = New System.Windows.Forms.Button()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label37 = New System.Windows.Forms.Label()
@@ -205,7 +181,6 @@ Partial Class Principal
         Me.cmbAdminCorte = New System.Windows.Forms.ComboBox()
         Me.FechaFin = New System.Windows.Forms.DateTimePicker()
         Me.Panel9 = New System.Windows.Forms.Panel()
-        Me.Button10 = New System.Windows.Forms.Button()
         Me.TextBox15 = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
         Me.TextBox16 = New System.Windows.Forms.TextBox()
@@ -223,6 +198,31 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FechaInicio = New System.Windows.Forms.DateTimePicker()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.btnCancelarUsu = New System.Windows.Forms.Button()
+        Me.btnSaveUsu = New System.Windows.Forms.Button()
+        Me.btnEliminarUsu = New System.Windows.Forms.Button()
+        Me.btnModUsu = New System.Windows.Forms.Button()
+        Me.btnAddUsu = New System.Windows.Forms.Button()
+        Me.btnCancelarRed = New System.Windows.Forms.Button()
+        Me.btnSaveRed = New System.Windows.Forms.Button()
+        Me.btnEliminaRed = New System.Windows.Forms.Button()
+        Me.btnModificarRed = New System.Windows.Forms.Button()
+        Me.btnAddRed = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -271,7 +271,8 @@ Partial Class Principal
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SplitContainer1.Panel1.BackgroundImage = Global.Sistema.My.Resources.Resources.portada
+        Me.SplitContainer1.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.DateTimePicker1)
@@ -283,19 +284,6 @@ Partial Class Principal
         Me.SplitContainer1.Size = New System.Drawing.Size(1220, 670)
         Me.SplitContainer1.SplitterDistance = 152
         Me.SplitContainer1.TabIndex = 0
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.Image = Global.Sistema.My.Resources.Resources.icon__2_
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(1105, 86)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 50)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "RESPALDO"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Panel2
         '
@@ -413,20 +401,6 @@ Partial Class Principal
         Me.Panel3.Size = New System.Drawing.Size(381, 431)
         Me.Panel3.TabIndex = 3
         '
-        'btnCancelar
-        '
-        Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnCancelar.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(201, 348)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(118, 36)
-        Me.btnCancelar.TabIndex = 20
-        Me.btnCancelar.Text = "CANCELAR"
-        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        Me.btnCancelar.Visible = False
-        '
         'txtPwd1
         '
         Me.txtPwd1.Location = New System.Drawing.Point(113, 293)
@@ -462,61 +436,6 @@ Partial Class Principal
         Me.Label11.Size = New System.Drawing.Size(84, 20)
         Me.Label11.TabIndex = 16
         Me.Label11.Text = "Contraseña"
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnNuevo.Image = Global.Sistema.My.Resources.Resources.add
-        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(77, 348)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(118, 36)
-        Me.btnNuevo.TabIndex = 15
-        Me.btnNuevo.Text = "GUARDAR"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNuevo.UseVisualStyleBackColor = True
-        Me.btnNuevo.Visible = False
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminar.Enabled = False
-        Me.btnEliminar.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(267, 378)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(106, 36)
-        Me.btnEliminar.TabIndex = 14
-        Me.btnEliminar.Text = "ELIMINAR"
-        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEliminar.UseVisualStyleBackColor = True
-        '
-        'btnModificar
-        '
-        Me.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnModificar.Enabled = False
-        Me.btnModificar.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(143, 378)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(118, 36)
-        Me.btnModificar.TabIndex = 13
-        Me.btnModificar.Text = "MODIFICAR"
-        Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnModificar.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAdd.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(44, 378)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(93, 36)
-        Me.btnAdd.TabIndex = 5
-        Me.btnAdd.Text = "NUEVO"
-        Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'cmbTipoAdmin
         '
@@ -630,8 +549,8 @@ Partial Class Principal
         '
         'Column1
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle22
         Me.Column1.HeaderText = "NOMBRE"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -698,24 +617,10 @@ Partial Class Principal
         Me.Panel4.Controls.Add(Me.txtNombreUsu)
         Me.Panel4.Controls.Add(Me.Label19)
         Me.Panel4.Controls.Add(Me.Label20)
-        Me.Panel4.Location = New System.Drawing.Point(818, 41)
+        Me.Panel4.Location = New System.Drawing.Point(818, 7)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(381, 431)
+        Me.Panel4.Size = New System.Drawing.Size(381, 465)
         Me.Panel4.TabIndex = 6
-        '
-        'btnPagar
-        '
-        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnPagar.Image = Global.Sistema.My.Resources.Resources.money
-        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(268, 185)
-        Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(105, 36)
-        Me.btnPagar.TabIndex = 26
-        Me.btnPagar.Text = "PAGAR"
-        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnPagar.UseVisualStyleBackColor = True
-        Me.btnPagar.Visible = False
         '
         'cmbRedUsu
         '
@@ -753,20 +658,6 @@ Partial Class Principal
         Me.Label21.TabIndex = 21
         Me.Label21.Text = "Referencia"
         '
-        'btnCancelarUsu
-        '
-        Me.btnCancelarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnCancelarUsu.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.btnCancelarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelarUsu.Location = New System.Drawing.Point(201, 348)
-        Me.btnCancelarUsu.Name = "btnCancelarUsu"
-        Me.btnCancelarUsu.Size = New System.Drawing.Size(118, 36)
-        Me.btnCancelarUsu.TabIndex = 20
-        Me.btnCancelarUsu.Text = "CANCELAR"
-        Me.btnCancelarUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelarUsu.UseVisualStyleBackColor = True
-        Me.btnCancelarUsu.Visible = False
-        '
         'txtPrecioTomaUsu
         '
         Me.txtPrecioTomaUsu.Location = New System.Drawing.Point(113, 227)
@@ -794,61 +685,6 @@ Partial Class Principal
         Me.Label15.Size = New System.Drawing.Size(35, 20)
         Me.Label15.TabIndex = 16
         Me.Label15.Text = "Red"
-        '
-        'btnSaveUsu
-        '
-        Me.btnSaveUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSaveUsu.Image = Global.Sistema.My.Resources.Resources.add
-        Me.btnSaveUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSaveUsu.Location = New System.Drawing.Point(77, 348)
-        Me.btnSaveUsu.Name = "btnSaveUsu"
-        Me.btnSaveUsu.Size = New System.Drawing.Size(118, 36)
-        Me.btnSaveUsu.TabIndex = 15
-        Me.btnSaveUsu.Text = "GUARDAR"
-        Me.btnSaveUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSaveUsu.UseVisualStyleBackColor = True
-        Me.btnSaveUsu.Visible = False
-        '
-        'btnEliminarUsu
-        '
-        Me.btnEliminarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminarUsu.Enabled = False
-        Me.btnEliminarUsu.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.btnEliminarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminarUsu.Location = New System.Drawing.Point(267, 378)
-        Me.btnEliminarUsu.Name = "btnEliminarUsu"
-        Me.btnEliminarUsu.Size = New System.Drawing.Size(106, 36)
-        Me.btnEliminarUsu.TabIndex = 14
-        Me.btnEliminarUsu.Text = "ELIMINAR"
-        Me.btnEliminarUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEliminarUsu.UseVisualStyleBackColor = True
-        '
-        'btnModUsu
-        '
-        Me.btnModUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnModUsu.Enabled = False
-        Me.btnModUsu.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.btnModUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModUsu.Location = New System.Drawing.Point(143, 378)
-        Me.btnModUsu.Name = "btnModUsu"
-        Me.btnModUsu.Size = New System.Drawing.Size(118, 36)
-        Me.btnModUsu.TabIndex = 13
-        Me.btnModUsu.Text = "MODIFICAR"
-        Me.btnModUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnModUsu.UseVisualStyleBackColor = True
-        '
-        'btnAddUsu
-        '
-        Me.btnAddUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAddUsu.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.btnAddUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAddUsu.Location = New System.Drawing.Point(44, 378)
-        Me.btnAddUsu.Name = "btnAddUsu"
-        Me.btnAddUsu.Size = New System.Drawing.Size(93, 36)
-        Me.btnAddUsu.TabIndex = 5
-        Me.btnAddUsu.Text = "NUEVO"
-        Me.btnAddUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAddUsu.UseVisualStyleBackColor = True
         '
         'Label16
         '
@@ -915,7 +751,7 @@ Partial Class Principal
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(3, 16)
+        Me.Label20.Location = New System.Drawing.Point(6, 0)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(131, 21)
         Me.Label20.TabIndex = 4
@@ -961,8 +797,8 @@ Partial Class Principal
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle23
         Me.DataGridViewTextBoxColumn1.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
@@ -1066,75 +902,6 @@ Partial Class Principal
         Me.Label22.Size = New System.Drawing.Size(78, 20)
         Me.Label22.TabIndex = 21
         Me.Label22.Text = "Referencia"
-        '
-        'btnCancelarRed
-        '
-        Me.btnCancelarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnCancelarRed.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.btnCancelarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelarRed.Location = New System.Drawing.Point(201, 348)
-        Me.btnCancelarRed.Name = "btnCancelarRed"
-        Me.btnCancelarRed.Size = New System.Drawing.Size(118, 36)
-        Me.btnCancelarRed.TabIndex = 20
-        Me.btnCancelarRed.Text = "CANCELAR"
-        Me.btnCancelarRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelarRed.UseVisualStyleBackColor = True
-        Me.btnCancelarRed.Visible = False
-        '
-        'btnSaveRed
-        '
-        Me.btnSaveRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSaveRed.Image = Global.Sistema.My.Resources.Resources.add
-        Me.btnSaveRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSaveRed.Location = New System.Drawing.Point(77, 348)
-        Me.btnSaveRed.Name = "btnSaveRed"
-        Me.btnSaveRed.Size = New System.Drawing.Size(118, 36)
-        Me.btnSaveRed.TabIndex = 15
-        Me.btnSaveRed.Text = "GUARDAR"
-        Me.btnSaveRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSaveRed.UseVisualStyleBackColor = True
-        Me.btnSaveRed.Visible = False
-        '
-        'btnEliminaRed
-        '
-        Me.btnEliminaRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminaRed.Enabled = False
-        Me.btnEliminaRed.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.btnEliminaRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminaRed.Location = New System.Drawing.Point(267, 378)
-        Me.btnEliminaRed.Name = "btnEliminaRed"
-        Me.btnEliminaRed.Size = New System.Drawing.Size(106, 36)
-        Me.btnEliminaRed.TabIndex = 14
-        Me.btnEliminaRed.Text = "ELIMINAR"
-        Me.btnEliminaRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEliminaRed.UseVisualStyleBackColor = True
-        '
-        'btnModificarRed
-        '
-        Me.btnModificarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnModificarRed.Enabled = False
-        Me.btnModificarRed.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.btnModificarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificarRed.Location = New System.Drawing.Point(143, 378)
-        Me.btnModificarRed.Name = "btnModificarRed"
-        Me.btnModificarRed.Size = New System.Drawing.Size(118, 36)
-        Me.btnModificarRed.TabIndex = 13
-        Me.btnModificarRed.Text = "MODIFICAR"
-        Me.btnModificarRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnModificarRed.UseVisualStyleBackColor = True
-        '
-        'btnAddRed
-        '
-        Me.btnAddRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAddRed.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.btnAddRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAddRed.Location = New System.Drawing.Point(44, 378)
-        Me.btnAddRed.Name = "btnAddRed"
-        Me.btnAddRed.Size = New System.Drawing.Size(93, 36)
-        Me.btnAddRed.TabIndex = 5
-        Me.btnAddRed.Text = "NUEVO"
-        Me.btnAddRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAddRed.UseVisualStyleBackColor = True
         '
         'Label25
         '
@@ -1240,8 +1007,8 @@ Partial Class Principal
         '
         'DataGridViewTextBoxColumn6
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle24
         Me.DataGridViewTextBoxColumn6.HeaderText = "NUM RED"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
@@ -1323,75 +1090,6 @@ Partial Class Principal
         Me.Label23.TabIndex = 21
         Me.Label23.Text = "Estatus"
         '
-        'Button2
-        '
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button2.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(183, 296)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(118, 36)
-        Me.Button2.TabIndex = 20
-        Me.Button2.Text = "CANCELAR"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
-        '
-        'Button3
-        '
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button3.Image = Global.Sistema.My.Resources.Resources.add
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(59, 296)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(118, 36)
-        Me.Button3.TabIndex = 15
-        Me.Button3.Text = "GUARDAR"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.UseVisualStyleBackColor = True
-        Me.Button3.Visible = False
-        '
-        'Button4
-        '
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button4.Enabled = False
-        Me.Button4.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(249, 326)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(106, 36)
-        Me.Button4.TabIndex = 14
-        Me.Button4.Text = "ELIMINAR"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button5.Enabled = False
-        Me.Button5.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(125, 326)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(118, 36)
-        Me.Button5.TabIndex = 13
-        Me.Button5.Text = "MODIFICAR"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button6.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(26, 326)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(93, 36)
-        Me.Button6.TabIndex = 5
-        Me.Button6.Text = "NUEVO"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button6.UseVisualStyleBackColor = True
-        '
         'TextBox3
         '
         Me.TextBox3.Location = New System.Drawing.Point(120, 141)
@@ -1458,8 +1156,8 @@ Partial Class Principal
         '
         'DataGridViewTextBoxColumn12
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle25
         Me.DataGridViewTextBoxColumn12.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
@@ -1566,20 +1264,6 @@ Partial Class Principal
         Me.Label24.TabIndex = 21
         Me.Label24.Text = "Referencia"
         '
-        'Button7
-        '
-        Me.Button7.BackgroundImage = Global.Sistema.My.Resources.Resources.cancelar
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.Location = New System.Drawing.Point(201, 348)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(118, 36)
-        Me.Button7.TabIndex = 20
-        Me.Button7.Text = "CANCELAR"
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button7.UseVisualStyleBackColor = True
-        Me.Button7.Visible = False
-        '
         'TextBox2
         '
         Me.TextBox2.Location = New System.Drawing.Point(113, 227)
@@ -1607,20 +1291,6 @@ Partial Class Principal
         Me.Label35.Size = New System.Drawing.Size(35, 20)
         Me.Label35.TabIndex = 16
         Me.Label35.Text = "Red"
-        '
-        'Button8
-        '
-        Me.Button8.BackgroundImage = Global.Sistema.My.Resources.Resources.add
-        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.Location = New System.Drawing.Point(77, 348)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(118, 36)
-        Me.Button8.TabIndex = 15
-        Me.Button8.Text = "REACTIVAR"
-        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button8.UseVisualStyleBackColor = True
-        Me.Button8.Visible = False
         '
         'Label36
         '
@@ -1733,8 +1403,8 @@ Partial Class Principal
         '
         'DataGridViewTextBoxColumn18
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle26
         Me.DataGridViewTextBoxColumn18.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True
@@ -1970,8 +1640,8 @@ Partial Class Principal
         '
         'DataGridViewTextBoxColumn24
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle27
         Me.DataGridViewTextBoxColumn24.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
         Me.DataGridViewTextBoxColumn24.ReadOnly = True
@@ -2072,20 +1742,6 @@ Partial Class Principal
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(381, 431)
         Me.Panel9.TabIndex = 29
-        '
-        'Button10
-        '
-        Me.Button10.BackgroundImage = Global.Sistema.My.Resources.Resources.add
-        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button10.Location = New System.Drawing.Point(114, 264)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(140, 36)
-        Me.Button10.TabIndex = 28
-        Me.Button10.Text = "CORTE DE CAJA"
-        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button10.UseVisualStyleBackColor = True
-        Me.Button10.Visible = False
         '
         'TextBox15
         '
@@ -2190,8 +1846,8 @@ Partial Class Principal
         '
         'DataGridViewTextBoxColumn30
         '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn30.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn30.DefaultCellStyle = DataGridViewCellStyle28
         Me.DataGridViewTextBoxColumn30.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
         Me.DataGridViewTextBoxColumn30.ReadOnly = True
@@ -2233,6 +1889,351 @@ Partial Class Principal
         Me.FechaInicio.Size = New System.Drawing.Size(121, 24)
         Me.FechaInicio.TabIndex = 30
         Me.FechaInicio.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.Image = Global.Sistema.My.Resources.Resources.icon__2_
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(1105, 86)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(112, 50)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "RESPALDO"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancelar.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelar.Location = New System.Drawing.Point(201, 348)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(118, 36)
+        Me.btnCancelar.TabIndex = 20
+        Me.btnCancelar.Text = "CANCELAR"
+        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.btnCancelar.Visible = False
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnNuevo.Image = Global.Sistema.My.Resources.Resources.add
+        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNuevo.Location = New System.Drawing.Point(77, 348)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(118, 36)
+        Me.btnNuevo.TabIndex = 15
+        Me.btnNuevo.Text = "GUARDAR"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNuevo.UseVisualStyleBackColor = True
+        Me.btnNuevo.Visible = False
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminar.Enabled = False
+        Me.btnEliminar.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminar.Location = New System.Drawing.Point(267, 378)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(106, 36)
+        Me.btnEliminar.TabIndex = 14
+        Me.btnEliminar.Text = "ELIMINAR"
+        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'btnModificar
+        '
+        Me.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnModificar.Enabled = False
+        Me.btnModificar.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModificar.Location = New System.Drawing.Point(143, 378)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(118, 36)
+        Me.btnModificar.TabIndex = 13
+        Me.btnModificar.Text = "MODIFICAR"
+        Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModificar.UseVisualStyleBackColor = True
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAdd.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAdd.Location = New System.Drawing.Point(44, 378)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(93, 36)
+        Me.btnAdd.TabIndex = 5
+        Me.btnAdd.Text = "NUEVO"
+        Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAdd.UseVisualStyleBackColor = True
+        '
+        'btnPagar
+        '
+        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnPagar.Image = Global.Sistema.My.Resources.Resources.money
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPagar.Location = New System.Drawing.Point(147, 354)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(105, 36)
+        Me.btnPagar.TabIndex = 26
+        Me.btnPagar.Text = "PAGAR"
+        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnPagar.UseVisualStyleBackColor = True
+        Me.btnPagar.Visible = False
+        '
+        'btnCancelarUsu
+        '
+        Me.btnCancelarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancelarUsu.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.btnCancelarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelarUsu.Location = New System.Drawing.Point(192, 396)
+        Me.btnCancelarUsu.Name = "btnCancelarUsu"
+        Me.btnCancelarUsu.Size = New System.Drawing.Size(118, 36)
+        Me.btnCancelarUsu.TabIndex = 20
+        Me.btnCancelarUsu.Text = "CANCELAR"
+        Me.btnCancelarUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelarUsu.UseVisualStyleBackColor = True
+        Me.btnCancelarUsu.Visible = False
+        '
+        'btnSaveUsu
+        '
+        Me.btnSaveUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSaveUsu.Image = Global.Sistema.My.Resources.Resources.add
+        Me.btnSaveUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSaveUsu.Location = New System.Drawing.Point(68, 396)
+        Me.btnSaveUsu.Name = "btnSaveUsu"
+        Me.btnSaveUsu.Size = New System.Drawing.Size(118, 36)
+        Me.btnSaveUsu.TabIndex = 15
+        Me.btnSaveUsu.Text = "GUARDAR"
+        Me.btnSaveUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSaveUsu.UseVisualStyleBackColor = True
+        Me.btnSaveUsu.Visible = False
+        '
+        'btnEliminarUsu
+        '
+        Me.btnEliminarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminarUsu.Enabled = False
+        Me.btnEliminarUsu.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.btnEliminarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminarUsu.Location = New System.Drawing.Point(258, 426)
+        Me.btnEliminarUsu.Name = "btnEliminarUsu"
+        Me.btnEliminarUsu.Size = New System.Drawing.Size(106, 36)
+        Me.btnEliminarUsu.TabIndex = 14
+        Me.btnEliminarUsu.Text = "ELIMINAR"
+        Me.btnEliminarUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminarUsu.UseVisualStyleBackColor = True
+        '
+        'btnModUsu
+        '
+        Me.btnModUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnModUsu.Enabled = False
+        Me.btnModUsu.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.btnModUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModUsu.Location = New System.Drawing.Point(134, 426)
+        Me.btnModUsu.Name = "btnModUsu"
+        Me.btnModUsu.Size = New System.Drawing.Size(118, 36)
+        Me.btnModUsu.TabIndex = 13
+        Me.btnModUsu.Text = "MODIFICAR"
+        Me.btnModUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModUsu.UseVisualStyleBackColor = True
+        '
+        'btnAddUsu
+        '
+        Me.btnAddUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAddUsu.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.btnAddUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAddUsu.Location = New System.Drawing.Point(35, 426)
+        Me.btnAddUsu.Name = "btnAddUsu"
+        Me.btnAddUsu.Size = New System.Drawing.Size(93, 36)
+        Me.btnAddUsu.TabIndex = 5
+        Me.btnAddUsu.Text = "NUEVO"
+        Me.btnAddUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAddUsu.UseVisualStyleBackColor = True
+        '
+        'btnCancelarRed
+        '
+        Me.btnCancelarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancelarRed.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.btnCancelarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelarRed.Location = New System.Drawing.Point(201, 348)
+        Me.btnCancelarRed.Name = "btnCancelarRed"
+        Me.btnCancelarRed.Size = New System.Drawing.Size(118, 36)
+        Me.btnCancelarRed.TabIndex = 20
+        Me.btnCancelarRed.Text = "CANCELAR"
+        Me.btnCancelarRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelarRed.UseVisualStyleBackColor = True
+        Me.btnCancelarRed.Visible = False
+        '
+        'btnSaveRed
+        '
+        Me.btnSaveRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSaveRed.Image = Global.Sistema.My.Resources.Resources.add
+        Me.btnSaveRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSaveRed.Location = New System.Drawing.Point(77, 348)
+        Me.btnSaveRed.Name = "btnSaveRed"
+        Me.btnSaveRed.Size = New System.Drawing.Size(118, 36)
+        Me.btnSaveRed.TabIndex = 15
+        Me.btnSaveRed.Text = "GUARDAR"
+        Me.btnSaveRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSaveRed.UseVisualStyleBackColor = True
+        Me.btnSaveRed.Visible = False
+        '
+        'btnEliminaRed
+        '
+        Me.btnEliminaRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminaRed.Enabled = False
+        Me.btnEliminaRed.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.btnEliminaRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminaRed.Location = New System.Drawing.Point(267, 378)
+        Me.btnEliminaRed.Name = "btnEliminaRed"
+        Me.btnEliminaRed.Size = New System.Drawing.Size(106, 36)
+        Me.btnEliminaRed.TabIndex = 14
+        Me.btnEliminaRed.Text = "ELIMINAR"
+        Me.btnEliminaRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminaRed.UseVisualStyleBackColor = True
+        '
+        'btnModificarRed
+        '
+        Me.btnModificarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnModificarRed.Enabled = False
+        Me.btnModificarRed.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.btnModificarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModificarRed.Location = New System.Drawing.Point(143, 378)
+        Me.btnModificarRed.Name = "btnModificarRed"
+        Me.btnModificarRed.Size = New System.Drawing.Size(118, 36)
+        Me.btnModificarRed.TabIndex = 13
+        Me.btnModificarRed.Text = "MODIFICAR"
+        Me.btnModificarRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModificarRed.UseVisualStyleBackColor = True
+        '
+        'btnAddRed
+        '
+        Me.btnAddRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAddRed.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.btnAddRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAddRed.Location = New System.Drawing.Point(44, 378)
+        Me.btnAddRed.Name = "btnAddRed"
+        Me.btnAddRed.Size = New System.Drawing.Size(93, 36)
+        Me.btnAddRed.TabIndex = 5
+        Me.btnAddRed.Text = "NUEVO"
+        Me.btnAddRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAddRed.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(183, 296)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(118, 36)
+        Me.Button2.TabIndex = 20
+        Me.Button2.Text = "CANCELAR"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button3.Image = Global.Sistema.My.Resources.Resources.add
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(59, 296)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(118, 36)
+        Me.Button3.TabIndex = 15
+        Me.Button3.Text = "GUARDAR"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
+        '
+        'Button4
+        '
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button4.Enabled = False
+        Me.Button4.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.Location = New System.Drawing.Point(249, 326)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(106, 36)
+        Me.Button4.TabIndex = 14
+        Me.Button4.Text = "ELIMINAR"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button5.Enabled = False
+        Me.Button5.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.Location = New System.Drawing.Point(125, 326)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(118, 36)
+        Me.Button5.TabIndex = 13
+        Me.Button5.Text = "MODIFICAR"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button6.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.Location = New System.Drawing.Point(26, 326)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(93, 36)
+        Me.Button6.TabIndex = 5
+        Me.Button6.Text = "NUEVO"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.BackgroundImage = Global.Sistema.My.Resources.Resources.cancelar
+        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.Location = New System.Drawing.Point(201, 348)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(118, 36)
+        Me.Button7.TabIndex = 20
+        Me.Button7.Text = "CANCELAR"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button7.UseVisualStyleBackColor = True
+        Me.Button7.Visible = False
+        '
+        'Button8
+        '
+        Me.Button8.BackgroundImage = Global.Sistema.My.Resources.Resources.add
+        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.Location = New System.Drawing.Point(77, 348)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(118, 36)
+        Me.Button8.TabIndex = 15
+        Me.Button8.Text = "REACTIVAR"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button8.UseVisualStyleBackColor = True
+        Me.Button8.Visible = False
+        '
+        'Button10
+        '
+        Me.Button10.BackgroundImage = Global.Sistema.My.Resources.Resources.add
+        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button10.Location = New System.Drawing.Point(114, 264)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(140, 36)
+        Me.Button10.TabIndex = 28
+        Me.Button10.Text = "CORTE DE CAJA"
+        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button10.UseVisualStyleBackColor = True
+        Me.Button10.Visible = False
         '
         'Principal
         '

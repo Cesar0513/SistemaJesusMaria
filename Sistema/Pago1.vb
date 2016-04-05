@@ -37,15 +37,15 @@ Public Class Pago1
 #Region "LOAD"
 
     Private Sub Pago1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim usuario As Integer = AdmUsuarios.cl
+        'Dim usuario As Integer = Principal.cl
         Dim i As Integer = Now.Year
         For i = Now.Year To i - 15 Step -1
             cmbAnio.Items.Add(i)
         Next
 
-        ObtieneDatosUsuario(usuario)
-        ObtienePagos(usuario, 0)
-        ObtieneMontoPendiente()
+        'ObtieneDatosUsuario(usuario)
+        'ObtienePagos(usuario, 0)
+        'ObtieneMontoPendiente()
     End Sub
 
 #End Region
@@ -397,7 +397,6 @@ Public Class Pago1
                         CrearPDF(NombreArchivo, folio, nombre, apellidos, fec_nac, tipo_serv, red, cuota_recibo, cadenaMeses, anio, estatus, mensaje)
                         MsgBox(mensaje, MsgBoxStyle.Information, AcceptButton)
                         Me.Close()
-                        AdmUsuarios.Show()
                         CargarPdf(NombreArchivo)
                     Catch ex As Exception
                         MsgBox("El pago se registro con exito pero el recibo no se pudo crear ", MsgBoxStyle.Information, AcceptButton)
@@ -886,7 +885,7 @@ Public Class Pago1
             conexion.Open()
             Dim cmd = New MySqlCommand(rtn, conexion)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.AddWithValue("@admin", Login.claveusu)
+            cmd.Parameters.AddWithValue("@admin", DatosSession.IdAdmin)
 
             DR = cmd.ExecuteReader()
             If DR.HasRows >= 1 Then
@@ -947,7 +946,6 @@ Public Class Pago1
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        AdmUsuarios.Show()
         Me.Close()
     End Sub
 
