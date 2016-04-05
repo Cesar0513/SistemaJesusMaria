@@ -23,9 +23,9 @@ Partial Class Login
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,6 +41,15 @@ Partial Class Login
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(551, 343)
         Me.Panel1.TabIndex = 0
+        '
+        'Panel2
+        '
+        Me.Panel2.BackgroundImage = Global.Sistema.My.Resources.Resources.portada
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Location = New System.Drawing.Point(65, 28)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(422, 120)
+        Me.Panel2.TabIndex = 2
         '
         'Label1
         '
@@ -62,15 +71,6 @@ Partial Class Login
         Me.txtPassword.Size = New System.Drawing.Size(122, 32)
         Me.txtPassword.TabIndex = 0
         Me.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Panel2
-        '
-        Me.Panel2.BackgroundImage = Global.Sistema.My.Resources.Resources.portada
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Location = New System.Drawing.Point(65, 28)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(422, 120)
-        Me.Panel2.TabIndex = 2
         '
         'Login
         '
