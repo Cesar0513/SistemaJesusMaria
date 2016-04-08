@@ -16,9 +16,9 @@
     Public Function ObtenerValores() As DataTable
         Dim dt As DataTable = Nothing
         Dim celda As DataRow = Nothing
-        celda(0) = IdAdmin
-        celda(1) = NomAdmin
-        celda(1) = PerfilAdmin
+        celda("IdAdmin") = IdAdmin
+        celda("NomAdmin") = NomAdmin
+        celda("PerfilAdmin") = PerfilAdmin
 
         dt.Rows.Add(celda)
 
