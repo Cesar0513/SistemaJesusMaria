@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\clsSQLClient.vb" />
-    <Compile Include="Conexion\Conexion.vb" />
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
