@@ -1,11 +1,7 @@
-﻿Imports MySql.Data
-Imports MySql.Data.MySqlClient
-
-Public Class Login
+﻿Public Class Login
 
 #Region "VARIABLES GLOBALES"
     Dim objSQL As clsSQLClient
-    Dim IdAdmin As Integer = Nothing
 #End Region
 
 #Region "SP"
@@ -15,15 +11,26 @@ Public Class Login
 #Region "SUB FUNCTION"
 
     Public Sub ValidaUsuario(ByVal pwd As String)
-        'Try
-        '    Dim dt As DataSet = clsMysql.EjecutaStore(sp_ValidaUsuarioLogin, pwd)
+        Dim dtFolio As DataTable = Nothing
+        Dim dtDatos As DataTable = Nothing
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_ValidaUsuarioLogin, pwd)
+            If dtFolio.Rows.Count <> 0 Then
+                AsignarDatos(CInt(dtFolio.Rows(0).Item(0).ToString()), CStr(dtFolio.Rows(0).Item(1).ToString()), CStr(dtFolio.Rows(0).Item(2).ToString()))
+                dtDatos = ObtenerValores()
 
-        Me.Visible = False
-        Dim frmPrincipal As New Principal
-        frmPrincipal.Show()
-        'Catch ex As Exception
-        '    MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
-        'End Try
+                If dtDatos.Rows.Count <> 0 Then
+                    Me.Visible = False
+                    Dim frmPrincipal As New Principal
+                    frmPrincipal.Show()
+                End If
+            Else
+                MsgBox("No se encontro usuario con esa contraseña, Intente nuevamente", MsgBoxStyle.Critical, "AVISO!")
+                txtPassword.Clear()
+            End If
+        Catch ex As Exception
+            MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
+        End Try
     End Sub
 
 #End Region

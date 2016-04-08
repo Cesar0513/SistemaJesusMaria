@@ -22,12 +22,22 @@ Public Class Principal
 #Region "LOAD FORMULARIO"
 
     Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ObtenerParametrosSession()
         IniciaServiciosXampp()
     End Sub
 
 #End Region
 
 #Region "SUB FUNCTION"
+
+    Public Sub ObtenerParametrosSession()
+        Dim dtDatos As DataTable = Nothing
+        dtDatos = ObtenerValores()
+        If dtDatos.Rows.Count <> 0 Then
+            lblUsuario.Text = dtDatos.Rows(0).Item(1).ToString
+            lblPerfil.Text = dtDatos.Rows(0).Item(2).ToString
+        End If
+    End Sub
 
     Public Sub IniciaServiciosXampp()
         'Try
@@ -57,7 +67,20 @@ Public Class Principal
 #Region "ADMINISTRADORES"
 
     Public Sub CargarTiposAdministradores()
+        Dim dtFolio As DataTable = Nothing
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, 1, "")
 
+            If dtFolio.Rows.Count = 0 Then
+                MsgBox("No se cargaron los tipos de Administradores", MsgBoxStyle.Information, "Aviso!")
+            Else
+                For i As Integer = 0 To dtFolio.Rows.Count Step 1
+                    cmbTipoAdmin.Controls.Add(dtFolio.Rows(i).Item(0))
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Problema al Cargar Tipo de Administradores: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Public Sub CargarAdministradores()
@@ -67,7 +90,7 @@ Public Class Principal
             filtro = ""
         Else
             Try
-                dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, 1)
+                dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, 0, filtro)
 
                 If dtFolio.Rows.Count = 0 Then
                     MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
@@ -171,6 +194,7 @@ Public Class Principal
     End Sub
 
     Private Sub txtFiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles txtFiltro.KeyDown
+        CargarTiposAdministradores()
         CargarAdministradores()
     End Sub
 #End Region
@@ -223,28 +247,51 @@ Public Class Principal
 
 #End Region
 
-#Region "PERDIDA FOCUS TAB'S"
+#Region "SUB LIMPIAR TabPage"
 
-    Private Sub TabAdmin_Leave(sender As Object, e As EventArgs) Handles TabAdmin.Leave
+    Public Sub LimpiarTabAdmin()
+        txtFiltro.Clear()
         dtGridAdmin.DataSource = Nothing
-        txtFiltro.Text = ""
-        LimpiarCamposAdmin()
+        txtNombre.Clear()
+        txtPaterno.Clear()
+        txtMaterno.Clear()
+        cmbTipoAdmin.SelectedItem = -1
+        txtPwd.Clear()
+        txtPwd1.Clear()
     End Sub
 
-    Private Sub TabUsuarios_Leave(sender As Object, e As EventArgs) Handles TabUsuarios.Leave
+    Public Sub LimpiarTabUsuarios()
+        txtFiltroUsu.Clear()
         dtGridUsuarios.DataSource = Nothing
-        txtFiltroUsu.Text = ""
-        LimpiarCamposUsuarios()
+        txtNombreUsu.Clear()
+        txtPaternoUsu.Clear()
+        txtMaternoUsu.Clear()
+        FechaNacUsu.Value = Now.Date
+        cmbRedUsu.SelectedItem = -1
+        txtPrecioTomaUsu.Clear()
+        txtRefUsu.Clear()
     End Sub
 
 #End Region
 
-#Region "ENTER FOCUS TAB'S"
+#Region "ENTER TAB'S"
 
     Private Sub TabAdmin_Enter(sender As Object, e As EventArgs) Handles TabAdmin.Enter
+        CargarTiposAdministradores()
+        LimpiarTabAdmin()
+    End Sub
 
+    Private Sub TabUsuarios_Enter(sender As Object, e As EventArgs) Handles TabUsuarios.Enter, TabUsuarios.LostFocus
+        LimpiarTabUsuarios()
     End Sub
 
 #End Region
 
+#Region "LOSTFOCUS TAB'S"
+
+    Private Sub TabAdmin_LostFocus(sender As Object, e As EventArgs) Handles TabAdmin.LostFocus
+        LimpiarTabAdmin()
+    End Sub
+
+#End Region
 End Class

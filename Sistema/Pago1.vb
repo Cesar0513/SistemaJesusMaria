@@ -879,13 +879,15 @@ Public Class Pago1
     End Sub
 
     Public Function ObtenerAdministrador()
+        Dim id As DataTable
+        id = ObtenerValores()
         Try
             rtn = sp_ObtieneNombreAdministrador
             Dim DR As MySqlDataReader
             conexion.Open()
             Dim cmd = New MySqlCommand(rtn, conexion)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.AddWithValue("@admin", DatosSession.IdAdmin)
+            cmd.Parameters.AddWithValue("@admin", CInt(id.Rows(0).Item(0)))
 
             DR = cmd.ExecuteReader()
             If DR.HasRows >= 1 Then
