@@ -5,7 +5,7 @@ Imports iTextSharp.text.pdf
 Imports iTextSharp.text
 Imports System.IO
 
-Public Class Pago1
+Public Class Pago
 
 #Region "VARIABLES GLOBALES"
     Public servicio As String = "server = localhost; user id = root; password= root; database = sistemaagua"

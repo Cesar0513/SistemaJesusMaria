@@ -160,7 +160,7 @@ Public Class Principal
     End Sub
 
     Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
-        Dim frmPagos As New Pago1
+        Dim frmPagos As New Pago
         frmPagos.ShowDialog()
     End Sub
 
@@ -304,5 +304,4 @@ Public Class Principal
 
 #End Region
 
-    
 End Class
