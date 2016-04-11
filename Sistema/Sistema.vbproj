@@ -72,6 +72,7 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion\clsMysqlClient.vb" />
     <Compile Include="Conexion\clsSQLClient.vb" />
     <Compile Include="Login.vb">
       <SubType>Form</SubType>

@@ -31,12 +31,12 @@ Public Class Principal
 #Region "SUB FUNCTION"
 
     Public Sub ObtenerParametrosSession()
-        Dim dtDatos As DataTable = Nothing
-        dtDatos = ObtenerValores()
-        If dtDatos.Rows.Count <> 0 Then
-            lblUsuario.Text = dtDatos.Rows(0).Item(1).ToString
-            lblPerfil.Text = dtDatos.Rows(0).Item(2).ToString
-        End If
+        'Dim dtDatos As DataTable = Nothing
+        'dtDatos = ObtenerValores()
+        'If dtDatos.Rows.Count <> 0 Then
+        '    lblUsuario.Text = dtDatos.Rows(0).Item(1).ToString
+        '    lblPerfil.Text = dtDatos.Rows(0).Item(2).ToString
+        'End If
     End Sub
 
     Public Sub IniciaServiciosXampp()
@@ -279,6 +279,7 @@ Public Class Principal
     Private Sub TabAdmin_Enter(sender As Object, e As EventArgs) Handles TabAdmin.Enter
         CargarTiposAdministradores()
         LimpiarTabAdmin()
+
     End Sub
 
     Private Sub TabUsuarios_Enter(sender As Object, e As EventArgs) Handles TabUsuarios.Enter, TabUsuarios.LostFocus
