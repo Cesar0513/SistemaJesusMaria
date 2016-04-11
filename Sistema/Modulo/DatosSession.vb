@@ -1,8 +1,8 @@
-﻿Module DatosSession
+﻿Public Module DatosSession
 
-    Dim IdAdmin As Integer = Nothing
-    Dim NomAdmin As String = ""
-    Dim PerfilAdmin As String = ""
+    Public IdAdmin As Integer = Nothing
+    Public NomAdmin As String = ""
+    Public PerfilAdmin As String = ""
 
     Public Sub AsignarDatos(ByVal id As Integer, ByVal nombre As String, ByVal perfil As String)
         'IdAdmin = id
@@ -21,9 +21,6 @@
         celda("PerfilAdmin") = PerfilAdmin
 
         dt.Rows.Add(celda)
-
         Return dt
     End Function
-
-
 End Module
