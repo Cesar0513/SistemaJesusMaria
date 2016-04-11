@@ -2,14 +2,16 @@
 Imports System.ComponentModel
 Imports System.Windows.Forms
 Imports System.Resources
+Imports System.Configuration
 
 Public Class Principal
 
 #Region "VARIABLES GLOBALES"
     Dim objSQL As clsSQLClient
-    Dim IdAdmin As Integer = Nothing
-    Dim IdUsuario As Integer = Nothing
-    Dim IdRed As Integer = Nothing
+    Dim RowIdAdmin As Integer = Nothing
+    Dim RowIdUsuario As Integer = Nothing
+    Dim RowIdRed As Integer = Nothing
+    Dim AdminSistema As Integer = Nothing
 #End Region
 
 #Region "SP"
@@ -19,11 +21,15 @@ Public Class Principal
 
 #End Region
 
-#Region "LOAD FORMULARIO"
+#Region "LOAD CLOING FORMULARIO"
 
     Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ObtenerParametrosSession()
         IniciaServiciosXampp()
+    End Sub
+
+    Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        DatosSession.DatosSession(0, "", "")
     End Sub
 
 #End Region
@@ -31,17 +37,18 @@ Public Class Principal
 #Region "SUB FUNCTION"
 
     Public Sub ObtenerParametrosSession()
-        'Dim dtDatos As DataTable = Nothing
-        'dtDatos = ObtenerValores()
-        'If dtDatos.Rows.Count <> 0 Then
-        '    lblUsuario.Text = dtDatos.Rows(0).Item(1).ToString
-        '    lblPerfil.Text = dtDatos.Rows(0).Item(2).ToString
-        'End If
+        If DatosSession.IdAdmin = 0 Then
+            Login.Show()
+            Me.Close()
+        End If
+        AdminSistema = DatosSession.IdAdmin
+        lblUsuario.Text = DatosSession.NomAdmin
+        lblPerfil.Text = DatosSession.PerfilAdmin
     End Sub
 
     Public Sub IniciaServiciosXampp()
         'Try
-        '    Process.Start("C:\xampp\xampp-control.exe")
+        '    Process.Start(ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strRutaXampp").ToString).ToString)
         'Catch ex As Exception
         '    MsgBox("Error al abrir xampp")
         'End Try
@@ -163,7 +170,7 @@ Public Class Principal
         Dim clave As Integer = Nothing
         If e.ColumnIndex = 0 Then
             clave = CInt(dtGridAdmin.Rows(e.RowIndex).Cells(1).Value)
-            IdAdmin = CInt(clave)
+            RowIdAdmin = CInt(clave)
         End If
     End Sub
 
@@ -279,11 +286,12 @@ Public Class Principal
     Private Sub TabAdmin_Enter(sender As Object, e As EventArgs) Handles TabAdmin.Enter
         CargarTiposAdministradores()
         LimpiarTabAdmin()
-
+        RowIdAdmin = 0
     End Sub
 
     Private Sub TabUsuarios_Enter(sender As Object, e As EventArgs) Handles TabUsuarios.Enter, TabUsuarios.LostFocus
         LimpiarTabUsuarios()
+        RowIdAdmin = 0
     End Sub
 
 #End Region
@@ -295,4 +303,6 @@ Public Class Principal
     End Sub
 
 #End Region
+
+    
 End Class

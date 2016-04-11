@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\clsMysqlClient.vb" />
+    <Compile Include="Conexion\clsMysqlCliente_1.vb" />
     <Compile Include="Conexion\clsSQLClient.vb" />
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
@@ -128,6 +129,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Config.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

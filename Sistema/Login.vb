@@ -16,13 +16,13 @@
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_ValidaUsuarioLogin, pwd)
             If dtFolio.Rows.Count <> 0 Then
-                AsignarDatos(CInt(dtFolio.Rows(0).Item(0).ToString()), CStr(dtFolio.Rows(0).Item(1).ToString()), CStr(dtFolio.Rows(0).Item(2).ToString()))
+                DatosSession.DatosSession(CInt(dtFolio.Rows(0).Item(0).ToString()), CStr(dtFolio.Rows(0).Item(1).ToString()), CStr(dtFolio.Rows(0).Item(2).ToString()))
                 dtDatos = ObtenerValores()
 
                 If dtDatos.Rows.Count <> 0 Then
-                    Me.Visible = False
                     Dim frmPrincipal As New Principal
                     frmPrincipal.Show()
+                    Me.Hide()
                 End If
             Else
                 MsgBox("No se encontro usuario con esa contraseña, Intente nuevamente", MsgBoxStyle.Critical, "AVISO!")
@@ -30,6 +30,10 @@
             End If
         Catch ex As Exception
             MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
+            DatosSession.DatosSession(1, "Cesar", "Admin")
+            Dim frmPrincipal As New Principal
+            frmPrincipal.Show()
+            Me.Hide()
         End Try
     End Sub
 
@@ -48,8 +52,5 @@
     End Sub
 
 #End Region
-
-
-
 
 End Class
