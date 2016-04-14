@@ -18,7 +18,6 @@
             If dtFolio.Rows.Count <> 0 Then
                 DatosSession.DatosSession(CInt(dtFolio.Rows(0).Item(0).ToString()), CStr(dtFolio.Rows(0).Item(1).ToString()), CStr(dtFolio.Rows(0).Item(2).ToString()))
                 dtDatos = ObtenerValores()
-
                 If dtDatos.Rows.Count <> 0 Then
                     Dim frmPrincipal As New Principal
                     frmPrincipal.Show()
