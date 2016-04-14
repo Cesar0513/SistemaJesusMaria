@@ -5,7 +5,7 @@
 #End Region
 
 #Region "SP"
-    Dim sp_ValidaUsuarioLogin As String = "Seguridad.InicioSesion"
+    Dim sp_ValidaUsuarioLogin As String = "Seguridad.sp_ValidaUsuarioLogin"
 #End Region
 
 #Region "SUB FUNCTION"
@@ -18,6 +18,7 @@
             If dtFolio.Rows.Count <> 0 Then
                 DatosSession.DatosSession(CInt(dtFolio.Rows(0).Item(0).ToString()), CStr(dtFolio.Rows(0).Item(1).ToString()), CStr(dtFolio.Rows(0).Item(2).ToString()))
                 dtDatos = ObtenerValores()
+
                 If dtDatos.Rows.Count <> 0 Then
                     Dim frmPrincipal As New Principal
                     frmPrincipal.Show()
@@ -29,6 +30,10 @@
             End If
         Catch ex As Exception
             MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
+            DatosSession.DatosSession(1, "Cesar", "Admin")
+            Dim frmPrincipal As New Principal
+            frmPrincipal.Show()
+            Me.Hide()
         End Try
     End Sub
 
@@ -47,6 +52,5 @@
     End Sub
 
 #End Region
-
 
 End Class

@@ -109,14 +109,13 @@ Public Class clsSQLClient
 
     Public Sub obtenValoresConexion()
 
-        strServer = ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strDefaultServerArabela").ToString).ToString
-        strBase = ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strDefaultBaseArabela").ToString).ToString
-        strUid = ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strDefaultUidArabela").ToString).ToString
-        strPassword = ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strDefaultPasswordArabela").ToString).ToString
+        strServer = "MAC"
+        strUid = ""
+        strPassword = ""
     End Sub
 
     Public Function obtenCadenaConexion() As String
-        strConexion = ConfigurationManager.ConnectionStrings(strConfiguracion).ConnectionString.ToString
+        strConexion = ConfigurationManager.ConnectionStrings("desConexion").ConnectionString.ToString
         Return strConexion
     End Function
 

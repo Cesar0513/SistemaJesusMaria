@@ -428,7 +428,7 @@ Public Class Principal
     End Sub
 
     Private Sub btnCancelarUsu_Click(sender As Object, e As EventArgs) Handles btnCancelarUsu.Click
-        BotonesNuevoUsu()
+        BotonesInicioUsu()
     End Sub
 
     Private Sub btnEliminarUsu_Click(sender As Object, e As EventArgs) Handles btnEliminarUsu.Click
@@ -615,5 +615,4 @@ Public Class Principal
 #End Region
 
 #End Region
-
 End Class
