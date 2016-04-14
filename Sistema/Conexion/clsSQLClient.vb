@@ -7,9 +7,9 @@ Public Class clsSQLClient
 
 #Region "Variables"
 
-    Private _strConfiguracion As String
-    Public strConfiguracion As String = ConfigurationManager.AppSettings("strDefaultConfigArabela").ToString
-
+    Private _strConfiguracion As String = Nothing
+    Public strConfiguracion As String = Nothing
+    Dim valor = ConfigurationManager.AppSettings("strDefaultConfig").ToString()
 #End Region
 
 #Region "Propiedades"
@@ -109,13 +109,15 @@ Public Class clsSQLClient
 
     Public Sub obtenValoresConexion()
 
-        strServer = "MAC"
-        strUid = ""
-        strPassword = ""
+        strServer = ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strDefaultServer").ToString).ToString
+        strBase = ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strDefaultBase").ToString).ToString
+        strUid = ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strDefaultUid").ToString).ToString
+        strPassword = ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strDefaultPassword").ToString).ToString
+
     End Sub
 
     Public Function obtenCadenaConexion() As String
-        strConexion = ConfigurationManager.ConnectionStrings("desConexion").ConnectionString.ToString
+        strConexion = ConfigurationManager.ConnectionStrings(strConfiguracion).ConnectionString.ToString
         Return strConexion
     End Function
 

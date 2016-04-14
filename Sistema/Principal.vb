@@ -7,7 +7,7 @@ Imports System.Configuration
 Public Class Principal
 
 #Region "VARIABLES GLOBALES"
-    Dim objSQL As clsSQLClient
+    Dim objSQL As New clsSQLClient
     Dim RowIdAdmin As Integer = Nothing
     Dim RowIdUsuario As Integer = Nothing
     Dim RowIdRed As Integer = Nothing

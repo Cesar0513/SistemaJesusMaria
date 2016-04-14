@@ -1,10 +1,14 @@
-﻿Public Class Login
+﻿Imports System.Configuration
+Imports System.Data
+
+
+Public Class Login
 
 #Region "VARIABLES GLOBALES"
 
 #End Region
 #Region "SP"
-    Dim sp_ValidaUsuarioLogin As String = "Seguridad.sp_ValidaUsuarioLogin"
+    Dim sp_ValidaUsuarioLogin As String = "[Seguridad].[InicioSesion]"
 #End Region
 
 #Region "SUB FUNCTION"
