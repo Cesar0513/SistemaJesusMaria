@@ -61,6 +61,7 @@ Public Class Pago
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Parameters.AddWithValue("@usuario", usuario)
 
+
             DR = cmd.ExecuteReader()
             If DR.HasRows >= 1 Then
                 MsgBox("No Existen Registros de Búsqueda")
