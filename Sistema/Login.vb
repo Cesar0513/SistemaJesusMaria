@@ -1,9 +1,8 @@
 ﻿Public Class Login
 
 #Region "VARIABLES GLOBALES"
-    Dim objSQL As clsSQLClient
-#End Region
 
+#End Region
 #Region "SP"
     Dim sp_ValidaUsuarioLogin As String = "Seguridad.sp_ValidaUsuarioLogin"
 #End Region
@@ -11,6 +10,7 @@
 #Region "SUB FUNCTION"
 
     Public Sub ValidaUsuario(ByVal pwd As String)
+        Dim objSQL As New clsSQLClient
         Dim dtFolio As DataTable = Nothing
         Dim dtDatos As DataTable = Nothing
         Try
@@ -29,7 +29,7 @@
                 txtPassword.Clear()
             End If
         Catch ex As Exception
-            MsgBox("Error al Verificar Usuario", MsgBoxStyle.Information, "AVISO")
+            MsgBox("Error al Verificar Usuario" & ex.Message, MsgBoxStyle.Information, "AVISO")
             DatosSession.DatosSession(1, "Cesar", "Admin")
             Dim frmPrincipal As New Principal
             frmPrincipal.Show()
