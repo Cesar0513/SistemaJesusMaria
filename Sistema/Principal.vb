@@ -16,8 +16,10 @@ Public Class Principal
 
 #Region "SP"
 
-    Private sp_CargarAdministradores As String = "Seguridad.sp_CargarAdministradores"
+    Private sp_CargarAdministradores As String = "Seguridad.CargaAdministradores"
+    Private sp_CargarTipoAdministradores As String = "Seguridad.CargarTiposAdministradores"
     Private sp_InsertaActualizaEliminaAdmin As String = "Seguridad.sp_InsertaActualizaEliminaAdmin"
+    Private sp_VerificaAdminExistente As String = "Seguridad.VerificaAdministrador"
     Private sp_CargarUsuarios As String = "Seguridad.sp_CargarUsuarios"
     Private sp_InsertaActualizaEliminaUsuario As String = "Seguridad.sp_InsertaActualizaEliminaUsuario"
 
@@ -76,61 +78,43 @@ Public Class Principal
 #Region "ADMINISTRADORES"
 
     Public Sub CargarTiposAdministradores()
-        cmbTipoAdmin.Items.Add("Administrador")
-        cmbTipoAdmin.Items.Add("Cobrador")
-        'Dim dtFolio As DataTable = Nothing
-        'Try
-        '    dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, 1, "")
+        Dim dtFolio As New DataTable
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarTipoAdministradores, 1)
 
-        '    If dtFolio.Rows.Count = 0 Then
-        '        MsgBox("No se cargaron los tipos de Administradores", MsgBoxStyle.Information, "Aviso!")
-        '    Else
-        '        For i As Integer = 0 To dtFolio.Rows.Count Step 1
-        '            cmbTipoAdmin.Controls.Add(dtFolio.Rows(i).Item(0))
-        '        Next
-        '    End If
-        'Catch ex As Exception
-        '    MsgBox("Problema al Cargar Tipo de Administradores: " & ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
+            If dtFolio.Rows.Count = 0 Then
+                MsgBox("No se cargaron los tipos de Administradores", MsgBoxStyle.Information, "Aviso!")
+            Else
+                For i As Integer = 0 To dtFolio.Rows.Count - 1 Step 1
+                    cmbTipoAdmin.Items.Add(dtFolio.Rows(i).Item(0))
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Problema al Cargar Tipo de Administradores: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Public Sub CargarAdministradores()
+        Dim filtro As String = ""
         Dim dtFolio As New DataTable
+        If String.IsNullOrEmpty(txtFiltro.Text) Then
+            filtro = ""
+        Else
+            filtro = Trim(txtFiltro.Text)
+            Try
+                dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, filtro)
 
-        dtFolio.Columns.AddRange(New DataColumn() {New DataColumn("IDADMIN", GetType(Integer)), _
-                                                   New DataColumn("NOMBRE", GetType(String)), _
-                                                   New DataColumn("APELLIDOS", GetType(String)), _
-                                                   New DataColumn("APEPATERNO", GetType(String)), _
-                                                   New DataColumn("APEMATERNO", GetType(String)), _
-                                                   New DataColumn("IDPERFIL", GetType(Integer)), _
-                                                   New DataColumn("PERFIL", GetType(String)), _
-                                                   New DataColumn("ESTATUS", GetType(String))})
-
-        dtFolio.Rows.Add(1, "Pepe", "Martinez Osorio", "Martinez", "Osorio", 1, "Administrador", "Activo")
-
-        Me.dtGridAdmin.DataSource = dtFolio
-        Me.dtGridAdmin.CurrentRow.Selected = False
-
-
-        'Dim filtro As String = ""
-        'Dim dtFolio As DataTable = Nothing
-        'If String.IsNullOrEmpty(txtFiltro.Text) Then
-        '    filtro = ""
-        'Else
-        '    Try
-        '        dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, 0, filtro)
-
-        '        If dtFolio.Rows.Count = 0 Then
-        '            MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
-        '            Me.dtGridAdmin.DataSource = dtFolio
-        '        Else
-        '            Me.dtGridAdmin.DataSource = dtFolio
-        '            Me.dtGridAdmin.CurrentRow.Selected = False
-        '        End If
-        '    Catch ex As Exception
-        '        MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End If
+                If dtFolio.Rows.Count = 0 Then
+                    MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
+                    Me.dtGridAdmin.DataSource = dtFolio
+                Else
+                    Me.dtGridAdmin.DataSource = dtFolio
+                    Me.dtGridAdmin.CurrentRow.Selected = False
+                End If
+            Catch ex As Exception
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
     End Sub
 
     Public Function VerificaCambioContraseña()
@@ -151,15 +135,18 @@ Public Class Principal
         txtNombre.Text = ""
         txtPaterno.Text = ""
         txtMaterno.Text = ""
+        cmbTipoAdmin.SelectedText = ""
+        cmbEstatusAdmin.SelectedText = ""
         txtPwd.Text = ""
         txtPwd1.Text = ""
     End Sub
 
-    Public Sub MostrarDatosAdmin(ByVal nombre As String, ByVal apepaterno As String, ByVal apematerno As String, ByVal perfil As String)
+    Public Sub MostrarDatosAdmin(ByVal nombre As String, ByVal apepaterno As String, ByVal apematerno As String, ByVal tipo As String, ByVal perfil As String)
         txtNombre.Text = nombre
         txtPaterno.Text = apepaterno
         txtMaterno.Text = apematerno
-        cmbTipoAdmin.SelectedValue = perfil
+        cmbTipoAdmin.SelectedItem = tipo
+        cmbEstatusAdmin.SelectedItem = perfil
     End Sub
 
     Public Function VerificaNuevoAdmin()
@@ -179,12 +166,66 @@ Public Class Principal
         ElseIf String.IsNullOrEmpty(txtPwd.Text) Then
             MsgBox("Por favor introduzca una contraseña", MsgBoxStyle.Information, "Error!")
             retorna = 0
-        ElseIf txtPwd.Text = txtPwd1.Text Then
+        ElseIf txtPwd.Text <> txtPwd1.Text Then
             MsgBox("Las Contraseñas no coinciden", MsgBoxStyle.Information, "Error!")
             txtPwd1.Text = ""
             retorna = 0
         Else
             retorna = 1
+        End If
+        Return retorna
+    End Function
+
+    Public Function VerificaAdministrador(ByRef tipo As Integer)
+        Dim retorna As Integer = Nothing
+        If tipo = 1 Then
+                If txtPwd.Text = txtPwd1.Text Then
+                    Dim dtFolio As New DataTable
+                    Try
+                        dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaAdminExistente, Trim(txtPwd.Text))
+
+                        If dtFolio.Rows.Count = 0 Then
+                        MsgBox("Sin registros", MsgBoxStyle.Information, "Aviso!")
+                        Else
+                            If CInt(dtFolio.Rows(0).Item(0)) >= 1 Then
+                                retorna = 1
+                            Else
+                                retorna = 0
+                            End If
+                        End If
+                    Catch ex As Exception
+                        MsgBox("Problema al Cargar Tipo de Administradores: " & ex.Message, MsgBoxStyle.Critical, "Error")
+                    End Try
+                Else
+                    MsgBox("Las contraseñas no coinciden", MsgBoxStyle.Information, "AVISO!")
+                    retorna = 0
+                End If
+        Else
+            If String.IsNullOrEmpty(txtPwd.Text) Then
+                MsgBox("Ingrese una contraseña para Continuar", MsgBoxStyle.Information, "AVISO!")
+            Else
+                If txtPwd.Text = txtPwd1.Text Then
+                    Dim dtFolio As New DataTable
+                    Try
+                        dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaAdminExistente, Trim(txtPwd.Text))
+
+                        If dtFolio.Rows.Count = 0 Then
+                            MsgBox("No se cargaron los tipos de Administradores", MsgBoxStyle.Information, "Aviso!")
+                        Else
+                            If CInt(dtFolio.Rows(0).Item(0)) >= 1 Then
+                                retorna = 1
+                            Else
+                                retorna = 0
+                            End If
+                        End If
+                    Catch ex As Exception
+                        MsgBox("Problema al Cargar Tipo de Administradores: " & ex.Message, MsgBoxStyle.Critical, "Error")
+                    End Try
+                Else
+                    MsgBox("Las contraseñas no coinciden", MsgBoxStyle.Information, "AVISO!")
+                    retorna = 0
+                End If
+            End If
         End If
         Return retorna
     End Function
@@ -320,8 +361,8 @@ Public Class Principal
         Dim clave As Integer = Nothing
         If e.RowIndex >= 0 Then
             BotonesModificaElimina()
-            clave = CInt(dtGridAdmin.Rows(e.RowIndex).Cells(0).Value)
-            MostrarDatosAdmin(CStr(dtGridAdmin.Rows(e.RowIndex).Cells(1).Value), CStr(dtGridAdmin.Rows(e.RowIndex).Cells(3).Value), CStr(dtGridAdmin.Rows(e.RowIndex).Cells(4).Value), CStr(dtGridAdmin.Rows(e.RowIndex).Cells(6).Value))
+            RowIdAdmin = CInt(dtGridAdmin.Rows(e.RowIndex).Cells(0).Value)
+            MostrarDatosAdmin(CStr(dtGridAdmin.Rows(e.RowIndex).Cells(1).Value), CStr(dtGridAdmin.Rows(e.RowIndex).Cells(3).Value), CStr(dtGridAdmin.Rows(e.RowIndex).Cells(4).Value), CStr(dtGridAdmin.Rows(e.RowIndex).Cells(5).Value), CStr(dtGridAdmin.Rows(e.RowIndex).Cells(6).Value))
         End If
     End Sub
 
@@ -337,12 +378,13 @@ Public Class Principal
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If MessageBox.Show("Continuar para eliminar al Administrador", "INFORMACIÓN", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             Dim dtFolio As DataTable = Nothing
-            If String.IsNullOrEmpty(RowIdAdmin) Then
+            If String.IsNullOrEmpty(RowIdAdmin) Or RowIdAdmin = 0 Then
                 MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
                 Exit Sub
             Else
                 Try
-                    dtFolio = objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaAdmin, 3, RowIdAdmin, "nombre", "apepaterno", "apematerno", "perfil", "contrasena")
+                    dtFolio = objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaAdmin, 3, RowIdAdmin, "nombre", "apepaterno", "apematerno", "perfil", "contrasena", 1)
+                    RowIdAdmin = 0
                     BotonesInicio()
                     CargarTiposAdministradores()
                     CargarAdministradores()
@@ -353,24 +395,29 @@ Public Class Principal
         End If
     End Sub
 
-    Private Sub txtFiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles txtFiltro.KeyDown
+    Private Sub txtFiltro_TextChanged(sender As Object, e As EventArgs) Handles txtFiltro.TextChanged
         CargarAdministradores()
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Dim contrasena As String = Nothing
         Dim estatus As Integer = Nothing
-        If String.IsNullOrEmpty(RowIdAdmin) Then
+        If String.IsNullOrEmpty(RowIdAdmin) Or RowIdAdmin = 0 Then
             MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
             Exit Sub
         Else
-            If cmbEstatusAdmin.SelectedText = "ACTIVO" Then
+            If cmbEstatusAdmin.SelectedText = "Activo" Then
                 estatus = 1
             Else
                 estatus = 0
             End If
             contrasena = VerificaCambioContraseña()
             If contrasena = 1 Then
+                Dim existente As Integer = VerificaAdministrador(1)
+                If existente = 1 Then
+                    MsgBox("La contraseña es incorrecta, ingrese una diferente", MsgBoxStyle.Information, "AVISO")
+                    Exit Sub
+                End If
                 contrasena = Trim(txtPwd.Text)
             Else
                 contrasena = ""
@@ -378,6 +425,7 @@ Public Class Principal
             Try
 
                 objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaAdmin, 2, RowIdAdmin, Trim(txtNombre.Text), Trim(txtPaterno.Text), Trim(txtMaterno.Text), Trim(cmbTipoAdmin.Text), Trim(contrasena), estatus)
+                RowIdAdmin = 0
                 BotonesInicio()
                 CargarTiposAdministradores()
                 CargarAdministradores()
@@ -394,6 +442,11 @@ Public Class Principal
             MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
             Exit Sub
         Else
+            Dim existente As Integer = VerificaAdministrador(0)
+            If existente = 1 Then
+                MsgBox("La contraseña es incorrecta, ingrese una diferente", MsgBoxStyle.Information, "AVISO")
+                Exit Sub
+            End If
             contrasena = VerificaNuevoAdmin()
             If contrasena = 1 Then
                 contrasena = txtPwd.Text
@@ -615,4 +668,6 @@ Public Class Principal
 #End Region
 
 #End Region
+
+
 End Class

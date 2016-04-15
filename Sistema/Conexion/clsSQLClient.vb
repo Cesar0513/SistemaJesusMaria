@@ -5,15 +5,16 @@ Imports Microsoft.VisualBasic
 
 Public Class clsSQLClient
 
-#Region "Variables"
 
-    Private _strConfiguracion As String = Nothing
-    Public strConfiguracion As String = Nothing
-    Dim valor = ConfigurationManager.AppSettings("strDefaultConfig").ToString()
+#Region "VAriables"
+    Private _strConfiguracion As String
+    Public strConfiguracion As String = ConfigurationManager.AppSettings("strDefaultConfig").ToString
 #End Region
 
+
 #Region "Propiedades"
-    Public cnn As SqlConnection
+    Public cnn As New SqlConnection()
+
     Public Property _cnn() As SqlConnection
         Get
             Return cnn
@@ -117,7 +118,7 @@ Public Class clsSQLClient
     End Sub
 
     Public Function obtenCadenaConexion() As String
-        strConexion = ConfigurationManager.ConnectionStrings(strConfiguracion).ConnectionString.ToString
+        strConexion = ConfigurationManager.AppSettings(strConfiguracion).ToString()
         Return strConexion
     End Function
 

@@ -285,6 +285,7 @@ Partial Class Principal
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.BackgroundImage = Global.Sistema.My.Resources.Resources.portada
         Me.SplitContainer1.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel2)
@@ -430,7 +431,7 @@ Partial Class Principal
         'cmbEstatusAdmin
         '
         Me.cmbEstatusAdmin.FormattingEnabled = True
-        Me.cmbEstatusAdmin.Items.AddRange(New Object() {"ACTIVO", "INACTVIO"})
+        Me.cmbEstatusAdmin.Items.AddRange(New Object() {"Activo", "Inactivo"})
         Me.cmbEstatusAdmin.Location = New System.Drawing.Point(113, 205)
         Me.cmbEstatusAdmin.Name = "cmbEstatusAdmin"
         Me.cmbEstatusAdmin.Size = New System.Drawing.Size(121, 25)
@@ -664,7 +665,7 @@ Partial Class Principal
         '
         'Column6
         '
-        Me.Column6.DataPropertyName = "IDADMIN"
+        Me.Column6.DataPropertyName = "IdAdmin"
         Me.Column6.HeaderText = "IDADMIN"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -672,7 +673,7 @@ Partial Class Principal
         '
         'Column1
         '
-        Me.Column1.DataPropertyName = "NOMBRE"
+        Me.Column1.DataPropertyName = "NomAdmin"
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column1.HeaderText = "NOMBRE"
@@ -682,7 +683,7 @@ Partial Class Principal
         '
         'Column3
         '
-        Me.Column3.DataPropertyName = "APELLIDOS"
+        Me.Column3.DataPropertyName = "ApeAdmin"
         Me.Column3.HeaderText = "APELLIDOS"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -690,7 +691,7 @@ Partial Class Principal
         '
         'Column7
         '
-        Me.Column7.DataPropertyName = "APEPATERNO"
+        Me.Column7.DataPropertyName = "ApePa"
         Me.Column7.HeaderText = "APEPATERNO"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -698,15 +699,15 @@ Partial Class Principal
         '
         'Column8
         '
-        Me.Column8.DataPropertyName = "APEMATERNO"
-        Me.Column8.HeaderText = "APEVILCHIS"
+        Me.Column8.DataPropertyName = "ApeMA"
+        Me.Column8.HeaderText = "APEMATERNO"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
         Me.Column8.Visible = False
         '
         'Column2
         '
-        Me.Column2.DataPropertyName = "PERFIL"
+        Me.Column2.DataPropertyName = "TipoAdmin"
         Me.Column2.HeaderText = "PERFIL "
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
@@ -714,7 +715,7 @@ Partial Class Principal
         '
         'ACTIVO
         '
-        Me.ACTIVO.DataPropertyName = "ESTATUS"
+        Me.ACTIVO.DataPropertyName = "Estatus"
         Me.ACTIVO.HeaderText = "ESTATUS"
         Me.ACTIVO.Name = "ACTIVO"
         Me.ACTIVO.ReadOnly = True
@@ -2589,13 +2590,6 @@ Partial Class Principal
     Friend WithEvents dtGridCorte As System.Windows.Forms.DataGridView
     Friend WithEvents FechaInicio As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnPagar As System.Windows.Forms.Button
-    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ACTIVO As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmbEstatusAdmin As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -2643,4 +2637,11 @@ Partial Class Principal
     Friend WithEvents Column21 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column22 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnBuscarCorte As System.Windows.Forms.Button
+    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ACTIVO As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
