@@ -28,6 +28,10 @@ Public Class Principal
     Private sp_CargarServicio As String = "Seguridad.CargaTipoServicio"
     Private sp_InsertaActualizaEliminaUsuario As String = "Seguridad.sp_InsertaActualizaEliminaUsuario"
 
+    'SP DE REDES
+    Private sp_CargarTamano As String = "Seguridad.sp_CargaTamanoRed"
+    Private sp_InsertaActualizaEliminaRedes As String = "Seguridad.sp_InsertaActualizaEliminaRedes"
+
 #End Region
 
 #Region "LOAD CLOSING FORMULARIO"
@@ -136,16 +140,6 @@ Public Class Principal
         End If
         Return retorna
     End Function
-
-    Public Sub LimpiarCamposAdmin()
-        txtNombre.Text = ""
-        txtPaterno.Text = ""
-        txtMaterno.Text = ""
-        cmbTipoAdmin.Text = ""
-        cmbEstatusAdmin.Text = ""
-        txtPwd.Text = ""
-        txtPwd1.Text = ""
-    End Sub
 
     Public Sub MostrarDatosAdmin(ByVal nombre As String, ByVal apepaterno As String, ByVal apematerno As String, ByVal tipo As String, ByVal perfil As String)
         txtNombre.Text = nombre
@@ -299,14 +293,6 @@ Public Class Principal
         End If
     End Sub
 
-    Public Sub LimpiarCamposUsuarios()
-        txtNombreUsu.Text = ""
-        txtPaternoUsu.Text = ""
-        txtMaternoUsu.Text = ""
-        FechaNacUsu.Value = Date.Now
-        txtPrecioTomaUsu.Text = ""
-        txtRefUsu.Text = ""
-    End Sub
 
     Public Sub MostrarDatosUsuario(ByVal nombre As String, ByVal apepaterno As String, ByVal apematerno As String, ByVal fec_nac As String, ByVal red As String, ByVal serv As String, ByVal ref As String)
         FechaNacUsu.Format = DateTimePickerFormat.Custom
@@ -346,12 +332,52 @@ Public Class Principal
 
 #Region "REDES"
 
-    Public Sub LimpiarCamposRedes()
-        txtNombre.Text = ""
-        txtPaterno.Text = ""
-        txtMaterno.Text = ""
-        txtPwd.Text = ""
-        txtPwd1.Text = ""
+    Public Sub CargarTamanoRed()
+        Dim dtFolio As DataTable = Nothing
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarTamano)
+
+            If dtFolio.Rows.Count = 0 Then
+                MsgBox("No hay Redes registradas", MsgBoxStyle.Information, "Aviso!")
+            Else
+                For i As Integer = 0 To dtFolio.Rows.Count - 1 Step 1
+                    cmbTamanoRed.Items.Add(dtFolio.Rows(i).Item(0))
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Problema al Cargar Servicios en Tab Usuarios: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub CargarRedesTab()
+        Dim filtro As String = ""
+        Dim dtFolio As New DataTable
+        If String.IsNullOrEmpty(txtFiltroRed.Text) Then
+            filtro = ""
+        Else
+            filtro = Trim(txtFiltroRed.Text)
+            Try
+                dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarRedes, filtro)
+
+                If dtFolio.Rows.Count = 0 Then
+                    MsgBox("No hay Redes Registrados", MsgBoxStyle.Information, "Aviso!")
+                    Me.dtGridRed.DataSource = dtFolio
+                Else
+                    Me.dtGridRed.DataSource = dtFolio
+                    Me.dtGridRed.CurrentRow.Selected = False
+                End If
+            Catch ex As Exception
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
+
+    Public Sub MostrarDatosRedes(ByVal strNombre As String, ByVal strEncargado As String, ByVal strTamano As String, ByVal strCuota As String, ByVal strRef As String)
+        txtNumRed.Text = strNombre
+        txtEncargadoRed.Text = strEncargado
+        cmbTamanoRed.SelectedItem = strTamano
+        txtCuotaRed.Text = strCuota
+        txtRefRed.Text = strRef
     End Sub
 
 #End Region
@@ -576,6 +602,77 @@ Public Class Principal
 
 #Region "REDES"
 
+    Private Sub dtGridRed_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dtGridRed.CellEnter
+        RowIdRed = 0
+        If e.RowIndex >= 0 Then
+            'BotonesModificaEliminaUsu()
+            RowIdRed = CInt(dtGridUsuarios.Rows(e.RowIndex).Cells(0).Value)
+            MostrarDatosRedes(CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(1).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(3).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(4).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(5).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(6).Value))
+        End If
+    End Sub
+
+    Private Sub btnAddRed_Click(sender As Object, e As EventArgs) Handles btnAddRed.Click
+        'BotonesNuevaRed()
+    End Sub
+
+    Private Sub btnCancelarUsu_Click(sender As Object, e As EventArgs) Handles btnCancelarUsu.Click
+        'BotonesInicioRed()
+    End Sub
+
+    Private Sub btnEliminarRed_Click(sender As Object, e As EventArgs) Handles btnEliminaRed.Click
+        If MessageBox.Show("Continuar para eliminar la Red", "INFORMACIÓN", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            Dim dtFolio As DataTable = Nothing
+            If String.IsNullOrEmpty(RowIdAdmin) Then
+                MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
+                Exit Sub
+            Else
+                Try
+                    dtFolio = objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaRedes, 3, RowIdUsuario, "nombre", "apepaterno", "apematerno", "perfil", "contrasena")
+                    BotonesInicioRed()
+                    CargarRedesTab()
+                Catch ex As Exception
+                    MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+                End Try
+            End If
+        End If
+    End Sub
+
+    Private Sub txtFiltroRed_TextChanged(sender As Object, e As EventArgs) Handles txtFiltroRed.TextChanged
+        CargarRedesTab()
+    End Sub
+
+    Private Sub btnModificarRed_Click(sender As Object, e As EventArgs) Handles btnModificarRed.Click
+        Dim estatus As Integer = Nothing
+        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
+            MsgBox("No ha selecionado una Red", MsgBoxStyle.Information, "AVISO!")
+            Exit Sub
+        Else
+            Try
+                Dim fec As String = Nothing
+                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 2, RowIdUsuario, Trim(txtNombreUsu.Text), Trim(txtPaternoUsu.Text), Trim(txtMaternoUsu.Text), FechaNacUsu.Format(), Trim(cmbRedUsu.SelectedItem), Trim(cmbTpoServUsu.SelectedItem), Trim(txtPrecioTomaUsu.Text), Trim(txtRefUsu.Text), 1)
+                BotonesInicioRed()
+                CargarRedesTab()
+            Catch ex As Exception
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnSaveUsu_Click(sender As Object, e As EventArgs) Handles btnSaveUsu.Click
+        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
+            MsgBox("No ha selecionado a un Usuario", MsgBoxStyle.Information, "AVISO!")
+            Exit Sub
+        Else
+            Try
+                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 1, 0, Trim(txtNombreUsu.Text), Trim(txtPaternoUsu.Text), Trim(txtMaternoUsu.Text), Trim(FechaNacUsu.Text), Trim(cmbRedUsu.SelectedItem), Trim(cmbTpoServUsu.SelectedItem), Trim(txtPrecioTomaUsu.Text), Trim(txtRefUsu.Text), 1)
+                BotonesInicioRed()
+                CargarRedesTab()
+            Catch ex As Exception
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
+
 #End Region
 
 #End Region
@@ -605,6 +702,16 @@ Public Class Principal
         txtRefUsu.Clear()
     End Sub
 
+    Public Sub LimpiarTabRedes()
+        txtFiltroRed.Clear()
+        dtGridRed.Rows.Clear()
+        txtNumRed.Clear()
+        txtEncargadoRed.Clear()
+        cmbTamanoRed.Text = ""
+        txtCuotaRed.Clear()
+        txtRefRed.Clear()
+    End Sub
+
 #End Region
 
 #Region "ENTER TAB'S"
@@ -618,7 +725,14 @@ Public Class Principal
 
     Private Sub TabUsuarios_Enter(sender As Object, e As EventArgs) Handles TabUsuarios.Enter, TabUsuarios.LostFocus
         LimpiarTabUsuarios()
+        CargarUsuarios()
         RowIdUsuario = 0
+    End Sub
+
+    Private Sub TabRedes_Enter(sender As Object, e As EventArgs) Handles TabRedes.Enter
+        LimpiarTabUsuarios()
+        CargarRedesTab()
+        RowIdRed = 0
     End Sub
 
 #End Region
@@ -627,6 +741,14 @@ Public Class Principal
 
     Private Sub TabAdmin_LostFocus(sender As Object, e As EventArgs) Handles TabAdmin.LostFocus
         LimpiarTabAdmin()
+    End Sub
+
+    Private Sub TabUsuarios_LostFocus(sender As Object, e As EventArgs) Handles TabUsuarios.LostFocus
+        LimpiarTabUsuarios()
+    End Sub
+
+    Private Sub TabRedes_LostFocus(sender As Object, e As EventArgs) Handles TabRedes.LostFocus
+        LimpiarTabRedes()
     End Sub
 
 #End Region
@@ -701,7 +823,71 @@ Public Class Principal
 
 #End Region
 
+#Region "REDES"
+    Public Sub BotonesInicioRed()
+        dtGridRed.Enabled = True
+        LimpiarCamposRedes()
+        btnSaveRed.Visible = False
+        btnCancelarRed.Visible = False
+        btnAddRed.Visible = True
+        btnModificarRed.Visible = True
+        btnEliminaRed.Visible = True
+    End Sub
+
+    Public Sub BotonesNuevoRed()
+        dtGridRed.Enabled = False
+        LimpiarCamposRedes()
+        btnSaveRed.Visible = True
+        btnCancelarRed.Visible = True
+        btnAddRed.Visible = False
+        btnModificarRed.Visible = False
+        btnEliminaRed.Visible = False
+    End Sub
+
+    Public Sub BotonesModificaEliminaRed()
+        dtGridRed.Enabled = True
+        btnSaveRed.Visible = False
+        btnCancelarRed.Visible = False
+        btnAddRed.Enabled = True
+        btnModificarRed.Enabled = True
+        btnEliminaRed.Enabled = True
+    End Sub
+
 #End Region
+
+#End Region
+
+#Region "LIMPIA CAMPOS"
+
+    Public Sub LimpiarCamposUsuarios()
+        txtNombreUsu.Text = ""
+        txtPaternoUsu.Text = ""
+        txtMaternoUsu.Text = ""
+        FechaNacUsu.Value = Date.Now
+        txtPrecioTomaUsu.Text = ""
+        txtRefUsu.Text = ""
+    End Sub
+
+    Public Sub LimpiarCamposRedes()
+        txtNombre.Text = ""
+        txtPaterno.Text = ""
+        txtMaterno.Text = ""
+        txtPwd.Text = ""
+        txtPwd1.Text = ""
+    End Sub
+
+    Public Sub LimpiarCamposAdmin()
+        txtNombre.Text = ""
+        txtPaterno.Text = ""
+        txtMaterno.Text = ""
+        cmbTipoAdmin.Text = ""
+        cmbEstatusAdmin.Text = ""
+        txtPwd.Text = ""
+        txtPwd1.Text = ""
+    End Sub
+
+#End Region
+
 
 
 End Class
