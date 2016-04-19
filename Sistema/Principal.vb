@@ -16,11 +16,16 @@ Public Class Principal
 
 #Region "SP"
 
+    'SP DE ADMINISTRADORES
     Private sp_CargarAdministradores As String = "Seguridad.CargaAdministradores"
     Private sp_CargarTipoAdministradores As String = "Seguridad.CargarTiposAdministradores"
     Private sp_InsertaActualizaEliminaAdmin As String = "Seguridad.sp_InsertaActualizaEliminaAdmin"
     Private sp_VerificaAdminExistente As String = "Seguridad.VerificaAdministrador"
-    Private sp_CargarUsuarios As String = "Seguridad.sp_CargarUsuarios"
+
+    'SP DE USUARIOS
+    Private sp_CargarUsuarios As String = "Seguridad.CargaUsuarios"
+    Private sp_CargarRedes As String = "Seguridad.CargaRedes"
+    Private sp_CargarServicio As String = "Seguridad.CargaTipoServicio"
     Private sp_InsertaActualizaEliminaUsuario As String = "Seguridad.sp_InsertaActualizaEliminaUsuario"
 
 #End Region
@@ -78,6 +83,7 @@ Public Class Principal
 #Region "ADMINISTRADORES"
 
     Public Sub CargarTiposAdministradores()
+        cmbTipoAdmin.Items.Clear()
         Dim dtFolio As New DataTable
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarTipoAdministradores, 1)
@@ -135,8 +141,8 @@ Public Class Principal
         txtNombre.Text = ""
         txtPaterno.Text = ""
         txtMaterno.Text = ""
-        cmbTipoAdmin.SelectedText = ""
-        cmbEstatusAdmin.SelectedText = ""
+        cmbTipoAdmin.Text = ""
+        cmbEstatusAdmin.Text = ""
         txtPwd.Text = ""
         txtPwd1.Text = ""
     End Sub
@@ -147,6 +153,8 @@ Public Class Principal
         txtMaterno.Text = apematerno
         cmbTipoAdmin.SelectedItem = tipo
         cmbEstatusAdmin.SelectedItem = perfil
+        txtPwd.Clear()
+        txtPwd1.Clear()
     End Sub
 
     Public Function VerificaNuevoAdmin()
@@ -235,61 +243,60 @@ Public Class Principal
 #Region "USUARIOS"
 
     Public Sub CargarRedUsuario()
-        cmbTipoAdmin.Items.Add("RED 1A")
-        cmbTipoAdmin.Items.Add("RED 1B")
-        'Dim dtFolio As DataTable = Nothing
-        'Try
-        '    dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, 1, "")
+        Dim dtFolio As DataTable = Nothing
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarRedes, 1)
 
-        '    If dtFolio.Rows.Count = 0 Then
-        '        MsgBox("No se cargaron los tipos de Administradores", MsgBoxStyle.Information, "Aviso!")
-        '    Else
-        '        For i As Integer = 0 To dtFolio.Rows.Count Step 1
-        '            cmbTipoAdmin.Controls.Add(dtFolio.Rows(i).Item(0))
-        '        Next
-        '    End If
-        'Catch ex As Exception
-        '    MsgBox("Problema al Cargar Tipo de Administradores: " & ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
+            If dtFolio.Rows.Count = 0 Then
+                MsgBox("No hay Redes registradas", MsgBoxStyle.Information, "Aviso!")
+            Else
+                For i As Integer = 0 To dtFolio.Rows.Count - 1 Step 1
+                    cmbRedUsu.Items.Add(dtFolio.Rows(i).Item(0))
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Problema al Cargar Redes en Tab Usuarios: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub CargarServicioUsuario()
+        Dim dtFolio As DataTable = Nothing
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarServicio, 1)
+
+            If dtFolio.Rows.Count = 0 Then
+                MsgBox("No hay Redes registradas", MsgBoxStyle.Information, "Aviso!")
+            Else
+                For i As Integer = 0 To dtFolio.Rows.Count - 1 Step 1
+                    cmbTpoServUsu.Items.Add(dtFolio.Rows(i).Item(0))
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Problema al Cargar Servicios en Tab Usuarios: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Public Sub CargarUsuarios()
+        Dim filtro As String = ""
         Dim dtFolio As New DataTable
+        If String.IsNullOrEmpty(txtFiltroUsu.Text) Then
+            filtro = ""
+        Else
+            filtro = Trim(txtFiltroUsu.Text)
+            Try
+                dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarUsuarios, filtro)
 
-        'dtFolio.Columns.AddRange(New DataColumn() {New DataColumn("IDADMIN", GetType(Integer)), _
-        '                                           New DataColumn("NOMBRE", GetType(String)), _
-        '                                           New DataColumn("APELLIDOS", GetType(String)), _
-        '                                           New DataColumn("APEPATERNO", GetType(String)), _
-        '                                           New DataColumn("APEMATERNO", GetType(String)), _
-        '                                           New DataColumn("IDPERFIL", GetType(Integer)), _
-        '                                           New DataColumn("PERFIL", GetType(String)), _
-        '                                           New DataColumn("ESTATUS", GetType(String))})
-
-        'dtFolio.Rows.Add(1, "Pepe", "Martinez Osorio", "Martinez", "Osorio", 1, "Administrador", "Activo")
-
-        'Me.dtGridAdmin.DataSource = dtFolio
-        'Me.dtGridAdmin.CurrentRow.Selected = False
-
-
-        'Dim filtro As String = ""
-        'Dim dtFolio As DataTable = Nothing
-        'If String.IsNullOrEmpty(txtFiltro.Text) Then
-        '    filtro = ""
-        'Else
-        '    Try
-        '        dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, 0, filtro)
-
-        '        If dtFolio.Rows.Count = 0 Then
-        '            MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
-        '            Me.dtGridAdmin.DataSource = dtFolio
-        '        Else
-        '            Me.dtGridAdmin.DataSource = dtFolio
-        '            Me.dtGridAdmin.CurrentRow.Selected = False
-        '        End If
-        '    Catch ex As Exception
-        '        MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End If
+                If dtFolio.Rows.Count = 0 Then
+                    MsgBox("No Usuarios Registrados", MsgBoxStyle.Information, "Aviso!")
+                    Me.dtGridUsuarios.DataSource = dtFolio
+                Else
+                    Me.dtGridUsuarios.DataSource = dtFolio
+                    Me.dtGridUsuarios.CurrentRow.Selected = False
+                End If
+            Catch ex As Exception
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
     End Sub
 
     Public Sub LimpiarCamposUsuarios()
@@ -301,10 +308,18 @@ Public Class Principal
         txtRefUsu.Text = ""
     End Sub
 
-    Public Sub MostrarDatosUsuario(ByVal nombre As String, ByVal apepaterno As String, ByVal apematerno As String, ByVal perfil As String)
+    Public Sub MostrarDatosUsuario(ByVal nombre As String, ByVal apepaterno As String, ByVal apematerno As String, ByVal fec_nac As String, ByVal red As String, ByVal serv As String, ByVal ref As String)
+        FechaNacUsu.Format = DateTimePickerFormat.Custom
+        FechaNacUsu.CustomFormat = "yyyy-MM-dd"
         txtNombreUsu.Text = nombre
         txtPaternoUsu.Text = apepaterno
         txtMaternoUsu.Text = apematerno
+        FechaNacUsu.Value = fec_nac
+        cmbRedUsu.SelectedItem = red
+        cmbTpoServUsu.SelectedItem = serv
+        txtPrecioTomaUsu.Text = 0
+        txtRefUsu.Text = ref
+        btnPagar.Visible = True
     End Sub
 
     Public Function VerificaNuevoUsuario()
@@ -351,14 +366,16 @@ Public Class Principal
     End Sub
 
     Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
-        Dim frmPagos As New Pago
-        frmPagos.ShowDialog()
+        'MsgBox("La clave del usuarios es : " & RowIdUsuario, MsgBoxStyle.Information, "AVISO!")
+        'Dim frmPagos As New Pago
+        'frmPagos.ShowDialog()
     End Sub
 
 #Region "ADMINISTRADORES"
 
     Private Sub dtGridAdmin_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dtGridAdmin.CellContentClick
         Dim clave As Integer = Nothing
+        RowIdAdmin = 0
         If e.RowIndex >= 0 Then
             BotonesModificaElimina()
             RowIdAdmin = CInt(dtGridAdmin.Rows(e.RowIndex).Cells(0).Value)
@@ -406,24 +423,29 @@ Public Class Principal
             MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
             Exit Sub
         Else
-            If cmbEstatusAdmin.SelectedText = "Activo" Then
+            If cmbEstatusAdmin.SelectedItem = "Activo" Then
                 estatus = 1
             Else
                 estatus = 0
             End If
-            contrasena = VerificaCambioContraseña()
-            If contrasena = 1 Then
-                Dim existente As Integer = VerificaAdministrador(1)
-                If existente = 1 Then
-                    MsgBox("La contraseña es incorrecta, ingrese una diferente", MsgBoxStyle.Information, "AVISO")
-                    Exit Sub
+            If Not String.IsNullOrEmpty(txtPwd.Text) And Not String.IsNullOrEmpty(txtPwd1.Text) Then
+                contrasena = VerificaCambioContraseña()
+                If contrasena = 1 Then
+                    Dim existente As Integer = VerificaAdministrador(1)
+                    If existente = 1 Then
+                        MsgBox("La contraseña es incorrecta, ingrese una diferente", MsgBoxStyle.Information, "AVISO")
+                        Exit Sub
+                    End If
+                    If Trim(txtPwd.Text) = Trim(txtPwd1.Text) Then
+                        contrasena = Trim(txtPwd.Text)
+                    End If
+                Else
+                    contrasena = ""
                 End If
-                contrasena = Trim(txtPwd.Text)
             Else
-                contrasena = ""
+                contrasena = "null"
             End If
             Try
-
                 objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaAdmin, 2, RowIdAdmin, Trim(txtNombre.Text), Trim(txtPaterno.Text), Trim(txtMaterno.Text), Trim(cmbTipoAdmin.Text), Trim(contrasena), estatus)
                 RowIdAdmin = 0
                 BotonesInicio()
@@ -466,18 +488,28 @@ Public Class Principal
 
 #Region "USUARIOS"
 
-    Private Sub dtGridUsuarios_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dtGridUsuarios.CellContentClick
+    Private Sub dtGridUsuarios_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dtGridUsuarios.CellEnter
+        FechaNacUsu.Format = DateTimePickerFormat.Custom
+        FechaNacUsu.CustomFormat = "yyyy-MM-dd"
         Dim clave As Integer = Nothing
+        RowIdUsuario = 0
         If e.RowIndex >= 0 Then
-            BotonesModificaElimina()
-            clave = CInt(dtGridUsuarios.Rows(e.RowIndex).Cells(0).Value)
-            MostrarDatosUsuario(CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(1).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(3).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(4).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(6).Value))
+            BotonesModificaEliminaUsu()
+            txtPrecioTomaUsu.Enabled = False
+            RowIdUsuario = CInt(dtGridUsuarios.Rows(e.RowIndex).Cells(0).Value)
+            MostrarDatosUsuario(CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(1).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(3).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(4).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(5).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(6).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(7).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(8).Value))
+            If RowIdUsuario = 0 Then
+                btnPagar.Visible = False
+            Else
+                btnPagar.Visible = True
+            End If
         End If
     End Sub
 
     Private Sub btnAddUsu_Click(sender As Object, e As EventArgs) Handles btnAddUsu.Click
         BotonesNuevoUsu()
         CargarRedUsuario()
+        txtPrecioTomaUsu.Enabled = True
     End Sub
 
     Private Sub btnCancelarUsu_Click(sender As Object, e As EventArgs) Handles btnCancelarUsu.Click
@@ -503,21 +535,21 @@ Public Class Principal
         End If
     End Sub
 
-    Private Sub txtFiltroUsu_KeyDown(sender As Object, e As KeyEventArgs) Handles txtFiltroUsu.KeyDown
+    Private Sub txtFiltroUsu_TextChanged(sender As Object, e As EventArgs) Handles txtFiltroUsu.TextChanged
         CargarUsuarios()
     End Sub
 
     Private Sub btnModificarUsu_Click(sender As Object, e As EventArgs) Handles btnModUsu.Click
         Dim estatus As Integer = Nothing
-        If String.IsNullOrEmpty(RowIdAdmin) Then
+        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
             MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
             Exit Sub
         Else
             Try
-
-                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaAdmin, 2, RowIdAdmin, Trim(txtNombre.Text), Trim(txtPaterno.Text), Trim(txtMaterno.Text), Trim(cmbTipoAdmin.Text), estatus)
+                Dim fec As String = Nothing
+                'FechaNacUsu.Text
+                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 2, RowIdUsuario, Trim(txtNombreUsu.Text), Trim(txtPaternoUsu.Text), Trim(txtMaternoUsu.Text), FechaNacUsu.Text, Trim(cmbRedUsu.SelectedItem), Trim(cmbTpoServUsu.SelectedItem), Trim(txtPrecioTomaUsu.Text), Trim(txtRefUsu.Text), 1)
                 BotonesInicioUsu()
-                CargarRedUsuario()
                 CargarUsuarios()
             Catch ex As Exception
                 MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
@@ -526,14 +558,13 @@ Public Class Principal
     End Sub
 
     Private Sub btnSaveUsu_Click(sender As Object, e As EventArgs) Handles btnSaveUsu.Click
-        If String.IsNullOrEmpty(RowIdAdmin) Then
+        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
             MsgBox("No ha selecionado a un Usuario", MsgBoxStyle.Information, "AVISO!")
             Exit Sub
         Else
             Try
-                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 1, 0, Trim(txtNombre.Text), Trim(txtPaterno.Text), Trim(txtMaterno.Text), Trim(cmbTipoAdmin.Text), 1)
+                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 1, 0, Trim(txtNombreUsu.Text), Trim(txtPaternoUsu.Text), Trim(txtMaternoUsu.Text), Trim(FechaNacUsu.Text), Trim(cmbRedUsu.SelectedItem), Trim(cmbTpoServUsu.SelectedItem), Trim(txtPrecioTomaUsu.Text), Trim(txtRefUsu.Text), 1)
                 BotonesInicioUsu()
-                CargarRedUsuario()
                 CargarUsuarios()
             Catch ex As Exception
                 MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
@@ -580,13 +611,14 @@ Public Class Principal
 
     Private Sub TabAdmin_Enter(sender As Object, e As EventArgs) Handles TabAdmin.Enter
         BotonesInicio()
-        CargarTiposAdministradores()
+        CargarRedUsuario()
+        CargarServicioUsuario()
         RowIdAdmin = 0
     End Sub
 
     Private Sub TabUsuarios_Enter(sender As Object, e As EventArgs) Handles TabUsuarios.Enter, TabUsuarios.LostFocus
         LimpiarTabUsuarios()
-        RowIdAdmin = 0
+        RowIdUsuario = 0
     End Sub
 
 #End Region
@@ -639,6 +671,7 @@ Public Class Principal
     Public Sub BotonesInicioUsu()
         dtGridUsuarios.Enabled = True
         LimpiarCamposUsuarios()
+        btnPagar.Visible = True
         btnSaveUsu.Visible = False
         btnCancelarUsu.Visible = False
         btnAddUsu.Visible = True
@@ -650,6 +683,7 @@ Public Class Principal
         dtGridUsuarios.Enabled = False
         LimpiarCamposUsuarios()
         btnSaveUsu.Visible = True
+        btnPagar.Visible = False
         btnCancelarUsu.Visible = True
         btnAddUsu.Visible = False
         btnModUsu.Visible = False

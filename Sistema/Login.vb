@@ -24,9 +24,8 @@ Public Class Login
                 DatosSession.DatosSession(CInt(dtFolio.Rows(0).Item(0).ToString()), CStr(dtFolio.Rows(0).Item(1).ToString()), CStr(dtFolio.Rows(0).Item(2).ToString()))
 
                 If DatosSession.IdAdmin <> 0 Then
-                    Dim frmPrincipal As New Principal
-                    frmPrincipal.Show()
-                    Me.Hide()
+                    Principal.Show()
+                    Me.Close()
                 End If
             Else
                 MsgBox("No se encontro usuario con esa contraseña, Intente nuevamente", MsgBoxStyle.Critical, "AVISO!")
