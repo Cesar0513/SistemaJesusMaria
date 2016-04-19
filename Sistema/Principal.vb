@@ -12,6 +12,7 @@ Public Class Principal
     Dim RowIdUsuario As Integer = Nothing
     Dim RowIdRed As Integer = Nothing
     Dim AdminSistema As Integer = Nothing
+    Dim UsuariosOperaciones As New clsUsuarios
 #End Region
 
 #Region "SP"
@@ -271,13 +272,6 @@ Public Class Principal
     End Sub
 
     Public Sub CargarUsuarios()
-        Dim Usuarios As New clsUsuarios
-        Dim UsuariosOperaciones As New clsUsuarios
-        Usuarios.IdUsuario = 1
-        Usuarios.NombreUsu = "Cesar"
-        UsuariosOperaciones.VerificaExistenciaUsuario(Usuarios, "cesar")
-
-
         Dim filtro As String = ""
         Dim dtFolio As New DataTable
         If String.IsNullOrEmpty(txtFiltroUsu.Text) Then
@@ -285,17 +279,17 @@ Public Class Principal
         Else
             filtro = Trim(txtFiltroUsu.Text)
             Try
-                dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarUsuarios, filtro)
+                dtFolio = UsuariosOperaciones.CargarUsuarios(filtro)
 
                 If dtFolio.Rows.Count = 0 Then
-                    MsgBox("No Usuarios Registrados", MsgBoxStyle.Information, "Aviso!")
+                    MsgBox("No hay Usuarios Registrados", MsgBoxStyle.Information, "Aviso!")
                     Me.dtGridUsuarios.DataSource = dtFolio
                 Else
                     Me.dtGridUsuarios.DataSource = dtFolio
                     Me.dtGridUsuarios.CurrentRow.Selected = False
                 End If
             Catch ex As Exception
-                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+                MsgBox("Error al Cargar Usuarios: " & ex.Message, MsgBoxStyle.Critical, "Error")
             End Try
         End If
     End Sub

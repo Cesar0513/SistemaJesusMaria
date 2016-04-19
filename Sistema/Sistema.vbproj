@@ -73,6 +73,7 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\clsAdministrador.vb" />
     <Compile Include="Clases\clsUsuarios.vb" />
     <Compile Include="Conexion\clsMysqlClient.vb" />
     <Compile Include="Conexion\clsMysqlCliente_1.vb" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\deduda.jpg" />
+    <Content Include="Sql Script\Sistema.sql" />
     <None Include="Resources\deduda1.jpg" />
     <Content Include="Resources\icon1.png" />
     <None Include="Resources\money.png" />

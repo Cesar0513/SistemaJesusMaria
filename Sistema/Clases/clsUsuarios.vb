@@ -7,10 +7,13 @@ Public Class clsUsuarios
 
 #Region "Variables"
     Dim objSQL As New clsSQLClient()
+    Dim dtFolio As New DataTable()
+    Dim dtRetorna As New DataTable()
 #End Region
 
 #Region "SP SVT"
     Private sp_VerificaAdminExistente As String = "Seguridad.sp_sp_VerificaUsuarioExistente"
+    Private sp_CargarUsuarios As String = "Seguridad.sp_CargarUsuarios"
 #End Region
 
 #Region "Constructor"
@@ -131,10 +134,19 @@ Public Class clsUsuarios
 
 #Region "Métodos"
 
-    Public Sub VerificaExistenciaUsuario(usuario As clsUsuarios, strFiltro As String)
+    Public Function CargarUsuarios(strFiltro As String) As DataTable
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarUsuarios, strFiltro)
+        Catch ex As Exception
+            MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return dtFolio
+    End Function
+
+    Public Sub VerificaExistenciaUsuario(usuario As clsUsuarios)
         Dim dtFolio As New DataTable
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaAdminExistente, Trim(strFiltro))
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaAdminExistente)
 
             If dtFolio.Rows.Count = 0 Then
                 MsgBox("Sin resultados", MsgBoxStyle.Information, "Aviso!")
