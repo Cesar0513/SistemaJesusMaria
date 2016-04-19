@@ -271,6 +271,13 @@ Public Class Principal
     End Sub
 
     Public Sub CargarUsuarios()
+        Dim Usuarios As New clsUsuarios
+        Dim UsuariosOperaciones As New clsUsuarios
+        Usuarios.IdUsuario = 1
+        Usuarios.NombreUsu = "Cesar"
+        UsuariosOperaciones.VerificaExistenciaUsuario(Usuarios, "cesar")
+
+
         Dim filtro As String = ""
         Dim dtFolio As New DataTable
         If String.IsNullOrEmpty(txtFiltroUsu.Text) Then
@@ -712,6 +719,13 @@ Public Class Principal
         txtRefRed.Clear()
     End Sub
 
+    Public Sub LimpiarTabServicio()
+        dtGridServicio.Rows.Clear()
+        txtServ.Clear()
+        txtCuotaServ.Clear()
+        cmbEstatusServ.Text = ""
+    End Sub
+
 #End Region
 
 #Region "ENTER TAB'S"
@@ -733,6 +747,12 @@ Public Class Principal
         LimpiarTabUsuarios()
         CargarRedesTab()
         RowIdRed = 0
+    End Sub
+
+    Private Sub TabServicio_Enter(sender As Object, e As EventArgs) Handles TabServ.Enter
+        LimpiarTabServicio()
+        CargarServicios()
+        RowIdServicio = 0
     End Sub
 
 #End Region

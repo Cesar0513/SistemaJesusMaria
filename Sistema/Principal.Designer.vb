@@ -138,19 +138,19 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabServ = New System.Windows.Forms.TabPage()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.cmbEstatusRed = New System.Windows.Forms.ComboBox()
+        Me.cmbEstatusServ = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtCuotaServ = New System.Windows.Forms.TextBox()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtServ = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dtGridServicio = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -259,7 +259,7 @@ Partial Class Principal
         CType(Me.dtGridRed, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabServ.SuspendLayout()
         Me.Panel6.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtGridServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabReconexion.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -278,7 +278,7 @@ Partial Class Principal
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1204, 654)
+        Me.Panel1.Size = New System.Drawing.Size(1200, 650)
         Me.Panel1.TabIndex = 0
         '
         'SplitContainer1
@@ -300,8 +300,8 @@ Partial Class Principal
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1204, 654)
-        Me.SplitContainer1.SplitterDistance = 148
+        Me.SplitContainer1.Size = New System.Drawing.Size(1200, 650)
+        Me.SplitContainer1.SplitterDistance = 147
         Me.SplitContainer1.TabIndex = 0
         '
         'Button1
@@ -1404,7 +1404,7 @@ Partial Class Principal
         'TabServ
         '
         Me.TabServ.Controls.Add(Me.Panel6)
-        Me.TabServ.Controls.Add(Me.DataGridView1)
+        Me.TabServ.Controls.Add(Me.dtGridServicio)
         Me.TabServ.Location = New System.Drawing.Point(4, 26)
         Me.TabServ.Name = "TabServ"
         Me.TabServ.Size = New System.Drawing.Size(1204, 478)
@@ -1414,16 +1414,16 @@ Partial Class Principal
         '
         'Panel6
         '
-        Me.Panel6.Controls.Add(Me.cmbEstatusRed)
+        Me.Panel6.Controls.Add(Me.cmbEstatusServ)
         Me.Panel6.Controls.Add(Me.Label23)
         Me.Panel6.Controls.Add(Me.Button2)
         Me.Panel6.Controls.Add(Me.Button3)
         Me.Panel6.Controls.Add(Me.Button4)
         Me.Panel6.Controls.Add(Me.Button5)
         Me.Panel6.Controls.Add(Me.Button6)
-        Me.Panel6.Controls.Add(Me.TextBox3)
+        Me.Panel6.Controls.Add(Me.txtCuotaServ)
         Me.Panel6.Controls.Add(Me.Label32)
-        Me.Panel6.Controls.Add(Me.TextBox4)
+        Me.Panel6.Controls.Add(Me.txtServ)
         Me.Panel6.Controls.Add(Me.Label33)
         Me.Panel6.Controls.Add(Me.Label34)
         Me.Panel6.Location = New System.Drawing.Point(511, 19)
@@ -1431,13 +1431,13 @@ Partial Class Principal
         Me.Panel6.Size = New System.Drawing.Size(381, 431)
         Me.Panel6.TabIndex = 12
         '
-        'cmbEstatusRed
+        'cmbEstatusServ
         '
-        Me.cmbEstatusRed.FormattingEnabled = True
-        Me.cmbEstatusRed.Location = New System.Drawing.Point(120, 194)
-        Me.cmbEstatusRed.Name = "cmbEstatusRed"
-        Me.cmbEstatusRed.Size = New System.Drawing.Size(121, 25)
-        Me.cmbEstatusRed.TabIndex = 22
+        Me.cmbEstatusServ.FormattingEnabled = True
+        Me.cmbEstatusServ.Location = New System.Drawing.Point(120, 194)
+        Me.cmbEstatusServ.Name = "cmbEstatusServ"
+        Me.cmbEstatusServ.Size = New System.Drawing.Size(121, 25)
+        Me.cmbEstatusServ.TabIndex = 22
         '
         'Label23
         '
@@ -1518,12 +1518,12 @@ Partial Class Principal
         Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'TextBox3
+        'txtCuotaServ
         '
-        Me.TextBox3.Location = New System.Drawing.Point(120, 141)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(121, 24)
-        Me.TextBox3.TabIndex = 8
+        Me.txtCuotaServ.Location = New System.Drawing.Point(120, 141)
+        Me.txtCuotaServ.Name = "txtCuotaServ"
+        Me.txtCuotaServ.Size = New System.Drawing.Size(121, 24)
+        Me.txtCuotaServ.TabIndex = 8
         '
         'Label32
         '
@@ -1535,12 +1535,12 @@ Partial Class Principal
         Me.Label32.TabIndex = 7
         Me.Label32.Text = "Cuota"
         '
-        'TextBox4
+        'txtServ
         '
-        Me.TextBox4.Location = New System.Drawing.Point(120, 85)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(219, 24)
-        Me.TextBox4.TabIndex = 6
+        Me.txtServ.Location = New System.Drawing.Point(120, 85)
+        Me.txtServ.Name = "txtServ"
+        Me.txtServ.Size = New System.Drawing.Size(219, 24)
+        Me.txtServ.TabIndex = 6
         '
         'Label33
         '
@@ -1562,18 +1562,18 @@ Partial Class Principal
         Me.Label34.TabIndex = 4
         Me.Label34.Text = "Tipos de Servicio"
         '
-        'DataGridView1
+        'dtGridServicio
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToOrderColumns = True
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.Column10})
-        Me.DataGridView1.Location = New System.Drawing.Point(5, 19)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(490, 437)
-        Me.DataGridView1.TabIndex = 11
+        Me.dtGridServicio.AllowUserToAddRows = False
+        Me.dtGridServicio.AllowUserToDeleteRows = False
+        Me.dtGridServicio.AllowUserToOrderColumns = True
+        Me.dtGridServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtGridServicio.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.Column10})
+        Me.dtGridServicio.Location = New System.Drawing.Point(5, 19)
+        Me.dtGridServicio.Name = "dtGridServicio"
+        Me.dtGridServicio.ReadOnly = True
+        Me.dtGridServicio.Size = New System.Drawing.Size(490, 437)
+        Me.dtGridServicio.TabIndex = 11
         '
         'DataGridViewTextBoxColumn11
         '
@@ -2438,7 +2438,7 @@ Partial Class Principal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1204, 654)
+        Me.ClientSize = New System.Drawing.Size(1200, 650)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -2473,7 +2473,7 @@ Partial Class Principal
         Me.TabServ.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtGridServicio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabReconexion.ResumeLayout(False)
         Me.TabReconexion.PerformLayout()
         Me.Panel7.ResumeLayout(False)
@@ -2573,19 +2573,19 @@ Partial Class Principal
     Friend WithEvents dtGridRed As System.Windows.Forms.DataGridView
     Friend WithEvents TabServ As System.Windows.Forms.TabPage
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
-    Friend WithEvents cmbEstatusRed As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbEstatusServ As System.Windows.Forms.ComboBox
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents txtCuotaServ As System.Windows.Forms.TextBox
     Friend WithEvents Label32 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents txtServ As System.Windows.Forms.TextBox
     Friend WithEvents Label33 As System.Windows.Forms.Label
     Friend WithEvents Label34 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dtGridServicio As System.Windows.Forms.DataGridView
     Friend WithEvents TabReconexion As System.Windows.Forms.TabPage
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox

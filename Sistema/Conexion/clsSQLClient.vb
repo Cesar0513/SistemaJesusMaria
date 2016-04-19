@@ -6,7 +6,7 @@ Imports Microsoft.VisualBasic
 Public Class clsSQLClient
 
 
-#Region "VAriables"
+#Region "Variables"
     Private _strConfiguracion As String
     Public strConfiguracion As String = ConfigurationManager.AppSettings("strDefaultConfig").ToString
 #End Region

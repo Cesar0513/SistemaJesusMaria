@@ -73,6 +73,7 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\clsUsuarios.vb" />
     <Compile Include="Conexion\clsMysqlClient.vb" />
     <Compile Include="Conexion\clsMysqlCliente_1.vb" />
     <Compile Include="Conexion\clsSQLClient.vb" />
