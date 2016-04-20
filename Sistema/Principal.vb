@@ -11,8 +11,6 @@ Public Class Principal
     Dim RowIdAdmin As Integer = Nothing
     Dim RowIdUsuario As Integer = Nothing
     Dim RowIdRed As Integer = Nothing
-    Dim AdminSistema As Integer = Nothing
-    Dim UsuariosOperaciones As New clsUsuarios
 #End Region
 
 #Region "SP"
@@ -55,7 +53,6 @@ Public Class Principal
             Login.Show()
             Me.Close()
         End If
-        AdminSistema = DatosSession.IdAdmin
         lblUsuario.Text = DatosSession.NomAdmin
         lblPerfil.Text = DatosSession.PerfilAdmin
     End Sub
@@ -90,9 +87,9 @@ Public Class Principal
     Public Sub CargarTiposAdministradores()
         cmbTipoAdmin.Items.Clear()
         Dim dtFolio As New DataTable
+        Dim tipo As New clsAdministrador()
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarTipoAdministradores, 1)
-
+            dtFolio = tipo.CargarAdministradores(0, "q")
             If dtFolio.Rows.Count = 0 Then
                 MsgBox("No se cargaron los tipos de Administradores", MsgBoxStyle.Information, "Aviso!")
             Else
@@ -106,6 +103,7 @@ Public Class Principal
     End Sub
 
     Public Sub CargarAdministradores()
+        Dim admin As New clsAdministrador()
         Dim filtro As String = ""
         Dim dtFolio As New DataTable
         If String.IsNullOrEmpty(txtFiltro.Text) Then
@@ -113,7 +111,7 @@ Public Class Principal
         Else
             filtro = Trim(txtFiltro.Text)
             Try
-                dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, filtro)
+                dtFolio = admin.CargarAdministradores(1, filtro)
 
                 If dtFolio.Rows.Count = 0 Then
                     MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
@@ -153,6 +151,7 @@ Public Class Principal
     End Sub
 
     Public Function VerificaNuevoAdmin()
+        Dim admin As New clsAdministrador()
         Dim retorna As Integer = Nothing
         If String.IsNullOrEmpty(txtNombre.Text) Then
             MsgBox("El Nombre es obligatorio", MsgBoxStyle.Information, "Error!")
@@ -173,6 +172,9 @@ Public Class Principal
             MsgBox("Las Contraseñas no coinciden", MsgBoxStyle.Information, "Error!")
             txtPwd1.Text = ""
             retorna = 0
+        ElseIf txtPwd.Text = txtPwd1.Text Then
+            retorna = admin.VerificaExistenciaAdmin(CStr(txtPwd.Text))
+            MsgBox("Contraseña Incorrecta, intenta una Nueva", MsgBoxStyle.Information, "Error!")
         Else
             retorna = 1
         End If

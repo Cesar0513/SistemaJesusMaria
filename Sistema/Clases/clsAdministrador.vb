@@ -111,9 +111,19 @@ Public Class clsAdministrador
 
 #Region "Métodos"
 
-    Public Function CargarAdministradores(strFiltro As String) As DataTable
+    Public Function CargarAdministradores(strTipo As Integer, strFiltro As String) As DataTable
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, strFiltro)
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, strTipo, strFiltro)
+        Catch ex As Exception
+            MsgBox("Ocurrio el siguiente problema al cargar Administradores: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return dtFolio
+    End Function
+
+
+    Public Function CargarTiposAdministradores(strTipo As Integer, strFiltro As String) As DataTable
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, strTipo, strFiltro)
         Catch ex As Exception
             MsgBox("Ocurrio el siguiente problema al cargar Administradores: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
