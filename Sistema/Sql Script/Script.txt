@@ -1,4 +1,4 @@
-
+﻿
 
 CREATE DATABASE SistemaAgua;
 USE SistemaAgua;
@@ -157,90 +157,5 @@ CREATE TABLE Catalogos.TipoAportacion
 INSERT INTO Catalogos.TipoAportacion VALUES ('APORTACION','ESTA ES UNA CANTIDAD EXTRA SEGUN ACUERDO')
 INSERT INTO Catalogos.TipoAportacion VALUES ('SANCION','ES UNA MULTA POR ALGUNA INFRACCION QUE EL USUARIO PUEDA COMETER')
 INSERT INTO Catalogos.TipoAportacion VALUES ('REPARACION','ES EL COSTO DE LA REPARACION POR LA CUAL SE DEVOLVERA EL SERVICIO')
-
-
--- AQUI VISTAS
-
-
-CREATE VIEW [dbo].[CargarAdministradores]
-AS
-SELECT     Catalogos.Administrador.IdAdministrador, Catalogos.Administrador.NomAdmin, Catalogos.TipoAdministrador.NomTipo, Catalogos.Administrador.ApePatAdmin, 
-                      Catalogos.Administrador.ApeMatAdmin, Catalogos.Administrador.EstaAdmin, Catalogos.TipoAdministrador.EstaTipo, Catalogos.TipoAdministrador.IdTipoAdmin
-FROM         Catalogos.Administrador INNER JOIN
-                      Catalogos.TipoAdministrador ON Catalogos.Administrador.IdTipoAdmin = Catalogos.TipoAdministrador.IdTipoAdmin
-GO
-
-
-CREATE VIEW [dbo].[CargarUsuarios]
-AS
-SELECT     Catalogos.Usuarios.IdUsuario, Catalogos.Usuarios.NomUsuario, Catalogos.Usuarios.ApePatUsuario, Catalogos.Usuarios.ApeMatUsuario, Catalogos.Usuarios.FecNacUsuario, 
-                      Catalogos.Usuarios.PrecTomaUsuario, Catalogos.Usuarios.RefUsuario, Catalogos.Usuarios.EstaUsuario, Catalogos.TipoServicio.IdTipo, Catalogos.TipoServicio.NomTipo, 
-                      Catalogos.TipoServicio.CuotaTipo, Catalogos.Redes.IdRed, Catalogos.Redes.NomRed, Catalogos.RedTamano.NomTamano
-FROM         Catalogos.Usuarios INNER JOIN
-                      Catalogos.TipoServicio ON Catalogos.Usuarios.IdTipo = Catalogos.TipoServicio.IdTipo INNER JOIN
-                      Catalogos.Redes ON Catalogos.Usuarios.IdRed = Catalogos.Redes.IdRed INNER JOIN
-                      Catalogos.RedTamano ON Catalogos.Redes.IdTamano = Catalogos.RedTamano.IdTamano
-GO
-
-CREATE VIEW [dbo].[CargaRedes]
-AS
-SELECT     Catalogos.Redes.IdRed, Catalogos.Redes.NomRed, Catalogos.Redes.EncarRed, Catalogos.Redes.CuotaRed, Catalogos.Redes.RefRed, Catalogos.RedTamano.NomTamano, 
-                      Catalogos.RedTamano.Tamano
-FROM         Catalogos.Redes INNER JOIN
-                      Catalogos.RedTamano ON Catalogos.Redes.IdTamano = Catalogos.RedTamano.IdTamano
-GO
-
-
-
--- AQUI STORE PROCEDURES
-
-
-CREATE PROCEDURE Seguridad.sp_InicioSessionAdmin 
-	@pwd nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT Top 1
-		IdAdministrador as IdAdmin,
-		NomAdmin + ' ' + ApePatAdmin as NomAdmin,
-		NomTipo as PerfilAdmin
-	FROM dbo.CargarAdministradores
-	WHERE PwdAdmin = 123--@pwd
-END
-GO
-
-
--- =============================================
-CREATE PROCEDURE Seguridad.sp_CargarAdministradores 
-	@filtro nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON;
-	IF @filtro = '*'
-		BEGIN
-			SELECT 
-				IdAdministrador as IdAdmin,
-				NomAdmin as NomAdmin,
-				ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
-				ApePatAdmin as ApePatAdmin,
-				ApeMatAdmin as ApeMatAdmin,
-				NomTipo as PerfilAdmin,
-				CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-			FROM dbo.CargarAdministradores
-			--WHERE PwdAdmin = 123--@pwd
-		END
-	ELSE
-		SELECT 
-				IdAdministrador as IdAdmin,
-				NomAdmin as NomAdmin,
-				ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
-				ApePatAdmin as ApePatAdmin,
-				ApeMatAdmin as ApeMatAdmin,
-				NomTipo as PerfilAdmin,
-				CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-			FROM dbo.CargarAdministradores
-			WHERE NomAdmin LIKE '%'+ @filtro +'%'
-END
-GO
 
 

@@ -1,0 +1,50 @@
+﻿-- AQUI STORE PROCEDURES
+
+
+CREATE PROCEDURE Seguridad.sp_InicioSessionAdmin 
+	@pwd nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Top 1
+		IdAdministrador as IdAdmin,
+		NomAdmin + ' ' + ApePatAdmin as NomAdmin,
+		NomTipo as PerfilAdmin
+	FROM dbo.CargarAdministradores
+	WHERE PwdAdmin = 123--@pwd
+END
+GO
+
+
+-- =============================================
+CREATE PROCEDURE Seguridad.sp_CargarAdministradores 
+	@filtro nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF @filtro = '*'
+		BEGIN
+			SELECT 
+				IdAdministrador as IdAdmin,
+				NomAdmin as NomAdmin,
+				ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
+				ApePatAdmin as ApePatAdmin,
+				ApeMatAdmin as ApeMatAdmin,
+				NomTipo as PerfilAdmin,
+				CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+			FROM dbo.CargarAdministradores
+			--WHERE PwdAdmin = 123--@pwd
+		END
+	ELSE
+		SELECT 
+				IdAdministrador as IdAdmin,
+				NomAdmin as NomAdmin,
+				ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
+				ApePatAdmin as ApePatAdmin,
+				ApeMatAdmin as ApeMatAdmin,
+				NomTipo as PerfilAdmin,
+				CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+			FROM dbo.CargarAdministradores
+			WHERE NomAdmin LIKE '%'+ @filtro +'%'
+END
+GO
