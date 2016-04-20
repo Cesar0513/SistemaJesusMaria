@@ -3,6 +3,20 @@
 CREATE DATABASE SistemaAgua;
 USE SistemaAgua;
 
+CREATE SCHEMA [CRUD] AUTHORIZATION [dbo]
+GO
+
+CREATE SCHEMA [Seguridad] AUTHORIZATION [dbo]
+GO
+
+CREATE SCHEMA [Catalogos] AUTHORIZATION [dbo]
+GO
+
+CREATE SCHEMA [Operaciones] AUTHORIZATION [dbo]
+GO
+
+
+
 CREATE TABLE Catalogos.Administrador
 (
 	IdAdministrador int primary key not null Identity,
@@ -83,14 +97,13 @@ INSERT INTO Catalogos.TipoServicio VALUES ('DOMESTICO',57,1)
 INSERT INTO Catalogos.TipoServicio VALUES ('COMERCIAL',122,1)
 INSERT INTO Catalogos.TipoServicio VALUES ('ESPECIAL',240,1)
 
-
-
-CREATE TABLE Catalogos.Pagousuarios
+CREATE TABLE Catalogos.PagoUsuarios
 (
 	IdPago int primary key not null Identity,
 	IdUsuario int,
 	IdAdministrador int,
 	FechaPago DateTime,
+	Meses nvarchar(200),
 	Enero int,
 	Febrero int,
 	Marzo int,
@@ -106,7 +119,8 @@ CREATE TABLE Catalogos.Pagousuarios
 	Anio int,
 	SubPago float,
 	DescPago float,
-	MontoPago float
+	MontoPago float,
+	PagoCorte int
 )
 
 CREATE TABLE Catalogos.DescPago
@@ -117,25 +131,6 @@ CREATE TABLE Catalogos.DescPago
 	Cantdesc float,
 	DescDesc nvarchar(1000)
 )
-
-CREATE TABLE Catalogos.CorteCaja
-(
-	IdCorte int primary key not null Identity,
-	Fecha DateTime,
-	IdAdmin int,
-	AdminCorte int,
-	NumPagos int,
-	MontoCorte float 
-)
-
-CREATE TABLE Catalogos.PagosCorte
-(
-	IdCorPag int primary key not null Identity,
-	IdPago int,
-	IdCorte int,
-	EstaCorPag int
-)
-
 
 CREATE TABLE Catalogos.AportUsuarios
 (
