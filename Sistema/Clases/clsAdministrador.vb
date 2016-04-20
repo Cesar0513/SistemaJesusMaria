@@ -10,9 +10,9 @@ Public Class clsAdministrador
 #End Region
 
 #Region "SP SVT"
-    Private sp_VerificaAdminExistente As String = "Seguridad.sp_sp_VerificaAdminExistente"
     Private sp_CargarAdministradores As String = "Seguridad.sp_CargarAdministradores"
-    Private sp_InsertaModificaEliminaAdmin As String = "Seguridad.sp_InsertaModificaEliminaAdmin"
+    Private sp_VerificaNuevoAdmin As String = "Operaciones.sp_VerificaNuevoAdmin"
+    Private sp_InsertaModificaEliminaAdministrador As String = "CRUD.sp_InsertaModificaEliminaAdministrador"
 #End Region
 
 #Region "Constructor"
@@ -120,28 +120,19 @@ Public Class clsAdministrador
         Return dtFolio
     End Function
 
-    Public Sub VerificaExistenciaAdmin(admin As clsAdministrador)
+    Public Function VerificaExistenciaAdmin(strPwd As String)
         Dim dtFolio As New DataTable
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaAdminExistente, admin.PwdAdmin)
-
-            If dtFolio.Rows.Count = 0 Then
-                MsgBox("Sin resultados", MsgBoxStyle.Information, "Aviso!")
-            Else
-                'If CInt(dtFolio.Rows(0).Item(0)) >= 1 Then
-
-                'Else
-
-                'End If
-            End If
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaNuevoAdmin, strPwd)
         Catch ex As Exception
             MsgBox("Problema al buscar Administrador existente: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-    End Sub
+        Return dtFolio
+    End Function
 
-    Public Sub InsertaModificaEliminaAdministrador(admin As clsAdministrador, tipo As Integer)
+    Public Sub InsertaModificaEliminaAdministrador(strTipo As Integer, admin As clsAdministrador)
         Try
-            objSQL.ejecutaProcedimientoTable(sp_InsertaModificaEliminaAdmin, tipo, admin.IdAdmin, admin.NombrAdmin, admin.ApePatAdmin, admin.ApeMatAdmin, admin.TipoAdmin, admin.PwdAdmin, admin.EstatusAdmin)
+            objSQL.ejecutaProcedimientoTable(sp_InsertaModificaEliminaAdministrador, strTipo, admin.IdAdmin, admin.NombrAdmin, admin.ApePatAdmin, admin.ApeMatAdmin, admin.TipoAdmin, admin.PwdAdmin, admin.EstatusAdmin)
         Catch ex As Exception
             MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try

@@ -12,8 +12,9 @@ Public Class clsUsuarios
 #End Region
 
 #Region "SP SVT"
-    Private sp_VerificaAdminExistente As String = "Seguridad.sp_sp_VerificaUsuarioExistente"
     Private sp_CargarUsuarios As String = "Seguridad.sp_CargarUsuarios"
+    Private sp_VerificaNuevoUsuario As String = "Operaciones.sp_VerificaNuevoUsuario"
+    Private sp_InsertaModificaEliminaUsuario As String = "CRUD.sp_InsertaModificaEliminaUsuario"
 #End Region
 
 #Region "Constructor"
@@ -130,40 +131,56 @@ Public Class clsUsuarios
         End Set
     End Property
 
+    Private _strEstaUsuario As String
+    Public Property EstaUsuario() As String
+        Get
+            Return _strEstaUsuario
+        End Get
+        Set(ByVal value As String)
+            _strEstaUsuario = value
+        End Set
+    End Property
+
 #End Region
 
 #Region "Métodos"
 
-    Public Function CargarUsuarios(strFiltro As String) As DataTable
+    Public Function CargarUsuarios(strTipo As Integer, strFiltro As String) As DataTable
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarUsuarios, strFiltro)
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarUsuarios, strTipo, strFiltro)
         Catch ex As Exception
-            MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox("Ocurrio al Cargar Usuarios: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
         Return dtFolio
     End Function
 
-    Public Sub VerificaExistenciaUsuario(usuario As clsUsuarios)
+    Public Function VerificaExistenciaUsuario(usuario As clsUsuarios)
         Dim dtFolio As New DataTable
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaAdminExistente)
-
-            If dtFolio.Rows.Count = 0 Then
-                MsgBox("Sin resultados", MsgBoxStyle.Information, "Aviso!")
-            Else
-                'If CInt(dtFolio.Rows(0).Item(0)) >= 1 Then
-
-                'Else
-
-                'End If
-            End If
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaNuevoUsuario, usuario.NombreUsu, usuario.ApePatUsu, usuario.ApeMatUsu)
         Catch ex As Exception
-            MsgBox("Problema al buscar Usuario existente: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox("Problema al verificar Usuario existente: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-    End Sub
+        Return dtFolio
+    End Function
 
-    Public Sub AgregaNuevoUsuario(usuario As clsUsuarios)
-
+    Public Sub AgregaModificaEliminaUsuario(strTipo As Integer, usuario As clsUsuarios)
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_InsertaModificaEliminaUsuario,
+                                                        strTipo,
+                                                        usuario.IdUsuario,
+                                                        usuario.NombreUsu,
+                                                        usuario.ApePatUsu,
+                                                        usuario.ApeMatUsu,
+                                                        usuario.FecNacUsu,
+                                                        usuario.RedUsuario,
+                                                        usuario.TipoUsuario,
+                                                        usuario.Precio,
+                                                        usuario.RefUsuario,
+                                                        usuario.EstaUsuario)
+        Catch ex As Exception
+            MsgBox("Problema ejecutar la Operacion del Usuario: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
 #End Region
