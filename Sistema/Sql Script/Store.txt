@@ -1,50 +1,508 @@
 ﻿-- AQUI STORE PROCEDURES
 
 
-CREATE PROCEDURE Seguridad.sp_InicioSessionAdmin 
+ALTER PROCEDURE [Seguridad].[sp_RealizarCorteCaja] 
+	@admin nvarchar(50)
+AS
+BEGIN
+	Declare @IdAdmin int;
+	Declare @NumPagos int;
+	Declare @MontoTotal float;
+	Declare @NumTem int;
+	
+	SET NOCOUNT ON;	
+	
+	CREATE TABLE #PagosCorteCaja 
+		(
+		Usuario nvarchar, 
+		NomRed nvarchar, 
+		NomTipo nvarchar,
+		Fecha DateTime,
+		Meses nvarchar,
+		Anio int,
+		SubTotal float,
+		DescPago float,
+		CantAport float,
+		MontoTotal float,
+		Administrador nvarchar,
+		NumPagos int,
+		MontoFinal float
+		) 
+		
+	SET @IdAdmin = (SELECT IdAdministrador FROM Catalogos.Administrador WHERE NomAdmin = @admin)
+	
+	SELECT 
+		@NumPagos = COUNT(*),
+		@MontoTotal = ISNULL(SUM(MontoPago),0)
+	 FROM Catalogos.PagoUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1--@IdAdmin
+	 
+	 
+	 IF @NumPagos >= 1
+		BEGIN
+			INSERT INTO #PagosCorteCaja
+			SELECT 
+				   [NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
+				  ,[NomRed]
+				  ,[NomTipo]
+				  ,[FechaPago]
+				  ,[Meses]
+				  ,[Anio]
+				  ,[SubPago]
+				  ,[DescPago]
+				  ,CantAport
+				  ,[MontoPago]
+				  ,NomAdmin + ' ' + ApePatAdmin as NomAdmin
+				  ,@NumPagos
+				  ,@MontoTotal
+			FROM dbo.CargarPagosUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1 --@IdAdmin
+	    END
+	IF (SELECT COUNT(*) FROM #PagosCorteCaja) >= 1
+		UPDATE Catalogos.PagoUsuarios SET PagoCorte = 0 WHERE IdPago IN (SELECT IdPago FROM Catalogos.PagoUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1)
+		SELECT * FROM #PagosCorteCaja
+END
+
+
+ALTER PROCEDURE [Seguridad].[sp_InicioSessionAdmin] 
 	@pwd nvarchar(50)
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT Top 1
+	SELECT 
 		IdAdministrador as IdAdmin,
 		NomAdmin + ' ' + ApePatAdmin as NomAdmin,
 		NomTipo as PerfilAdmin
 	FROM dbo.CargarAdministradores
-	WHERE PwdAdmin = 123--@pwd
+	WHERE PwdAdmin = @pwd
 END
-GO
 
 
--- =============================================
-CREATE PROCEDURE Seguridad.sp_CargarAdministradores 
+ALTER PROCEDURE [Seguridad].[sp_CargaTiposServicios]
+	@tipo int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	
+	IF @tipo = 1
+		begin
+			SELECT	[IdTipo],
+					[NomTipo],
+					[CuotaTipo],
+					CASE EstaTipo WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+			FROM Catalogos.TipoServicio
+		end
+	ELSE
+		SELECT [NomTipo] FROM Catalogos.TipoServicio WHERE EstaTipo = 1
+END
+
+
+ALTER PROCEDURE [Seguridad].[sp_CargarUsuarios] 
+	@tipo int,
 	@filtro nvarchar(50)
 AS
 BEGIN
 	SET NOCOUNT ON;
-	IF @filtro = '*'
-		BEGIN
+	IF @tipo = 1
+	begin
+		IF @filtro = '*'
+			BEGIN
+				SELECT 
+				  IdUsuario IdUsuario,
+				  NomUsuario NomUsuario,
+				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
+				  ApePatUsuario ApePatUsuario,
+				  ApeMatUsuario ApeMatUsuario,
+				  FecNacUsuario FecNac,
+				  NomRed NomRed,
+				  NomTipo NomTipo,
+				  RefUsuario RefUsuario,
+				  CASE EstaUsuario WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+				FROM dbo.CargarUsuarios
+				WHERE EstaUsuario = 1
+			END
+		ELSE
 			SELECT 
-				IdAdministrador as IdAdmin,
-				NomAdmin as NomAdmin,
-				ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
-				ApePatAdmin as ApePatAdmin,
-				ApeMatAdmin as ApeMatAdmin,
-				NomTipo as PerfilAdmin,
-				CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-			FROM dbo.CargarAdministradores
-			--WHERE PwdAdmin = 123--@pwd
-		END
+				  IdUsuario as IdUsuario,
+				  NomUsuario as NomUsuario,
+				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
+				  ApePatUsuario ApePatUsuario,
+				  ApeMatUsuario ApeMatUsuario,
+				  FecNacUsuario FecNac,
+				  NomRed NomRed,
+				  NomTipo NomTipo,
+				  RefUsuario RefUsuario,
+					CASE EstaUsuario WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+				FROM dbo.CargarUsuarios
+				WHERE NomUsuario LIKE '%'+ @filtro +'%' AND EstaUsuario = 1
+		end
 	ELSE
-		SELECT 
-				IdAdministrador as IdAdmin,
-				NomAdmin as NomAdmin,
-				ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
-				ApePatAdmin as ApePatAdmin,
-				ApeMatAdmin as ApeMatAdmin,
-				NomTipo as PerfilAdmin,
-				CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-			FROM dbo.CargarAdministradores
-			WHERE NomAdmin LIKE '%'+ @filtro +'%'
+	SELECT 
+				  IdUsuario as IdUsuario,
+				  NomUsuario as NomUsuario,
+				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
+				  ApePatUsuario ApePatUsuario,
+				  ApeMatUsuario ApeMatUsuario,
+				  FecNacUsuario FecNac,
+				  NomRed NomRed,
+				  NomTipo NomTipo,
+				  RefUsuario RefUsuario
+				FROM dbo.CargarUsuarios
+				WHERE NomUsuario LIKE '%'+ @filtro +'%' AND EstaUsuario = 0
 END
-GO
+
+
+ALTER PROCEDURE [Seguridad].[sp_CargarRedes]
+	@tipo int,
+	@filtro nvarchar(50) 
+AS
+BEGIN
+	SET NOCOUNT ON;
+		BEGIN
+			IF @tipo = 1
+				BEGIN
+					IF @filtro = '*'
+					  begin
+						SELECT 
+						  IdRed IdRed,
+						  NomRed NumRed,
+						  EncarRed Encargado,
+						  Tamano TamRed,
+						  CuotaRed CuotaRed,
+						  RefRed RefRed
+						FROM dbo.CargarRedes
+					  end
+					ELSE
+						SELECT 
+						  IdRed IdRed,
+						  NomRed NumRed,
+						  EncarRed Encargado,
+						  Tamano TamRed,
+						  CuotaRed CuotaRed,
+						  RefRed RefRed
+						FROM dbo.CargarRedes
+						WHERE NomRed LIKE '%' + @filtro + '%' 
+				END
+			ELSE
+				SELECT 
+				  NomRed NumRed
+				FROM dbo.CargarRedes			
+		END
+END
+
+
+
+ALTER PROCEDURE [Seguridad].[sp_CargarPagosUsuarios]
+	@tipo int,
+	@admin nvarchar(50),
+	@fecha1	as DateTime,
+	@fecha2 as DateTime
+AS
+BEGIN
+	DECLARE @fechafinal1 DateTime;
+	DECLARE @fechafinal2 DateTime;
+	
+	SET @fechafinal1 = convert(datetime, @fecha1, 103);
+	SET @fechafinal2 = convert(datetime, @fecha2, 103);
+	SET NOCOUNT ON;
+	IF @tipo = 1 -- ESTE MODULO ES PARA CARGAR LOS PAGOS QUE SE MUESTREN EN UN LAPSO
+		begin
+			SELECT [IdPago]
+				  ,NomAdmin + ' ' + ApePatAdmin as NomAdmin
+				  ,[NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
+				  ,[NomRed]
+				  ,[NomTipo]
+				  ,[FechaPago]
+				  ,[Meses]
+				  ,[Anio]
+				  ,[SubPago]
+				  ,[DescPago]
+				  ,CantAport as CantAport
+				  ,[MontoPago]
+			FROM [SistemaAgua].[dbo].[CargarPagosUsuarios]
+			WHERE FechaPago >= @fechafinal1  AND FechaPago <= @fechafinal2
+		end
+	ELSE  -- ESTE MODULO ES´PARA CARGAR LOS LOS PAGOS POR USUARIO PARA CORTE DE CAJA
+			SELECT [IdPago]
+				  ,[NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
+				  ,[FechaPago]
+				  ,[Meses]
+				  ,[Anio]
+				  ,[SubPago]
+				  ,[DescPago]
+				  ,CantAport as CantAport
+				  ,[MontoPago]
+			FROM [SistemaAgua].[dbo].[CargarPagosUsuarios]
+			WHERE IdAdministrador = (SELECT IdAdministrador FROM Catalogos.Administrador WHERE NomAdmin = @admin) AND PagoCorte = 1
+END
+
+
+
+ALTER PROCEDURE [Seguridad].[sp_CargarAdministradores] 
+	@tipo int,
+	@filtro nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF @tipo = 1
+	  begin
+		IF @filtro = '*'
+			BEGIN
+				SELECT 
+					IdAdministrador as IdAdmin,
+					NomAdmin as NomAdmin,
+					ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
+					ApePatAdmin as ApePa,
+					ApeMatAdmin as ApeMa,
+					NomTipo as TipoAdmin,
+					CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+				FROM dbo.CargarAdministradores
+				--WHERE PwdAdmin = 123--@pwd
+			END
+		ELSE
+			SELECT 
+					IdAdministrador as IdAdmin,
+					NomAdmin as NomAdmin,
+					ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
+					ApePatAdmin as ApePa,
+					ApeMatAdmin as ApeMa,
+					NomTipo as TipoAdmin,
+					CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+				FROM dbo.CargarAdministradores
+				WHERE NomAdmin LIKE '%'+ @filtro +'%'
+	end
+  ELSE
+	  SELECT NomTipo FROM Catalogos.TipoAdministrador WHERE EstaTipo = 1
+END
+
+
+
+ALTER PROCEDURE [Operaciones].[sp_VerificaNuevoUsuario]
+	@nom nvarchar(50),
+	@apep nvarchar(50),
+	@apem nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Usuarios WHERE NomUsuario = @nom AND ApePatUsuario = @apep AND ApePatUsuario = @apem
+END
+
+
+
+ALTER PROCEDURE [Operaciones].[sp_VerificaNuevoServ]
+	@nom nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.TipoServicio WHERE NomTipo = @nom
+END
+
+
+
+ALTER PROCEDURE [Operaciones].[sp_VerificaNuevoRed]
+	@nom nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Redes WHERE NomRed = @nom
+END
+
+
+ALTER PROCEDURE [Operaciones].[sp_VerificaNuevoAdmin]
+	@pwd nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	
+	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Administrador WHERE PwdAdmin = '123'
+END
+
+
+
+ALTER PROCEDURE [Operaciones].[sp_CortarConectarServicio]
+	@tipo int, 
+	@IdUsuario int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF @Tipo = 1
+		begin
+			UPDATE Catalogos.Usuarios SET Estausuario = 1 WHERE IdUsuario = @IdUsuario	
+		end
+	ELSE
+		UPDATE Catalogos.Usuarios SET Estausuario = 0 WHERE IdUsuario = @IdUsuario	
+END
+
+
+
+ALTER PROCEDURE [CRUD].[sp_InsertaModificaEliminaUsuario] 
+	  @Tipo int,
+	  @IdUsuario int,
+	  @NomUsuario nvarchar(50),
+	  @ApePatUsuario nvarchar(50),
+	  @ApeMatUsuario nvarchar(50),
+	  @FecNacUsuario DateTime,
+	  @IdRed nvarchar(50),
+	  @IdTipo nvarchar(50),
+	  @PrecTomaUsuario float,
+	  @RefUsuario nvarchar(500),
+	  @EstaUsuario nvarchar(50)
+AS
+BEGIN
+
+	Declare @red int;
+	Declare @tipoServ int;
+	Declare @Esta int;
+	SET NOCOUNT ON;
+
+	SET @Esta = (SELECT CASE @EstaUsuario WHEN 'Activo' THEN 1 ElSE 0 END)
+	SET @Red = (SELECT IdRed FROM Catalogos.Redes WHERE NomRed = @IdRed)
+	SET @tipoServ = (SELECT IdTipo FROM Catalogos.TipoServicio WHERE NomTipo = @IdTipo)
+	
+	
+	IF @Tipo = 1
+		begin 
+			INSERT INTO Catalogos.Usuarios VALUES (@NomUsuario, @ApePatUsuario, @ApeMatUsuario, @FecNacUsuario, @Red, @tipoServ, @PrecTomaUsuario, @RefUsuario, 1)
+		end
+	ELSE IF @Tipo = 2
+		begin
+			UPDATE Catalogos.Usuarios	SET 
+				NomUsuario = @NomUsuario, 
+				ApePatUsuario = @ApePatUsuario, 
+				ApeMatUsuario = @ApeMatUsuario, 
+				FecNacUsuario = @FecNacUsuario, 
+				IdRed = @Red, 
+				IdTipo = @tipoServ, 
+				PrecTomaUsuario = @PrecTomaUsuario, 
+				RefUsuario = @RefUsuario, 
+				EstaUsuario = @Esta
+			WHERE IdUsuario = @IdUsuario
+		end
+	ELSE
+		DELETE FROM Catalogos.Usuarios WHERE IdUsuario = @IdUsuario
+END
+
+
+
+ALTER PROCEDURE [CRUD].[sp_InsertaModificaEliminaTipoServicio] 
+	  @Tipo int,
+	  @IdTipo int,
+	  @NomTipo nvarchar(50),
+      @CuotaTipo float,
+      @EstaTipo nvarchar(50)
+AS
+BEGIN
+
+	Declare @Esta int;
+	SET NOCOUNT ON;
+
+	SET @Esta = (SELECT CASE @EstaTipo WHEN 'Activo' THEN 1 ElSE 0 END)
+	
+	
+	IF @Tipo = 1
+		begin 
+			INSERT INTO Catalogos.TipoServicio VALUES (@NomTipo, @CuotaTipo, 1)
+		end
+	ELSE IF @Tipo = 2
+		begin
+			UPDATE Catalogos.TipoServicio	SET 
+				NomTipo = @NomTipo,
+     			CuotaTipo = @CuotaTipo
+			WHERE IdTipo = @IdTipo
+		end
+	ELSE
+		DELETE FROM Catalogos.TipoServicio WHERE IdTipo = @IdTipo
+END
+
+
+
+ALTER PROCEDURE [CRUD].[sp_InsertaModificaEliminaRedes] 
+	  @Tipo int,
+	  @IdRed int, 
+	  @NomRed nvarchar(50), 
+	  @EncarRed nvarchar(50), 
+	  @IdTamano nvarchar(50), 
+	  @CuotaRed nvarchar(50), 
+	  @RefRed nvarchar(50), 
+	  @EstaRed nvarchar(50)
+
+AS
+BEGIN
+
+	Declare @Tam int;
+	Declare @Esta int;
+	SET NOCOUNT ON;
+
+	SET @Esta = (SELECT CASE @EstaRed WHEN 'Activo' THEN 1 ElSE 0 END)
+	SET @Tam = (SELECT IdTamano FROM Catalogos.RedTamano WHERE NomTamano = @IdTamano)
+	
+	
+	IF @Tipo = 1
+		begin 
+			INSERT INTO Catalogos.Redes VALUES (@NomRed, @EncarRed, @IdTamano, @CuotaRed, @RefRed, 1)
+		end
+	ELSE IF @Tipo = 2
+		begin
+			UPDATE Catalogos.Redes	SET 
+				NomRed = @NomRed, 
+				EncarRed = @EncarRed, 
+				IdTamano = @IdTamano, 
+				CuotaRed = @CuotaRed, 
+				RefRed = @RefRed
+			WHERE IdRed = @IdRed
+		end
+	ELSE
+		DELETE FROM Catalogos.Redes WHERE IdRed = @IdRed
+END
+
+
+
+ALTER PROCEDURE [CRUD].[sp_InsertaModificaEliminaAdministrador] 
+	@Tipo int,
+	@IdAdmin int,
+	@NomAdmin nvarchar(50),
+    @ApePatAdmin nvarchar(50),
+    @ApeMatAdmin nvarchar(50),
+    @IdTipoAdmin nvarchar(50),
+    @PwdAdmin nvarchar(50),
+    @EstaAdmin nvarchar(50)
+AS
+BEGIN
+
+	Declare @tipoAdmin int;
+	Declare @Esta int;
+	SET NOCOUNT ON;
+	
+	SET @tipoAdmin = (SELECT IdTipo FROM Catalogos.TipoServicio WHERE NomTipo = @IdTipoAdmin)
+	SET @Esta = (SELECT CASE @EstaAdmin WHEN 'Activo' THEN 1 ElSE 0 END)
+	
+	
+	IF @Tipo = 1
+		begin 
+			INSERT INTO Catalogos.Administrador VALUES (@NomAdmin, @ApePatAdmin, @ApeMatAdmin, @IdTipoAdmin, @PwdAdmin, 1)
+		end
+	ELSE IF @Tipo = 2
+		begin
+			IF @PwdAdmin = 'null'
+				begin
+					UPDATE Catalogos.Administrador	SET 
+						NomAdmin = @NomAdmin, 
+						ApePatAdmin = @ApePatAdmin, 
+						ApeMatAdmin = @ApeMatAdmin, 
+						IdTipoAdmin = @tipoAdmin, 
+						EstaAdmin = @EstaAdmin
+					WHERE IdAdministrador = @IdAdmin
+				end
+			ELSE
+				UPDATE Catalogos.Administrador	SET 
+				NomAdmin = @NomAdmin, 
+				ApePatAdmin = @ApePatAdmin, 
+				ApeMatAdmin = @ApeMatAdmin, 
+				IdTipoAdmin = @tipoAdmin, 
+				PwdAdmin= @PwdAdmin, 
+				EstaAdmin = @EstaAdmin
+			WHERE IdAdministrador = @IdAdmin
+		end
+	ELSE
+		DELETE FROM Catalogos.Administrador WHERE IdAdministrador = @IdAdmin
+END
+
+
