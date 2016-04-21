@@ -457,7 +457,7 @@ END
 
 ALTER PROCEDURE [CRUD].[sp_InsertaModificaEliminaAdministrador] 
 	@Tipo int,
-	@IdAdmin int,
+	@IdAdmin nvarchar(10),
 	@NomAdmin nvarchar(50),
     @ApePatAdmin nvarchar(50),
     @ApeMatAdmin nvarchar(50),
@@ -471,13 +471,13 @@ BEGIN
 	Declare @Esta int;
 	SET NOCOUNT ON;
 	
-	SET @tipoAdmin = (SELECT IdTipo FROM Catalogos.TipoServicio WHERE NomTipo = @IdTipoAdmin)
+	SET @tipoAdmin = (SELECT IdTipoAdmin FROM Catalogos.TipoAdministrador WHERE NomTipo = @IdTipoAdmin)
 	SET @Esta = (SELECT CASE @EstaAdmin WHEN 'Activo' THEN 1 ElSE 0 END)
 	
 	
 	IF @Tipo = 1
 		begin 
-			INSERT INTO Catalogos.Administrador VALUES (@NomAdmin, @ApePatAdmin, @ApeMatAdmin, @IdTipoAdmin, @PwdAdmin, 1)
+			INSERT INTO Catalogos.Administrador VALUES (@NomAdmin, @ApePatAdmin, @ApeMatAdmin, @tipoAdmin, @PwdAdmin, 1)
 		end
 	ELSE IF @Tipo = 2
 		begin
