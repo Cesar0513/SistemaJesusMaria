@@ -40,15 +40,4 @@
         _NomAdmin = nombre
         _PerfilAdmin = perfil
     End Sub
-
-    Public Function ObtenerValores() As DataTable
-        Dim dt As New DataTable
-        Dim celda As DataRow = dt.NewRow()
-        celda("IdAdmin") = IdAdmin
-        celda("NomAdmin") = NomAdmin
-        celda("PerfilAdmin") = PerfilAdmin
-
-        dt.Rows.Add(celda)
-        Return dt
-    End Function
 End Module

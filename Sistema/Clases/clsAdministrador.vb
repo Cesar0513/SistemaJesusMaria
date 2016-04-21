@@ -6,13 +6,13 @@ Public Class clsAdministrador
 
 #Region "Variables"
     Dim objSQL As New clsSQLClient()
-    Dim dtFolio As New DataTable()
 #End Region
 
 #Region "SP SVT"
     Private sp_CargarAdministradores As String = "Seguridad.sp_CargarAdministradores"
     Private sp_VerificaNuevoAdmin As String = "Operaciones.sp_VerificaNuevoAdmin"
     Private sp_InsertaModificaEliminaAdministrador As String = "CRUD.sp_InsertaModificaEliminaAdministrador"
+    Private sp_InicioSessionAdmin As String = "Seguridad.sp_InicioSessionAdmin"
 #End Region
 
 #Region "Constructor"
@@ -112,6 +112,7 @@ Public Class clsAdministrador
 #Region "Métodos"
 
     Public Function CargarAdministradores(strTipo As Integer, strFiltro As String) As DataTable
+        Dim dtFolio As New DataTable()
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, strTipo, strFiltro)
         Catch ex As Exception
@@ -120,8 +121,8 @@ Public Class clsAdministrador
         Return dtFolio
     End Function
 
-
     Public Function CargarTiposAdministradores(strTipo As Integer, strFiltro As String) As DataTable
+        Dim dtFolio As New DataTable()
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarAdministradores, strTipo, strFiltro)
         Catch ex As Exception
@@ -131,22 +132,42 @@ Public Class clsAdministrador
     End Function
 
     Public Function VerificaExistenciaAdmin(strPwd As String)
-        Dim dtFolio As New DataTable
+        Dim count As New Integer
+        Dim dtFolio As New DataTable()
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaNuevoAdmin, strPwd)
+            count = CInt(dtFolio.Rows(0).Item(0))
         Catch ex As Exception
             MsgBox("Problema al buscar Administrador existente: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-        Return dtFolio
+        Return count
     End Function
 
-    Public Sub InsertaModificaEliminaAdministrador(strTipo As Integer, admin As clsAdministrador)
+    Public Sub InsertaModificaEliminaAdministrador(strTipo As Integer, AdminOperaciones As clsAdministrador)
         Try
-            objSQL.ejecutaProcedimientoTable(sp_InsertaModificaEliminaAdministrador, strTipo, admin.IdAdmin, admin.NombrAdmin, admin.ApePatAdmin, admin.ApeMatAdmin, admin.TipoAdmin, admin.PwdAdmin, admin.EstatusAdmin)
+            objSQL.ejecutaProcedimientoTable(sp_InsertaModificaEliminaAdministrador,
+                                                strTipo,
+                                                AdminOperaciones.IdAdmin,
+                                                AdminOperaciones.NombrAdmin,
+                                                AdminOperaciones.ApePatAdmin,
+                                                AdminOperaciones.ApeMatAdmin,
+                                                AdminOperaciones.TipoAdmin,
+                                                AdminOperaciones.PwdAdmin,
+                                                AdminOperaciones.EstatusAdmin)
         Catch ex As Exception
             MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
+    Public Function VarificaAdminInicioSesion(strPwd As String)
+        Dim dtFolio As New DataTable()
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_InicioSessionAdmin, strPwd)
+        Catch ex As Exception
+            MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return dtFolio
+    End Function
 
 #End Region
 

@@ -4,25 +4,16 @@ Imports System.Data
 
 Public Class Login
 
-#Region "VARIABLES GLOBALES"
-
-#End Region
-
-#Region "SP"
-    Dim sp_ValidaUsuarioLogin As String = "[Seguridad].[InicioSesion]"
-#End Region
-
 #Region "SUB FUNCTION"
 
+
     Public Sub ValidaUsuario(ByVal pwd As String)
-        Dim objSQL As New clsSQLClient()
+        Dim objSQL As New clsAdministrador()
         Dim dtFolio As DataTable = Nothing
-        Dim dtDatos As DataTable = Nothing
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_ValidaUsuarioLogin, pwd)
+            dtFolio = objSQL.VarificaAdminInicioSesion(pwd)
             If dtFolio.Rows.Count <> 0 Then
                 DatosSession.DatosSession(CInt(dtFolio.Rows(0).Item(0).ToString()), CStr(dtFolio.Rows(0).Item(1).ToString()), CStr(dtFolio.Rows(0).Item(2).ToString()))
-
                 If DatosSession.IdAdmin <> 0 Then
                     Principal.Show()
                     Me.Close()
@@ -32,7 +23,7 @@ Public Class Login
                 txtPassword.Clear()
             End If
         Catch ex As Exception
-            MsgBox("Error al Verificar Usuario" & ex.Message, MsgBoxStyle.Information, "AVISO")
+            MsgBox("Error al Verificar Usuario: " & ex.Message, MsgBoxStyle.Information, "AVISO")
             txtPassword.Clear()
         End Try
     End Sub

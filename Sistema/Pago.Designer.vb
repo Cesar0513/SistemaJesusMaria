@@ -66,13 +66,13 @@ Partial Class Pago
         Me.btnPago = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PnlAportacion = New System.Windows.Forms.Panel()
         Me.lblSubMonto = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.PnlAportacion.SuspendLayout()
@@ -547,6 +547,17 @@ Partial Class Pago
         Me.Button6.Text = "Ver"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Red
+        Me.Panel2.BackgroundImage = Global.Sistema.My.Resources.Resources.deduda
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.ForeColor = System.Drawing.Color.Red
+        Me.Panel2.Location = New System.Drawing.Point(11, 46)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(94, 100)
+        Me.Panel2.TabIndex = 110
+        '
         'Label30
         '
         Me.Label30.AutoSize = True
@@ -614,21 +625,11 @@ Partial Class Pago
         Me.Panel1.Size = New System.Drawing.Size(736, 120)
         Me.Panel1.TabIndex = 166
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.Red
-        Me.Panel2.BackgroundImage = Global.Sistema.My.Resources.Resources.deduda
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.ForeColor = System.Drawing.Color.Red
-        Me.Panel2.Location = New System.Drawing.Point(11, 46)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(94, 100)
-        Me.Panel2.TabIndex = 110
-        '
-        'Pago1
+        'Pago
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1020, 581)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)
@@ -657,7 +658,7 @@ Partial Class Pago
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblNombre)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Pago1"
+        Me.Name = "Pago"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Realizar Pago"
         Me.GroupBox2.ResumeLayout(False)
