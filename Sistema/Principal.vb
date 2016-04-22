@@ -202,9 +202,10 @@ Public Class Principal
 #Region "USUARIOS"
 
     Public Sub CargarRedUsuario()
+        Dim RedOperacion As New clsRedes()
         Dim dtFolio As DataTable = Nothing
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarRedes, 1)
+            dtFolio = RedOperacion.CargarRedes(0, "")
 
             If dtFolio.Rows.Count = 0 Then
                 MsgBox("No hay Redes registradas", MsgBoxStyle.Information, "Aviso!")
@@ -219,12 +220,13 @@ Public Class Principal
     End Sub
 
     Public Sub CargarServicioUsuario()
+        Dim ServOperacion As New clsServicio
         Dim dtFolio As DataTable = Nothing
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarServicio, 1)
+            dtFolio = ServOperacion.CargarServiciosUsuarios()
 
             If dtFolio.Rows.Count = 0 Then
-                MsgBox("No hay Redes registradas", MsgBoxStyle.Information, "Aviso!")
+                MsgBox("No hay tipos de Servicios registradas", MsgBoxStyle.Information, "Aviso!")
             Else
                 For i As Integer = 0 To dtFolio.Rows.Count - 1 Step 1
                     cmbTpoServUsu.Items.Add(dtFolio.Rows(i).Item(0))
@@ -236,6 +238,7 @@ Public Class Principal
     End Sub
 
     Public Sub CargarUsuarios()
+        Dim UsuOperacion As New clsUsuarios()
         Dim filtro As String = ""
         Dim dtFolio As New DataTable
         If String.IsNullOrEmpty(txtFiltroUsu.Text) Then
@@ -243,21 +246,21 @@ Public Class Principal
         Else
             filtro = Trim(txtFiltroUsu.Text)
             Try
-                dtFolio = objSQL.ejecutaProcedimientoTable(filtro)
+                dtFolio = UsuOperacion.CargarUsuarios(1, filtro)
 
                 If dtFolio.Rows.Count = 0 Then
-                    MsgBox("No hay Usuarios Registrados", MsgBoxStyle.Information, "Aviso!")
+                    MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
                     Me.dtGridUsuarios.DataSource = dtFolio
                 Else
                     Me.dtGridUsuarios.DataSource = dtFolio
                     Me.dtGridUsuarios.CurrentRow.Selected = False
+                    LimpiarCamposUsuarios()
                 End If
             Catch ex As Exception
-                MsgBox("Error al Cargar Usuarios: " & ex.Message, MsgBoxStyle.Critical, "Error")
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
             End Try
         End If
     End Sub
-
 
     Public Sub MostrarDatosUsuario(ByVal nombre As String, ByVal apepaterno As String, ByVal apematerno As String, ByVal fec_nac As String, ByVal red As String, ByVal serv As String, ByVal ref As String)
         FechaNacUsu.Format = DateTimePickerFormat.Custom
@@ -285,7 +288,10 @@ Public Class Principal
             MsgBox("El Apellido Materno es obligatorio", MsgBoxStyle.Information, "Error!")
             retorna = 0
         ElseIf String.IsNullOrEmpty(cmbRedUsu.Text) Then
-            MsgBox("Seleccione el tipo de Administrador", MsgBoxStyle.Information, "Error!")
+            MsgBox("Seleccione la Red del Usuarios", MsgBoxStyle.Information, "Error!")
+            retorna = 0
+        ElseIf String.IsNullOrEmpty(cmbTpoServUsu.Text) Then
+            MsgBox("Seleccione el tipo de Servicio del Usuarios", MsgBoxStyle.Information, "Error!")
             retorna = 0
         Else
             retorna = 1
@@ -390,6 +396,12 @@ Public Class Principal
                 Exit Sub
             Else
                 AdminOperacion.IdAdmin = RowIdAdmin
+                AdminOperacion.NombrAdmin = Trim("")
+                AdminOperacion.ApePatAdmin = Trim("")
+                AdminOperacion.ApeMatAdmin = Trim("")
+                AdminOperacion.TipoAdmin = ""
+                AdminOperacion.PwdAdmin = Trim("")
+                AdminOperacion.EstatusAdmin = ""
                 Try
 
                     AdminOperacion.InsertaModificaEliminaAdministrador(3, AdminOperacion)
@@ -408,6 +420,7 @@ Public Class Principal
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        Dim AdminOperacion As New clsAdministrador()
         Dim contrasena As String = Nothing
         Dim estatus As Integer = Nothing
         If String.IsNullOrEmpty(RowIdAdmin) Or RowIdAdmin = 0 Then
@@ -437,11 +450,18 @@ Public Class Principal
             Else
                 contrasena = "null"
             End If
+
+            AdminOperacion.IdAdmin = RowIdAdmin
+            AdminOperacion.NombrAdmin = Trim(txtNombre.Text)
+            AdminOperacion.ApePatAdmin = Trim(txtPaterno.Text)
+            AdminOperacion.ApeMatAdmin = Trim(txtMaterno.Text)
+            AdminOperacion.TipoAdmin = cmbTipoAdmin.SelectedItem
+            AdminOperacion.PwdAdmin = Trim(contrasena)
+            AdminOperacion.EstatusAdmin = cmbEstatusAdmin.SelectedItem
             Try
-                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaAdmin, 2, RowIdAdmin, Trim(txtNombre.Text), Trim(txtPaterno.Text), Trim(txtMaterno.Text), Trim(cmbTipoAdmin.Text), Trim(contrasena), estatus)
+                AdminOperacion.InsertaModificaEliminaAdministrador(2, AdminOperacion)
                 RowIdAdmin = 0
                 BotonesInicio()
-                CargarTiposAdministradores()
                 CargarAdministradores()
             Catch ex As Exception
                 MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
@@ -489,8 +509,6 @@ Public Class Principal
 #Region "USUARIOS"
 
     Private Sub dtGridUsuarios_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dtGridUsuarios.CellEnter
-        FechaNacUsu.Format = DateTimePickerFormat.Custom
-        FechaNacUsu.CustomFormat = "yyyy-MM-dd"
         Dim clave As Integer = Nothing
         RowIdUsuario = 0
         If e.RowIndex >= 0 Then
@@ -498,35 +516,40 @@ Public Class Principal
             txtPrecioTomaUsu.Enabled = False
             RowIdUsuario = CInt(dtGridUsuarios.Rows(e.RowIndex).Cells(0).Value)
             MostrarDatosUsuario(CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(1).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(3).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(4).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(5).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(6).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(7).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(8).Value))
-            If RowIdUsuario = 0 Then
-                btnPagar.Visible = False
-            Else
-                btnPagar.Visible = True
-            End If
+            BotonesModificaEliminaUsu()
         End If
     End Sub
 
     Private Sub btnAddUsu_Click(sender As Object, e As EventArgs) Handles btnAddUsu.Click
         BotonesNuevoUsu()
-        CargarRedUsuario()
         txtPrecioTomaUsu.Enabled = True
     End Sub
 
-    'Private Sub btnCancelarUsu_Click(sender As Object, e As EventArgs) Handles btnCancelarUsu.Click
-    '    BotonesInicioUsu()
-    'End Sub
+    Private Sub btnCancelarUsu_Click(sender As Object, e As EventArgs) Handles btnCancelarUsu.Click
+        BotonesInicioUsu()
+    End Sub
 
     Private Sub btnEliminarUsu_Click(sender As Object, e As EventArgs) Handles btnEliminarUsu.Click
+        Dim UsuOperacion As New clsUsuarios()
         If MessageBox.Show("Continuar para eliminar al Usuario", "INFORMACIÓN", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             Dim dtFolio As DataTable = Nothing
             If String.IsNullOrEmpty(RowIdAdmin) Then
                 MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
                 Exit Sub
             Else
+                UsuOperacion.IdUsuario = RowIdUsuario
+                UsuOperacion.NombreUsu = Trim(txtNombreUsu.Text)
+                UsuOperacion.ApePatUsu = Trim(txtPaternoUsu.Text)
+                UsuOperacion.ApeMatUsu = Trim(txtMaternoUsu.Text)
+                UsuOperacion.FecNacUsu = Trim(FechaNacUsu.Text)
+                UsuOperacion.RedUsuario = Trim(cmbRedUsu.SelectedItem)
+                UsuOperacion.TipoUsuario = Trim(cmbTpoServUsu.SelectedItem)
+                UsuOperacion.Precio = Trim(txtPrecioTomaUsu.Text)
+                UsuOperacion.RefUsuario = Trim(txtRefUsu.Text)
+                UsuOperacion.EstaUsuario = "Activo"
                 Try
-                    dtFolio = objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 3, RowIdUsuario, "nombre", "apepaterno", "apematerno", "perfil", "contrasena")
-                    BotonesInicio()
-                    CargarRedUsuario()
+                    BotonesInicioUsu()
+                    UsuOperacion.AgregaModificaEliminaUsuario(3, UsuOperacion)
                     CargarUsuarios()
                 Catch ex As Exception
                     MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
@@ -540,16 +563,25 @@ Public Class Principal
     End Sub
 
     Private Sub btnModificarUsu_Click(sender As Object, e As EventArgs) Handles btnModUsu.Click
+        Dim UsuOperacion As New clsUsuarios()
         Dim estatus As Integer = Nothing
         If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
             MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
             Exit Sub
         Else
+            UsuOperacion.IdUsuario = RowIdUsuario
+            UsuOperacion.NombreUsu = Trim(txtNombreUsu.Text)
+            UsuOperacion.ApePatUsu = Trim(txtPaternoUsu.Text)
+            UsuOperacion.ApeMatUsu = Trim(txtMaternoUsu.Text)
+            UsuOperacion.FecNacUsu = Trim(FechaNacUsu.Text)
+            UsuOperacion.RedUsuario = Trim(cmbRedUsu.SelectedItem)
+            UsuOperacion.TipoUsuario = Trim(cmbTpoServUsu.SelectedItem)
+            UsuOperacion.Precio = Trim(txtPrecioTomaUsu.Text)
+            UsuOperacion.RefUsuario = Trim(txtRefUsu.Text)
+            UsuOperacion.EstaUsuario = "Activo"
             Try
-                Dim fec As String = Nothing
-                'FechaNacUsu.Text
-                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 2, RowIdUsuario, Trim(txtNombreUsu.Text), Trim(txtPaternoUsu.Text), Trim(txtMaternoUsu.Text), FechaNacUsu.Format(), Trim(cmbRedUsu.SelectedItem), Trim(cmbTpoServUsu.SelectedItem), Trim(txtPrecioTomaUsu.Text), Trim(txtRefUsu.Text), 1)
                 BotonesInicioUsu()
+                UsuOperacion.AgregaModificaEliminaUsuario(2, UsuOperacion)
                 CargarUsuarios()
             Catch ex As Exception
                 MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
@@ -558,94 +590,35 @@ Public Class Principal
     End Sub
 
     Private Sub btnSaveUsu_ClickGuarda(sender As Object, e As EventArgs) Handles btnSaveUsu.Click
-        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
-            MsgBox("No ha selecionado a un Usuario", MsgBoxStyle.Information, "AVISO!")
+        Dim UsuOperacion As New clsUsuarios()
+
+        If VerificaNuevoUsuario() = 0 Then
             Exit Sub
-        Else
-            Try
-                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 1, 0, Trim(txtNombreUsu.Text), Trim(txtPaternoUsu.Text), Trim(txtMaternoUsu.Text), Trim(FechaNacUsu.Text), Trim(cmbRedUsu.SelectedItem), Trim(cmbTpoServUsu.SelectedItem), Trim(txtPrecioTomaUsu.Text), Trim(txtRefUsu.Text), 1)
-                BotonesInicioUsu()
-                CargarUsuarios()
-            Catch ex As Exception
-                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
-            End Try
         End If
+        UsuOperacion.IdUsuario = 0
+        UsuOperacion.NombreUsu = Trim(txtNombreUsu.Text)
+        UsuOperacion.ApePatUsu = Trim(txtPaternoUsu.Text)
+        UsuOperacion.ApeMatUsu = Trim(txtMaternoUsu.Text)
+        UsuOperacion.FecNacUsu = Trim(FechaNacUsu.Text)
+        UsuOperacion.RedUsuario = Trim(cmbRedUsu.SelectedItem)
+        UsuOperacion.TipoUsuario = Trim(cmbTpoServUsu.SelectedItem)
+        UsuOperacion.Precio = Trim(txtPrecioTomaUsu.Text)
+        UsuOperacion.RefUsuario = Trim(txtRefUsu.Text)
+        UsuOperacion.EstaUsuario = 1
+        Try
+            UsuOperacion.AgregaModificaEliminaUsuario(1, UsuOperacion)
+            BotonesInicioUsu()
+            CargarUsuarios()
+        Catch ex As Exception
+            MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
 #End Region
 
 #Region "REDES"
 
-    Private Sub dtGridRed_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dtGridRed.CellEnter
-        RowIdRed = 0
-        If e.RowIndex >= 0 Then
-            'BotonesModificaEliminaUsu()
-            RowIdRed = CInt(dtGridUsuarios.Rows(e.RowIndex).Cells(0).Value)
-            MostrarDatosRedes(CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(1).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(3).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(4).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(5).Value), CStr(dtGridUsuarios.Rows(e.RowIndex).Cells(6).Value))
-        End If
-    End Sub
-
-    Private Sub btnAddRed_Click(sender As Object, e As EventArgs) Handles btnAddRed.Click
-        'BotonesNuevaRed()
-    End Sub
-
-    Private Sub btnCancelarUsu_Click(sender As Object, e As EventArgs) Handles btnCancelarUsu.Click
-        'BotonesInicioRed()
-    End Sub
-
-    Private Sub btnEliminarRed_Click(sender As Object, e As EventArgs) Handles btnEliminaRed.Click
-        If MessageBox.Show("Continuar para eliminar la Red", "INFORMACIÓN", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
-            Dim dtFolio As DataTable = Nothing
-            If String.IsNullOrEmpty(RowIdAdmin) Then
-                MsgBox("No ha selecionado a un Administrador", MsgBoxStyle.Information, "AVISO!")
-                Exit Sub
-            Else
-                Try
-                    dtFolio = objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaRedes, 3, RowIdUsuario, "nombre", "apepaterno", "apematerno", "perfil", "contrasena")
-                    BotonesInicioRed()
-                    CargarRedesTab()
-                Catch ex As Exception
-                    MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
-                End Try
-            End If
-        End If
-    End Sub
-
-    Private Sub txtFiltroRed_TextChanged(sender As Object, e As EventArgs) Handles txtFiltroRed.TextChanged
-        CargarRedesTab()
-    End Sub
-
-    Private Sub btnModificarRed_Click(sender As Object, e As EventArgs) Handles btnModificarRed.Click
-        Dim estatus As Integer = Nothing
-        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
-            MsgBox("No ha selecionado una Red", MsgBoxStyle.Information, "AVISO!")
-            Exit Sub
-        Else
-            Try
-                Dim fec As String = Nothing
-                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 2, RowIdUsuario, Trim(txtNombreUsu.Text), Trim(txtPaternoUsu.Text), Trim(txtMaternoUsu.Text), FechaNacUsu.Format(), Trim(cmbRedUsu.SelectedItem), Trim(cmbTpoServUsu.SelectedItem), Trim(txtPrecioTomaUsu.Text), Trim(txtRefUsu.Text), 1)
-                BotonesInicioRed()
-                CargarRedesTab()
-            Catch ex As Exception
-                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
-            End Try
-        End If
-    End Sub
-
-    Private Sub btnSaveUsu_Click(sender As Object, e As EventArgs) Handles btnSaveUsu.Click
-        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
-            MsgBox("No ha selecionado a un Usuario", MsgBoxStyle.Information, "AVISO!")
-            Exit Sub
-        Else
-            Try
-                objSQL.ejecutaProcedimientoTable(sp_InsertaActualizaEliminaUsuario, 1, 0, Trim(txtNombreUsu.Text), Trim(txtPaternoUsu.Text), Trim(txtMaternoUsu.Text), Trim(FechaNacUsu.Text), Trim(cmbRedUsu.SelectedItem), Trim(cmbTpoServUsu.SelectedItem), Trim(txtPrecioTomaUsu.Text), Trim(txtRefUsu.Text), 1)
-                BotonesInicioRed()
-                CargarRedesTab()
-            Catch ex As Exception
-                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
-            End Try
-        End If
-    End Sub
+    
 
 #End Region
 
@@ -703,9 +676,12 @@ Public Class Principal
         RowIdAdmin = 0
     End Sub
 
-    Private Sub TabUsuarios_Enter(sender As Object, e As EventArgs) Handles TabUsuarios.Enter, TabUsuarios.LostFocus
+    Private Sub TabUsuarios_Enter(sender As Object, e As EventArgs) Handles TabUsuarios.Enter
+        FechaNacUsu.Format = DateTimePickerFormat.Custom
+        FechaNacUsu.CustomFormat = "yyyy-MM-dd"
         LimpiarTabUsuarios()
-        CargarUsuarios()
+        CargarRedUsuario()
+        CargarServicioUsuario()
         RowIdUsuario = 0
     End Sub
 
@@ -732,6 +708,9 @@ Public Class Principal
 
     Private Sub TabUsuarios_LostFocus(sender As Object, e As EventArgs) Handles TabUsuarios.Leave
         LimpiarTabUsuarios()
+        cmbRedUsu.Items.Clear()
+        cmbTpoServUsu.Items.Clear()
+        RowIdUsuario = 0
     End Sub
 
     Private Sub TabRedes_LostFocus(sender As Object, e As EventArgs) Handles TabRedes.Leave
@@ -780,7 +759,7 @@ Public Class Principal
     Public Sub BotonesInicioUsu()
         dtGridUsuarios.Enabled = True
         LimpiarCamposUsuarios()
-        btnPagar.Visible = True
+        btnPagar.Visible = False
         btnSaveUsu.Visible = False
         btnCancelarUsu.Visible = False
         btnAddUsu.Visible = True
@@ -803,6 +782,7 @@ Public Class Principal
         dtGridUsuarios.Enabled = True
         btnSaveUsu.Visible = False
         btnCancelarUsu.Visible = False
+        btnPagar.Visible = True
         btnAddUsu.Enabled = True
         btnModUsu.Enabled = True
         btnEliminarUsu.Enabled = True
@@ -851,8 +831,11 @@ Public Class Principal
         txtPaternoUsu.Text = ""
         txtMaternoUsu.Text = ""
         FechaNacUsu.Value = Date.Now
+        cmbTpoServUsu.SelectedIndex = -1
+        cmbRedUsu.SelectedIndex = -1
         txtPrecioTomaUsu.Text = ""
         txtRefUsu.Text = ""
+        RowIdUsuario = 0
     End Sub
 
     Public Sub LimpiarCamposRedes()
@@ -867,8 +850,8 @@ Public Class Principal
         txtNombre.Text = ""
         txtPaterno.Text = ""
         txtMaterno.Text = ""
-        cmbTipoAdmin.Text = ""
-        cmbEstatusAdmin.Text = ""
+        cmbTipoAdmin.SelectedIndex = -1
+        cmbEstatusAdmin.SelectedIndex = -1
         txtPwd.Text = ""
         txtPwd1.Text = ""
     End Sub

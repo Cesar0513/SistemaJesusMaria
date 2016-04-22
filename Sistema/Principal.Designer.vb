@@ -73,7 +73,6 @@ Partial Class Principal
         Me.ACTIVO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabUsuarios = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Button11 = New System.Windows.Forms.Button()
         Me.cmbTpoServUsu = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnPagar = New System.Windows.Forms.Button()
@@ -282,7 +281,7 @@ Partial Class Principal
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1192, 642)
+        Me.Panel1.Size = New System.Drawing.Size(1184, 634)
         Me.Panel1.TabIndex = 0
         '
         'SplitContainer1
@@ -303,8 +302,8 @@ Partial Class Principal
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1192, 642)
-        Me.SplitContainer1.SplitterDistance = 145
+        Me.SplitContainer1.Size = New System.Drawing.Size(1184, 634)
+        Me.SplitContainer1.SplitterDistance = 143
         Me.SplitContainer1.TabIndex = 0
         '
         'Button1
@@ -460,7 +459,7 @@ Partial Class Principal
         Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnCancelar.Image = Global.Sistema.My.Resources.Resources.cancelar
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(201, 348)
+        Me.btnCancelar.Location = New System.Drawing.Point(181, 349)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(118, 36)
         Me.btnCancelar.TabIndex = 20
@@ -510,7 +509,7 @@ Partial Class Principal
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.Image = Global.Sistema.My.Resources.Resources.add
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(77, 348)
+        Me.btnNuevo.Location = New System.Drawing.Point(57, 349)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(118, 36)
         Me.btnNuevo.TabIndex = 15
@@ -525,7 +524,7 @@ Partial Class Principal
         Me.btnEliminar.Enabled = False
         Me.btnEliminar.Image = Global.Sistema.My.Resources.Resources.delete
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(267, 378)
+        Me.btnEliminar.Location = New System.Drawing.Point(240, 380)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(106, 36)
         Me.btnEliminar.TabIndex = 14
@@ -539,7 +538,7 @@ Partial Class Principal
         Me.btnModificar.Enabled = False
         Me.btnModificar.Image = Global.Sistema.My.Resources.Resources.modifica
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(143, 378)
+        Me.btnModificar.Location = New System.Drawing.Point(116, 380)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(118, 36)
         Me.btnModificar.TabIndex = 13
@@ -552,7 +551,7 @@ Partial Class Principal
         Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAdd.Image = Global.Sistema.My.Resources.Resources.newuser
         Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(44, 378)
+        Me.btnAdd.Location = New System.Drawing.Point(17, 380)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(93, 36)
         Me.btnAdd.TabIndex = 5
@@ -748,7 +747,6 @@ Partial Class Principal
         '
         'Panel4
         '
-        Me.Panel4.Controls.Add(Me.Button11)
         Me.Panel4.Controls.Add(Me.cmbTpoServUsu)
         Me.Panel4.Controls.Add(Me.Label4)
         Me.Panel4.Controls.Add(Me.btnPagar)
@@ -777,20 +775,6 @@ Partial Class Principal
         Me.Panel4.Size = New System.Drawing.Size(381, 465)
         Me.Panel4.TabIndex = 6
         '
-        'Button11
-        '
-        Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button11.Image = Global.Sistema.My.Resources.Resources.money
-        Me.Button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button11.Location = New System.Drawing.Point(188, 387)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(105, 36)
-        Me.Button11.TabIndex = 29
-        Me.Button11.Text = "PAGAR"
-        Me.Button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button11.UseVisualStyleBackColor = True
-        Me.Button11.Visible = False
-        '
         'cmbTpoServUsu
         '
         Me.cmbTpoServUsu.FormattingEnabled = True
@@ -814,7 +798,7 @@ Partial Class Principal
         Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnPagar.Image = Global.Sistema.My.Resources.Resources.money
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(77, 387)
+        Me.btnPagar.Location = New System.Drawing.Point(131, 372)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.Size = New System.Drawing.Size(105, 36)
         Me.btnPagar.TabIndex = 26
@@ -2507,7 +2491,7 @@ Partial Class Principal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1192, 642)
+        Me.ClientSize = New System.Drawing.Size(1184, 634)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -2777,5 +2761,4 @@ Partial Class Principal
     Friend WithEvents Column20 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column21 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column22 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Button11 As System.Windows.Forms.Button
 End Class

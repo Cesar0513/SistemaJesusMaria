@@ -81,6 +81,7 @@ Public Class clsServicio
 #Region "Métodos"
 
     Public Function CargarServiciosUsuarios() As DataTable
+        Dim dtFolio As New DataTable
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarServicio, 0)
         Catch ex As Exception
@@ -90,6 +91,7 @@ Public Class clsServicio
     End Function
 
     Public Function CargarServicios() As DataTable
+        Dim dtFolio As New DataTable
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarServicio, 1)
         Catch ex As Exception

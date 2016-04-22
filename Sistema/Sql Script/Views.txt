@@ -1,14 +1,14 @@
 ﻿-- AQUI VISTAS
 
 
-CREATE VIEW [dbo].[CargarAdministradores]
+REATE VIEW [dbo].[CargarAdministradores]
 AS
-SELECT     Catalogos.Administrador.IdAdministrador, Catalogos.Administrador.NomAdmin, Catalogos.TipoAdministrador.NomTipo, Catalogos.Administrador.ApePatAdmin, 
-                      Catalogos.Administrador.ApeMatAdmin, Catalogos.Administrador.EstaAdmin, Catalogos.TipoAdministrador.EstaTipo, Catalogos.TipoAdministrador.IdTipoAdmin
-FROM         Catalogos.Administrador INNER JOIN
-                      Catalogos.TipoAdministrador ON Catalogos.Administrador.IdTipoAdmin = Catalogos.TipoAdministrador.IdTipoAdmin
-GO
+SELECT        Catalogos.Administrador.IdAdministrador, Catalogos.Administrador.NomAdmin, Catalogos.TipoAdministrador.NomTipo, Catalogos.Administrador.ApePatAdmin, Catalogos.Administrador.ApeMatAdmin, 
+                         Catalogos.Administrador.EstaAdmin, Catalogos.TipoAdministrador.EstaTipo, Catalogos.TipoAdministrador.IdTipoAdmin, Catalogos.Administrador.PwdAdmin
+FROM            Catalogos.Administrador INNER JOIN
+                         Catalogos.TipoAdministrador ON Catalogos.Administrador.IdTipoAdmin = Catalogos.TipoAdministrador.IdTipoAdmin
 
+GO
 
 CREATE VIEW [dbo].[CargarUsuarios]
 AS
@@ -21,7 +21,7 @@ FROM         Catalogos.Usuarios INNER JOIN
                       Catalogos.RedTamano ON Catalogos.Redes.IdTamano = Catalogos.RedTamano.IdTamano
 GO
 
-CREATE VIEW [dbo].[CargaRedes]
+CREATE VIEW [dbo].[CargarRedes]
 AS
 SELECT     Catalogos.Redes.IdRed, Catalogos.Redes.NomRed, Catalogos.Redes.EncarRed, Catalogos.Redes.CuotaRed, Catalogos.Redes.RefRed, Catalogos.RedTamano.NomTamano, 
                       Catalogos.RedTamano.Tamano
