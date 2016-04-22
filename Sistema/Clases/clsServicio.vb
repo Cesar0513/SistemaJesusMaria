@@ -15,6 +15,7 @@ Public Class clsServicio
     Private sp_CargarServicio As String = "Seguridad.sp_CargaTiposServicios"
     Private sp_VerificaNuevoServ As String = "Operaciones.sp_VerificaNuevoServ"
     Private sp_InsertaModificaEliminaTipoServicio As String = "CRUD.sp_InsertaModificaEliminaTipoServicio"
+    Private sp_ActivaDesactivaServicio As String = "Operaciones.sp_ActivaDesactivaServicio"
 #End Region
 
 #Region "Constructor"
@@ -118,6 +119,14 @@ Public Class clsServicio
                                                         serv.NombreTipo,
                                                         serv.CuotaTipo,
                                                         serv.EstatusTipo)
+        Catch ex As Exception
+            MsgBox("Problema ejecutar la Operacion del Servicio: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub ActivaDesactivaServicio(strTipo As Integer, serv As clsUsuarios)
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_ActivaDesactivaServicio, strTipo, serv.IdUsuario)
         Catch ex As Exception
             MsgBox("Problema ejecutar la Operacion del Servicio: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try

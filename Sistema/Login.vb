@@ -8,6 +8,8 @@ Public Class Login
 
 
     Public Sub ValidaUsuario(ByVal pwd As String)
+        pwd = Trim(pwd)
+        MsgBox("--" & pwd & "--")
         Dim objSQL As New clsAdministrador()
         Dim dtFolio As DataTable = Nothing
         Try
@@ -20,11 +22,12 @@ Public Class Login
                 End If
             Else
                 MsgBox("No se encontro usuario con esa contraseña, Intente nuevamente", MsgBoxStyle.Critical, "AVISO!")
-                txtPassword.Clear()
+                txtPassword.Text = ""
+                Exit Sub
             End If
         Catch ex As Exception
             MsgBox("Error al Verificar Usuario: " & ex.Message, MsgBoxStyle.Information, "AVISO")
-            txtPassword.Clear()
+            txtPassword.Text = ""
         End Try
     End Sub
 
@@ -37,7 +40,9 @@ Public Class Login
             If String.IsNullOrEmpty(txtPassword.Text) Then
                 MsgBox("Por favor ingrese su contraseña y al terminar presione ENTER", MsgBoxStyle.Exclamation, "AVISO")
             Else
-                ValidaUsuario(txtPassword.Text)
+                Dim pwd As String = Nothing
+                pwd = Trim(Val(txtPassword.Text))
+                ValidaUsuario(pwd)
             End If
         End If
     End Sub

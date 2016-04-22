@@ -144,7 +144,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Sql Script\SistemaAgua.bak" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -155,8 +154,6 @@
   <ItemGroup>
     <Content Include="Resources\deduda.jpg" />
     <Content Include="Sql Script\Script.txt" />
-    <Content Include="Sql Script\Store.txt" />
-    <Content Include="Sql Script\Views.txt" />
     <None Include="Resources\deduda1.jpg" />
     <Content Include="Resources\icon1.png" />
     <None Include="Resources\money.png" />

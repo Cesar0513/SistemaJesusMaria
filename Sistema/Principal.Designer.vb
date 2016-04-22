@@ -22,13 +22,13 @@ Partial Class Principal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -140,11 +140,11 @@ Partial Class Principal
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.cmbEstatusServ = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnCancelarServ = New System.Windows.Forms.Button()
+        Me.btnSaveServ = New System.Windows.Forms.Button()
+        Me.btnEliminaServ = New System.Windows.Forms.Button()
+        Me.btnModificaServ = New System.Windows.Forms.Button()
+        Me.btnAddServ = New System.Windows.Forms.Button()
         Me.txtCuotaServ = New System.Windows.Forms.TextBox()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.txtServ = New System.Windows.Forms.TextBox()
@@ -157,35 +157,21 @@ Partial Class Principal
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabReconexion = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtRefRec = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label31 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.btnReactivacion = New System.Windows.Forms.Button()
         Me.Label36 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtMaternoRec = New System.Windows.Forms.TextBox()
         Me.Label37 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txtPaternoRec = New System.Windows.Forms.TextBox()
         Me.Label38 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.txtNomRec = New System.Windows.Forms.TextBox()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtFiltroRecon = New System.Windows.Forms.TextBox()
+        Me.dtGridReconexion = New System.Windows.Forms.DataGridView()
         Me.TabAdeudos = New System.Windows.Forms.TabPage()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.TabPagos = New System.Windows.Forms.TabPage()
@@ -245,6 +231,17 @@ Partial Class Principal
         Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FechaInicio = New System.Windows.Forms.DateTimePicker()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtFecRec = New System.Windows.Forms.TextBox()
+        Me.txtRedRec = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -265,7 +262,7 @@ Partial Class Principal
         CType(Me.dtGridServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabReconexion.SuspendLayout()
         Me.Panel7.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtGridReconexion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabAdeudos.SuspendLayout()
         Me.TabPagos.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -281,7 +278,7 @@ Partial Class Principal
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1184, 634)
+        Me.Panel1.Size = New System.Drawing.Size(1176, 626)
         Me.Panel1.TabIndex = 0
         '
         'SplitContainer1
@@ -302,8 +299,8 @@ Partial Class Principal
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1184, 634)
-        Me.SplitContainer1.SplitterDistance = 143
+        Me.SplitContainer1.Size = New System.Drawing.Size(1176, 626)
+        Me.SplitContainer1.SplitterDistance = 141
         Me.SplitContainer1.TabIndex = 0
         '
         'Button1
@@ -311,7 +308,7 @@ Partial Class Principal
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button1.Image = Global.Sistema.My.Resources.Resources.icon__2_
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(1081, 86)
+        Me.Button1.Location = New System.Drawing.Point(1052, 82)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(112, 50)
         Me.Button1.TabIndex = 4
@@ -371,7 +368,7 @@ Partial Class Principal
         'DateTimePicker1
         '
         Me.DateTimePicker1.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(984, 12)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(964, 12)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 25)
         Me.DateTimePicker1.TabIndex = 0
@@ -390,7 +387,7 @@ Partial Class Principal
         Me.TabControl1.Location = New System.Drawing.Point(5, 3)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1188, 490)
+        Me.TabControl1.Size = New System.Drawing.Size(1168, 478)
         Me.TabControl1.TabIndex = 0
         '
         'TabAdmin
@@ -681,8 +678,8 @@ Partial Class Principal
         'Column1
         '
         Me.Column1.DataPropertyName = "NomAdmin"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column1.HeaderText = "NOMBRE"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -741,7 +738,7 @@ Partial Class Principal
         Me.TabUsuarios.Location = New System.Drawing.Point(4, 26)
         Me.TabUsuarios.Name = "TabUsuarios"
         Me.TabUsuarios.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabUsuarios.Size = New System.Drawing.Size(1180, 460)
+        Me.TabUsuarios.Size = New System.Drawing.Size(1160, 448)
         Me.TabUsuarios.TabIndex = 1
         Me.TabUsuarios.Text = "USUARIOS"
         '
@@ -1054,8 +1051,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "NomUsuario"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewTextBoxColumn1.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
@@ -1368,8 +1365,8 @@ Partial Class Principal
         '
         'DataGridViewTextBoxColumn6
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn6.HeaderText = "NUM RED"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
@@ -1409,7 +1406,7 @@ Partial Class Principal
         Me.TabServ.Controls.Add(Me.dtGridServicio)
         Me.TabServ.Location = New System.Drawing.Point(4, 26)
         Me.TabServ.Name = "TabServ"
-        Me.TabServ.Size = New System.Drawing.Size(1180, 460)
+        Me.TabServ.Size = New System.Drawing.Size(1160, 448)
         Me.TabServ.TabIndex = 3
         Me.TabServ.Text = "TIPO SERVICIO"
         Me.TabServ.UseVisualStyleBackColor = True
@@ -1418,11 +1415,11 @@ Partial Class Principal
         '
         Me.Panel6.Controls.Add(Me.cmbEstatusServ)
         Me.Panel6.Controls.Add(Me.Label23)
-        Me.Panel6.Controls.Add(Me.Button2)
-        Me.Panel6.Controls.Add(Me.Button3)
-        Me.Panel6.Controls.Add(Me.Button4)
-        Me.Panel6.Controls.Add(Me.Button5)
-        Me.Panel6.Controls.Add(Me.Button6)
+        Me.Panel6.Controls.Add(Me.btnCancelarServ)
+        Me.Panel6.Controls.Add(Me.btnSaveServ)
+        Me.Panel6.Controls.Add(Me.btnEliminaServ)
+        Me.Panel6.Controls.Add(Me.btnModificaServ)
+        Me.Panel6.Controls.Add(Me.btnAddServ)
         Me.Panel6.Controls.Add(Me.txtCuotaServ)
         Me.Panel6.Controls.Add(Me.Label32)
         Me.Panel6.Controls.Add(Me.txtServ)
@@ -1451,74 +1448,74 @@ Partial Class Principal
         Me.Label23.TabIndex = 21
         Me.Label23.Text = "Estatus"
         '
-        'Button2
+        'btnCancelarServ
         '
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button2.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(183, 296)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(118, 36)
-        Me.Button2.TabIndex = 20
-        Me.Button2.Text = "CANCELAR"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
+        Me.btnCancelarServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancelarServ.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.btnCancelarServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelarServ.Location = New System.Drawing.Point(183, 296)
+        Me.btnCancelarServ.Name = "btnCancelarServ"
+        Me.btnCancelarServ.Size = New System.Drawing.Size(118, 36)
+        Me.btnCancelarServ.TabIndex = 20
+        Me.btnCancelarServ.Text = "CANCELAR"
+        Me.btnCancelarServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelarServ.UseVisualStyleBackColor = True
+        Me.btnCancelarServ.Visible = False
         '
-        'Button3
+        'btnSaveServ
         '
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button3.Image = Global.Sistema.My.Resources.Resources.add
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(59, 296)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(118, 36)
-        Me.Button3.TabIndex = 15
-        Me.Button3.Text = "GUARDAR"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.UseVisualStyleBackColor = True
-        Me.Button3.Visible = False
+        Me.btnSaveServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSaveServ.Image = Global.Sistema.My.Resources.Resources.add
+        Me.btnSaveServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSaveServ.Location = New System.Drawing.Point(59, 296)
+        Me.btnSaveServ.Name = "btnSaveServ"
+        Me.btnSaveServ.Size = New System.Drawing.Size(118, 36)
+        Me.btnSaveServ.TabIndex = 15
+        Me.btnSaveServ.Text = "GUARDAR"
+        Me.btnSaveServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSaveServ.UseVisualStyleBackColor = True
+        Me.btnSaveServ.Visible = False
         '
-        'Button4
+        'btnEliminaServ
         '
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button4.Enabled = False
-        Me.Button4.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(249, 326)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(106, 36)
-        Me.Button4.TabIndex = 14
-        Me.Button4.Text = "ELIMINAR"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnEliminaServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminaServ.Enabled = False
+        Me.btnEliminaServ.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.btnEliminaServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminaServ.Location = New System.Drawing.Point(249, 326)
+        Me.btnEliminaServ.Name = "btnEliminaServ"
+        Me.btnEliminaServ.Size = New System.Drawing.Size(106, 36)
+        Me.btnEliminaServ.TabIndex = 14
+        Me.btnEliminaServ.Text = "ELIMINAR"
+        Me.btnEliminaServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminaServ.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnModificaServ
         '
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button5.Enabled = False
-        Me.Button5.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(125, 326)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(118, 36)
-        Me.Button5.TabIndex = 13
-        Me.Button5.Text = "MODIFICAR"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnModificaServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnModificaServ.Enabled = False
+        Me.btnModificaServ.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.btnModificaServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModificaServ.Location = New System.Drawing.Point(125, 326)
+        Me.btnModificaServ.Name = "btnModificaServ"
+        Me.btnModificaServ.Size = New System.Drawing.Size(118, 36)
+        Me.btnModificaServ.TabIndex = 13
+        Me.btnModificaServ.Text = "MODIFICAR"
+        Me.btnModificaServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModificaServ.UseVisualStyleBackColor = True
         '
-        'Button6
+        'btnAddServ
         '
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button6.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(26, 326)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(93, 36)
-        Me.Button6.TabIndex = 5
-        Me.Button6.Text = "NUEVO"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnAddServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAddServ.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.btnAddServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAddServ.Location = New System.Drawing.Point(26, 326)
+        Me.btnAddServ.Name = "btnAddServ"
+        Me.btnAddServ.Size = New System.Drawing.Size(93, 36)
+        Me.btnAddServ.TabIndex = 5
+        Me.btnAddServ.Text = "NUEVO"
+        Me.btnAddServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAddServ.UseVisualStyleBackColor = True
         '
         'txtCuotaServ
         '
@@ -1588,8 +1585,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "NomTipo"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridViewTextBoxColumn12.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
@@ -1613,106 +1610,54 @@ Partial Class Principal
         '
         Me.TabReconexion.Controls.Add(Me.Panel7)
         Me.TabReconexion.Controls.Add(Me.Label41)
-        Me.TabReconexion.Controls.Add(Me.TextBox8)
-        Me.TabReconexion.Controls.Add(Me.DataGridView2)
+        Me.TabReconexion.Controls.Add(Me.txtFiltroRecon)
+        Me.TabReconexion.Controls.Add(Me.dtGridReconexion)
         Me.TabReconexion.Location = New System.Drawing.Point(4, 26)
         Me.TabReconexion.Name = "TabReconexion"
-        Me.TabReconexion.Size = New System.Drawing.Size(1180, 460)
+        Me.TabReconexion.Size = New System.Drawing.Size(1160, 448)
         Me.TabReconexion.TabIndex = 4
         Me.TabReconexion.Text = "RECONEXION"
         Me.TabReconexion.UseVisualStyleBackColor = True
         '
         'Panel7
         '
-        Me.Panel7.Controls.Add(Me.ComboBox1)
-        Me.Panel7.Controls.Add(Me.DateTimePicker2)
-        Me.Panel7.Controls.Add(Me.TextBox1)
+        Me.Panel7.Controls.Add(Me.txtRedRec)
+        Me.Panel7.Controls.Add(Me.txtFecRec)
+        Me.Panel7.Controls.Add(Me.txtRefRec)
         Me.Panel7.Controls.Add(Me.Label24)
-        Me.Panel7.Controls.Add(Me.Button7)
-        Me.Panel7.Controls.Add(Me.TextBox2)
-        Me.Panel7.Controls.Add(Me.Label31)
         Me.Panel7.Controls.Add(Me.Label35)
-        Me.Panel7.Controls.Add(Me.Button8)
+        Me.Panel7.Controls.Add(Me.btnReactivacion)
         Me.Panel7.Controls.Add(Me.Label36)
-        Me.Panel7.Controls.Add(Me.TextBox5)
+        Me.Panel7.Controls.Add(Me.txtMaternoRec)
         Me.Panel7.Controls.Add(Me.Label37)
-        Me.Panel7.Controls.Add(Me.TextBox6)
+        Me.Panel7.Controls.Add(Me.txtPaternoRec)
         Me.Panel7.Controls.Add(Me.Label38)
-        Me.Panel7.Controls.Add(Me.TextBox7)
+        Me.Panel7.Controls.Add(Me.txtNomRec)
         Me.Panel7.Controls.Add(Me.Label39)
         Me.Panel7.Controls.Add(Me.Label40)
         Me.Panel7.Location = New System.Drawing.Point(819, 42)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(381, 431)
+        Me.Panel7.Size = New System.Drawing.Size(338, 403)
         Me.Panel7.TabIndex = 10
         '
-        'ComboBox1
+        'txtRefRec
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(113, 185)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 25)
-        Me.ComboBox1.TabIndex = 25
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(113, 154)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(121, 24)
-        Me.DateTimePicker2.TabIndex = 23
-        Me.DateTimePicker2.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(113, 266)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.TextBox1.Size = New System.Drawing.Size(219, 67)
-        Me.TextBox1.TabIndex = 22
+        Me.txtRefRec.Location = New System.Drawing.Point(113, 229)
+        Me.txtRefRec.Multiline = True
+        Me.txtRefRec.Name = "txtRefRec"
+        Me.txtRefRec.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtRefRec.Size = New System.Drawing.Size(219, 67)
+        Me.txtRefRec.TabIndex = 22
         '
         'Label24
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(24, 271)
+        Me.Label24.Location = New System.Drawing.Point(24, 234)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(78, 20)
         Me.Label24.TabIndex = 21
         Me.Label24.Text = "Referencia"
-        '
-        'Button7
-        '
-        Me.Button7.BackgroundImage = Global.Sistema.My.Resources.Resources.cancelar
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.Location = New System.Drawing.Point(201, 348)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(118, 36)
-        Me.Button7.TabIndex = 20
-        Me.Button7.Text = "CANCELAR"
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button7.UseVisualStyleBackColor = True
-        Me.Button7.Visible = False
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(113, 227)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.TextBox2.Size = New System.Drawing.Size(121, 24)
-        Me.TextBox2.TabIndex = 19
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(3, 232)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(104, 20)
-        Me.Label31.TabIndex = 18
-        Me.Label31.Text = "Precio Toma $"
         '
         'Label35
         '
@@ -1724,19 +1669,19 @@ Partial Class Principal
         Me.Label35.TabIndex = 16
         Me.Label35.Text = "Red"
         '
-        'Button8
+        'btnReactivacion
         '
-        Me.Button8.BackgroundImage = Global.Sistema.My.Resources.Resources.add
-        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.Location = New System.Drawing.Point(77, 348)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(118, 36)
-        Me.Button8.TabIndex = 15
-        Me.Button8.Text = "REACTIVAR"
-        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button8.UseVisualStyleBackColor = True
-        Me.Button8.Visible = False
+        Me.btnReactivacion.BackgroundImage = Global.Sistema.My.Resources.Resources.add
+        Me.btnReactivacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnReactivacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnReactivacion.Location = New System.Drawing.Point(129, 352)
+        Me.btnReactivacion.Name = "btnReactivacion"
+        Me.btnReactivacion.Size = New System.Drawing.Size(118, 36)
+        Me.btnReactivacion.TabIndex = 15
+        Me.btnReactivacion.Text = "REACTIVAR"
+        Me.btnReactivacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnReactivacion.UseVisualStyleBackColor = True
+        Me.btnReactivacion.Visible = False
         '
         'Label36
         '
@@ -1748,12 +1693,12 @@ Partial Class Principal
         Me.Label36.TabIndex = 11
         Me.Label36.Text = "Fecha Nac."
         '
-        'TextBox5
+        'txtMaternoRec
         '
-        Me.TextBox5.Location = New System.Drawing.Point(113, 118)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(219, 24)
-        Me.TextBox5.TabIndex = 10
+        Me.txtMaternoRec.Location = New System.Drawing.Point(113, 118)
+        Me.txtMaternoRec.Name = "txtMaternoRec"
+        Me.txtMaternoRec.Size = New System.Drawing.Size(219, 24)
+        Me.txtMaternoRec.TabIndex = 10
         '
         'Label37
         '
@@ -1765,12 +1710,12 @@ Partial Class Principal
         Me.Label37.TabIndex = 9
         Me.Label37.Text = "Ape Materno"
         '
-        'TextBox6
+        'txtPaternoRec
         '
-        Me.TextBox6.Location = New System.Drawing.Point(113, 87)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(219, 24)
-        Me.TextBox6.TabIndex = 8
+        Me.txtPaternoRec.Location = New System.Drawing.Point(113, 87)
+        Me.txtPaternoRec.Name = "txtPaternoRec"
+        Me.txtPaternoRec.Size = New System.Drawing.Size(219, 24)
+        Me.txtPaternoRec.TabIndex = 8
         '
         'Label38
         '
@@ -1782,12 +1727,12 @@ Partial Class Principal
         Me.Label38.TabIndex = 7
         Me.Label38.Text = "Ape Paterno"
         '
-        'TextBox7
+        'txtNomRec
         '
-        Me.TextBox7.Location = New System.Drawing.Point(113, 56)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(219, 24)
-        Me.TextBox7.TabIndex = 6
+        Me.txtNomRec.Location = New System.Drawing.Point(113, 56)
+        Me.txtNomRec.Name = "txtNomRec"
+        Me.txtNomRec.Size = New System.Drawing.Size(219, 24)
+        Me.txtNomRec.TabIndex = 6
         '
         'Label39
         '
@@ -1819,108 +1764,33 @@ Partial Class Principal
         Me.Label41.TabIndex = 9
         Me.Label41.Text = "Filtro"
         '
-        'TextBox8
+        'txtFiltroRecon
         '
-        Me.TextBox8.Location = New System.Drawing.Point(72, 4)
-        Me.TextBox8.Multiline = True
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(157, 28)
-        Me.TextBox8.TabIndex = 8
+        Me.txtFiltroRecon.Location = New System.Drawing.Point(72, 4)
+        Me.txtFiltroRecon.Multiline = True
+        Me.txtFiltroRecon.Name = "txtFiltroRecon"
+        Me.txtFiltroRecon.Size = New System.Drawing.Size(157, 28)
+        Me.txtFiltroRecon.TabIndex = 8
         '
-        'DataGridView2
+        'dtGridReconexion
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.AllowUserToOrderColumns = True
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.Column26, Me.Column27, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.Column11})
-        Me.DataGridView2.Location = New System.Drawing.Point(4, 38)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.Size = New System.Drawing.Size(812, 437)
-        Me.DataGridView2.TabIndex = 7
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "IdUsuario"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.ReadOnly = True
-        Me.DataGridViewTextBoxColumn17.Visible = False
-        Me.DataGridViewTextBoxColumn17.Width = 30
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "NomUsuario"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridViewTextBoxColumn18.HeaderText = "NOMBRE"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        Me.DataGridViewTextBoxColumn18.ReadOnly = True
-        Me.DataGridViewTextBoxColumn18.Width = 170
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.DataPropertyName = "ApeUsuario"
-        Me.DataGridViewTextBoxColumn19.HeaderText = "APELLIDOS"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        Me.DataGridViewTextBoxColumn19.ReadOnly = True
-        Me.DataGridViewTextBoxColumn19.Width = 200
-        '
-        'Column26
-        '
-        Me.Column26.DataPropertyName = "ApePatUsuario"
-        Me.Column26.HeaderText = "ApePat"
-        Me.Column26.Name = "Column26"
-        Me.Column26.ReadOnly = True
-        Me.Column26.Visible = False
-        '
-        'Column27
-        '
-        Me.Column27.DataPropertyName = "ApeMatUsuario"
-        Me.Column27.HeaderText = "ApeMat"
-        Me.Column27.Name = "Column27"
-        Me.Column27.ReadOnly = True
-        Me.Column27.Visible = False
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "FecNac"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "FECHA NAC"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        Me.DataGridViewTextBoxColumn20.ReadOnly = True
-        Me.DataGridViewTextBoxColumn20.Width = 70
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "NomRed"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "RED"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        Me.DataGridViewTextBoxColumn21.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "NomTipo"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "SERVICIO"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        Me.DataGridViewTextBoxColumn22.ReadOnly = True
-        Me.DataGridViewTextBoxColumn22.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn22.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
-        Me.DataGridViewTextBoxColumn22.Width = 130
-        '
-        'Column11
-        '
-        Me.Column11.DataPropertyName = "RefUsuario"
-        Me.Column11.HeaderText = "FECHA CORTE"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
+        Me.dtGridReconexion.AllowUserToAddRows = False
+        Me.dtGridReconexion.AllowUserToDeleteRows = False
+        Me.dtGridReconexion.AllowUserToOrderColumns = True
+        Me.dtGridReconexion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtGridReconexion.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.Column26, Me.Column27, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.Column11})
+        Me.dtGridReconexion.Location = New System.Drawing.Point(4, 38)
+        Me.dtGridReconexion.Name = "dtGridReconexion"
+        Me.dtGridReconexion.ReadOnly = True
+        Me.dtGridReconexion.Size = New System.Drawing.Size(812, 407)
+        Me.dtGridReconexion.TabIndex = 7
         '
         'TabAdeudos
         '
         Me.TabAdeudos.Controls.Add(Me.WebBrowser1)
         Me.TabAdeudos.Location = New System.Drawing.Point(4, 26)
         Me.TabAdeudos.Name = "TabAdeudos"
-        Me.TabAdeudos.Size = New System.Drawing.Size(1180, 460)
+        Me.TabAdeudos.Size = New System.Drawing.Size(1160, 448)
         Me.TabAdeudos.TabIndex = 5
         Me.TabAdeudos.Text = "REVISAR ADEUDOS"
         Me.TabAdeudos.UseVisualStyleBackColor = True
@@ -1931,7 +1801,7 @@ Partial Class Principal
         Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(1180, 460)
+        Me.WebBrowser1.Size = New System.Drawing.Size(1160, 448)
         Me.WebBrowser1.TabIndex = 0
         Me.WebBrowser1.Url = New System.Uri("http://localhost/SistemaAgua/mostrar.php?red=0&ano=0", System.UriKind.Absolute)
         '
@@ -1944,7 +1814,7 @@ Partial Class Principal
         Me.TabPagos.Controls.Add(Me.FecInicioPagos)
         Me.TabPagos.Location = New System.Drawing.Point(4, 26)
         Me.TabPagos.Name = "TabPagos"
-        Me.TabPagos.Size = New System.Drawing.Size(1180, 460)
+        Me.TabPagos.Size = New System.Drawing.Size(1160, 448)
         Me.TabPagos.TabIndex = 6
         Me.TabPagos.Text = "VER PAGOS "
         Me.TabPagos.UseVisualStyleBackColor = True
@@ -1984,12 +1854,12 @@ Partial Class Principal
         Me.Panel8.Controls.Add(Me.Label49)
         Me.Panel8.Location = New System.Drawing.Point(881, 38)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(320, 431)
+        Me.Panel8.Size = New System.Drawing.Size(274, 402)
         Me.Panel8.TabIndex = 13
         '
         'txtMontoPagos
         '
-        Me.txtMontoPagos.Location = New System.Drawing.Point(91, 307)
+        Me.txtMontoPagos.Location = New System.Drawing.Point(104, 308)
         Me.txtMontoPagos.Name = "txtMontoPagos"
         Me.txtMontoPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtMontoPagos.Size = New System.Drawing.Size(121, 24)
@@ -1999,7 +1869,7 @@ Partial Class Principal
         '
         Me.Label46.AutoSize = True
         Me.Label46.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label46.Location = New System.Drawing.Point(42, 311)
+        Me.Label46.Location = New System.Drawing.Point(55, 312)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(42, 20)
         Me.Label46.TabIndex = 26
@@ -2007,7 +1877,7 @@ Partial Class Principal
         '
         'txtDescPagos
         '
-        Me.txtDescPagos.Location = New System.Drawing.Point(91, 270)
+        Me.txtDescPagos.Location = New System.Drawing.Point(104, 271)
         Me.txtDescPagos.Name = "txtDescPagos"
         Me.txtDescPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtDescPagos.Size = New System.Drawing.Size(121, 24)
@@ -2017,7 +1887,7 @@ Partial Class Principal
         '
         Me.Label45.AutoSize = True
         Me.Label45.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label45.Location = New System.Drawing.Point(5, 274)
+        Me.Label45.Location = New System.Drawing.Point(18, 275)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(79, 20)
         Me.Label45.TabIndex = 24
@@ -2025,7 +1895,7 @@ Partial Class Principal
         '
         'txtAnioPagos
         '
-        Me.txtAnioPagos.Location = New System.Drawing.Point(91, 204)
+        Me.txtAnioPagos.Location = New System.Drawing.Point(104, 205)
         Me.txtAnioPagos.Name = "txtAnioPagos"
         Me.txtAnioPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtAnioPagos.Size = New System.Drawing.Size(121, 24)
@@ -2033,18 +1903,18 @@ Partial Class Principal
         '
         'txtMesesPagos
         '
-        Me.txtMesesPagos.Location = New System.Drawing.Point(91, 129)
+        Me.txtMesesPagos.Location = New System.Drawing.Point(104, 130)
         Me.txtMesesPagos.Multiline = True
         Me.txtMesesPagos.Name = "txtMesesPagos"
         Me.txtMesesPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtMesesPagos.Size = New System.Drawing.Size(197, 69)
+        Me.txtMesesPagos.Size = New System.Drawing.Size(154, 69)
         Me.txtMesesPagos.TabIndex = 22
         '
         'Label42
         '
         Me.Label42.AutoSize = True
         Me.Label42.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label42.Location = New System.Drawing.Point(39, 129)
+        Me.Label42.Location = New System.Drawing.Point(52, 130)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(50, 20)
         Me.Label42.TabIndex = 21
@@ -2052,7 +1922,7 @@ Partial Class Principal
         '
         'txtSubPagos
         '
-        Me.txtSubPagos.Location = New System.Drawing.Point(91, 234)
+        Me.txtSubPagos.Location = New System.Drawing.Point(104, 235)
         Me.txtSubPagos.Name = "txtSubPagos"
         Me.txtSubPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtSubPagos.Size = New System.Drawing.Size(121, 24)
@@ -2062,7 +1932,7 @@ Partial Class Principal
         '
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label43.Location = New System.Drawing.Point(5, 238)
+        Me.Label43.Location = New System.Drawing.Point(18, 239)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(80, 20)
         Me.Label43.TabIndex = 18
@@ -2072,7 +1942,7 @@ Partial Class Principal
         '
         Me.Label44.AutoSize = True
         Me.Label44.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.Location = New System.Drawing.Point(48, 204)
+        Me.Label44.Location = New System.Drawing.Point(61, 205)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(37, 20)
         Me.Label44.TabIndex = 16
@@ -2080,16 +1950,16 @@ Partial Class Principal
         '
         'txtNombrePagos
         '
-        Me.txtNombrePagos.Location = New System.Drawing.Point(91, 99)
+        Me.txtNombrePagos.Location = New System.Drawing.Point(104, 100)
         Me.txtNombrePagos.Name = "txtNombrePagos"
-        Me.txtNombrePagos.Size = New System.Drawing.Size(197, 24)
+        Me.txtNombrePagos.Size = New System.Drawing.Size(154, 24)
         Me.txtNombrePagos.TabIndex = 6
         '
         'Label48
         '
         Me.Label48.AutoSize = True
         Me.Label48.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label48.Location = New System.Drawing.Point(28, 103)
+        Me.Label48.Location = New System.Drawing.Point(41, 104)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(61, 20)
         Me.Label48.TabIndex = 5
@@ -2115,7 +1985,7 @@ Partial Class Principal
         Me.dtGridPagos.Location = New System.Drawing.Point(4, 38)
         Me.dtGridPagos.Name = "dtGridPagos"
         Me.dtGridPagos.ReadOnly = True
-        Me.dtGridPagos.Size = New System.Drawing.Size(876, 419)
+        Me.dtGridPagos.Size = New System.Drawing.Size(876, 410)
         Me.dtGridPagos.TabIndex = 11
         '
         'DataGridViewTextBoxColumn23
@@ -2138,8 +2008,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn24
         '
         Me.DataGridViewTextBoxColumn24.DataPropertyName = "NomUsuario"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridViewTextBoxColumn24.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
         Me.DataGridViewTextBoxColumn24.ReadOnly = True
@@ -2219,7 +2089,7 @@ Partial Class Principal
         Me.TabCorte.Controls.Add(Me.FechaInicio)
         Me.TabCorte.Location = New System.Drawing.Point(4, 26)
         Me.TabCorte.Name = "TabCorte"
-        Me.TabCorte.Size = New System.Drawing.Size(1180, 460)
+        Me.TabCorte.Size = New System.Drawing.Size(1160, 448)
         Me.TabCorte.TabIndex = 7
         Me.TabCorte.Text = "CORTE DE CAJA"
         Me.TabCorte.UseVisualStyleBackColor = True
@@ -2273,9 +2143,9 @@ Partial Class Principal
         Me.Panel9.Controls.Add(Me.TextBox20)
         Me.Panel9.Controls.Add(Me.Label54)
         Me.Panel9.Controls.Add(Me.Label55)
-        Me.Panel9.Location = New System.Drawing.Point(916, 57)
+        Me.Panel9.Location = New System.Drawing.Point(916, 64)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(261, 407)
+        Me.Panel9.Size = New System.Drawing.Size(244, 381)
         Me.Panel9.TabIndex = 29
         '
         'Button9
@@ -2283,9 +2153,9 @@ Partial Class Principal
         Me.Button9.BackgroundImage = Global.Sistema.My.Resources.Resources.add
         Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button9.Location = New System.Drawing.Point(13, 262)
+        Me.Button9.Location = New System.Drawing.Point(111, 347)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(118, 36)
+        Me.Button9.Size = New System.Drawing.Size(110, 36)
         Me.Button9.TabIndex = 29
         Me.Button9.Text = "IMPRIMIR"
         Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -2297,11 +2167,11 @@ Partial Class Principal
         Me.Button10.BackgroundImage = Global.Sistema.My.Resources.Resources.add
         Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button10.Location = New System.Drawing.Point(137, 262)
+        Me.Button10.Location = New System.Drawing.Point(57, 235)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(118, 36)
+        Me.Button10.Size = New System.Drawing.Size(130, 41)
         Me.Button10.TabIndex = 28
-        Me.Button10.Text = "CORTE"
+        Me.Button10.Text = "CORTE CAJA"
         Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button10.UseVisualStyleBackColor = True
         Me.Button10.Visible = False
@@ -2412,8 +2282,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn30
         '
         Me.DataGridViewTextBoxColumn30.DataPropertyName = "NomUsuario"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn30.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn30.DefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridViewTextBoxColumn30.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
         Me.DataGridViewTextBoxColumn30.ReadOnly = True
@@ -2486,12 +2356,101 @@ Partial Class Principal
         Me.FechaInicio.TabIndex = 30
         Me.FechaInicio.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
         '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "IdUsuario"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        Me.DataGridViewTextBoxColumn17.Visible = False
+        Me.DataGridViewTextBoxColumn17.Width = 30
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "NomUsuario"
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle14
+        Me.DataGridViewTextBoxColumn18.HeaderText = "NOMBRE"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.ReadOnly = True
+        Me.DataGridViewTextBoxColumn18.Width = 150
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "ApeUsuario"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "APELLIDOS"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        Me.DataGridViewTextBoxColumn19.ReadOnly = True
+        Me.DataGridViewTextBoxColumn19.Width = 150
+        '
+        'Column26
+        '
+        Me.Column26.DataPropertyName = "ApePatUsuario"
+        Me.Column26.HeaderText = "ApePat"
+        Me.Column26.Name = "Column26"
+        Me.Column26.ReadOnly = True
+        Me.Column26.Visible = False
+        '
+        'Column27
+        '
+        Me.Column27.DataPropertyName = "ApeMatUsuario"
+        Me.Column27.HeaderText = "ApeMat"
+        Me.Column27.Name = "Column27"
+        Me.Column27.ReadOnly = True
+        Me.Column27.Visible = False
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.DataPropertyName = "FecNac"
+        Me.DataGridViewTextBoxColumn20.HeaderText = "FECHA NAC"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        Me.DataGridViewTextBoxColumn20.ReadOnly = True
+        Me.DataGridViewTextBoxColumn20.Width = 70
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.DataPropertyName = "NomRed"
+        Me.DataGridViewTextBoxColumn21.HeaderText = "RED"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn22
+        '
+        Me.DataGridViewTextBoxColumn22.DataPropertyName = "NomTipo"
+        Me.DataGridViewTextBoxColumn22.HeaderText = "SERVICIO"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        Me.DataGridViewTextBoxColumn22.ReadOnly = True
+        Me.DataGridViewTextBoxColumn22.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn22.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
+        Me.DataGridViewTextBoxColumn22.Width = 130
+        '
+        'Column11
+        '
+        Me.Column11.HeaderText = "REFERENCIA"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 200
+        '
+        'txtFecRec
+        '
+        Me.txtFecRec.Location = New System.Drawing.Point(113, 151)
+        Me.txtFecRec.Name = "txtFecRec"
+        Me.txtFecRec.Size = New System.Drawing.Size(111, 24)
+        Me.txtFecRec.TabIndex = 23
+        '
+        'txtRedRec
+        '
+        Me.txtRedRec.Location = New System.Drawing.Point(114, 189)
+        Me.txtRedRec.Name = "txtRedRec"
+        Me.txtRedRec.Size = New System.Drawing.Size(111, 24)
+        Me.txtRedRec.TabIndex = 24
+        '
         'Principal
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1184, 634)
+        Me.ClientSize = New System.Drawing.Size(1176, 626)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -2531,7 +2490,7 @@ Partial Class Principal
         Me.TabReconexion.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtGridReconexion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabAdeudos.ResumeLayout(False)
         Me.TabPagos.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
@@ -2628,11 +2587,11 @@ Partial Class Principal
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
     Friend WithEvents cmbEstatusServ As System.Windows.Forms.ComboBox
     Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents btnCancelarServ As System.Windows.Forms.Button
+    Friend WithEvents btnSaveServ As System.Windows.Forms.Button
+    Friend WithEvents btnEliminaServ As System.Windows.Forms.Button
+    Friend WithEvents btnModificaServ As System.Windows.Forms.Button
+    Friend WithEvents btnAddServ As System.Windows.Forms.Button
     Friend WithEvents txtCuotaServ As System.Windows.Forms.TextBox
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents txtServ As System.Windows.Forms.TextBox
@@ -2641,26 +2600,21 @@ Partial Class Principal
     Friend WithEvents dtGridServicio As System.Windows.Forms.DataGridView
     Friend WithEvents TabReconexion As System.Windows.Forms.TabPage
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtRefRec As System.Windows.Forms.TextBox
     Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label35 As System.Windows.Forms.Label
-    Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents btnReactivacion As System.Windows.Forms.Button
     Friend WithEvents Label36 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents txtMaternoRec As System.Windows.Forms.TextBox
     Friend WithEvents Label37 As System.Windows.Forms.Label
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPaternoRec As System.Windows.Forms.TextBox
     Friend WithEvents Label38 As System.Windows.Forms.Label
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents txtNomRec As System.Windows.Forms.TextBox
     Friend WithEvents Label39 As System.Windows.Forms.Label
     Friend WithEvents Label40 As System.Windows.Forms.Label
     Friend WithEvents Label41 As System.Windows.Forms.Label
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents txtFiltroRecon As System.Windows.Forms.TextBox
+    Friend WithEvents dtGridReconexion As System.Windows.Forms.DataGridView
     Friend WithEvents TabAdeudos As System.Windows.Forms.TabPage
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
     Friend WithEvents TabPagos As System.Windows.Forms.TabPage
@@ -2733,15 +2687,6 @@ Partial Class Principal
     Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn19 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column26 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column27 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn21 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn23 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column13 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn24 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -2761,4 +2706,15 @@ Partial Class Principal
     Friend WithEvents Column20 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column21 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column22 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column26 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column27 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn22 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txtRedRec As System.Windows.Forms.TextBox
+    Friend WithEvents txtFecRec As System.Windows.Forms.TextBox
 End Class
