@@ -144,6 +144,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="Sql Script\SistemaAgua.bak" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
