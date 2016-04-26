@@ -1,143 +1,38 @@
 ﻿USE [SistemaAgua]
 GO
-/****** Object:  Schema [Catalogos]    Script Date: 04/22/2016 16:30:19 ******/
-CREATE SCHEMA [Catalogos] AUTHORIZATION [dbo]
+/****** Object:  Schema [Catalogos]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+CREATE SCHEMA [Catalogos]
 GO
-/****** Object:  Schema [CRUD]    Script Date: 04/22/2016 16:30:19 ******/
-CREATE SCHEMA [CRUD] AUTHORIZATION [dbo]
+/****** Object:  Schema [CRUD]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+CREATE SCHEMA [CRUD]
 GO
-/****** Object:  Schema [Operaciones]    Script Date: 04/22/2016 16:30:19 ******/
-CREATE SCHEMA [Operaciones] AUTHORIZATION [dbo]
+/****** Object:  Schema [Operaciones]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+CREATE SCHEMA [Operaciones]
 GO
-/****** Object:  Schema [Seguridad]    Script Date: 04/22/2016 16:30:19 ******/
-CREATE SCHEMA [Seguridad] AUTHORIZATION [dbo]
+/****** Object:  Schema [Seguridad]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+CREATE SCHEMA [Seguridad]
 GO
-/****** Object:  Table [Catalogos].[Usuarios]    Script Date: 04/22/2016 16:30:19 ******/
+/****** Object:  Table [Catalogos].[Administrador]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [Catalogos].[Usuarios](
-	[IdUsuario] [int] IDENTITY(1,1) NOT NULL,
-	[NomUsuario] [nvarchar](50) NULL,
-	[ApePatUsuario] [nvarchar](50) NULL,
-	[ApeMatUsuario] [nvarchar](50) NULL,
-	[FecNacUsuario] [datetime] NULL,
-	[IdRed] [int] NULL,
-	[IdTipo] [int] NULL,
-	[PrecTomaUsuario] [float] NULL,
-	[RefUsuario] [nvarchar](1000) NULL,
-	[EstaUsuario] [int] NULL,
+CREATE TABLE [Catalogos].[Administrador](
+	[IdAdministrador] [int] IDENTITY(1,1) NOT NULL,
+	[NomAdmin] [nvarchar](50) NULL,
+	[ApePatAdmin] [nvarchar](50) NULL,
+	[ApeMatAdmin] [nvarchar](50) NULL,
+	[IdTipoAdmin] [int] NULL,
+	[PwdAdmin] [nvarchar](50) NULL,
+	[EstaAdmin] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[IdUsuario] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	[IdAdministrador] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
 GO
-SET IDENTITY_INSERT [Catalogos].[Usuarios] ON
-INSERT [Catalogos].[Usuarios] ([IdUsuario], [NomUsuario], [ApePatUsuario], [ApeMatUsuario], [FecNacUsuario], [IdRed], [IdTipo], [PrecTomaUsuario], [RefUsuario], [EstaUsuario]) VALUES (1, N'Usuario 1', N'USUARIO1', N'usuario', CAST(0x000007B600000000 AS DateTime), 1, 1, 0, N'Cerca de la Escuela Primaria', 1)
-INSERT [Catalogos].[Usuarios] ([IdUsuario], [NomUsuario], [ApePatUsuario], [ApeMatUsuario], [FecNacUsuario], [IdRed], [IdTipo], [PrecTomaUsuario], [RefUsuario], [EstaUsuario]) VALUES (2, N'Usuario 2', N'Prueba', N'Sistema', CAST(0x000007B600000000 AS DateTime), 2, 2, 0, N'En el Centro', 1)
-SET IDENTITY_INSERT [Catalogos].[Usuarios] OFF
-/****** Object:  Table [Catalogos].[Redes]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Catalogos].[Redes](
-	[IdRed] [int] IDENTITY(1,1) NOT NULL,
-	[NomRed] [nvarchar](50) NULL,
-	[EncarRed] [nvarchar](100) NULL,
-	[IdTamano] [int] NULL,
-	[CuotaRed] [float] NULL,
-	[RefRed] [nvarchar](1000) NULL,
-	[EstaRed] [int] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[IdRed] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-SET IDENTITY_INSERT [Catalogos].[Redes] ON
-INSERT [Catalogos].[Redes] ([IdRed], [NomRed], [EncarRed], [IdTamano], [CuotaRed], [RefRed], [EstaRed]) VALUES (1, N'RED 1A', N'Eloy', 1, 500, N'Del pozo a la Escuela', 1)
-INSERT [Catalogos].[Redes] ([IdRed], [NomRed], [EncarRed], [IdTamano], [CuotaRed], [RefRed], [EstaRed]) VALUES (2, N'RED 1B', N'Eloy Salgado', 2, 100, N'De la Escuela al Pozo', 1)
-SET IDENTITY_INSERT [Catalogos].[Redes] OFF
-/****** Object:  Table [Catalogos].[RedTamano]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Catalogos].[RedTamano](
-	[IdTamano] [int] IDENTITY(1,1) NOT NULL,
-	[NomTamano] [nvarchar](50) NULL,
-	[Tamano] [nvarchar](50) NULL,
-	[EstaTamano] [int] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[IdTamano] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-SET IDENTITY_INSERT [Catalogos].[RedTamano] ON
-INSERT [Catalogos].[RedTamano] ([IdTamano], [NomTamano], [Tamano], [EstaTamano]) VALUES (1, N'Normal', N'4 Pulgadas', 1)
-INSERT [Catalogos].[RedTamano] ([IdTamano], [NomTamano], [Tamano], [EstaTamano]) VALUES (2, N'Pequeño', N'2 Pulgadas', 1)
-SET IDENTITY_INSERT [Catalogos].[RedTamano] OFF
-/****** Object:  Table [Catalogos].[TipoServicio]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Catalogos].[TipoServicio](
-	[IdTipo] [int] IDENTITY(1,1) NOT NULL,
-	[NomTipo] [nvarchar](50) NULL,
-	[CuotaTipo] [float] NULL,
-	[EstaTipo] [int] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[IdTipo] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-SET IDENTITY_INSERT [Catalogos].[TipoServicio] ON
-INSERT [Catalogos].[TipoServicio] ([IdTipo], [NomTipo], [CuotaTipo], [EstaTipo]) VALUES (1, N'DOMESTICO', 57, 1)
-INSERT [Catalogos].[TipoServicio] ([IdTipo], [NomTipo], [CuotaTipo], [EstaTipo]) VALUES (2, N'COMERCIAL', 122, 1)
-INSERT [Catalogos].[TipoServicio] ([IdTipo], [NomTipo], [CuotaTipo], [EstaTipo]) VALUES (3, N'ESPECIAL', 240, 1)
-SET IDENTITY_INSERT [Catalogos].[TipoServicio] OFF
-/****** Object:  Table [Catalogos].[DescPago]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Catalogos].[DescPago](
-	[IdDescuento] [int] IDENTITY(1,1) NOT NULL,
-	[IdPago] [int] NULL,
-	[TipoDesc] [nvarchar](50) NULL,
-	[Cantdesc] [float] NULL,
-	[DescDesc] [nvarchar](1000) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[IdDescuento] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Catalogos].[CorteCaja]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Catalogos].[CorteCaja](
-	[IdCorte] [int] IDENTITY(1,1) NOT NULL,
-	[Fecha] [datetime] NULL,
-	[IdAdmin] [int] NULL,
-	[AdminCorte] [int] NULL,
-	[NumPagos] [int] NULL,
-	[MontoCorte] [float] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[IdCorte] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Catalogos].[AportUsuarios]    Script Date: 04/22/2016 16:30:19 ******/
+/****** Object:  Table [Catalogos].[AportUsuarios]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -153,30 +48,48 @@ CREATE TABLE [Catalogos].[AportUsuarios](
 PRIMARY KEY CLUSTERED 
 (
 	[IdAportacion] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
 GO
-/****** Object:  Table [Catalogos].[TipoAportacion]    Script Date: 04/22/2016 16:30:19 ******/
+/****** Object:  Table [Catalogos].[CorteCaja]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [Catalogos].[TipoAportacion](
-	[IdAport] [int] IDENTITY(1,1) NOT NULL,
-	[NomAport] [nvarchar](50) NULL,
-	[DescAport] [nvarchar](250) NULL,
+CREATE TABLE [Catalogos].[CorteCaja](
+	[IdCorte] [int] IDENTITY(1,1) NOT NULL,
+	[Fecha] [datetime] NULL,
+	[IdAdmin] [int] NULL,
+	[AdminCorte] [int] NULL,
+	[NumPagos] [int] NULL,
+	[MontoCorte] [float] NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[IdAport] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	[IdCorte] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
 GO
-SET IDENTITY_INSERT [Catalogos].[TipoAportacion] ON
-INSERT [Catalogos].[TipoAportacion] ([IdAport], [NomAport], [DescAport]) VALUES (1, N'APORTACION', N'ESTA ES UNA CANTIDAD EXTRA SEGUN ACUERDO')
-INSERT [Catalogos].[TipoAportacion] ([IdAport], [NomAport], [DescAport]) VALUES (2, N'SANCION', N'ES UNA MULTA POR ALGUNA INFRACCION QUE EL USUARIO PUEDA COMETER')
-INSERT [Catalogos].[TipoAportacion] ([IdAport], [NomAport], [DescAport]) VALUES (3, N'REPARACION', N'ES EL COSTO DE LA REPARACION POR LA CUAL SE DEVOLVERA EL SERVICIO')
-SET IDENTITY_INSERT [Catalogos].[TipoAportacion] OFF
-/****** Object:  Table [Catalogos].[PagoUsuarios]    Script Date: 04/22/2016 16:30:19 ******/
+/****** Object:  Table [Catalogos].[DescPago]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Catalogos].[DescPago](
+	[IdDescuento] [int] IDENTITY(1,1) NOT NULL,
+	[IdPago] [int] NULL,
+	[TipoDesc] [nvarchar](50) NULL,
+	[Cantdesc] [float] NULL,
+	[DescDesc] [nvarchar](1000) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdDescuento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [Catalogos].[PagoUsuarios]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -207,34 +120,48 @@ CREATE TABLE [Catalogos].[PagoUsuarios](
 PRIMARY KEY CLUSTERED 
 (
 	[IdPago] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
 GO
-/****** Object:  Table [Catalogos].[Administrador]    Script Date: 04/22/2016 16:30:19 ******/
+/****** Object:  Table [Catalogos].[Redes]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [Catalogos].[Administrador](
-	[IdAdministrador] [int] IDENTITY(1,1) NOT NULL,
-	[NomAdmin] [nvarchar](50) NULL,
-	[ApePatAdmin] [nvarchar](50) NULL,
-	[ApeMatAdmin] [nvarchar](50) NULL,
-	[IdTipoAdmin] [int] NULL,
-	[PwdAdmin] [nvarchar](50) NULL,
-	[EstaAdmin] [int] NULL,
+CREATE TABLE [Catalogos].[Redes](
+	[IdRed] [int] IDENTITY(1,1) NOT NULL,
+	[NomRed] [nvarchar](50) NULL,
+	[EncarRed] [nvarchar](100) NULL,
+	[IdTamano] [int] NULL,
+	[CuotaRed] [float] NULL,
+	[RefRed] [nvarchar](1000) NULL,
+	[EstaRed] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[IdAdministrador] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	[IdRed] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
 GO
-SET IDENTITY_INSERT [Catalogos].[Administrador] ON
-INSERT [Catalogos].[Administrador] ([IdAdministrador], [NomAdmin], [ApePatAdmin], [ApeMatAdmin], [IdTipoAdmin], [PwdAdmin], [EstaAdmin]) VALUES (1, N'César', N'Orozco', N'Vilchis', 1, N'123', 1)
-INSERT [Catalogos].[Administrador] ([IdAdministrador], [NomAdmin], [ApePatAdmin], [ApeMatAdmin], [IdTipoAdmin], [PwdAdmin], [EstaAdmin]) VALUES (2, N'Admin', N'Auxiliar', N'Sistema', 2, N'1234', 1)
-INSERT [Catalogos].[Administrador] ([IdAdministrador], [NomAdmin], [ApePatAdmin], [ApeMatAdmin], [IdTipoAdmin], [PwdAdmin], [EstaAdmin]) VALUES (9, N'Ces', N'Oro', N'Vil', 1, N'12345', 1)
-SET IDENTITY_INSERT [Catalogos].[Administrador] OFF
-/****** Object:  Table [Catalogos].[TipoAdministrador]    Script Date: 04/22/2016 16:30:19 ******/
+/****** Object:  Table [Catalogos].[RedTamano]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Catalogos].[RedTamano](
+	[IdTamano] [int] IDENTITY(1,1) NOT NULL,
+	[NomTamano] [nvarchar](50) NULL,
+	[Tamano] [nvarchar](50) NULL,
+	[EstaTamano] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdTamano] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [Catalogos].[TipoAdministrador]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -247,14 +174,386 @@ CREATE TABLE [Catalogos].[TipoAdministrador](
 PRIMARY KEY CLUSTERED 
 (
 	[IdTipoAdmin] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
 GO
-SET IDENTITY_INSERT [Catalogos].[TipoAdministrador] ON
+/****** Object:  Table [Catalogos].[TipoAportacion]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Catalogos].[TipoAportacion](
+	[IdAport] [int] IDENTITY(1,1) NOT NULL,
+	[NomAport] [nvarchar](50) NULL,
+	[DescAport] [nvarchar](250) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdAport] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [Catalogos].[TipoServicio]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Catalogos].[TipoServicio](
+	[IdTipo] [int] IDENTITY(1,1) NOT NULL,
+	[NomTipo] [nvarchar](50) NULL,
+	[CuotaTipo] [float] NULL,
+	[EstaTipo] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdTipo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [Catalogos].[Usuarios]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Catalogos].[Usuarios](
+	[IdUsuario] [int] IDENTITY(1,1) NOT NULL,
+	[NomUsuario] [nvarchar](50) NULL,
+	[ApePatUsuario] [nvarchar](50) NULL,
+	[ApeMatUsuario] [nvarchar](50) NULL,
+	[FecNacUsuario] [datetime] NULL,
+	[IdRed] [int] NULL,
+	[IdTipo] [int] NULL,
+	[PrecTomaUsuario] [float] NULL,
+	[RefUsuario] [nvarchar](1000) NULL,
+	[EstaUsuario] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdUsuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  View [dbo].[CargaPagosUsuarioAnio]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[CargaPagosUsuarioAnio] as
+  SELECT
+	 PA.IdPago as IdPago,
+	 PA.IdUsuario As IdUsuario,
+	 SUM(PA.Enero) as Enero,
+	 SUM(PA.Febrero) as Febrero,
+	 SUM(PA.Marzo) as Marzo,
+	 SUM(PA.Abril) as Abril,
+	 SUM(PA.Mayo) as Mayo,
+	 SUM(PA.Junio) as Junio,
+	 SUM(PA.Julio) as Julio,
+	 SUM(PA.Agosto) as Agosto,
+	 SUM(PA.Septiembre) as Septiembre,
+	 SUM(PA.Octubre) as Octubre,
+	 SUM(PA.Noviembre) as Noviembre,
+	 SUM(PA.Diciembre) as Diciembre,
+	 PA.Anio as AnioPagado
+  FROM	Catalogos.PagoUsuarios PA
+  GROUP BY PA.IdPago,PA.IdUsuario,PA.Anio
+
+GO
+/****** Object:  View [dbo].[CargarAdministradores]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[CargarAdministradores]
+AS
+SELECT     Catalogos.Administrador.IdAdministrador, Catalogos.Administrador.NomAdmin, Catalogos.TipoAdministrador.NomTipo, Catalogos.Administrador.ApePatAdmin, 
+                      Catalogos.Administrador.ApeMatAdmin, Catalogos.Administrador.EstaAdmin, Catalogos.TipoAdministrador.EstaTipo, Catalogos.TipoAdministrador.IdTipoAdmin, 
+                      Catalogos.Administrador.PwdAdmin
+FROM         Catalogos.Administrador INNER JOIN
+                      Catalogos.TipoAdministrador ON Catalogos.Administrador.IdTipoAdmin = Catalogos.TipoAdministrador.IdTipoAdmin
+
+GO
+/****** Object:  View [dbo].[CargarPagosUsuarios]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[CargarPagosUsuarios]
+AS
+SELECT     Catalogos.PagoUsuarios.IdPago, Catalogos.PagoUsuarios.FechaPago, Catalogos.PagoUsuarios.Meses, Catalogos.PagoUsuarios.Anio, Catalogos.Administrador.NomAdmin, 
+                      Catalogos.Administrador.ApePatAdmin, Catalogos.Administrador.ApeMatAdmin, Catalogos.Usuarios.NomUsuario, Catalogos.Usuarios.ApePatUsuario, Catalogos.Usuarios.ApeMatUsuario, 
+                      Catalogos.Usuarios.FecNacUsuario, Catalogos.Redes.NomRed, Catalogos.TipoServicio.NomTipo, Catalogos.PagoUsuarios.SubPago, Catalogos.PagoUsuarios.DescPago, 
+                      Catalogos.PagoUsuarios.MontoPago, Catalogos.PagoUsuarios.PagoCorte, Catalogos.Administrador.IdAdministrador, Catalogos.AportUsuarios.DescAport, Catalogos.AportUsuarios.IdTpoAport, 
+                      Catalogos.AportUsuarios.CantAport, Catalogos.AportUsuarios.EstaAport
+FROM         Catalogos.PagoUsuarios INNER JOIN
+                      Catalogos.Administrador ON Catalogos.PagoUsuarios.IdAdministrador = Catalogos.Administrador.IdAdministrador INNER JOIN
+                      Catalogos.Usuarios ON Catalogos.PagoUsuarios.IdUsuario = Catalogos.Usuarios.IdUsuario INNER JOIN
+                      Catalogos.Redes ON Catalogos.Usuarios.IdRed = Catalogos.Redes.IdRed INNER JOIN
+                      Catalogos.TipoServicio ON Catalogos.Usuarios.IdTipo = Catalogos.TipoServicio.IdTipo INNER JOIN
+                      Catalogos.AportUsuarios ON Catalogos.Usuarios.IdUsuario = Catalogos.AportUsuarios.IdUsuario
+
+GO
+/****** Object:  View [dbo].[CargarRedes]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[CargarRedes]
+AS
+SELECT     Catalogos.Redes.IdRed, Catalogos.Redes.NomRed, Catalogos.Redes.EncarRed, Catalogos.Redes.CuotaRed, Catalogos.Redes.RefRed, Catalogos.RedTamano.NomTamano, 
+                      Catalogos.RedTamano.Tamano
+FROM         Catalogos.Redes INNER JOIN
+                      Catalogos.RedTamano ON Catalogos.Redes.IdTamano = Catalogos.RedTamano.IdTamano
+
+GO
+/****** Object:  View [dbo].[CargarUsuarios]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[CargarUsuarios]
+AS
+SELECT     Catalogos.Usuarios.IdUsuario, Catalogos.Usuarios.NomUsuario, Catalogos.Usuarios.ApePatUsuario, Catalogos.Usuarios.ApeMatUsuario, Catalogos.Usuarios.FecNacUsuario, 
+                      Catalogos.Usuarios.PrecTomaUsuario, Catalogos.Usuarios.RefUsuario, Catalogos.Usuarios.EstaUsuario, Catalogos.TipoServicio.IdTipo, Catalogos.TipoServicio.NomTipo, 
+                      Catalogos.TipoServicio.CuotaTipo, Catalogos.Redes.IdRed, Catalogos.Redes.NomRed, Catalogos.RedTamano.NomTamano
+FROM         Catalogos.Usuarios INNER JOIN
+                      Catalogos.TipoServicio ON Catalogos.Usuarios.IdTipo = Catalogos.TipoServicio.IdTipo INNER JOIN
+                      Catalogos.Redes ON Catalogos.Usuarios.IdRed = Catalogos.Redes.IdRed INNER JOIN
+                      Catalogos.RedTamano ON Catalogos.Redes.IdTamano = Catalogos.RedTamano.IdTamano
+
+GO
+SET IDENTITY_INSERT [Catalogos].[Administrador] ON 
+
+INSERT [Catalogos].[Administrador] ([IdAdministrador], [NomAdmin], [ApePatAdmin], [ApeMatAdmin], [IdTipoAdmin], [PwdAdmin], [EstaAdmin]) VALUES (1, N'César', N'Orozco', N'Vilchis', 1, N'123', 1)
+INSERT [Catalogos].[Administrador] ([IdAdministrador], [NomAdmin], [ApePatAdmin], [ApeMatAdmin], [IdTipoAdmin], [PwdAdmin], [EstaAdmin]) VALUES (2, N'Admin', N'Auxiliar', N'Sistema', 2, N'1234', 1)
+INSERT [Catalogos].[Administrador] ([IdAdministrador], [NomAdmin], [ApePatAdmin], [ApeMatAdmin], [IdTipoAdmin], [PwdAdmin], [EstaAdmin]) VALUES (9, N'Ces', N'Oro', N'Vil', 1, N'12345', 1)
+SET IDENTITY_INSERT [Catalogos].[Administrador] OFF
+SET IDENTITY_INSERT [Catalogos].[Redes] ON 
+
+INSERT [Catalogos].[Redes] ([IdRed], [NomRed], [EncarRed], [IdTamano], [CuotaRed], [RefRed], [EstaRed]) VALUES (1, N'RED 1A', N'Eloy', 1, 500, N'Del pozo a la Escuela', 1)
+INSERT [Catalogos].[Redes] ([IdRed], [NomRed], [EncarRed], [IdTamano], [CuotaRed], [RefRed], [EstaRed]) VALUES (2, N'RED 1B', N'Eloy Salgado', 2, 100, N'De la Escuela al Pozo', 1)
+SET IDENTITY_INSERT [Catalogos].[Redes] OFF
+SET IDENTITY_INSERT [Catalogos].[RedTamano] ON 
+
+INSERT [Catalogos].[RedTamano] ([IdTamano], [NomTamano], [Tamano], [EstaTamano]) VALUES (1, N'Normal', N'4 Pulgadas', 1)
+INSERT [Catalogos].[RedTamano] ([IdTamano], [NomTamano], [Tamano], [EstaTamano]) VALUES (2, N'Pequeño', N'2 Pulgadas', 1)
+SET IDENTITY_INSERT [Catalogos].[RedTamano] OFF
+SET IDENTITY_INSERT [Catalogos].[TipoAdministrador] ON 
+
 INSERT [Catalogos].[TipoAdministrador] ([IdTipoAdmin], [NomTipo], [DescTipo], [EstaTipo]) VALUES (1, N'Administrador', N'Administrador del Sistema', 1)
 INSERT [Catalogos].[TipoAdministrador] ([IdTipoAdmin], [NomTipo], [DescTipo], [EstaTipo]) VALUES (2, N'Auxiliar', N'Usuario que realiza Pagos', 1)
 SET IDENTITY_INSERT [Catalogos].[TipoAdministrador] OFF
-/****** Object:  StoredProcedure [Operaciones].[sp_VerificaNuevoUsuario]    Script Date: 04/22/2016 16:30:19 ******/
+SET IDENTITY_INSERT [Catalogos].[TipoAportacion] ON 
+
+INSERT [Catalogos].[TipoAportacion] ([IdAport], [NomAport], [DescAport]) VALUES (1, N'APORTACION', N'ESTA ES UNA CANTIDAD EXTRA SEGUN ACUERDO')
+INSERT [Catalogos].[TipoAportacion] ([IdAport], [NomAport], [DescAport]) VALUES (2, N'SANCION', N'ES UNA MULTA POR ALGUNA INFRACCION QUE EL USUARIO PUEDA COMETER')
+INSERT [Catalogos].[TipoAportacion] ([IdAport], [NomAport], [DescAport]) VALUES (3, N'REPARACION', N'ES EL COSTO DE LA REPARACION POR LA CUAL SE DEVOLVERA EL SERVICIO')
+SET IDENTITY_INSERT [Catalogos].[TipoAportacion] OFF
+SET IDENTITY_INSERT [Catalogos].[TipoServicio] ON 
+
+INSERT [Catalogos].[TipoServicio] ([IdTipo], [NomTipo], [CuotaTipo], [EstaTipo]) VALUES (1, N'DOMESTICO', 57, 1)
+INSERT [Catalogos].[TipoServicio] ([IdTipo], [NomTipo], [CuotaTipo], [EstaTipo]) VALUES (2, N'COMERCIAL', 122, 1)
+INSERT [Catalogos].[TipoServicio] ([IdTipo], [NomTipo], [CuotaTipo], [EstaTipo]) VALUES (3, N'ESPECIAL', 240, 1)
+SET IDENTITY_INSERT [Catalogos].[TipoServicio] OFF
+SET IDENTITY_INSERT [Catalogos].[Usuarios] ON 
+
+INSERT [Catalogos].[Usuarios] ([IdUsuario], [NomUsuario], [ApePatUsuario], [ApeMatUsuario], [FecNacUsuario], [IdRed], [IdTipo], [PrecTomaUsuario], [RefUsuario], [EstaUsuario]) VALUES (1, N'Usuario 1', N'USUARIO1', N'usuario', CAST(N'1905-05-29 00:00:00.000' AS DateTime), 1, 1, 0, N'Cerca de la Escuela Primaria', 1)
+INSERT [Catalogos].[Usuarios] ([IdUsuario], [NomUsuario], [ApePatUsuario], [ApeMatUsuario], [FecNacUsuario], [IdRed], [IdTipo], [PrecTomaUsuario], [RefUsuario], [EstaUsuario]) VALUES (2, N'Usuario 2', N'Prueba', N'Sistema', CAST(N'1905-05-29 00:00:00.000' AS DateTime), 2, 2, 0, N'En el Centro', 1)
+SET IDENTITY_INSERT [Catalogos].[Usuarios] OFF
+/****** Object:  StoredProcedure [CRUD].[sp_InsertaModificaEliminaAdministrador]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [CRUD].[sp_InsertaModificaEliminaAdministrador] 
+	@Tipo int,
+	@IdAdmin nvarchar(10),
+	@NomAdmin nvarchar(50),
+    @ApePatAdmin nvarchar(50),
+    @ApeMatAdmin nvarchar(50),
+    @IdTipoAdmin nvarchar(50),
+    @PwdAdmin nvarchar(50),
+    @EstaAdmin nvarchar(50)
+AS
+BEGIN
+
+	Declare @tipoAdmin int;
+	Declare @Esta int;
+	SET NOCOUNT ON;
+	
+	SET @tipoAdmin = (SELECT IdTipoAdmin FROM Catalogos.TipoAdministrador WHERE NomTipo = @IdTipoAdmin)
+	SET @Esta = (SELECT CASE @EstaAdmin WHEN 'Activo' THEN 1 ElSE 0 END)
+	
+	
+	IF @Tipo = 1
+		begin 
+			INSERT INTO Catalogos.Administrador VALUES (@NomAdmin, @ApePatAdmin, @ApeMatAdmin, @tipoAdmin, @PwdAdmin, 1)
+		end
+	ELSE IF @Tipo = 2
+		begin
+			IF @PwdAdmin = 'null'
+				begin
+					UPDATE Catalogos.Administrador	SET 
+						NomAdmin = @NomAdmin, 
+						ApePatAdmin = @ApePatAdmin, 
+						ApeMatAdmin = @ApeMatAdmin, 
+						IdTipoAdmin = @tipoAdmin, 
+						EstaAdmin = @Esta
+					WHERE IdAdministrador = @IdAdmin
+				end
+			ELSE
+				UPDATE Catalogos.Administrador	SET 
+				NomAdmin = @NomAdmin, 
+				ApePatAdmin = @ApePatAdmin, 
+				ApeMatAdmin = @ApeMatAdmin, 
+				IdTipoAdmin = @tipoAdmin, 
+				PwdAdmin= @PwdAdmin, 
+				EstaAdmin = @Esta
+			WHERE IdAdministrador = @IdAdmin
+		end
+	ELSE
+		DELETE FROM Catalogos.Administrador WHERE IdAdministrador = @IdAdmin
+END
+
+GO
+/****** Object:  StoredProcedure [CRUD].[sp_InsertaModificaEliminaRedes]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [CRUD].[sp_InsertaModificaEliminaRedes] 
+	  @Tipo int,
+	  @IdRed int, 
+	  @NomRed nvarchar(50), 
+	  @EncarRed nvarchar(50), 
+	  @IdTamano nvarchar(50), 
+	  @CuotaRed nvarchar(50), 
+	  @RefRed nvarchar(50), 
+	  @EstaRed nvarchar(50)
+
+AS
+BEGIN
+
+	Declare @Tam int;
+	Declare @Esta int;
+	SET NOCOUNT ON;
+
+	SET @Esta = (SELECT CASE @EstaRed WHEN 'Activo' THEN 1 ElSE 0 END)
+	SET @Tam = (SELECT IdTamano FROM Catalogos.RedTamano WHERE Tamano = @IdTamano)
+	
+	
+	IF @Tipo = 1
+		begin 
+			INSERT INTO Catalogos.Redes VALUES (@NomRed, @EncarRed, @Tam, @CuotaRed, @RefRed, 1)
+		end
+	ELSE IF @Tipo = 2
+		begin
+			UPDATE Catalogos.Redes	SET 
+				NomRed = @NomRed, 
+				EncarRed = @EncarRed, 
+				IdTamano = @Tam, 
+				CuotaRed = @CuotaRed, 
+				RefRed = @RefRed
+			WHERE IdRed = @IdRed
+		end
+	ELSE
+		DELETE FROM Catalogos.Redes WHERE IdRed = @IdRed
+END
+
+GO
+/****** Object:  StoredProcedure [CRUD].[sp_InsertaModificaEliminaTipoServicio]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [CRUD].[sp_InsertaModificaEliminaTipoServicio] 
+	  @Tipo int,
+	  @IdTipo int,
+	  @NomTipo nvarchar(50),
+      @CuotaTipo float,
+      @EstaTipo nvarchar(50)
+AS
+BEGIN
+
+	Declare @Esta int;
+	SET NOCOUNT ON;
+
+	SET @Esta = (SELECT CASE @EstaTipo WHEN 'Activo' THEN 1 ElSE 0 END)
+	
+	
+	IF @Tipo = 1
+		begin 
+			INSERT INTO Catalogos.TipoServicio VALUES (@NomTipo, @CuotaTipo, 1)
+		end
+	ELSE IF @Tipo = 2
+		begin
+			UPDATE Catalogos.TipoServicio	SET 
+				NomTipo = @NomTipo,
+     			CuotaTipo = @CuotaTipo,
+				EstaTipo = @Esta 
+
+			WHERE IdTipo = @IdTipo
+		end
+	ELSE
+		DELETE FROM Catalogos.TipoServicio WHERE IdTipo = @IdTipo
+END
+
+GO
+/****** Object:  StoredProcedure [CRUD].[sp_InsertaModificaEliminaUsuario]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [CRUD].[sp_InsertaModificaEliminaUsuario] 
+	  @Tipo int,
+	  @IdUsuario int,
+	  @NomUsuario nvarchar(50),
+	  @ApePatUsuario nvarchar(50),
+	  @ApeMatUsuario nvarchar(50),
+	  @FecNacUsuario DateTime,
+	  @IdRed nvarchar(50),
+	  @IdTipo nvarchar(50),
+	  @PrecTomaUsuario float,
+	  @RefUsuario nvarchar(500),
+	  @EstaUsuario nvarchar(50)
+AS
+BEGIN
+
+	Declare @red int;
+	Declare @tipoServ int;
+	Declare @Esta int;
+	SET NOCOUNT ON;
+
+	SET @Esta = (SELECT CASE @EstaUsuario WHEN 'Activo' THEN 1 ElSE 0 END)
+	SET @Red = (SELECT IdRed FROM Catalogos.Redes WHERE NomRed = @IdRed)
+	SET @tipoServ = (SELECT IdTipo FROM Catalogos.TipoServicio WHERE NomTipo = @IdTipo)
+	
+	
+	IF @Tipo = 1
+		begin 
+			INSERT INTO Catalogos.Usuarios VALUES (@NomUsuario, @ApePatUsuario, @ApeMatUsuario, @FecNacUsuario, @Red, @tipoServ, @PrecTomaUsuario, @RefUsuario, 1)
+		end
+	ELSE IF @Tipo = 2
+		begin
+			UPDATE Catalogos.Usuarios	SET 
+				NomUsuario = @NomUsuario, 
+				ApePatUsuario = @ApePatUsuario, 
+				ApeMatUsuario = @ApeMatUsuario, 
+				FecNacUsuario = @FecNacUsuario, 
+				IdRed = @Red, 
+				IdTipo = @tipoServ, 
+				PrecTomaUsuario = @PrecTomaUsuario, 
+				RefUsuario = @RefUsuario, 
+				EstaUsuario = @Esta
+			WHERE IdUsuario = @IdUsuario
+		end
+	ELSE
+		DELETE FROM Catalogos.Usuarios WHERE IdUsuario = @IdUsuario
+END
+
+GO
+/****** Object:  StoredProcedure [Operaciones].[BackupDB]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -264,17 +563,25 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [Operaciones].[sp_VerificaNuevoUsuario]
-	@nom nvarchar(50),
-	@apep nvarchar(50),
-	@apem nvarchar(50)
+CREATE PROCEDURE [Operaciones].[BackupDB] 
 AS
 BEGIN
-	SET NOCOUNT ON;
-	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Usuarios WHERE NomUsuario = @nom AND ApePatUsuario = @apep AND ApePatUsuario = @apem
+	declare @fecha varchar(MAX) 
+	declare @archivo varchar(MAX)
+	
+	SET NOCOUNT ON; 
+	
+	set @fecha = CONVERT(Varchar(max), GETDATE(),102)+'_'+SUBSTRING(CONVERT(varchar(10), getdate(),108),1,2) 
+	set @archivo ='C:\Backup\Respaldos\SistemaAgua_'+@fecha 
+	BACKUP DATABASE SistemaAgua 
+	TO DISK = @archivo 
+	WITH FORMAT, 
+	MEDIANAME = 'SistemaAgua', 
+	NAME = 'BackupSistema'; 
 END
+
 GO
-/****** Object:  StoredProcedure [Operaciones].[sp_ActivaDesactivaServicio]    Script Date: 04/22/2016 16:30:19 ******/
+/****** Object:  StoredProcedure [Operaciones].[sp_ActivaDesactivaServicio]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -297,25 +604,579 @@ BEGIN
 	ELSE
 		UPDATE Catalogos.Usuarios SET EstaUsuario = 0 WHERE IdUsuario = @IdUsuario
 END
+
 GO
-/****** Object:  View [dbo].[CargarPagosUsuarios]    Script Date: 04/22/2016 16:30:19 ******/
+/****** Object:  StoredProcedure [Operaciones].[sp_VerificaNuevoAdmin]    Script Date: 25/04/2016 10:05:32 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE VIEW [dbo].[CargarPagosUsuarios]
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Operaciones].[sp_VerificaNuevoAdmin]
+	@pwd nvarchar(50)
 AS
-SELECT     Catalogos.PagoUsuarios.IdPago, Catalogos.PagoUsuarios.FechaPago, Catalogos.PagoUsuarios.Meses, Catalogos.PagoUsuarios.Anio, Catalogos.Administrador.NomAdmin, 
-                      Catalogos.Administrador.ApePatAdmin, Catalogos.Administrador.ApeMatAdmin, Catalogos.Usuarios.NomUsuario, Catalogos.Usuarios.ApePatUsuario, Catalogos.Usuarios.ApeMatUsuario, 
-                      Catalogos.Usuarios.FecNacUsuario, Catalogos.Redes.NomRed, Catalogos.TipoServicio.NomTipo, Catalogos.PagoUsuarios.SubPago, Catalogos.PagoUsuarios.DescPago, 
-                      Catalogos.PagoUsuarios.MontoPago, Catalogos.PagoUsuarios.PagoCorte, Catalogos.Administrador.IdAdministrador, Catalogos.AportUsuarios.DescAport, Catalogos.AportUsuarios.IdTpoAport, 
-                      Catalogos.AportUsuarios.CantAport, Catalogos.AportUsuarios.EstaAport
-FROM         Catalogos.PagoUsuarios INNER JOIN
-                      Catalogos.Administrador ON Catalogos.PagoUsuarios.IdAdministrador = Catalogos.Administrador.IdAdministrador INNER JOIN
-                      Catalogos.Usuarios ON Catalogos.PagoUsuarios.IdUsuario = Catalogos.Usuarios.IdUsuario INNER JOIN
-                      Catalogos.Redes ON Catalogos.Usuarios.IdRed = Catalogos.Redes.IdRed INNER JOIN
-                      Catalogos.TipoServicio ON Catalogos.Usuarios.IdTipo = Catalogos.TipoServicio.IdTipo INNER JOIN
-                      Catalogos.AportUsuarios ON Catalogos.Usuarios.IdUsuario = Catalogos.AportUsuarios.IdUsuario
+BEGIN
+	SET NOCOUNT ON;
+	
+	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Administrador WHERE PwdAdmin = @pwd
+END
+
+GO
+/****** Object:  StoredProcedure [Operaciones].[sp_VerificaNuevoRed]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Operaciones].[sp_VerificaNuevoRed]
+	@nom nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Redes WHERE NomRed = @nom
+END
+
+GO
+/****** Object:  StoredProcedure [Operaciones].[sp_VerificaNuevoServ]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Operaciones].[sp_VerificaNuevoServ]
+	@nom nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.TipoServicio WHERE NomTipo = @nom
+END
+
+GO
+/****** Object:  StoredProcedure [Operaciones].[sp_VerificaNuevoUsuario]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Operaciones].[sp_VerificaNuevoUsuario]
+	@nom nvarchar(50),
+	@apep nvarchar(50),
+	@apem nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Usuarios WHERE NomUsuario = @nom AND ApePatUsuario = @apep AND ApePatUsuario = @apem
+END
+
+GO
+/****** Object:  StoredProcedure [Seguridad].[sp_CargarAdministradores]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Seguridad].[sp_CargarAdministradores] 
+	@tipo int,
+	@filtro nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF @tipo = 1
+	  begin
+		IF @filtro = '*'
+			BEGIN
+				SELECT 
+					IdAdministrador as IdAdmin,
+					NomAdmin as NomAdmin,
+					ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
+					ApePatAdmin as ApePa,
+					ApeMatAdmin as ApeMa,
+					NomTipo as TipoAdmin,
+					CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+				FROM dbo.CargarAdministradores
+				--WHERE PwdAdmin = 123--@pwd
+			END
+		ELSE
+			SELECT 
+					IdAdministrador as IdAdmin,
+					NomAdmin as NomAdmin,
+					ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
+					ApePatAdmin as ApePa,
+					ApeMatAdmin as ApeMa,
+					NomTipo as TipoAdmin,
+					CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+				FROM dbo.CargarAdministradores
+				WHERE NomAdmin LIKE '%'+ @filtro +'%'
+	end
+  ELSE
+	  SELECT NomTipo FROM Catalogos.TipoAdministrador WHERE EstaTipo = 1
+END
+
+GO
+/****** Object:  StoredProcedure [Seguridad].[sp_CargarPagosUsuarios]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Seguridad].[sp_CargarPagosUsuarios]
+	@tipo int,
+	@admin nvarchar(50),
+	@fecha1	as DateTime,
+	@fecha2 as DateTime
+AS
+BEGIN
+	DECLARE @fechafinal1 DateTime;
+	DECLARE @fechafinal2 DateTime;
+	
+	SET @fechafinal1 = convert(datetime, @fecha1, 103);
+	SET @fechafinal2 = convert(datetime, @fecha2, 103);
+	SET NOCOUNT ON;
+	IF @tipo = 1 -- ESTE MODULO ES PARA CARGAR LOS PAGOS QUE SE MUESTREN EN UN LAPSO
+		begin
+			SELECT [IdPago]
+				  ,NomAdmin + ' ' + ApePatAdmin as NomAdmin
+				  ,[NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
+				  ,[NomRed]
+				  ,[NomTipo]
+				  ,[FechaPago]
+				  ,[Meses]
+				  ,[Anio]
+				  ,[SubPago]
+				  ,[DescPago]
+				  ,CantAport as CantAport
+				  ,[MontoPago]
+			FROM [SistemaAgua].[dbo].[CargarPagosUsuarios]
+			WHERE FechaPago >= @fechafinal1  AND FechaPago <= @fechafinal2
+		end
+	ELSE  -- ESTE MODULO ES´PARA CARGAR LOS LOS PAGOS POR USUARIO PARA CORTE DE CAJA
+			SELECT [IdPago]
+				  ,[NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
+				  ,[FechaPago]
+				  ,[Meses]
+				  ,[Anio]
+				  ,[SubPago]
+				  ,[DescPago]
+				  ,CantAport as CantAport
+				  ,[MontoPago]
+			FROM [SistemaAgua].[dbo].[CargarPagosUsuarios]
+			WHERE IdAdministrador = (SELECT IdAdministrador FROM Catalogos.Administrador WHERE NomAdmin = @admin) AND PagoCorte = 1
+END
+
+GO
+/****** Object:  StoredProcedure [Seguridad].[sp_CargarRedes]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Seguridad].[sp_CargarRedes]
+	@tipo int,
+	@filtro nvarchar(50) 
+AS
+BEGIN
+	SET NOCOUNT ON;
+		BEGIN
+			IF @tipo = 1
+				BEGIN
+					IF @filtro = '*'
+					  begin
+						SELECT 
+						  IdRed IdRed,
+						  NomRed NumRed,
+						  EncarRed Encargado,
+						  Tamano TamRed,
+						  CuotaRed CuotaRed,
+						  RefRed RefRed
+						FROM dbo.CargarRedes
+					  end
+					ELSE
+						SELECT 
+						  IdRed IdRed,
+						  NomRed NumRed,
+						  EncarRed Encargado,
+						  Tamano TamRed,
+						  CuotaRed CuotaRed,
+						  RefRed RefRed
+						FROM dbo.CargarRedes
+						WHERE NomRed LIKE '%' + @filtro + '%' 
+				END
+			ELSE
+				SELECT 
+				  NomRed NumRed
+				FROM dbo.CargarRedes			
+		END
+END
+
+GO
+/****** Object:  StoredProcedure [Seguridad].[sp_CargarUsuarios]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Seguridad].[sp_CargarUsuarios] 
+	@tipo int,
+	@filtro nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF @tipo = 1
+	begin
+		IF @filtro = '*'
+			BEGIN
+				SELECT 
+				  IdUsuario IdUsuario,
+				  NomUsuario NomUsuario,
+				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
+				  ApePatUsuario ApePatUsuario,
+				  ApeMatUsuario ApeMatUsuario,
+				  FecNacUsuario FecNac,
+				  NomRed NomRed,
+				  NomTipo NomTipo,
+				  RefUsuario RefUsuario,
+				  CASE EstaUsuario WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+				FROM dbo.CargarUsuarios
+				WHERE EstaUsuario = 1
+			END
+		ELSE
+			SELECT 
+				  IdUsuario as IdUsuario,
+				  NomUsuario as NomUsuario,
+				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
+				  ApePatUsuario ApePatUsuario,
+				  ApeMatUsuario ApeMatUsuario,
+				  FecNacUsuario FecNac,
+				  NomRed NomRed,
+				  NomTipo NomTipo,
+				  RefUsuario RefUsuario,
+					CASE EstaUsuario WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+				FROM dbo.CargarUsuarios
+				WHERE NomUsuario LIKE '%'+ @filtro +'%' AND EstaUsuario = 1
+		end
+	ELSE
+		IF @filtro = '*'
+		begin
+			SELECT 
+				  IdUsuario as IdUsuario,
+				  NomUsuario as NomUsuario,
+				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
+				  ApePatUsuario ApePatUsuario,
+				  ApeMatUsuario ApeMatUsuario,
+				  FecNacUsuario FecNac,
+				  NomRed NomRed,
+				  NomTipo NomTipo,
+				  RefUsuario RefUsuario
+				FROM dbo.CargarUsuarios
+				WHERE EstaUsuario = 0
+		end
+	ELSE
+			SELECT 
+				  IdUsuario as IdUsuario,
+				  NomUsuario as NomUsuario,
+				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
+				  ApePatUsuario ApePatUsuario,
+				  ApeMatUsuario ApeMatUsuario,
+				  FecNacUsuario FecNac,
+				  NomRed NomRed,
+				  NomTipo NomTipo,
+				  RefUsuario RefUsuario
+				FROM dbo.CargarUsuarios
+				WHERE NomUsuario LIKE '%'+ @filtro +'%' AND EstaUsuario = 0
+END
+
+GO
+/****** Object:  StoredProcedure [Seguridad].[sp_CargaTamanoRed]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Seguridad].[sp_CargaTamanoRed] 
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Tamano FROM Catalogos.RedTamano
+END
+
+GO
+/****** Object:  StoredProcedure [Seguridad].[sp_CargaTiposServicios]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Seguridad].[sp_CargaTiposServicios]
+	@tipo int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	
+	IF @tipo = 1
+		begin
+			SELECT	[IdTipo],
+					[NomTipo],
+					[CuotaTipo],
+					CASE EstaTipo WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
+			FROM Catalogos.TipoServicio
+		end
+	ELSE
+		SELECT [NomTipo] FROM Catalogos.TipoServicio WHERE EstaTipo = 1
+END
+
+GO
+/****** Object:  StoredProcedure [Seguridad].[sp_InicioSessionAdmin]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Seguridad].[sp_InicioSessionAdmin] 
+	@pwd nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT 
+		IdAdministrador as IdAdmin,
+		NomAdmin + ' ' + ApePatAdmin as NomAdmin,
+		NomTipo as PerfilAdmin
+	FROM dbo.CargarAdministradores
+	WHERE PwdAdmin = @pwd
+END
+
+GO
+/****** Object:  StoredProcedure [Seguridad].[sp_RealizarCorteCaja]    Script Date: 25/04/2016 10:05:32 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [Seguridad].[sp_RealizarCorteCaja] 
+	@admin nvarchar(50)
+AS
+BEGIN
+	Declare @IdAdmin int;
+	Declare @NumPagos int;
+	Declare @MontoTotal float;
+	Declare @NumTem int;
+	
+	SET NOCOUNT ON;	
+	
+	CREATE TABLE #PagosCorteCaja 
+		(
+		Usuario nvarchar, 
+		NomRed nvarchar, 
+		NomTipo nvarchar,
+		Fecha DateTime,
+		Meses nvarchar,
+		Anio int,
+		SubTotal float,
+		DescPago float,
+		CantAport float,
+		MontoTotal float,
+		Administrador nvarchar,
+		NumPagos int,
+		MontoFinal float
+		) 
+		
+	SET @IdAdmin = (SELECT IdAdministrador FROM Catalogos.Administrador WHERE NomAdmin = @admin)
+	
+	SELECT 
+		@NumPagos = COUNT(*),
+		@MontoTotal = ISNULL(SUM(MontoPago),0)
+	 FROM Catalogos.PagoUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1--@IdAdmin
+	 
+	 
+	 IF @NumPagos >= 1
+		BEGIN
+			INSERT INTO #PagosCorteCaja
+			SELECT 
+				   [NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
+				  ,[NomRed]
+				  ,[NomTipo]
+				  ,[FechaPago]
+				  ,[Meses]
+				  ,[Anio]
+				  ,[SubPago]
+				  ,[DescPago]
+				  ,CantAport
+				  ,[MontoPago]
+				  ,NomAdmin + ' ' + ApePatAdmin as NomAdmin
+				  ,@NumPagos
+				  ,@MontoTotal
+			FROM dbo.CargarPagosUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1 --@IdAdmin
+	    END
+	IF (SELECT COUNT(*) FROM #PagosCorteCaja) >= 1
+		UPDATE Catalogos.PagoUsuarios SET PagoCorte = 0 WHERE IdPago IN (SELECT IdPago FROM Catalogos.PagoUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1)
+		SELECT * FROM #PagosCorteCaja
+END
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Administrador (Catalogos)"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 126
+               Right = 203
+            End
+            DisplayFlags = 280
+            TopColumn = 3
+         End
+         Begin Table = "TipoAdministrador (Catalogos)"
+            Begin Extent = 
+               Top = 6
+               Left = 241
+               Bottom = 126
+               Right = 401
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarAdministradores'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarAdministradores'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
@@ -491,72 +1352,126 @@ End
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarPagosUsuarios'
 GO
-/****** Object:  StoredProcedure [CRUD].[sp_InsertaModificaEliminaUsuario]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Redes (Catalogos)"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 126
+               Right = 198
+            End
+            DisplayFlags = 280
+            TopColumn = 3
+         End
+         Begin Table = "RedTamano (Catalogos)"
+            Begin Extent = 
+               Top = 6
+               Left = 236
+               Bottom = 126
+               Right = 396
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarRedes'
 GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [CRUD].[sp_InsertaModificaEliminaUsuario] 
-	  @Tipo int,
-	  @IdUsuario int,
-	  @NomUsuario nvarchar(50),
-	  @ApePatUsuario nvarchar(50),
-	  @ApeMatUsuario nvarchar(50),
-	  @FecNacUsuario DateTime,
-	  @IdRed nvarchar(50),
-	  @IdTipo nvarchar(50),
-	  @PrecTomaUsuario float,
-	  @RefUsuario nvarchar(500),
-	  @EstaUsuario nvarchar(50)
-AS
-BEGIN
-
-	Declare @red int;
-	Declare @tipoServ int;
-	Declare @Esta int;
-	SET NOCOUNT ON;
-
-	SET @Esta = (SELECT CASE @EstaUsuario WHEN 'Activo' THEN 1 ElSE 0 END)
-	SET @Red = (SELECT IdRed FROM Catalogos.Redes WHERE NomRed = @IdRed)
-	SET @tipoServ = (SELECT IdTipo FROM Catalogos.TipoServicio WHERE NomTipo = @IdTipo)
-	
-	
-	IF @Tipo = 1
-		begin 
-			INSERT INTO Catalogos.Usuarios VALUES (@NomUsuario, @ApePatUsuario, @ApeMatUsuario, @FecNacUsuario, @Red, @tipoServ, @PrecTomaUsuario, @RefUsuario, 1)
-		end
-	ELSE IF @Tipo = 2
-		begin
-			UPDATE Catalogos.Usuarios	SET 
-				NomUsuario = @NomUsuario, 
-				ApePatUsuario = @ApePatUsuario, 
-				ApeMatUsuario = @ApeMatUsuario, 
-				FecNacUsuario = @FecNacUsuario, 
-				IdRed = @Red, 
-				IdTipo = @tipoServ, 
-				PrecTomaUsuario = @PrecTomaUsuario, 
-				RefUsuario = @RefUsuario, 
-				EstaUsuario = @Esta
-			WHERE IdUsuario = @IdUsuario
-		end
-	ELSE
-		DELETE FROM Catalogos.Usuarios WHERE IdUsuario = @IdUsuario
-END
-GO
-/****** Object:  View [dbo].[CargarUsuarios]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE VIEW [dbo].[CargarUsuarios]
-AS
-SELECT     Catalogos.Usuarios.IdUsuario, Catalogos.Usuarios.NomUsuario, Catalogos.Usuarios.ApePatUsuario, Catalogos.Usuarios.ApeMatUsuario, Catalogos.Usuarios.FecNacUsuario, 
-                      Catalogos.Usuarios.PrecTomaUsuario, Catalogos.Usuarios.RefUsuario, Catalogos.Usuarios.EstaUsuario, Catalogos.TipoServicio.IdTipo, Catalogos.TipoServicio.NomTipo, 
-                      Catalogos.TipoServicio.CuotaTipo, Catalogos.Redes.IdRed, Catalogos.Redes.NomRed, Catalogos.RedTamano.NomTamano
-FROM         Catalogos.Usuarios INNER JOIN
-                      Catalogos.TipoServicio ON Catalogos.Usuarios.IdTipo = Catalogos.TipoServicio.IdTipo INNER JOIN
-                      Catalogos.Redes ON Catalogos.Usuarios.IdRed = Catalogos.Redes.IdRed INNER JOIN
-                      Catalogos.RedTamano ON Catalogos.Redes.IdTamano = Catalogos.RedTamano.IdTamano
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarRedes'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
@@ -698,791 +1613,4 @@ End
 ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarUsuarios'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarUsuarios'
-GO
-/****** Object:  View [dbo].[CargarRedes]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE VIEW [dbo].[CargarRedes]
-AS
-SELECT     Catalogos.Redes.IdRed, Catalogos.Redes.NomRed, Catalogos.Redes.EncarRed, Catalogos.Redes.CuotaRed, Catalogos.Redes.RefRed, Catalogos.RedTamano.NomTamano, 
-                      Catalogos.RedTamano.Tamano
-FROM         Catalogos.Redes INNER JOIN
-                      Catalogos.RedTamano ON Catalogos.Redes.IdTamano = Catalogos.RedTamano.IdTamano
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Redes (Catalogos)"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 126
-               Right = 198
-            End
-            DisplayFlags = 280
-            TopColumn = 3
-         End
-         Begin Table = "RedTamano (Catalogos)"
-            Begin Extent = 
-               Top = 6
-               Left = 236
-               Bottom = 126
-               Right = 396
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarRedes'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarRedes'
-GO
-/****** Object:  StoredProcedure [Operaciones].[sp_VerificaNuevoRed]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Operaciones].[sp_VerificaNuevoRed]
-	@nom nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Redes WHERE NomRed = @nom
-END
-GO
-/****** Object:  StoredProcedure [CRUD].[sp_InsertaModificaEliminaRedes]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [CRUD].[sp_InsertaModificaEliminaRedes] 
-	  @Tipo int,
-	  @IdRed int, 
-	  @NomRed nvarchar(50), 
-	  @EncarRed nvarchar(50), 
-	  @IdTamano nvarchar(50), 
-	  @CuotaRed nvarchar(50), 
-	  @RefRed nvarchar(50), 
-	  @EstaRed nvarchar(50)
-
-AS
-BEGIN
-
-	Declare @Tam int;
-	Declare @Esta int;
-	SET NOCOUNT ON;
-
-	SET @Esta = (SELECT CASE @EstaRed WHEN 'Activo' THEN 1 ElSE 0 END)
-	SET @Tam = (SELECT IdTamano FROM Catalogos.RedTamano WHERE NomTamano = @IdTamano)
-	
-	
-	IF @Tipo = 1
-		begin 
-			INSERT INTO Catalogos.Redes VALUES (@NomRed, @EncarRed, @IdTamano, @CuotaRed, @RefRed, 1)
-		end
-	ELSE IF @Tipo = 2
-		begin
-			UPDATE Catalogos.Redes	SET 
-				NomRed = @NomRed, 
-				EncarRed = @EncarRed, 
-				IdTamano = @IdTamano, 
-				CuotaRed = @CuotaRed, 
-				RefRed = @RefRed
-			WHERE IdRed = @IdRed
-		end
-	ELSE
-		DELETE FROM Catalogos.Redes WHERE IdRed = @IdRed
-END
-GO
-/****** Object:  StoredProcedure [CRUD].[sp_InsertaModificaEliminaTipoServicio]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [CRUD].[sp_InsertaModificaEliminaTipoServicio] 
-	  @Tipo int,
-	  @IdTipo int,
-	  @NomTipo nvarchar(50),
-      @CuotaTipo float,
-      @EstaTipo nvarchar(50)
-AS
-BEGIN
-
-	Declare @Esta int;
-	SET NOCOUNT ON;
-
-	SET @Esta = (SELECT CASE @EstaTipo WHEN 'Activo' THEN 1 ElSE 0 END)
-	
-	
-	IF @Tipo = 1
-		begin 
-			INSERT INTO Catalogos.TipoServicio VALUES (@NomTipo, @CuotaTipo, 1)
-		end
-	ELSE IF @Tipo = 2
-		begin
-			UPDATE Catalogos.TipoServicio	SET 
-				NomTipo = @NomTipo,
-     			CuotaTipo = @CuotaTipo
-			WHERE IdTipo = @IdTipo
-		end
-	ELSE
-		DELETE FROM Catalogos.TipoServicio WHERE IdTipo = @IdTipo
-END
-GO
-/****** Object:  StoredProcedure [Operaciones].[sp_VerificaNuevoServ]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Operaciones].[sp_VerificaNuevoServ]
-	@nom nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.TipoServicio WHERE NomTipo = @nom
-END
-GO
-/****** Object:  StoredProcedure [Seguridad].[sp_CargaTiposServicios]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Seguridad].[sp_CargaTiposServicios]
-	@tipo int
-AS
-BEGIN
-	SET NOCOUNT ON;
-	
-	IF @tipo = 1
-		begin
-			SELECT	[IdTipo],
-					[NomTipo],
-					[CuotaTipo],
-					CASE EstaTipo WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-			FROM Catalogos.TipoServicio
-		end
-	ELSE
-		SELECT [NomTipo] FROM Catalogos.TipoServicio WHERE EstaTipo = 1
-END
-GO
-/****** Object:  StoredProcedure [Seguridad].[sp_RealizarCorteCaja]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Seguridad].[sp_RealizarCorteCaja] 
-	@admin nvarchar(50)
-AS
-BEGIN
-	Declare @IdAdmin int;
-	Declare @NumPagos int;
-	Declare @MontoTotal float;
-	Declare @NumTem int;
-	
-	SET NOCOUNT ON;	
-	
-	CREATE TABLE #PagosCorteCaja 
-		(
-		Usuario nvarchar, 
-		NomRed nvarchar, 
-		NomTipo nvarchar,
-		Fecha DateTime,
-		Meses nvarchar,
-		Anio int,
-		SubTotal float,
-		DescPago float,
-		CantAport float,
-		MontoTotal float,
-		Administrador nvarchar,
-		NumPagos int,
-		MontoFinal float
-		) 
-		
-	SET @IdAdmin = (SELECT IdAdministrador FROM Catalogos.Administrador WHERE NomAdmin = @admin)
-	
-	SELECT 
-		@NumPagos = COUNT(*),
-		@MontoTotal = ISNULL(SUM(MontoPago),0)
-	 FROM Catalogos.PagoUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1--@IdAdmin
-	 
-	 
-	 IF @NumPagos >= 1
-		BEGIN
-			INSERT INTO #PagosCorteCaja
-			SELECT 
-				   [NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
-				  ,[NomRed]
-				  ,[NomTipo]
-				  ,[FechaPago]
-				  ,[Meses]
-				  ,[Anio]
-				  ,[SubPago]
-				  ,[DescPago]
-				  ,CantAport
-				  ,[MontoPago]
-				  ,NomAdmin + ' ' + ApePatAdmin as NomAdmin
-				  ,@NumPagos
-				  ,@MontoTotal
-			FROM dbo.CargarPagosUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1 --@IdAdmin
-	    END
-	IF (SELECT COUNT(*) FROM #PagosCorteCaja) >= 1
-		UPDATE Catalogos.PagoUsuarios SET PagoCorte = 0 WHERE IdPago IN (SELECT IdPago FROM Catalogos.PagoUsuarios WHERE PagoCorte = 1 AND IdAdministrador = 1)
-		SELECT * FROM #PagosCorteCaja
-END
-GO
-/****** Object:  StoredProcedure [CRUD].[sp_InsertaModificaEliminaAdministrador]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [CRUD].[sp_InsertaModificaEliminaAdministrador] 
-	@Tipo int,
-	@IdAdmin nvarchar(10),
-	@NomAdmin nvarchar(50),
-    @ApePatAdmin nvarchar(50),
-    @ApeMatAdmin nvarchar(50),
-    @IdTipoAdmin nvarchar(50),
-    @PwdAdmin nvarchar(50),
-    @EstaAdmin nvarchar(50)
-AS
-BEGIN
-
-	Declare @tipoAdmin int;
-	Declare @Esta int;
-	SET NOCOUNT ON;
-	
-	SET @tipoAdmin = (SELECT IdTipoAdmin FROM Catalogos.TipoAdministrador WHERE NomTipo = @IdTipoAdmin)
-	SET @Esta = (SELECT CASE @EstaAdmin WHEN 'Activo' THEN 1 ElSE 0 END)
-	
-	
-	IF @Tipo = 1
-		begin 
-			INSERT INTO Catalogos.Administrador VALUES (@NomAdmin, @ApePatAdmin, @ApeMatAdmin, @tipoAdmin, @PwdAdmin, 1)
-		end
-	ELSE IF @Tipo = 2
-		begin
-			IF @PwdAdmin = 'null'
-				begin
-					UPDATE Catalogos.Administrador	SET 
-						NomAdmin = @NomAdmin, 
-						ApePatAdmin = @ApePatAdmin, 
-						ApeMatAdmin = @ApeMatAdmin, 
-						IdTipoAdmin = @tipoAdmin, 
-						EstaAdmin = @Esta
-					WHERE IdAdministrador = @IdAdmin
-				end
-			ELSE
-				UPDATE Catalogos.Administrador	SET 
-				NomAdmin = @NomAdmin, 
-				ApePatAdmin = @ApePatAdmin, 
-				ApeMatAdmin = @ApeMatAdmin, 
-				IdTipoAdmin = @tipoAdmin, 
-				PwdAdmin= @PwdAdmin, 
-				EstaAdmin = @Esta
-			WHERE IdAdministrador = @IdAdmin
-		end
-	ELSE
-		DELETE FROM Catalogos.Administrador WHERE IdAdministrador = @IdAdmin
-END
-GO
-/****** Object:  View [dbo].[CargarAdministradores]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE VIEW [dbo].[CargarAdministradores]
-AS
-SELECT     Catalogos.Administrador.IdAdministrador, Catalogos.Administrador.NomAdmin, Catalogos.TipoAdministrador.NomTipo, Catalogos.Administrador.ApePatAdmin, 
-                      Catalogos.Administrador.ApeMatAdmin, Catalogos.Administrador.EstaAdmin, Catalogos.TipoAdministrador.EstaTipo, Catalogos.TipoAdministrador.IdTipoAdmin, 
-                      Catalogos.Administrador.PwdAdmin
-FROM         Catalogos.Administrador INNER JOIN
-                      Catalogos.TipoAdministrador ON Catalogos.Administrador.IdTipoAdmin = Catalogos.TipoAdministrador.IdTipoAdmin
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Administrador (Catalogos)"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 126
-               Right = 203
-            End
-            DisplayFlags = 280
-            TopColumn = 3
-         End
-         Begin Table = "TipoAdministrador (Catalogos)"
-            Begin Extent = 
-               Top = 6
-               Left = 241
-               Bottom = 126
-               Right = 401
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarAdministradores'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'CargarAdministradores'
-GO
-/****** Object:  StoredProcedure [Operaciones].[sp_VerificaNuevoAdmin]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Operaciones].[sp_VerificaNuevoAdmin]
-	@pwd nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON;
-	
-	SELECT CASE Count(*) WHEN 0 THEN '0' ELSE 1 END FROM Catalogos.Administrador WHERE PwdAdmin = @pwd
-END
-GO
-/****** Object:  StoredProcedure [Seguridad].[sp_InicioSessionAdmin]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Seguridad].[sp_InicioSessionAdmin] 
-	@pwd nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON;
-	SELECT 
-		IdAdministrador as IdAdmin,
-		NomAdmin + ' ' + ApePatAdmin as NomAdmin,
-		NomTipo as PerfilAdmin
-	FROM dbo.CargarAdministradores
-	WHERE PwdAdmin = @pwd
-END
-GO
-/****** Object:  StoredProcedure [Seguridad].[sp_CargarAdministradores]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Seguridad].[sp_CargarAdministradores] 
-	@tipo int,
-	@filtro nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON;
-	IF @tipo = 1
-	  begin
-		IF @filtro = '*'
-			BEGIN
-				SELECT 
-					IdAdministrador as IdAdmin,
-					NomAdmin as NomAdmin,
-					ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
-					ApePatAdmin as ApePa,
-					ApeMatAdmin as ApeMa,
-					NomTipo as TipoAdmin,
-					CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-				FROM dbo.CargarAdministradores
-				--WHERE PwdAdmin = 123--@pwd
-			END
-		ELSE
-			SELECT 
-					IdAdministrador as IdAdmin,
-					NomAdmin as NomAdmin,
-					ApePatAdmin + ' ' + ApeMatAdmin as ApeAdmin,
-					ApePatAdmin as ApePa,
-					ApeMatAdmin as ApeMa,
-					NomTipo as TipoAdmin,
-					CASE EstaAdmin WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-				FROM dbo.CargarAdministradores
-				WHERE NomAdmin LIKE '%'+ @filtro +'%'
-	end
-  ELSE
-	  SELECT NomTipo FROM Catalogos.TipoAdministrador WHERE EstaTipo = 1
-END
-GO
-/****** Object:  StoredProcedure [Seguridad].[sp_CargarUsuarios]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Seguridad].[sp_CargarUsuarios] 
-	@tipo int,
-	@filtro nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON;
-	IF @tipo = 1
-	begin
-		IF @filtro = '*'
-			BEGIN
-				SELECT 
-				  IdUsuario IdUsuario,
-				  NomUsuario NomUsuario,
-				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
-				  ApePatUsuario ApePatUsuario,
-				  ApeMatUsuario ApeMatUsuario,
-				  FecNacUsuario FecNac,
-				  NomRed NomRed,
-				  NomTipo NomTipo,
-				  RefUsuario RefUsuario,
-				  CASE EstaUsuario WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-				FROM dbo.CargarUsuarios
-				WHERE EstaUsuario = 1
-			END
-		ELSE
-			SELECT 
-				  IdUsuario as IdUsuario,
-				  NomUsuario as NomUsuario,
-				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
-				  ApePatUsuario ApePatUsuario,
-				  ApeMatUsuario ApeMatUsuario,
-				  FecNacUsuario FecNac,
-				  NomRed NomRed,
-				  NomTipo NomTipo,
-				  RefUsuario RefUsuario,
-					CASE EstaUsuario WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' ELSE 'Verificar' END as Estatus
-				FROM dbo.CargarUsuarios
-				WHERE NomUsuario LIKE '%'+ @filtro +'%' AND EstaUsuario = 1
-		end
-	ELSE
-	SELECT 
-				  IdUsuario as IdUsuario,
-				  NomUsuario as NomUsuario,
-				  ApePatUsuario + ' ' + ApeMatUsuario as ApeUsuario,
-				  ApePatUsuario ApePatUsuario,
-				  ApeMatUsuario ApeMatUsuario,
-				  FecNacUsuario FecNac,
-				  NomRed NomRed,
-				  NomTipo NomTipo,
-				  RefUsuario RefUsuario
-				FROM dbo.CargarUsuarios
-				WHERE NomUsuario LIKE '%'+ @filtro +'%' AND EstaUsuario = 0
-END
-GO
-/****** Object:  StoredProcedure [Seguridad].[sp_CargarRedes]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Seguridad].[sp_CargarRedes]
-	@tipo int,
-	@filtro nvarchar(50) 
-AS
-BEGIN
-	SET NOCOUNT ON;
-		BEGIN
-			IF @tipo = 1
-				BEGIN
-					IF @filtro = '*'
-					  begin
-						SELECT 
-						  IdRed IdRed,
-						  NomRed NumRed,
-						  EncarRed Encargado,
-						  Tamano TamRed,
-						  CuotaRed CuotaRed,
-						  RefRed RefRed
-						FROM dbo.CargarRedes
-					  end
-					ELSE
-						SELECT 
-						  IdRed IdRed,
-						  NomRed NumRed,
-						  EncarRed Encargado,
-						  Tamano TamRed,
-						  CuotaRed CuotaRed,
-						  RefRed RefRed
-						FROM dbo.CargarRedes
-						WHERE NomRed LIKE '%' + @filtro + '%' 
-				END
-			ELSE
-				SELECT 
-				  NomRed NumRed
-				FROM dbo.CargarRedes			
-		END
-END
-GO
-/****** Object:  StoredProcedure [Seguridad].[sp_CargarPagosUsuarios]    Script Date: 04/22/2016 16:30:19 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [Seguridad].[sp_CargarPagosUsuarios]
-	@tipo int,
-	@admin nvarchar(50),
-	@fecha1	as DateTime,
-	@fecha2 as DateTime
-AS
-BEGIN
-	DECLARE @fechafinal1 DateTime;
-	DECLARE @fechafinal2 DateTime;
-	
-	SET @fechafinal1 = convert(datetime, @fecha1, 103);
-	SET @fechafinal2 = convert(datetime, @fecha2, 103);
-	SET NOCOUNT ON;
-	IF @tipo = 1 -- ESTE MODULO ES PARA CARGAR LOS PAGOS QUE SE MUESTREN EN UN LAPSO
-		begin
-			SELECT [IdPago]
-				  ,NomAdmin + ' ' + ApePatAdmin as NomAdmin
-				  ,[NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
-				  ,[NomRed]
-				  ,[NomTipo]
-				  ,[FechaPago]
-				  ,[Meses]
-				  ,[Anio]
-				  ,[SubPago]
-				  ,[DescPago]
-				  ,CantAport as CantAport
-				  ,[MontoPago]
-			FROM [SistemaAgua].[dbo].[CargarPagosUsuarios]
-			WHERE FechaPago >= @fechafinal1  AND FechaPago <= @fechafinal2
-		end
-	ELSE  -- ESTE MODULO ES´PARA CARGAR LOS LOS PAGOS POR USUARIO PARA CORTE DE CAJA
-			SELECT [IdPago]
-				  ,[NomUsuario] + ' ' + [ApePatUsuario] + ' ' + [ApeMatUsuario] as NomUsuario
-				  ,[FechaPago]
-				  ,[Meses]
-				  ,[Anio]
-				  ,[SubPago]
-				  ,[DescPago]
-				  ,CantAport as CantAport
-				  ,[MontoPago]
-			FROM [SistemaAgua].[dbo].[CargarPagosUsuarios]
-			WHERE IdAdministrador = (SELECT IdAdministrador FROM Catalogos.Administrador WHERE NomAdmin = @admin) AND PagoCorte = 1
-END
 GO
