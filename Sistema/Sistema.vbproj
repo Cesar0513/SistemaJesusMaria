@@ -74,6 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\clsAdministrador.vb" />
+    <Compile Include="Clases\clsAportaciones.vb" />
+    <Compile Include="Clases\clsCondicionesPago.vb" />
+    <Compile Include="Clases\clsPagos.vb" />
     <Compile Include="Clases\clsRedes.vb" />
     <Compile Include="Clases\clsServicio.vb" />
     <Compile Include="Clases\clsUsuarios.vb" />

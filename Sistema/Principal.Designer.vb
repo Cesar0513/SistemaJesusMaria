@@ -182,7 +182,7 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabAdeudos = New System.Windows.Forms.TabPage()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.webBrowser = New System.Windows.Forms.WebBrowser()
         Me.TabPagos = New System.Windows.Forms.TabPage()
         Me.btnBuscarVerPagos = New System.Windows.Forms.Button()
         Me.FecFinPagos = New System.Windows.Forms.DateTimePicker()
@@ -216,17 +216,16 @@ Partial Class Principal
         Me.btnBuscarCorte = New System.Windows.Forms.Button()
         Me.Label56 = New System.Windows.Forms.Label()
         Me.cmbAdminCorte = New System.Windows.Forms.ComboBox()
-        Me.FechaFin = New System.Windows.Forms.DateTimePicker()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.txtMontoTotal = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.txtDescuento = New System.Windows.Forms.TextBox()
         Me.Label50 = New System.Windows.Forms.Label()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.txtSubMonto = New System.Windows.Forms.TextBox()
         Me.Label52 = New System.Windows.Forms.Label()
-        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.txtNumPagos = New System.Windows.Forms.TextBox()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.Label55 = New System.Windows.Forms.Label()
         Me.dtGridCorte = New System.Windows.Forms.DataGridView()
@@ -239,7 +238,6 @@ Partial Class Principal
         Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -276,7 +274,7 @@ Partial Class Principal
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1148, 598)
+        Me.Panel1.Size = New System.Drawing.Size(1205, 619)
         Me.Panel1.TabIndex = 0
         '
         'SplitContainer1
@@ -297,8 +295,8 @@ Partial Class Principal
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1148, 598)
-        Me.SplitContainer1.SplitterDistance = 134
+        Me.SplitContainer1.Size = New System.Drawing.Size(1205, 619)
+        Me.SplitContainer1.SplitterDistance = 138
         Me.SplitContainer1.TabIndex = 0
         '
         'btnRespaldos
@@ -306,7 +304,7 @@ Partial Class Principal
         Me.btnRespaldos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnRespaldos.Image = Global.Sistema.My.Resources.Resources.icon__2_
         Me.btnRespaldos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRespaldos.Location = New System.Drawing.Point(1032, 82)
+        Me.btnRespaldos.Location = New System.Drawing.Point(1081, 82)
         Me.btnRespaldos.Name = "btnRespaldos"
         Me.btnRespaldos.Size = New System.Drawing.Size(112, 50)
         Me.btnRespaldos.TabIndex = 4
@@ -366,7 +364,7 @@ Partial Class Principal
         'DateTimePicker1
         '
         Me.DateTimePicker1.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(937, 12)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(993, 12)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 25)
         Me.DateTimePicker1.TabIndex = 0
@@ -385,7 +383,7 @@ Partial Class Principal
         Me.TabControl1.Location = New System.Drawing.Point(5, 3)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1139, 454)
+        Me.TabControl1.Size = New System.Drawing.Size(1197, 471)
         Me.TabControl1.TabIndex = 0
         '
         'TabAdmin
@@ -399,7 +397,7 @@ Partial Class Principal
         Me.TabAdmin.Location = New System.Drawing.Point(4, 26)
         Me.TabAdmin.Name = "TabAdmin"
         Me.TabAdmin.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabAdmin.Size = New System.Drawing.Size(1147, 448)
+        Me.TabAdmin.Size = New System.Drawing.Size(1189, 441)
         Me.TabAdmin.TabIndex = 0
         Me.TabAdmin.Text = "ADMINISTRADOR"
         '
@@ -425,9 +423,9 @@ Partial Class Principal
         Me.Panel3.Controls.Add(Me.txtNombre)
         Me.Panel3.Controls.Add(Me.Label7)
         Me.Panel3.Controls.Add(Me.Label6)
-        Me.Panel3.Location = New System.Drawing.Point(817, 41)
+        Me.Panel3.Location = New System.Drawing.Point(802, 41)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(381, 431)
+        Me.Panel3.Size = New System.Drawing.Size(381, 394)
         Me.Panel3.TabIndex = 3
         '
         'cmbEstatusAdmin
@@ -454,7 +452,7 @@ Partial Class Principal
         Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnCancelar.Image = Global.Sistema.My.Resources.Resources.cancelar
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(166, 330)
+        Me.btnCancelar.Location = New System.Drawing.Point(187, 320)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(118, 36)
         Me.btnCancelar.TabIndex = 20
@@ -504,7 +502,7 @@ Partial Class Principal
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.Image = Global.Sistema.My.Resources.Resources.add
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(42, 330)
+        Me.btnNuevo.Location = New System.Drawing.Point(63, 320)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(118, 36)
         Me.btnNuevo.TabIndex = 15
@@ -519,7 +517,7 @@ Partial Class Principal
         Me.btnEliminar.Enabled = False
         Me.btnEliminar.Image = Global.Sistema.My.Resources.Resources.delete
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(225, 361)
+        Me.btnEliminar.Location = New System.Drawing.Point(246, 351)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(106, 36)
         Me.btnEliminar.TabIndex = 14
@@ -533,7 +531,7 @@ Partial Class Principal
         Me.btnModificar.Enabled = False
         Me.btnModificar.Image = Global.Sistema.My.Resources.Resources.modifica
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(101, 361)
+        Me.btnModificar.Location = New System.Drawing.Point(122, 351)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(118, 36)
         Me.btnModificar.TabIndex = 13
@@ -546,7 +544,7 @@ Partial Class Principal
         Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAdd.Image = Global.Sistema.My.Resources.Resources.newuser
         Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(2, 361)
+        Me.btnAdd.Location = New System.Drawing.Point(23, 351)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(93, 36)
         Me.btnAdd.TabIndex = 5
@@ -662,7 +660,7 @@ Partial Class Principal
         Me.dtGridAdmin.Name = "dtGridAdmin"
         Me.dtGridAdmin.ReadOnly = True
         Me.dtGridAdmin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtGridAdmin.Size = New System.Drawing.Size(773, 437)
+        Me.dtGridAdmin.Size = New System.Drawing.Size(773, 400)
         Me.dtGridAdmin.TabIndex = 0
         '
         'Column6
@@ -736,7 +734,7 @@ Partial Class Principal
         Me.TabUsuarios.Location = New System.Drawing.Point(4, 26)
         Me.TabUsuarios.Name = "TabUsuarios"
         Me.TabUsuarios.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabUsuarios.Size = New System.Drawing.Size(1147, 448)
+        Me.TabUsuarios.Size = New System.Drawing.Size(1189, 441)
         Me.TabUsuarios.TabIndex = 1
         Me.TabUsuarios.Text = "USUARIOS"
         '
@@ -765,15 +763,15 @@ Partial Class Principal
         Me.Panel4.Controls.Add(Me.txtNombreUsu)
         Me.Panel4.Controls.Add(Me.Label19)
         Me.Panel4.Controls.Add(Me.Label20)
-        Me.Panel4.Location = New System.Drawing.Point(818, 7)
+        Me.Panel4.Location = New System.Drawing.Point(821, 3)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(381, 465)
+        Me.Panel4.Size = New System.Drawing.Size(362, 432)
         Me.Panel4.TabIndex = 6
         '
         'cmbTpoServUsu
         '
         Me.cmbTpoServUsu.FormattingEnabled = True
-        Me.cmbTpoServUsu.Location = New System.Drawing.Point(115, 199)
+        Me.cmbTpoServUsu.Location = New System.Drawing.Point(130, 202)
         Me.cmbTpoServUsu.Name = "cmbTpoServUsu"
         Me.cmbTpoServUsu.Size = New System.Drawing.Size(121, 26)
         Me.cmbTpoServUsu.TabIndex = 28
@@ -782,7 +780,7 @@ Partial Class Principal
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(31, 205)
+        Me.Label4.Location = New System.Drawing.Point(46, 208)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(73, 20)
         Me.Label4.TabIndex = 27
@@ -793,7 +791,7 @@ Partial Class Principal
         Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnPagar.Image = Global.Sistema.My.Resources.Resources.money
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(100, 352)
+        Me.btnPagar.Location = New System.Drawing.Point(112, 355)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.Size = New System.Drawing.Size(105, 36)
         Me.btnPagar.TabIndex = 26
@@ -805,7 +803,7 @@ Partial Class Principal
         'cmbRedUsu
         '
         Me.cmbRedUsu.FormattingEnabled = True
-        Me.cmbRedUsu.Location = New System.Drawing.Point(115, 159)
+        Me.cmbRedUsu.Location = New System.Drawing.Point(130, 162)
         Me.cmbRedUsu.Name = "cmbRedUsu"
         Me.cmbRedUsu.Size = New System.Drawing.Size(121, 26)
         Me.cmbRedUsu.TabIndex = 25
@@ -814,7 +812,7 @@ Partial Class Principal
         '
         Me.FechaNacUsu.CustomFormat = "yyyy-MM-dd"
         Me.FechaNacUsu.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechaNacUsu.Location = New System.Drawing.Point(115, 128)
+        Me.FechaNacUsu.Location = New System.Drawing.Point(130, 131)
         Me.FechaNacUsu.Name = "FechaNacUsu"
         Me.FechaNacUsu.Size = New System.Drawing.Size(121, 25)
         Me.FechaNacUsu.TabIndex = 23
@@ -822,17 +820,17 @@ Partial Class Principal
         '
         'txtRefUsu
         '
-        Me.txtRefUsu.Location = New System.Drawing.Point(115, 279)
+        Me.txtRefUsu.Location = New System.Drawing.Point(130, 282)
         Me.txtRefUsu.Multiline = True
         Me.txtRefUsu.Name = "txtRefUsu"
-        Me.txtRefUsu.Size = New System.Drawing.Size(219, 67)
+        Me.txtRefUsu.Size = New System.Drawing.Size(192, 67)
         Me.txtRefUsu.TabIndex = 22
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(26, 284)
+        Me.Label21.Location = New System.Drawing.Point(41, 287)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(78, 20)
         Me.Label21.TabIndex = 21
@@ -843,7 +841,7 @@ Partial Class Principal
         Me.btnCancelarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnCancelarUsu.Image = Global.Sistema.My.Resources.Resources.cancelar
         Me.btnCancelarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelarUsu.Location = New System.Drawing.Point(157, 378)
+        Me.btnCancelarUsu.Location = New System.Drawing.Point(170, 377)
         Me.btnCancelarUsu.Name = "btnCancelarUsu"
         Me.btnCancelarUsu.Size = New System.Drawing.Size(118, 36)
         Me.btnCancelarUsu.TabIndex = 20
@@ -854,7 +852,7 @@ Partial Class Principal
         '
         'txtPrecioTomaUsu
         '
-        Me.txtPrecioTomaUsu.Location = New System.Drawing.Point(115, 240)
+        Me.txtPrecioTomaUsu.Location = New System.Drawing.Point(130, 243)
         Me.txtPrecioTomaUsu.Name = "txtPrecioTomaUsu"
         Me.txtPrecioTomaUsu.Size = New System.Drawing.Size(121, 25)
         Me.txtPrecioTomaUsu.TabIndex = 19
@@ -863,7 +861,7 @@ Partial Class Principal
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(5, 245)
+        Me.Label14.Location = New System.Drawing.Point(20, 248)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(104, 20)
         Me.Label14.TabIndex = 18
@@ -873,7 +871,7 @@ Partial Class Principal
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(62, 164)
+        Me.Label15.Location = New System.Drawing.Point(77, 167)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(35, 20)
         Me.Label15.TabIndex = 16
@@ -884,7 +882,7 @@ Partial Class Principal
         Me.btnSaveUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnSaveUsu.Image = Global.Sistema.My.Resources.Resources.add
         Me.btnSaveUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSaveUsu.Location = New System.Drawing.Point(33, 378)
+        Me.btnSaveUsu.Location = New System.Drawing.Point(46, 377)
         Me.btnSaveUsu.Name = "btnSaveUsu"
         Me.btnSaveUsu.Size = New System.Drawing.Size(118, 36)
         Me.btnSaveUsu.TabIndex = 15
@@ -899,7 +897,7 @@ Partial Class Principal
         Me.btnEliminarUsu.Enabled = False
         Me.btnEliminarUsu.Image = Global.Sistema.My.Resources.Resources.delete
         Me.btnEliminarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminarUsu.Location = New System.Drawing.Point(223, 394)
+        Me.btnEliminarUsu.Location = New System.Drawing.Point(236, 393)
         Me.btnEliminarUsu.Name = "btnEliminarUsu"
         Me.btnEliminarUsu.Size = New System.Drawing.Size(106, 36)
         Me.btnEliminarUsu.TabIndex = 14
@@ -913,7 +911,7 @@ Partial Class Principal
         Me.btnModUsu.Enabled = False
         Me.btnModUsu.Image = Global.Sistema.My.Resources.Resources.modifica
         Me.btnModUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModUsu.Location = New System.Drawing.Point(99, 394)
+        Me.btnModUsu.Location = New System.Drawing.Point(112, 393)
         Me.btnModUsu.Name = "btnModUsu"
         Me.btnModUsu.Size = New System.Drawing.Size(118, 36)
         Me.btnModUsu.TabIndex = 13
@@ -926,7 +924,7 @@ Partial Class Principal
         Me.btnAddUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAddUsu.Image = Global.Sistema.My.Resources.Resources.newuser
         Me.btnAddUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAddUsu.Location = New System.Drawing.Point(0, 394)
+        Me.btnAddUsu.Location = New System.Drawing.Point(13, 393)
         Me.btnAddUsu.Name = "btnAddUsu"
         Me.btnAddUsu.Size = New System.Drawing.Size(93, 36)
         Me.btnAddUsu.TabIndex = 5
@@ -938,7 +936,7 @@ Partial Class Principal
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(26, 129)
+        Me.Label16.Location = New System.Drawing.Point(41, 132)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(81, 20)
         Me.Label16.TabIndex = 11
@@ -946,16 +944,16 @@ Partial Class Principal
         '
         'txtMaternoUsu
         '
-        Me.txtMaternoUsu.Location = New System.Drawing.Point(115, 92)
+        Me.txtMaternoUsu.Location = New System.Drawing.Point(130, 95)
         Me.txtMaternoUsu.Name = "txtMaternoUsu"
-        Me.txtMaternoUsu.Size = New System.Drawing.Size(219, 25)
+        Me.txtMaternoUsu.Size = New System.Drawing.Size(192, 25)
         Me.txtMaternoUsu.TabIndex = 10
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(16, 92)
+        Me.Label17.Location = New System.Drawing.Point(31, 95)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(97, 20)
         Me.Label17.TabIndex = 9
@@ -963,16 +961,16 @@ Partial Class Principal
         '
         'txtPaternoUsu
         '
-        Me.txtPaternoUsu.Location = New System.Drawing.Point(115, 61)
+        Me.txtPaternoUsu.Location = New System.Drawing.Point(130, 64)
         Me.txtPaternoUsu.Name = "txtPaternoUsu"
-        Me.txtPaternoUsu.Size = New System.Drawing.Size(219, 25)
+        Me.txtPaternoUsu.Size = New System.Drawing.Size(192, 25)
         Me.txtPaternoUsu.TabIndex = 8
         '
         'Label18
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(16, 61)
+        Me.Label18.Location = New System.Drawing.Point(31, 64)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(91, 20)
         Me.Label18.TabIndex = 7
@@ -980,16 +978,16 @@ Partial Class Principal
         '
         'txtNombreUsu
         '
-        Me.txtNombreUsu.Location = New System.Drawing.Point(115, 30)
+        Me.txtNombreUsu.Location = New System.Drawing.Point(130, 33)
         Me.txtNombreUsu.Name = "txtNombreUsu"
-        Me.txtNombreUsu.Size = New System.Drawing.Size(219, 25)
+        Me.txtNombreUsu.Size = New System.Drawing.Size(192, 25)
         Me.txtNombreUsu.TabIndex = 6
         '
         'Label19
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(42, 35)
+        Me.Label19.Location = New System.Drawing.Point(57, 38)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(65, 20)
         Me.Label19.TabIndex = 5
@@ -999,7 +997,7 @@ Partial Class Principal
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(6, 0)
+        Me.Label20.Location = New System.Drawing.Point(31, 7)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(131, 21)
         Me.Label20.TabIndex = 4
@@ -1034,7 +1032,7 @@ Partial Class Principal
         Me.dtGridUsuarios.Name = "dtGridUsuarios"
         Me.dtGridUsuarios.ReadOnly = True
         Me.dtGridUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtGridUsuarios.Size = New System.Drawing.Size(812, 437)
+        Me.dtGridUsuarios.Size = New System.Drawing.Size(812, 404)
         Me.dtGridUsuarios.TabIndex = 3
         '
         'Column4
@@ -1127,7 +1125,7 @@ Partial Class Principal
         Me.TabRedes.Controls.Add(Me.dtGridRed)
         Me.TabRedes.Location = New System.Drawing.Point(4, 26)
         Me.TabRedes.Name = "TabRedes"
-        Me.TabRedes.Size = New System.Drawing.Size(1147, 448)
+        Me.TabRedes.Size = New System.Drawing.Size(1189, 441)
         Me.TabRedes.TabIndex = 2
         Me.TabRedes.Text = "REDES"
         Me.TabRedes.UseVisualStyleBackColor = True
@@ -1157,7 +1155,7 @@ Partial Class Principal
         '
         'txtCuotaRed
         '
-        Me.txtCuotaRed.Location = New System.Drawing.Point(111, 215)
+        Me.txtCuotaRed.Location = New System.Drawing.Point(127, 214)
         Me.txtCuotaRed.Name = "txtCuotaRed"
         Me.txtCuotaRed.Size = New System.Drawing.Size(121, 24)
         Me.txtCuotaRed.TabIndex = 27
@@ -1165,14 +1163,14 @@ Partial Class Principal
         'cmbTamanoRed
         '
         Me.cmbTamanoRed.FormattingEnabled = True
-        Me.cmbTamanoRed.Location = New System.Drawing.Point(113, 168)
+        Me.cmbTamanoRed.Location = New System.Drawing.Point(129, 167)
         Me.cmbTamanoRed.Name = "cmbTamanoRed"
         Me.cmbTamanoRed.Size = New System.Drawing.Size(121, 25)
         Me.cmbTamanoRed.TabIndex = 26
         '
         'txtRefRed
         '
-        Me.txtRefRed.Location = New System.Drawing.Point(111, 260)
+        Me.txtRefRed.Location = New System.Drawing.Point(127, 259)
         Me.txtRefRed.Multiline = True
         Me.txtRefRed.Name = "txtRefRed"
         Me.txtRefRed.Size = New System.Drawing.Size(219, 67)
@@ -1182,7 +1180,7 @@ Partial Class Principal
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(22, 265)
+        Me.Label22.Location = New System.Drawing.Point(38, 264)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(78, 20)
         Me.Label22.TabIndex = 21
@@ -1193,7 +1191,7 @@ Partial Class Principal
         Me.btnCancelarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnCancelarRed.Image = Global.Sistema.My.Resources.Resources.cancelar
         Me.btnCancelarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelarRed.Location = New System.Drawing.Point(176, 333)
+        Me.btnCancelarRed.Location = New System.Drawing.Point(192, 332)
         Me.btnCancelarRed.Name = "btnCancelarRed"
         Me.btnCancelarRed.Size = New System.Drawing.Size(118, 36)
         Me.btnCancelarRed.TabIndex = 20
@@ -1207,7 +1205,7 @@ Partial Class Principal
         Me.btnSaveRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnSaveRed.Image = Global.Sistema.My.Resources.Resources.add
         Me.btnSaveRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSaveRed.Location = New System.Drawing.Point(52, 333)
+        Me.btnSaveRed.Location = New System.Drawing.Point(68, 332)
         Me.btnSaveRed.Name = "btnSaveRed"
         Me.btnSaveRed.Size = New System.Drawing.Size(118, 36)
         Me.btnSaveRed.TabIndex = 15
@@ -1222,7 +1220,7 @@ Partial Class Principal
         Me.btnEliminaRed.Enabled = False
         Me.btnEliminaRed.Image = Global.Sistema.My.Resources.Resources.delete
         Me.btnEliminaRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminaRed.Location = New System.Drawing.Point(242, 363)
+        Me.btnEliminaRed.Location = New System.Drawing.Point(258, 362)
         Me.btnEliminaRed.Name = "btnEliminaRed"
         Me.btnEliminaRed.Size = New System.Drawing.Size(106, 36)
         Me.btnEliminaRed.TabIndex = 14
@@ -1236,7 +1234,7 @@ Partial Class Principal
         Me.btnModificarRed.Enabled = False
         Me.btnModificarRed.Image = Global.Sistema.My.Resources.Resources.modifica
         Me.btnModificarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificarRed.Location = New System.Drawing.Point(118, 363)
+        Me.btnModificarRed.Location = New System.Drawing.Point(134, 362)
         Me.btnModificarRed.Name = "btnModificarRed"
         Me.btnModificarRed.Size = New System.Drawing.Size(118, 36)
         Me.btnModificarRed.TabIndex = 13
@@ -1249,7 +1247,7 @@ Partial Class Principal
         Me.btnAddRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAddRed.Image = Global.Sistema.My.Resources.Resources.newuser
         Me.btnAddRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAddRed.Location = New System.Drawing.Point(19, 363)
+        Me.btnAddRed.Location = New System.Drawing.Point(35, 362)
         Me.btnAddRed.Name = "btnAddRed"
         Me.btnAddRed.Size = New System.Drawing.Size(93, 36)
         Me.btnAddRed.TabIndex = 5
@@ -1261,7 +1259,7 @@ Partial Class Principal
         '
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(46, 219)
+        Me.Label25.Location = New System.Drawing.Point(62, 218)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(49, 20)
         Me.Label25.TabIndex = 11
@@ -1271,7 +1269,7 @@ Partial Class Principal
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(33, 168)
+        Me.Label26.Location = New System.Drawing.Point(49, 167)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(62, 20)
         Me.Label26.TabIndex = 9
@@ -1279,7 +1277,7 @@ Partial Class Principal
         '
         'txtEncargadoRed
         '
-        Me.txtEncargadoRed.Location = New System.Drawing.Point(113, 112)
+        Me.txtEncargadoRed.Location = New System.Drawing.Point(129, 111)
         Me.txtEncargadoRed.Name = "txtEncargadoRed"
         Me.txtEncargadoRed.Size = New System.Drawing.Size(219, 24)
         Me.txtEncargadoRed.TabIndex = 8
@@ -1288,7 +1286,7 @@ Partial Class Principal
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(16, 112)
+        Me.Label27.Location = New System.Drawing.Point(32, 111)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(79, 20)
         Me.Label27.TabIndex = 7
@@ -1296,7 +1294,7 @@ Partial Class Principal
         '
         'txtNumRed
         '
-        Me.txtNumRed.Location = New System.Drawing.Point(113, 56)
+        Me.txtNumRed.Location = New System.Drawing.Point(129, 55)
         Me.txtNumRed.Name = "txtNumRed"
         Me.txtNumRed.Size = New System.Drawing.Size(219, 24)
         Me.txtNumRed.TabIndex = 6
@@ -1305,7 +1303,7 @@ Partial Class Principal
         '
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(24, 60)
+        Me.Label28.Location = New System.Drawing.Point(40, 59)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(78, 20)
         Me.Label28.TabIndex = 5
@@ -1315,7 +1313,7 @@ Partial Class Principal
         '
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(3, 16)
+        Me.Label29.Location = New System.Drawing.Point(19, 15)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(101, 21)
         Me.Label29.TabIndex = 4
@@ -1350,7 +1348,7 @@ Partial Class Principal
         Me.dtGridRed.Name = "dtGridRed"
         Me.dtGridRed.ReadOnly = True
         Me.dtGridRed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtGridRed.Size = New System.Drawing.Size(773, 437)
+        Me.dtGridRed.Size = New System.Drawing.Size(773, 403)
         Me.dtGridRed.TabIndex = 7
         '
         'DataGridViewTextBoxColumn5
@@ -1410,7 +1408,7 @@ Partial Class Principal
         Me.TabServ.Controls.Add(Me.dtGridServicio)
         Me.TabServ.Location = New System.Drawing.Point(4, 26)
         Me.TabServ.Name = "TabServ"
-        Me.TabServ.Size = New System.Drawing.Size(1147, 448)
+        Me.TabServ.Size = New System.Drawing.Size(1189, 441)
         Me.TabServ.TabIndex = 3
         Me.TabServ.Text = "TIPO SERVICIO"
         Me.TabServ.UseVisualStyleBackColor = True
@@ -1577,7 +1575,7 @@ Partial Class Principal
         Me.dtGridServicio.Name = "dtGridServicio"
         Me.dtGridServicio.ReadOnly = True
         Me.dtGridServicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtGridServicio.Size = New System.Drawing.Size(504, 426)
+        Me.dtGridServicio.Size = New System.Drawing.Size(504, 419)
         Me.dtGridServicio.TabIndex = 11
         '
         'DataGridViewTextBoxColumn11
@@ -1620,7 +1618,7 @@ Partial Class Principal
         Me.TabReconexion.Controls.Add(Me.dtGridReconexion)
         Me.TabReconexion.Location = New System.Drawing.Point(4, 26)
         Me.TabReconexion.Name = "TabReconexion"
-        Me.TabReconexion.Size = New System.Drawing.Size(1147, 448)
+        Me.TabReconexion.Size = New System.Drawing.Size(1189, 441)
         Me.TabReconexion.TabIndex = 4
         Me.TabReconexion.Text = "RECONEXION"
         Me.TabReconexion.UseVisualStyleBackColor = True
@@ -1864,23 +1862,23 @@ Partial Class Principal
         '
         'TabAdeudos
         '
-        Me.TabAdeudos.Controls.Add(Me.WebBrowser1)
+        Me.TabAdeudos.Controls.Add(Me.webBrowser)
         Me.TabAdeudos.Location = New System.Drawing.Point(4, 26)
         Me.TabAdeudos.Name = "TabAdeudos"
-        Me.TabAdeudos.Size = New System.Drawing.Size(1131, 424)
+        Me.TabAdeudos.Size = New System.Drawing.Size(1189, 441)
         Me.TabAdeudos.TabIndex = 5
         Me.TabAdeudos.Text = "REVISAR ADEUDOS"
         Me.TabAdeudos.UseVisualStyleBackColor = True
         '
-        'WebBrowser1
+        'webBrowser
         '
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(1131, 424)
-        Me.WebBrowser1.TabIndex = 0
-        Me.WebBrowser1.Url = New System.Uri("http://localhost/SistemaAgua/mostrar.php?red=0&ano=0", System.UriKind.Absolute)
+        Me.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.webBrowser.Location = New System.Drawing.Point(0, 0)
+        Me.webBrowser.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.webBrowser.Name = "webBrowser"
+        Me.webBrowser.Size = New System.Drawing.Size(1189, 441)
+        Me.webBrowser.TabIndex = 0
+        Me.webBrowser.Url = New System.Uri("http://localhost/SistemaAgua/mostrar.php?red=0&ano=0", System.UriKind.Absolute)
         '
         'TabPagos
         '
@@ -1891,7 +1889,7 @@ Partial Class Principal
         Me.TabPagos.Controls.Add(Me.FecInicioPagos)
         Me.TabPagos.Location = New System.Drawing.Point(4, 26)
         Me.TabPagos.Name = "TabPagos"
-        Me.TabPagos.Size = New System.Drawing.Size(1131, 424)
+        Me.TabPagos.Size = New System.Drawing.Size(1189, 441)
         Me.TabPagos.TabIndex = 6
         Me.TabPagos.Text = "VER PAGOS "
         Me.TabPagos.UseVisualStyleBackColor = True
@@ -1931,7 +1929,7 @@ Partial Class Principal
         Me.Panel8.Controls.Add(Me.Label49)
         Me.Panel8.Location = New System.Drawing.Point(881, 38)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(250, 381)
+        Me.Panel8.Size = New System.Drawing.Size(305, 403)
         Me.Panel8.TabIndex = 13
         '
         'txtMontoPagos
@@ -1984,7 +1982,7 @@ Partial Class Principal
         Me.txtMesesPagos.Multiline = True
         Me.txtMesesPagos.Name = "txtMesesPagos"
         Me.txtMesesPagos.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtMesesPagos.Size = New System.Drawing.Size(154, 69)
+        Me.txtMesesPagos.Size = New System.Drawing.Size(195, 69)
         Me.txtMesesPagos.TabIndex = 22
         '
         'Label42
@@ -2029,7 +2027,7 @@ Partial Class Principal
         '
         Me.txtNombrePagos.Location = New System.Drawing.Point(90, 89)
         Me.txtNombrePagos.Name = "txtNombrePagos"
-        Me.txtNombrePagos.Size = New System.Drawing.Size(154, 24)
+        Me.txtNombrePagos.Size = New System.Drawing.Size(195, 24)
         Me.txtNombrePagos.TabIndex = 6
         '
         'Label48
@@ -2062,7 +2060,7 @@ Partial Class Principal
         Me.dtGridPagos.Location = New System.Drawing.Point(4, 38)
         Me.dtGridPagos.Name = "dtGridPagos"
         Me.dtGridPagos.ReadOnly = True
-        Me.dtGridPagos.Size = New System.Drawing.Size(876, 410)
+        Me.dtGridPagos.Size = New System.Drawing.Size(876, 403)
         Me.dtGridPagos.TabIndex = 11
         '
         'DataGridViewTextBoxColumn23
@@ -2160,20 +2158,18 @@ Partial Class Principal
         Me.TabCorte.Controls.Add(Me.btnBuscarCorte)
         Me.TabCorte.Controls.Add(Me.Label56)
         Me.TabCorte.Controls.Add(Me.cmbAdminCorte)
-        Me.TabCorte.Controls.Add(Me.FechaFin)
         Me.TabCorte.Controls.Add(Me.Panel9)
         Me.TabCorte.Controls.Add(Me.dtGridCorte)
-        Me.TabCorte.Controls.Add(Me.FechaInicio)
         Me.TabCorte.Location = New System.Drawing.Point(4, 26)
         Me.TabCorte.Name = "TabCorte"
-        Me.TabCorte.Size = New System.Drawing.Size(1131, 424)
+        Me.TabCorte.Size = New System.Drawing.Size(1189, 441)
         Me.TabCorte.TabIndex = 7
         Me.TabCorte.Text = "CORTE DE CAJA"
         Me.TabCorte.UseVisualStyleBackColor = True
         '
         'btnBuscarCorte
         '
-        Me.btnBuscarCorte.Location = New System.Drawing.Point(681, 25)
+        Me.btnBuscarCorte.Location = New System.Drawing.Point(381, 26)
         Me.btnBuscarCorte.Name = "btnBuscarCorte"
         Me.btnBuscarCorte.Size = New System.Drawing.Size(75, 23)
         Me.btnBuscarCorte.TabIndex = 34
@@ -2198,31 +2194,22 @@ Partial Class Principal
         Me.cmbAdminCorte.Size = New System.Drawing.Size(190, 25)
         Me.cmbAdminCorte.TabIndex = 32
         '
-        'FechaFin
-        '
-        Me.FechaFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechaFin.Location = New System.Drawing.Point(529, 26)
-        Me.FechaFin.Name = "FechaFin"
-        Me.FechaFin.Size = New System.Drawing.Size(121, 24)
-        Me.FechaFin.TabIndex = 31
-        Me.FechaFin.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
-        '
         'Panel9
         '
         Me.Panel9.Controls.Add(Me.Button9)
         Me.Panel9.Controls.Add(Me.Button10)
-        Me.Panel9.Controls.Add(Me.TextBox15)
+        Me.Panel9.Controls.Add(Me.txtMontoTotal)
         Me.Panel9.Controls.Add(Me.Label47)
-        Me.Panel9.Controls.Add(Me.TextBox16)
+        Me.Panel9.Controls.Add(Me.txtDescuento)
         Me.Panel9.Controls.Add(Me.Label50)
-        Me.Panel9.Controls.Add(Me.TextBox19)
+        Me.Panel9.Controls.Add(Me.txtSubMonto)
         Me.Panel9.Controls.Add(Me.Label52)
-        Me.Panel9.Controls.Add(Me.TextBox20)
+        Me.Panel9.Controls.Add(Me.txtNumPagos)
         Me.Panel9.Controls.Add(Me.Label54)
         Me.Panel9.Controls.Add(Me.Label55)
         Me.Panel9.Location = New System.Drawing.Point(928, 64)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(199, 342)
+        Me.Panel9.Size = New System.Drawing.Size(256, 374)
         Me.Panel9.TabIndex = 29
         '
         'Button9
@@ -2230,7 +2217,7 @@ Partial Class Principal
         Me.Button9.BackgroundImage = Global.Sistema.My.Resources.Resources.add
         Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button9.Location = New System.Drawing.Point(55, 280)
+        Me.Button9.Location = New System.Drawing.Point(83, 296)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(110, 36)
         Me.Button9.TabIndex = 29
@@ -2244,7 +2231,7 @@ Partial Class Principal
         Me.Button10.BackgroundImage = Global.Sistema.My.Resources.Resources.add
         Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button10.Location = New System.Drawing.Point(44, 219)
+        Me.Button10.Location = New System.Drawing.Point(72, 235)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(130, 41)
         Me.Button10.TabIndex = 28
@@ -2253,72 +2240,72 @@ Partial Class Principal
         Me.Button10.UseVisualStyleBackColor = True
         Me.Button10.Visible = False
         '
-        'TextBox15
+        'txtMontoTotal
         '
-        Me.TextBox15.Location = New System.Drawing.Point(89, 175)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.TextBox15.Size = New System.Drawing.Size(100, 24)
-        Me.TextBox15.TabIndex = 27
+        Me.txtMontoTotal.Location = New System.Drawing.Point(117, 191)
+        Me.txtMontoTotal.Name = "txtMontoTotal"
+        Me.txtMontoTotal.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtMontoTotal.Size = New System.Drawing.Size(100, 24)
+        Me.txtMontoTotal.TabIndex = 27
         '
         'Label47
         '
         Me.Label47.AutoSize = True
         Me.Label47.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.Location = New System.Drawing.Point(41, 179)
+        Me.Label47.Location = New System.Drawing.Point(69, 195)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(42, 20)
         Me.Label47.TabIndex = 26
         Me.Label47.Text = "Total"
         '
-        'TextBox16
+        'txtDescuento
         '
-        Me.TextBox16.Location = New System.Drawing.Point(89, 138)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.TextBox16.Size = New System.Drawing.Size(100, 24)
-        Me.TextBox16.TabIndex = 25
+        Me.txtDescuento.Location = New System.Drawing.Point(117, 154)
+        Me.txtDescuento.Name = "txtDescuento"
+        Me.txtDescuento.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtDescuento.Size = New System.Drawing.Size(100, 24)
+        Me.txtDescuento.TabIndex = 25
         '
         'Label50
         '
         Me.Label50.AutoSize = True
         Me.Label50.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label50.Location = New System.Drawing.Point(4, 142)
+        Me.Label50.Location = New System.Drawing.Point(32, 158)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(79, 20)
         Me.Label50.TabIndex = 24
         Me.Label50.Text = "Descuento"
         '
-        'TextBox19
+        'txtSubMonto
         '
-        Me.TextBox19.Location = New System.Drawing.Point(89, 102)
-        Me.TextBox19.Name = "TextBox19"
-        Me.TextBox19.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.TextBox19.Size = New System.Drawing.Size(100, 24)
-        Me.TextBox19.TabIndex = 19
+        Me.txtSubMonto.Location = New System.Drawing.Point(117, 118)
+        Me.txtSubMonto.Name = "txtSubMonto"
+        Me.txtSubMonto.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtSubMonto.Size = New System.Drawing.Size(100, 24)
+        Me.txtSubMonto.TabIndex = 19
         '
         'Label52
         '
         Me.Label52.AutoSize = True
         Me.Label52.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label52.Location = New System.Drawing.Point(4, 106)
+        Me.Label52.Location = New System.Drawing.Point(32, 122)
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(80, 20)
         Me.Label52.TabIndex = 18
         Me.Label52.Text = "Submonto"
         '
-        'TextBox20
+        'txtNumPagos
         '
-        Me.TextBox20.Location = New System.Drawing.Point(89, 59)
-        Me.TextBox20.Name = "TextBox20"
-        Me.TextBox20.Size = New System.Drawing.Size(100, 24)
-        Me.TextBox20.TabIndex = 6
+        Me.txtNumPagos.Location = New System.Drawing.Point(117, 75)
+        Me.txtNumPagos.Name = "txtNumPagos"
+        Me.txtNumPagos.Size = New System.Drawing.Size(100, 24)
+        Me.txtNumPagos.TabIndex = 6
         '
         'Label54
         '
         Me.Label54.AutoSize = True
         Me.Label54.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label54.Location = New System.Drawing.Point(27, 63)
+        Me.Label54.Location = New System.Drawing.Point(55, 79)
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(58, 20)
         Me.Label54.TabIndex = 5
@@ -2328,7 +2315,7 @@ Partial Class Principal
         '
         Me.Label55.AutoSize = True
         Me.Label55.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label55.Location = New System.Drawing.Point(16, 13)
+        Me.Label55.Location = New System.Drawing.Point(79, 11)
         Me.Label55.Name = "Label55"
         Me.Label55.Size = New System.Drawing.Size(107, 21)
         Me.Label55.TabIndex = 4
@@ -2344,7 +2331,7 @@ Partial Class Principal
         Me.dtGridCorte.Location = New System.Drawing.Point(4, 64)
         Me.dtGridCorte.Name = "dtGridCorte"
         Me.dtGridCorte.ReadOnly = True
-        Me.dtGridCorte.Size = New System.Drawing.Size(919, 409)
+        Me.dtGridCorte.Size = New System.Drawing.Size(919, 372)
         Me.dtGridCorte.TabIndex = 28
         '
         'DataGridViewTextBoxColumn29
@@ -2424,21 +2411,12 @@ Partial Class Principal
         Me.Column22.ReadOnly = True
         Me.Column22.Width = 90
         '
-        'FechaInicio
-        '
-        Me.FechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechaInicio.Location = New System.Drawing.Point(392, 25)
-        Me.FechaInicio.Name = "FechaInicio"
-        Me.FechaInicio.Size = New System.Drawing.Size(121, 24)
-        Me.FechaInicio.TabIndex = 30
-        Me.FechaInicio.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
-        '
         'Principal
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1148, 598)
+        Me.ClientSize = New System.Drawing.Size(1205, 619)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -2601,7 +2579,7 @@ Partial Class Principal
     Friend WithEvents txtFiltroRecon As System.Windows.Forms.TextBox
     Friend WithEvents dtGridReconexion As System.Windows.Forms.DataGridView
     Friend WithEvents TabAdeudos As System.Windows.Forms.TabPage
-    Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
+    Friend WithEvents webBrowser As System.Windows.Forms.WebBrowser
     Friend WithEvents TabPagos As System.Windows.Forms.TabPage
     Friend WithEvents FecFinPagos As System.Windows.Forms.DateTimePicker
     Friend WithEvents Panel8 As System.Windows.Forms.Panel
@@ -2623,20 +2601,18 @@ Partial Class Principal
     Friend WithEvents TabCorte As System.Windows.Forms.TabPage
     Friend WithEvents Label56 As System.Windows.Forms.Label
     Friend WithEvents cmbAdminCorte As System.Windows.Forms.ComboBox
-    Friend WithEvents FechaFin As System.Windows.Forms.DateTimePicker
     Friend WithEvents Panel9 As System.Windows.Forms.Panel
     Friend WithEvents Button10 As System.Windows.Forms.Button
-    Friend WithEvents TextBox15 As System.Windows.Forms.TextBox
+    Friend WithEvents txtMontoTotal As System.Windows.Forms.TextBox
     Friend WithEvents Label47 As System.Windows.Forms.Label
-    Friend WithEvents TextBox16 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDescuento As System.Windows.Forms.TextBox
     Friend WithEvents Label50 As System.Windows.Forms.Label
-    Friend WithEvents TextBox19 As System.Windows.Forms.TextBox
+    Friend WithEvents txtSubMonto As System.Windows.Forms.TextBox
     Friend WithEvents Label52 As System.Windows.Forms.Label
-    Friend WithEvents TextBox20 As System.Windows.Forms.TextBox
+    Friend WithEvents txtNumPagos As System.Windows.Forms.TextBox
     Friend WithEvents Label54 As System.Windows.Forms.Label
     Friend WithEvents Label55 As System.Windows.Forms.Label
     Friend WithEvents dtGridCorte As System.Windows.Forms.DataGridView
-    Friend WithEvents FechaInicio As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnPagar As System.Windows.Forms.Button
     Friend WithEvents cmbEstatusAdmin As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label

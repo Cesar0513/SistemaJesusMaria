@@ -32,6 +32,8 @@ Public Class Principal
 
 #Region "SUB FUNCTION"
 
+#Region "GENERAL SISTEMA"
+
     Public Sub ObtenerParametrosSession()
         If DatosSession.IdAdmin = 0 Then
             Login.Show()
@@ -58,6 +60,8 @@ Public Class Principal
             MsgBox("Problema ejecutar el respaldo de Información: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
+#End Region
 
 #Region "ADMINISTRADORES"
 
@@ -160,16 +164,16 @@ Public Class Principal
         Dim AdminOperacion As New clsAdministrador()
         Dim retorna As Integer = Nothing
 
-            If txtPwd.Text = txtPwd1.Text Then
-                Try
-                    retorna = AdminOperacion.VerificaExistenciaAdmin(Trim(txtPwd.Text))
-                Catch ex As Exception
+        If txtPwd.Text = txtPwd1.Text Then
+            Try
+                retorna = AdminOperacion.VerificaExistenciaAdmin(Trim(txtPwd.Text))
+            Catch ex As Exception
                 MsgBox("Error al Verificar la Existencia de Administrador: " & ex.Message, MsgBoxStyle.Critical, "Error")
-                End Try
-            Else
-                MsgBox("Las contraseñas no coinciden", MsgBoxStyle.Information, "AVISO!")
-                retorna = 0
-            End If
+            End Try
+        Else
+            MsgBox("Las contraseñas no coinciden", MsgBoxStyle.Information, "AVISO!")
+            retorna = 0
+        End If
         Return retorna
     End Function
 
@@ -489,20 +493,83 @@ Public Class Principal
 
 #End Region
 
+#Region "PAGOS"
+
+    Public Sub CargarPagosRango()
+        Dim PagoOperacion As New clsPagos()
+        Dim dtFolio As New DataTable
+        Dim fecha1, fecha2 As String
+        If String.IsNullOrEmpty(FecInicioPagos.Value) Or String.IsNullOrEmpty(FecFinPagos.Value) Then
+            MsgBox("Por favor seleccione el rango entre Fechas", MsgBoxStyle.Information, "Aviso")
+            Exit Sub
+        Else
+            fecha1 = Format(FecInicioPagos.Value, "yyyyMMdd")
+            fecha2 = Format(FecFinPagos.Value, "yyyyMMdd")
+            Try
+                dtFolio = PagoOperacion.CargarPagos(1, 0, fecha1, fecha2)
+
+                If dtFolio.Rows.Count = 0 Then
+                    MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
+                    Me.dtGridPagos.DataSource = dtFolio
+                Else
+                    Me.dtGridPagos.DataSource = dtFolio
+                    Me.dtGridPagos.CurrentRow.Selected = False
+                    'LimpiarCamposReconexion()
+                End If
+            Catch ex As Exception
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
+
+    Public Sub CargarPagosAdministrador()
+        Dim PagoOperacion As New clsPagos()
+        Dim dtFolio As New DataTable
+        If String.IsNullOrEmpty(cmbAdminCorte.Text) Then
+            MsgBox("Por favor seleccione el Administrador ", MsgBoxStyle.Information, "Aviso")
+            Exit Sub
+        Else
+            Try
+                dtFolio = PagoOperacion.CargarPagos(0, cmbAdminCorte.SelectedItem, "20151414", "20151414")
+
+                If dtFolio.Rows.Count = 0 Then
+                    MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
+                    Me.dtGridCorte.DataSource = dtFolio
+                Else
+                    Me.dtGridCorte.DataSource = dtFolio
+                    Me.dtGridCorte.CurrentRow.Selected = False
+                    'LimpiarCamposReconexion()
+                End If
+            Catch ex As Exception
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
+
+    Public Sub CargarAdmin()
+        Dim AdminOperaciones As New clsAdministrador()
+        Dim dtFolio As New DataTable
+        Try
+            dtFolio = AdminOperaciones.CargarAdministradores(2, "*")
+
+            If dtFolio.Rows.Count = 0 Then
+                MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
+            Else
+                For i As Integer = 0 To dtFolio.Rows.Count - 1 Step 1
+                    cmbAdminCorte.Items.Add(dtFolio.Rows(i).Item(0))
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
 
 #End Region
 
-#Region "EVENTOS CONTROLADORES"
 
-    Private Sub btnRespaldos_Click(sender As Object, e As EventArgs) Handles btnRespaldos.Click
-        CrearRespaldoDeBase()
-    End Sub
+#End Region
 
-    Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
-        'MsgBox("La clave del usuarios es : " & RowIdUsuario, MsgBoxStyle.Information, "AVISO!")
-        'Dim frmPagos As New Pago
-        'frmPagos.ShowDialog()
-    End Sub
+#Region "REGION EVENTOS CONTROLADORES"
 
 #Region "ADMINISTRADORES"
 
@@ -640,6 +707,10 @@ Public Class Principal
         End If
     End Sub
 
+    Private Sub btnRespaldos_Click(sender As Object, e As EventArgs) Handles btnRespaldos.Click
+        CrearRespaldoDeBase()
+    End Sub
+
 #End Region
 
 #Region "USUARIOS"
@@ -755,6 +826,12 @@ Public Class Principal
                 Exit Sub
             End If
         End If
+    End Sub
+
+    Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
+        'MsgBox("La clave del usuarios es : " & RowIdUsuario, MsgBoxStyle.Information, "AVISO!")
+        'Dim frmPagos As New Pago
+        'frmPagos.ShowDialog()
     End Sub
 
 #End Region
@@ -1002,9 +1079,25 @@ Public Class Principal
 
 #End Region
 
+#Region "PAGOS"
+
+    Private Sub btnBuscarVerPagos_Click(sender As Object, e As EventArgs) Handles btnBuscarVerPagos.Click
+        CargarPagosRango()
+    End Sub
+
 #End Region
 
-#Region "SUB LIMPIAR TabPage"
+#Region "CORTE DE CAJA"
+
+    Private Sub btnBuscarCorte_Click(sender As Object, e As EventArgs) Handles btnBuscarCorte.Click
+        CargarPagosAdministrador()
+    End Sub
+
+#End Region
+
+#End Region
+
+#Region "REGION SUB LIMPIAR TabPage"
 
     Public Sub LimpiarTabAdmin()
         txtFiltro.Clear()
@@ -1057,7 +1150,7 @@ Public Class Principal
 
 #End Region
 
-#Region "ENTER TAB'S"
+#Region "REGION ENTER TAB'S"
 
     Private Sub TabAdmin_Enter(sender As Object, e As EventArgs) Handles TabAdmin.Enter
         BotonesInicio()
@@ -1087,9 +1180,18 @@ Public Class Principal
         RowIdSer = 0
     End Sub
 
+    Private Sub TabCorte_Enter(sender As Object, e As EventArgs) Handles TabCorte.Enter
+        LimpiarCamposCorte()
+        CargarAdmin()
+    End Sub
+
+    Private Sub TabAdeudos_Enter(sender As Object, e As EventArgs) Handles TabAdeudos.Enter
+        webBrowser.Refresh()
+    End Sub
+
 #End Region
 
-#Region "LOSTFOCUS TAB'S"
+#Region "REGION LOSTFOCUS TAB'S"
 
     Private Sub TabAdmin_Leave(sender As Object, e As EventArgs) Handles TabAdmin.Leave
         LimpiarTabAdmin()
@@ -1112,9 +1214,20 @@ Public Class Principal
         LimpiarTabReconexion()
     End Sub
 
+    Private Sub TabPagos_LostFocus(sender As Object, e As EventArgs) Handles TabPagos.Leave
+        LimpiarCamposPagos()
+        dtGridPagos.DataSource = Nothing
+    End Sub
+
+    Private Sub TabCorte_LostFocus(sender As Object, e As EventArgs) Handles TabCorte.Leave
+        LimpiarCamposCorte()
+        dtGridCorte.DataSource = Nothing
+        cmbAdminCorte.Items.Clear()
+    End Sub
+
 #End Region
 
-#Region "MANEJO DE BOTONES"
+#Region "REGION MANEJO DE BOTONES"
 
 #Region "ADMINISTRADORES"
 
@@ -1261,7 +1374,7 @@ Public Class Principal
 
 #End Region
 
-#Region "LIMPIA CAMPOS"
+#Region "REGION LIMPIA CAMPOS"
 
     Public Sub LimpiarCamposUsuarios()
         txtNombreUsu.Text = ""
@@ -1306,6 +1419,23 @@ Public Class Principal
         txtRedRec.Clear()
         txtRefRec.Clear()
     End Sub
+
+    Public Sub LimpiarCamposCorte()
+        txtNumPagos.Clear()
+        txtSubMonto.Clear()
+        txtDescuento.Clear()
+        txtMontoTotal.Clear()
+    End Sub
+
+    Public Sub LimpiarCamposPagos()
+        txtNombrePagos.Clear()
+        txtMesesPagos.Clear()
+        txtAnioPagos.Clear()
+        txtSubPagos.Clear()
+        txtDescPagos.Clear()
+        txtMontoPagos.Clear()
+    End Sub
+
 
 #End Region
 
