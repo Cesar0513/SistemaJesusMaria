@@ -12,6 +12,8 @@ Public Class Principal
     Dim RowIdUsuario As Integer = Nothing
     Dim RowIdRed As Integer = Nothing
     Dim RowIdSer As Integer = Nothing
+    Dim RowIdRec As Integer = Nothing
+    Dim newProcess As New Process
 #End Region
 
 #Region "LOAD CLOSING FORMULARIO"
@@ -23,6 +25,7 @@ Public Class Principal
 
     Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         DatosSession.DatosSession(0, "", "")
+        'newProcess.Kill()
     End Sub
 
 #End Region
@@ -40,26 +43,19 @@ Public Class Principal
 
     Public Sub IniciaServiciosXampp()
         'Try
-        '    Process.Start(ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strRutaXampp").ToString).ToString)
+        '    newProcess = Process.Start(ConfigurationManager.AppSettings(ConfigurationManager.AppSettings("strRutaXampp").ToString).ToString)
         'Catch ex As Exception
         '    MsgBox("Error al abrir xampp")
         'End Try
     End Sub
 
     Public Sub CrearRespaldoDeBase()
-        Dim nombre As String
-        Dim datos As String
-        Dim hora As String
-        Dim datof As String
-        nombre = "SistemaAgua"
-        datos = (Date.Today.Year.ToString & "-" & Date.Today.Month.ToString & "-" & Date.Today.Day.ToString)
-        hora = Date.Now.Hour.ToString & "-" & Date.Now.Minute.ToString
-        datof = nombre & datos & "--" & hora
+        Dim dtFolio As New DataTable
         Try
-            Process.Start("C:\Program Files (x86)\MySQL\MySQL Server 5.1\bin\mysqldump.exe", " -u root -p root sistemaagua -r ""I:\Backup\respaldos\" & datof & ".sql""")
-            MsgBox("El Respaldo creado con Exito" & datos)
+            dtFolio = objSQL.ejecutaProcedimientoTable("Operaciones.BackupDB")
+            MsgBox("Respaldo Creado con Exito", MsgBoxStyle.Information, "Exito!")
         Catch ex As Exception
-            MsgBox("Error no se pudo crear el Respaldo")
+            MsgBox("Problema ejecutar el respaldo de Información: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -304,9 +300,10 @@ Public Class Principal
 #Region "REDES"
 
     Public Sub CargarTamanoRed()
+        Dim RedOperacion As New clsRedes()
         Dim dtFolio As DataTable = Nothing
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarTamano)
+            dtFolio = RedOperacion.CargarTamanoRed()
 
             If dtFolio.Rows.Count = 0 Then
                 MsgBox("No hay Redes registradas", MsgBoxStyle.Information, "Aviso!")
@@ -321,6 +318,7 @@ Public Class Principal
     End Sub
 
     Public Sub CargarRedesTab()
+        Dim RedOperacion As New clsRedes()
         Dim filtro As String = ""
         Dim dtFolio As New DataTable
         If String.IsNullOrEmpty(txtFiltroRed.Text) Then
@@ -328,7 +326,7 @@ Public Class Principal
         Else
             filtro = Trim(txtFiltroRed.Text)
             Try
-                dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarRedes, filtro)
+                dtFolio = RedOperacion.CargarRedes(1, filtro)
 
                 If dtFolio.Rows.Count = 0 Then
                     MsgBox("No hay Redes Registrados", MsgBoxStyle.Information, "Aviso!")
@@ -380,7 +378,7 @@ Public Class Principal
         Try
             ret = RedOperacion.VerificaNuevaRed(Trim(txtNumRed.Text))
         Catch ex As Exception
-            MsgBox("Error al Consultar Existencia de Usuario " & ex.Message, MsgBoxStyle.Information, "Error!")
+            MsgBox("Error al Consultar Existencia de Red " & ex.Message, MsgBoxStyle.Information, "Error!")
         End Try
         Return ret
     End Function
@@ -397,10 +395,9 @@ Public Class Principal
 
             If dtFolio.Rows.Count = 0 Then
                 MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
-                Me.dtGridUsuarios.DataSource = dtFolio
             Else
                 Me.dtGridServicio.DataSource = dtFolio
-                Me.dtGridServicio.CurrentRow.Selected = False
+                'Me.dtGridServicio.CurrentRow.Selected = False
                 LimpiarCamposServicios()
             End If
         Catch ex As Exception
@@ -463,7 +460,7 @@ Public Class Principal
                 Else
                     Me.dtGridReconexion.DataSource = dtFolio
                     Me.dtGridReconexion.CurrentRow.Selected = False
-                    LimpiarCamposUsuarios()
+                    'LimpiarCamposReconexion()
                 End If
             Catch ex As Exception
                 MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
@@ -474,10 +471,20 @@ Public Class Principal
     Public Sub MostrarUsuarioReconexion(user As clsUsuarios)
         txtNomRec.Text = user.NombreUsu
         txtPaternoRec.Text = user.ApePatUsu
-        txtMaternoRec.Text = user.ApeMatUsu
         txtFecRec.Text = user.FecNacUsu
         txtRedRec.Text = user.RedUsuario
         txtRefRec.Text = user.RefUsuario
+    End Sub
+
+    Public Sub ActualizaUsuario()
+        Dim UsuarioOperacion As New clsServicio()
+        Try
+            UsuarioOperacion.ActivaDesactivaServicio(1, RowIdRec)
+            LimpiarCamposReconexion()
+            CargarUsuariosReconexion()
+        Catch ex As Exception
+            MsgBox("Error al Reactivar el Usuario", MsgBoxStyle.Information, "Error!")
+        End Try
     End Sub
 
 #End Region
@@ -487,7 +494,7 @@ Public Class Principal
 
 #Region "EVENTOS CONTROLADORES"
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
+    Private Sub btnRespaldos_Click(sender As Object, e As EventArgs) Handles btnRespaldos.Click
         CrearRespaldoDeBase()
     End Sub
 
@@ -761,12 +768,12 @@ Public Class Principal
         If e.RowIndex >= 0 Then
             BotonesModificaEliminaRed()
             RowIdRed = CInt(dtGridRed.Rows(e.RowIndex).Cells(0).Value)
-            Red.IdRed = CInt(dtGridRed.Rows(e.RowIndex).Cells(0).Value)
             Red.NombreRed = CStr(dtGridRed.Rows(e.RowIndex).Cells(1).Value)
             Red.Encargado = CStr(dtGridRed.Rows(e.RowIndex).Cells(2).Value)
             Red.TamanoRed = CStr(dtGridRed.Rows(e.RowIndex).Cells(3).Value)
             Red.CuotaRed = CDbl(dtGridRed.Rows(e.RowIndex).Cells(4).Value)
-            Red.RefRed = CInt(dtGridRed.Rows(e.RowIndex).Cells(5).Value)
+            Red.RefRed = CStr(dtGridRed.Rows(e.RowIndex).Cells(5).Value)
+
             MostrarDatosRedes(Red)
         End If
     End Sub
@@ -787,7 +794,7 @@ Public Class Principal
         Dim RedOperacion As New clsRedes()
         If MessageBox.Show("Continuar para eliminar la Red", "INFORMACIÓN", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             Dim dtFolio As DataTable = Nothing
-            If String.IsNullOrEmpty(RowIdAdmin) Then
+            If String.IsNullOrEmpty(RowIdRed) Then
                 MsgBox("No ha selecionado ninguna Red", MsgBoxStyle.Information, "AVISO!")
                 Exit Sub
             Else
@@ -801,7 +808,7 @@ Public Class Principal
                 Try
                     BotonesInicioRed()
                     RedOperacion.AgregaModificaEliminaRed(3, RedOperacion)
-                    CargarUsuarios()
+                    CargarRedesTab()
                 Catch ex As Exception
                     MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
                 End Try
@@ -812,7 +819,7 @@ Public Class Principal
     Private Sub btnModificarRed_Click(sender As Object, e As EventArgs) Handles btnModificarRed.Click
         Dim RedOperacion As New clsRedes()
         Dim estatus As Integer = Nothing
-        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
+        If String.IsNullOrEmpty(RowIdRed) Or RowIdRed = 0 Then
             MsgBox("No ha selecionado ninguna Red", MsgBoxStyle.Information, "AVISO!")
             Exit Sub
         Else
@@ -854,8 +861,8 @@ Public Class Principal
         RedOperacion.EstatusRed = "Activo"
         Try
             RedOperacion.AgregaModificaEliminaRed(1, RedOperacion)
-            BotonesInicioUsu()
-            CargarUsuarios()
+            BotonesInicioRed()
+            CargarRedesTab()
         Catch ex As Exception
             MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -871,7 +878,7 @@ Public Class Principal
         Dim clave As Integer = Nothing
         RowIdSer = 0
         If e.RowIndex >= 0 Then
-            BotonesModificaEliminaRed()
+            BotonesModificaEliminaServ()
             RowIdSer = CInt(dtGridServicio.Rows(e.RowIndex).Cells(0).Value)
             Serv.IdTipo = CInt(dtGridServicio.Rows(e.RowIndex).Cells(0).Value)
             Serv.NombreTipo = CStr(dtGridServicio.Rows(e.RowIndex).Cells(1).Value)
@@ -893,13 +900,13 @@ Public Class Principal
         Dim ServOperacion As New clsServicio()
         If MessageBox.Show("Continuar para eliminar el Servicio", "INFORMACIÓN", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             Dim dtFolio As DataTable = Nothing
-            If String.IsNullOrEmpty(RowIdAdmin) Then
+            If String.IsNullOrEmpty(RowIdSer) Then
                 MsgBox("No ha selecionado ninguna Red", MsgBoxStyle.Information, "AVISO!")
                 Exit Sub
             Else
                 ServOperacion.IdTipo = RowIdSer
-                ServOperacion.NombreTipo = Trim(txtServ.Text)
-                ServOperacion.CuotaTipo = Trim(txtCuotaServ.Text)
+                ServOperacion.NombreTipo = ""
+                ServOperacion.CuotaTipo = 0
                 ServOperacion.EstatusTipo = "Activo"
                 Try
                     BotonesInicioServ()
@@ -915,7 +922,7 @@ Public Class Principal
     Private Sub btnModificarServ_Click(sender As Object, e As EventArgs) Handles btnModificaServ.Click
         Dim ServOperacion As New clsServicio()
         Dim estatus As Integer = Nothing
-        If String.IsNullOrEmpty(RowIdUsuario) Or RowIdUsuario = 0 Then
+        If String.IsNullOrEmpty(RowIdSer) Or RowIdSer = 0 Then
             MsgBox("No ha selecionado ningun Servicio", MsgBoxStyle.Information, "AVISO!")
             Exit Sub
         Else
@@ -962,6 +969,36 @@ Public Class Principal
 
 #Region "RECONEXION"
 
+    Private Sub dtGridReconexion_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dtGridReconexion.CellEnter
+        Dim UsuarioOperacion As New clsUsuarios()
+        Dim clave As Integer = Nothing
+        RowIdRec = 0
+        If e.RowIndex >= 0 Then
+            BotonesInicioReconexion()
+            RowIdRec = CInt(dtGridReconexion.Rows(e.RowIndex).Cells(0).Value)
+            UsuarioOperacion.IdUsuario = CInt(dtGridReconexion.Rows(e.RowIndex).Cells(0).Value)
+            UsuarioOperacion.NombreUsu = CStr(dtGridReconexion.Rows(e.RowIndex).Cells(1).Value)
+            UsuarioOperacion.ApePatUsu = CStr(dtGridReconexion.Rows(e.RowIndex).Cells(2).Value)
+            UsuarioOperacion.FecNacUsu = CStr(dtGridReconexion.Rows(e.RowIndex).Cells(5).Value)
+            UsuarioOperacion.RedUsuario = CStr(dtGridReconexion.Rows(e.RowIndex).Cells(6).Value)
+            UsuarioOperacion.TipoUsuario = CStr(dtGridReconexion.Rows(e.RowIndex).Cells(7).Value)
+            UsuarioOperacion.RefUsuario = CStr(dtGridReconexion.Rows(e.RowIndex).Cells(8).Value)
+            MostrarUsuarioReconexion(UsuarioOperacion)
+            If RowIdRec <> 0 Then
+                btnReactivacion.Visible = True
+            Else
+                btnReactivacion.Visible = False
+            End If
+        End If
+    End Sub
+
+    Private Sub txtFiltroRecon_TextChanged(sender As Object, e As EventArgs) Handles txtFiltroRecon.TextChanged
+        CargarUsuariosReconexion()
+    End Sub
+
+    Private Sub btnReactivacion_Click(sender As Object, e As EventArgs) Handles btnReactivacion.Click
+        ActualizaUsuario()
+    End Sub
 
 #End Region
 
@@ -994,7 +1031,7 @@ Public Class Principal
 
     Public Sub LimpiarTabRedes()
         txtFiltroRed.Clear()
-        dtGridRed.Rows.Clear()
+        dtGridRed.DataSource = Nothing
         txtNumRed.Clear()
         txtEncargadoRed.Clear()
         cmbTamanoRed.Text = ""
@@ -1003,10 +1040,19 @@ Public Class Principal
     End Sub
 
     Public Sub LimpiarTabServicio()
-        dtGridServicio.Rows.Clear()
+        dtGridServicio.DataSource = Nothing
         txtServ.Clear()
         txtCuotaServ.Clear()
         cmbEstatusServ.SelectedIndex = -1
+    End Sub
+
+    Public Sub LimpiarTabReconexion()
+        dtGridReconexion.DataSource = Nothing
+        txtNomRec.Clear()
+        txtPaternoRec.Clear()
+        txtFecRec.Clear()
+        txtRedRec.Clear()
+        txtRefRec.Clear()
     End Sub
 
 #End Region
@@ -1029,7 +1075,8 @@ Public Class Principal
     End Sub
 
     Private Sub TabRedes_Enter(sender As Object, e As EventArgs) Handles TabRedes.Enter
-        LimpiarTabUsuarios()
+        LimpiarTabRedes()
+        CargarTamanoRed()
         CargarRedesTab()
         RowIdRed = 0
     End Sub
@@ -1059,6 +1106,10 @@ Public Class Principal
     Private Sub TabRedes_LostFocus(sender As Object, e As EventArgs) Handles TabRedes.Leave
         LimpiarTabRedes()
         cmbTamanoRed.Items.Clear()
+    End Sub
+
+    Private Sub TabReconexion_LostFocus(sender As Object, e As EventArgs) Handles TabReconexion.Leave
+        LimpiarTabReconexion()
     End Sub
 
 #End Region
@@ -1199,6 +1250,15 @@ Public Class Principal
 
 #End Region
 
+#Region "RECONEXION"
+
+    Public Sub BotonesInicioReconexion()
+        dtGridReconexion.Enabled = True
+        LimpiarCamposReconexion()
+    End Sub
+
+#End Region
+
 #End Region
 
 #Region "LIMPIA CAMPOS"
@@ -1216,11 +1276,11 @@ Public Class Principal
     End Sub
 
     Public Sub LimpiarCamposRedes()
-        txtNombre.Text = ""
-        txtPaterno.Text = ""
-        txtMaterno.Text = ""
-        txtPwd.Text = ""
-        txtPwd1.Text = ""
+        txtNumRed.Text = ""
+        txtEncargadoRed.Text = ""
+        txtCuotaRed.Text = ""
+        cmbTamanoRed.SelectedIndex = -1
+        txtRefRed.Text = ""
     End Sub
 
     Public Sub LimpiarCamposAdmin()
@@ -1239,7 +1299,14 @@ Public Class Principal
         cmbEstatusServ.SelectedIndex = -1
     End Sub
 
-#End Region
+    Public Sub LimpiarCamposReconexion()
+        txtNomRec.Clear()
+        txtPaternoRec.Clear()
+        txtFecRec.Clear()
+        txtRedRec.Clear()
+        txtRefRec.Clear()
+    End Sub
 
+#End Region
 
 End Class

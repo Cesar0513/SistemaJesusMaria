@@ -14,6 +14,7 @@ Public Class clsRedes
     Private sp_CargarRedes As String = "Seguridad.sp_CargarRedes"
     Private sp_VerificaNuevoRed As String = "Operaciones.sp_VerificaNuevoRed"
     Private sp_InsertaModificaEliminaRedes As String = "CRUD.sp_InsertaModificaEliminaRedes"
+    Private sp_CargaTamanoRed As String = "Seguridad.sp_CargaTamanoRed"
 #End Region
 
 #Region "Constructor"
@@ -68,12 +69,12 @@ Public Class clsRedes
         End Set
     End Property
 
-    Private _strTamano As Integer
-    Public Property TamanoRed() As Integer
+    Private _strTamano As String
+    Public Property TamanoRed() As String
         Get
             Return _strTamano
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _strTamano = value
         End Set
     End Property
@@ -123,12 +124,14 @@ Public Class clsRedes
 
     Public Function VerificaNuevaRed(strNomRed As String)
         Dim dtFolio As New DataTable
+        Dim folio As Integer = 0
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaNuevoRed, strNomRed)
+            folio = CInt(dtFolio.Rows(0).Item(0))
         Catch ex As Exception
             MsgBox("Problema al buscar Usuario existente: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-        Return dtFolio
+        Return folio
     End Function
 
     Public Sub AgregaModificaEliminaRed(strTipo As Integer, red As clsRedes)
@@ -146,6 +149,15 @@ Public Class clsRedes
             MsgBox("Problema ejecutar la Operacion del Usuario: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
+    Public Function CargarTamanoRed()
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargaTamanoRed)
+        Catch ex As Exception
+            MsgBox("Problema ejecutar la Operacion del Usuario: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return dtFolio
+    End Function
 
 #End Region
 

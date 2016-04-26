@@ -6,10 +6,8 @@ Public Class Login
 
 #Region "SUB FUNCTION"
 
-
     Public Sub ValidaUsuario(ByVal pwd As String)
         pwd = Trim(pwd)
-        MsgBox("--" & pwd & "--")
         Dim objSQL As New clsAdministrador()
         Dim dtFolio As DataTable = Nothing
         Try

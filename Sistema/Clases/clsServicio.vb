@@ -124,9 +124,9 @@ Public Class clsServicio
         End Try
     End Sub
 
-    Public Sub ActivaDesactivaServicio(strTipo As Integer, serv As clsUsuarios)
+    Public Sub ActivaDesactivaServicio(strTipo As Integer, strId As Integer)
         Try
-            dtFolio = objSQL.ejecutaProcedimientoTable(sp_ActivaDesactivaServicio, strTipo, serv.IdUsuario)
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_ActivaDesactivaServicio, strTipo, strId)
         Catch ex As Exception
             MsgBox("Problema ejecutar la Operacion del Servicio: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
