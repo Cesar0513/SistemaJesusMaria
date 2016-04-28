@@ -12,6 +12,7 @@ Public Class clsPagos
 #End Region
 
 #Region "SP SVT"
+    Private sp_CargarDatosUsuarios As String = "Seguridad.sp_CargarDatosUsuarios"
     Private sp_CargarPagosUsuario As String = "Seguridad.sp_CargarPagosUsuarios"
     Private sp_VerificaPagoUsuario As String = "Pagos.sp_VerificaPagoUsuario"
     Private sp_CalcularMontoPagar As String = "Pagos.sp_CalcularMontoPagar"
@@ -280,6 +281,15 @@ Public Class clsPagos
 #End Region
 
 #Region "Métodos"
+
+    Public Function CargarDatosUsuario(strIdUsuario As Integer)
+        Try
+            dtFolio = objSQL.ejecutaProcedimientoTable(sp_CargarDatosUsuarios, strIdUsuario)
+        Catch ex As Exception
+            MsgBox("Ocurrio al Cargar Pagos: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return dtFolio
+    End Function
 
     Public Function CargarPagos(strTipo As Integer, strIdAdministrador As String, fecha1 As String, fecha2 As String) As DataTable
         Try
