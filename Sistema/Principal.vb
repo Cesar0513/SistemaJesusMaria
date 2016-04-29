@@ -525,10 +525,14 @@ Public Class Principal
     Public Sub CargarPagosAdministrador()
         Dim PagoOperacion As New clsPagos()
         Dim dtFolio As New DataTable
+        Dim fecha1, fecha2 As String
+
         If String.IsNullOrEmpty(cmbAdminCorte.Text) Then
             MsgBox("Por favor seleccione el Administrador ", MsgBoxStyle.Information, "Aviso")
             Exit Sub
         Else
+            fecha1 = Format(FecInicioPagos.Value, "yyyyMMdd")
+            fecha2 = Format(FecFinPagos.Value, "yyyyMMdd")
             Try
                 dtFolio = PagoOperacion.CargarPagos(0, cmbAdminCorte.SelectedItem, "20151414", "20151414")
 
