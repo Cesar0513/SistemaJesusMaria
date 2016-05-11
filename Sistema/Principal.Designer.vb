@@ -22,16 +22,16 @@ Partial Class Principal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.btnRespaldos = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblPerfil = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
@@ -39,55 +39,46 @@ Partial Class Principal
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabCorte = New System.Windows.Forms.TabPage()
+        Me.btnBuscarCorte = New System.Windows.Forms.Button()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.cmbAdminCorte = New System.Windows.Forms.ComboBox()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.txtMontoTotal = New System.Windows.Forms.TextBox()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.txtDescuento = New System.Windows.Forms.TextBox()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.txtSubMonto = New System.Windows.Forms.TextBox()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.txtNumPagos = New System.Windows.Forms.TextBox()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.dtGridCorte = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabAdmin = New System.Windows.Forms.TabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.cmbEstatusAdmin = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.txtPwd1 = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.txtPwd = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.cmbTipoAdmin = New System.Windows.Forms.ComboBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtMaterno = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtPaterno = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtFiltro = New System.Windows.Forms.TextBox()
         Me.dtGridAdmin = New System.Windows.Forms.DataGridView()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ACTIVO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabUsuarios = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.cmbTpoServUsu = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnPagar = New System.Windows.Forms.Button()
         Me.cmbRedUsu = New System.Windows.Forms.ComboBox()
         Me.FechaNacUsu = New System.Windows.Forms.DateTimePicker()
         Me.txtRefUsu = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.btnCancelarUsu = New System.Windows.Forms.Button()
         Me.txtPrecioTomaUsu = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.btnSaveUsu = New System.Windows.Forms.Button()
-        Me.btnEliminarUsu = New System.Windows.Forms.Button()
-        Me.btnModUsu = New System.Windows.Forms.Button()
-        Me.btnAddUsu = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtMaternoUsu = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -115,11 +106,6 @@ Partial Class Principal
         Me.cmbTamanoRed = New System.Windows.Forms.ComboBox()
         Me.txtRefRed = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.btnCancelarRed = New System.Windows.Forms.Button()
-        Me.btnSaveRed = New System.Windows.Forms.Button()
-        Me.btnEliminaRed = New System.Windows.Forms.Button()
-        Me.btnModificarRed = New System.Windows.Forms.Button()
-        Me.btnAddRed = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtEncargadoRed = New System.Windows.Forms.TextBox()
@@ -140,11 +126,6 @@ Partial Class Principal
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.cmbEstatusServ = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.btnCancelarServ = New System.Windows.Forms.Button()
-        Me.btnSaveServ = New System.Windows.Forms.Button()
-        Me.btnEliminaServ = New System.Windows.Forms.Button()
-        Me.btnModificaServ = New System.Windows.Forms.Button()
-        Me.btnAddServ = New System.Windows.Forms.Button()
         Me.txtCuotaServ = New System.Windows.Forms.TextBox()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.txtServ = New System.Windows.Forms.TextBox()
@@ -162,7 +143,6 @@ Partial Class Principal
         Me.txtRefRec = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.btnReactivacion = New System.Windows.Forms.Button()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.txtPaternoRec = New System.Windows.Forms.TextBox()
         Me.Label38 = New System.Windows.Forms.Label()
@@ -212,40 +192,107 @@ Partial Class Principal
         Me.Column29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FecInicioPagos = New System.Windows.Forms.DateTimePicker()
-        Me.TabCorte = New System.Windows.Forms.TabPage()
-        Me.btnBuscarCorte = New System.Windows.Forms.Button()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.cmbAdminCorte = New System.Windows.Forms.ComboBox()
-        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.TabPago = New System.Windows.Forms.TabPage()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.Label62 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ACTIVO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtPaterno = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtMaterno = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.cmbTipoAdmin = New System.Windows.Forms.ComboBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtPwd = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtPwd1 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbEstatusAdmin = New System.Windows.Forms.ComboBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.lblNombreUsuario = New System.Windows.Forms.Label()
+        Me.lbl = New System.Windows.Forms.Label()
+        Me.lblRedUsuario = New System.Windows.Forms.Label()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.lblFecUsuario = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chkEnero = New System.Windows.Forms.CheckBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox6 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox10 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox11 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.btnRespaldos = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
-        Me.txtMontoTotal = New System.Windows.Forms.TextBox()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.txtDescuento = New System.Windows.Forms.TextBox()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.txtSubMonto = New System.Windows.Forms.TextBox()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.txtNumPagos = New System.Windows.Forms.TextBox()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.Label55 = New System.Windows.Forms.Label()
-        Me.dtGridCorte = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.btnCancelarUsu = New System.Windows.Forms.Button()
+        Me.btnSaveUsu = New System.Windows.Forms.Button()
+        Me.btnEliminarUsu = New System.Windows.Forms.Button()
+        Me.btnModUsu = New System.Windows.Forms.Button()
+        Me.btnAddUsu = New System.Windows.Forms.Button()
+        Me.btnCancelarRed = New System.Windows.Forms.Button()
+        Me.btnSaveRed = New System.Windows.Forms.Button()
+        Me.btnEliminaRed = New System.Windows.Forms.Button()
+        Me.btnModificarRed = New System.Windows.Forms.Button()
+        Me.btnAddRed = New System.Windows.Forms.Button()
+        Me.btnCancelarServ = New System.Windows.Forms.Button()
+        Me.btnSaveServ = New System.Windows.Forms.Button()
+        Me.btnEliminaServ = New System.Windows.Forms.Button()
+        Me.btnModificaServ = New System.Windows.Forms.Button()
+        Me.btnAddServ = New System.Windows.Forms.Button()
+        Me.btnReactivacion = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
+        Me.TabCorte.SuspendLayout()
+        Me.Panel9.SuspendLayout()
+        CType(Me.dtGridCorte, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabAdmin.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         CType(Me.dtGridAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabUsuarios.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -263,9 +310,11 @@ Partial Class Principal
         Me.TabPagos.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.dtGridPagos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabCorte.SuspendLayout()
-        Me.Panel9.SuspendLayout()
-        CType(Me.dtGridCorte, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPago.SuspendLayout()
+        Me.Panel10.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -298,19 +347,6 @@ Partial Class Principal
         Me.SplitContainer1.Size = New System.Drawing.Size(1205, 619)
         Me.SplitContainer1.SplitterDistance = 138
         Me.SplitContainer1.TabIndex = 0
-        '
-        'btnRespaldos
-        '
-        Me.btnRespaldos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnRespaldos.Image = Global.Sistema.My.Resources.Resources.icon__2_
-        Me.btnRespaldos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRespaldos.Location = New System.Drawing.Point(1081, 82)
-        Me.btnRespaldos.Name = "btnRespaldos"
-        Me.btnRespaldos.Size = New System.Drawing.Size(112, 50)
-        Me.btnRespaldos.TabIndex = 4
-        Me.btnRespaldos.Text = "RESPALDO"
-        Me.btnRespaldos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnRespaldos.UseVisualStyleBackColor = True
         '
         'Panel2
         '
@@ -371,6 +407,7 @@ Partial Class Principal
         '
         'TabControl1
         '
+        Me.TabControl1.Controls.Add(Me.TabCorte)
         Me.TabControl1.Controls.Add(Me.TabAdmin)
         Me.TabControl1.Controls.Add(Me.TabUsuarios)
         Me.TabControl1.Controls.Add(Me.TabRedes)
@@ -378,13 +415,243 @@ Partial Class Principal
         Me.TabControl1.Controls.Add(Me.TabReconexion)
         Me.TabControl1.Controls.Add(Me.TabAdeudos)
         Me.TabControl1.Controls.Add(Me.TabPagos)
-        Me.TabControl1.Controls.Add(Me.TabCorte)
+        Me.TabControl1.Controls.Add(Me.TabPago)
         Me.TabControl1.Font = New System.Drawing.Font("Palatino Linotype", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(5, 3)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1197, 471)
         Me.TabControl1.TabIndex = 0
+        '
+        'TabCorte
+        '
+        Me.TabCorte.Controls.Add(Me.btnBuscarCorte)
+        Me.TabCorte.Controls.Add(Me.Label56)
+        Me.TabCorte.Controls.Add(Me.cmbAdminCorte)
+        Me.TabCorte.Controls.Add(Me.Panel9)
+        Me.TabCorte.Controls.Add(Me.dtGridCorte)
+        Me.TabCorte.Location = New System.Drawing.Point(4, 26)
+        Me.TabCorte.Name = "TabCorte"
+        Me.TabCorte.Size = New System.Drawing.Size(1189, 441)
+        Me.TabCorte.TabIndex = 7
+        Me.TabCorte.Text = "CORTE DE CAJA"
+        Me.TabCorte.UseVisualStyleBackColor = True
+        '
+        'btnBuscarCorte
+        '
+        Me.btnBuscarCorte.Location = New System.Drawing.Point(370, 23)
+        Me.btnBuscarCorte.Name = "btnBuscarCorte"
+        Me.btnBuscarCorte.Size = New System.Drawing.Size(75, 23)
+        Me.btnBuscarCorte.TabIndex = 34
+        Me.btnBuscarCorte.Text = "BUSCAR"
+        Me.btnBuscarCorte.UseVisualStyleBackColor = True
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label56.Location = New System.Drawing.Point(104, 26)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(107, 20)
+        Me.Label56.TabIndex = 33
+        Me.Label56.Text = "Administrador"
+        '
+        'cmbAdminCorte
+        '
+        Me.cmbAdminCorte.FormattingEnabled = True
+        Me.cmbAdminCorte.Location = New System.Drawing.Point(217, 23)
+        Me.cmbAdminCorte.Name = "cmbAdminCorte"
+        Me.cmbAdminCorte.Size = New System.Drawing.Size(137, 25)
+        Me.cmbAdminCorte.TabIndex = 32
+        '
+        'Panel9
+        '
+        Me.Panel9.Controls.Add(Me.Button9)
+        Me.Panel9.Controls.Add(Me.Button10)
+        Me.Panel9.Controls.Add(Me.txtMontoTotal)
+        Me.Panel9.Controls.Add(Me.Label47)
+        Me.Panel9.Controls.Add(Me.txtDescuento)
+        Me.Panel9.Controls.Add(Me.Label50)
+        Me.Panel9.Controls.Add(Me.txtSubMonto)
+        Me.Panel9.Controls.Add(Me.Label52)
+        Me.Panel9.Controls.Add(Me.txtNumPagos)
+        Me.Panel9.Controls.Add(Me.Label54)
+        Me.Panel9.Controls.Add(Me.Label55)
+        Me.Panel9.Location = New System.Drawing.Point(928, 64)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(256, 374)
+        Me.Panel9.TabIndex = 29
+        '
+        'txtMontoTotal
+        '
+        Me.txtMontoTotal.Location = New System.Drawing.Point(117, 191)
+        Me.txtMontoTotal.Name = "txtMontoTotal"
+        Me.txtMontoTotal.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtMontoTotal.Size = New System.Drawing.Size(100, 24)
+        Me.txtMontoTotal.TabIndex = 27
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.Location = New System.Drawing.Point(69, 195)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(42, 20)
+        Me.Label47.TabIndex = 26
+        Me.Label47.Text = "Total"
+        '
+        'txtDescuento
+        '
+        Me.txtDescuento.Location = New System.Drawing.Point(117, 154)
+        Me.txtDescuento.Name = "txtDescuento"
+        Me.txtDescuento.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtDescuento.Size = New System.Drawing.Size(100, 24)
+        Me.txtDescuento.TabIndex = 25
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label50.Location = New System.Drawing.Point(32, 158)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(79, 20)
+        Me.Label50.TabIndex = 24
+        Me.Label50.Text = "Descuento"
+        '
+        'txtSubMonto
+        '
+        Me.txtSubMonto.Location = New System.Drawing.Point(117, 118)
+        Me.txtSubMonto.Name = "txtSubMonto"
+        Me.txtSubMonto.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtSubMonto.Size = New System.Drawing.Size(100, 24)
+        Me.txtSubMonto.TabIndex = 19
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label52.Location = New System.Drawing.Point(32, 122)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(80, 20)
+        Me.Label52.TabIndex = 18
+        Me.Label52.Text = "Submonto"
+        '
+        'txtNumPagos
+        '
+        Me.txtNumPagos.Location = New System.Drawing.Point(117, 75)
+        Me.txtNumPagos.Name = "txtNumPagos"
+        Me.txtNumPagos.Size = New System.Drawing.Size(100, 24)
+        Me.txtNumPagos.TabIndex = 6
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label54.Location = New System.Drawing.Point(55, 79)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(58, 20)
+        Me.Label54.TabIndex = 5
+        Me.Label54.Text = "# Pagos"
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label55.Location = New System.Drawing.Point(79, 11)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(107, 21)
+        Me.Label55.TabIndex = 4
+        Me.Label55.Text = "Datos de Pago"
+        '
+        'dtGridCorte
+        '
+        Me.dtGridCorte.AllowUserToAddRows = False
+        Me.dtGridCorte.AllowUserToDeleteRows = False
+        Me.dtGridCorte.AllowUserToOrderColumns = True
+        Me.dtGridCorte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtGridCorte.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn32, Me.Column16, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.Column20, Me.Column21, Me.Column22})
+        Me.dtGridCorte.Location = New System.Drawing.Point(4, 64)
+        Me.dtGridCorte.Name = "dtGridCorte"
+        Me.dtGridCorte.ReadOnly = True
+        Me.dtGridCorte.Size = New System.Drawing.Size(919, 372)
+        Me.dtGridCorte.TabIndex = 28
+        '
+        'DataGridViewTextBoxColumn29
+        '
+        Me.DataGridViewTextBoxColumn29.DataPropertyName = "IdPago"
+        Me.DataGridViewTextBoxColumn29.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
+        Me.DataGridViewTextBoxColumn29.ReadOnly = True
+        Me.DataGridViewTextBoxColumn29.Visible = False
+        Me.DataGridViewTextBoxColumn29.Width = 30
+        '
+        'DataGridViewTextBoxColumn30
+        '
+        Me.DataGridViewTextBoxColumn30.DataPropertyName = "NomUsuario"
+        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn30.DefaultCellStyle = DataGridViewCellStyle33
+        Me.DataGridViewTextBoxColumn30.HeaderText = "NOMBRE"
+        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
+        Me.DataGridViewTextBoxColumn30.ReadOnly = True
+        Me.DataGridViewTextBoxColumn30.Width = 150
+        '
+        'DataGridViewTextBoxColumn32
+        '
+        Me.DataGridViewTextBoxColumn32.DataPropertyName = "FechaPago"
+        Me.DataGridViewTextBoxColumn32.HeaderText = "FECHA PAGO"
+        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
+        Me.DataGridViewTextBoxColumn32.ReadOnly = True
+        Me.DataGridViewTextBoxColumn32.Width = 70
+        '
+        'Column16
+        '
+        Me.Column16.DataPropertyName = "Meses"
+        Me.Column16.HeaderText = "MESES"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        Me.Column16.Width = 250
+        '
+        'DataGridViewTextBoxColumn33
+        '
+        Me.DataGridViewTextBoxColumn33.DataPropertyName = "Anio"
+        Me.DataGridViewTextBoxColumn33.HeaderText = "AÑO PAGADO"
+        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
+        Me.DataGridViewTextBoxColumn33.ReadOnly = True
+        Me.DataGridViewTextBoxColumn33.Width = 70
+        '
+        'DataGridViewTextBoxColumn34
+        '
+        Me.DataGridViewTextBoxColumn34.DataPropertyName = "SubPago"
+        Me.DataGridViewTextBoxColumn34.HeaderText = "SUBTOTAL"
+        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
+        Me.DataGridViewTextBoxColumn34.ReadOnly = True
+        Me.DataGridViewTextBoxColumn34.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn34.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
+        Me.DataGridViewTextBoxColumn34.Width = 80
+        '
+        'Column20
+        '
+        Me.Column20.DataPropertyName = "DescPago"
+        Me.Column20.HeaderText = "DESCUENTO"
+        Me.Column20.Name = "Column20"
+        Me.Column20.ReadOnly = True
+        Me.Column20.Width = 85
+        '
+        'Column21
+        '
+        Me.Column21.DataPropertyName = "CantAport"
+        Me.Column21.HeaderText = "APORTACION"
+        Me.Column21.Name = "Column21"
+        Me.Column21.ReadOnly = True
+        Me.Column21.Width = 90
+        '
+        'Column22
+        '
+        Me.Column22.DataPropertyName = "MontoPago"
+        Me.Column22.HeaderText = "TOTAL"
+        Me.Column22.Name = "Column22"
+        Me.Column22.ReadOnly = True
+        Me.Column22.Width = 90
         '
         'TabAdmin
         '
@@ -403,233 +670,10 @@ Partial Class Principal
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.cmbEstatusAdmin)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.btnCancelar)
-        Me.Panel3.Controls.Add(Me.txtPwd1)
-        Me.Panel3.Controls.Add(Me.Label12)
-        Me.Panel3.Controls.Add(Me.txtPwd)
-        Me.Panel3.Controls.Add(Me.Label11)
-        Me.Panel3.Controls.Add(Me.btnNuevo)
-        Me.Panel3.Controls.Add(Me.btnEliminar)
-        Me.Panel3.Controls.Add(Me.btnModificar)
-        Me.Panel3.Controls.Add(Me.btnAdd)
-        Me.Panel3.Controls.Add(Me.cmbTipoAdmin)
-        Me.Panel3.Controls.Add(Me.Label10)
-        Me.Panel3.Controls.Add(Me.txtMaterno)
-        Me.Panel3.Controls.Add(Me.Label9)
-        Me.Panel3.Controls.Add(Me.txtPaterno)
-        Me.Panel3.Controls.Add(Me.Label8)
-        Me.Panel3.Controls.Add(Me.txtNombre)
-        Me.Panel3.Controls.Add(Me.Label7)
-        Me.Panel3.Controls.Add(Me.Label6)
         Me.Panel3.Location = New System.Drawing.Point(802, 41)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(381, 394)
         Me.Panel3.TabIndex = 3
-        '
-        'cmbEstatusAdmin
-        '
-        Me.cmbEstatusAdmin.FormattingEnabled = True
-        Me.cmbEstatusAdmin.Items.AddRange(New Object() {"Activo", "Inactivo"})
-        Me.cmbEstatusAdmin.Location = New System.Drawing.Point(113, 205)
-        Me.cmbEstatusAdmin.Name = "cmbEstatusAdmin"
-        Me.cmbEstatusAdmin.Size = New System.Drawing.Size(121, 25)
-        Me.cmbEstatusAdmin.TabIndex = 22
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 210)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(106, 20)
-        Me.Label3.TabIndex = 21
-        Me.Label3.Text = "Estatus Admin"
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnCancelar.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(187, 320)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(118, 36)
-        Me.btnCancelar.TabIndex = 20
-        Me.btnCancelar.Text = "CANCELAR"
-        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        Me.btnCancelar.Visible = False
-        '
-        'txtPwd1
-        '
-        Me.txtPwd1.Location = New System.Drawing.Point(113, 290)
-        Me.txtPwd1.Name = "txtPwd1"
-        Me.txtPwd1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtPwd1.Size = New System.Drawing.Size(121, 24)
-        Me.txtPwd1.TabIndex = 19
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(14, 294)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(79, 20)
-        Me.Label12.TabIndex = 18
-        Me.Label12.Text = "Confirmar"
-        '
-        'txtPwd
-        '
-        Me.txtPwd.Location = New System.Drawing.Point(113, 251)
-        Me.txtPwd.Name = "txtPwd"
-        Me.txtPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtPwd.Size = New System.Drawing.Size(121, 24)
-        Me.txtPwd.TabIndex = 17
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(14, 255)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(84, 20)
-        Me.Label11.TabIndex = 16
-        Me.Label11.Text = "Contraseña"
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnNuevo.Image = Global.Sistema.My.Resources.Resources.add
-        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(63, 320)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(118, 36)
-        Me.btnNuevo.TabIndex = 15
-        Me.btnNuevo.Text = "GUARDAR"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNuevo.UseVisualStyleBackColor = True
-        Me.btnNuevo.Visible = False
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminar.Enabled = False
-        Me.btnEliminar.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(246, 351)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(106, 36)
-        Me.btnEliminar.TabIndex = 14
-        Me.btnEliminar.Text = "ELIMINAR"
-        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEliminar.UseVisualStyleBackColor = True
-        '
-        'btnModificar
-        '
-        Me.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnModificar.Enabled = False
-        Me.btnModificar.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(122, 351)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(118, 36)
-        Me.btnModificar.TabIndex = 13
-        Me.btnModificar.Text = "MODIFICAR"
-        Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnModificar.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAdd.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(23, 351)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(93, 36)
-        Me.btnAdd.TabIndex = 5
-        Me.btnAdd.Text = "NUEVO"
-        Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'cmbTipoAdmin
-        '
-        Me.cmbTipoAdmin.FormattingEnabled = True
-        Me.cmbTipoAdmin.Location = New System.Drawing.Point(113, 162)
-        Me.cmbTipoAdmin.Name = "cmbTipoAdmin"
-        Me.cmbTipoAdmin.Size = New System.Drawing.Size(121, 25)
-        Me.cmbTipoAdmin.TabIndex = 12
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(14, 164)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(89, 20)
-        Me.Label10.TabIndex = 11
-        Me.Label10.Text = "Tipo Admin"
-        '
-        'txtMaterno
-        '
-        Me.txtMaterno.Location = New System.Drawing.Point(113, 121)
-        Me.txtMaterno.Name = "txtMaterno"
-        Me.txtMaterno.Size = New System.Drawing.Size(219, 24)
-        Me.txtMaterno.TabIndex = 10
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(14, 121)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(97, 20)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "Ape Materno"
-        '
-        'txtPaterno
-        '
-        Me.txtPaterno.Location = New System.Drawing.Point(113, 81)
-        Me.txtPaterno.Name = "txtPaterno"
-        Me.txtPaterno.Size = New System.Drawing.Size(219, 24)
-        Me.txtPaterno.TabIndex = 8
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(14, 81)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(91, 20)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Ape Paterno"
-        '
-        'txtNombre
-        '
-        Me.txtNombre.Location = New System.Drawing.Point(113, 40)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(219, 24)
-        Me.txtNombre.TabIndex = 6
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(14, 44)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(65, 20)
-        Me.Label7.TabIndex = 5
-        Me.Label7.Text = "Nombre"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(3, 16)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(178, 21)
-        Me.Label6.TabIndex = 4
-        Me.Label6.Text = "Datos de Administrador"
         '
         'Label5
         '
@@ -637,9 +681,8 @@ Partial Class Principal
         Me.Label5.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(41, 11)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(44, 20)
+        Me.Label5.Size = New System.Drawing.Size(0, 20)
         Me.Label5.TabIndex = 2
-        Me.Label5.Text = "Filtro"
         '
         'txtFiltro
         '
@@ -655,73 +698,12 @@ Partial Class Principal
         Me.dtGridAdmin.AllowUserToDeleteRows = False
         Me.dtGridAdmin.AllowUserToOrderColumns = True
         Me.dtGridAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtGridAdmin.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column6, Me.Column1, Me.Column3, Me.Column7, Me.Column8, Me.Column2, Me.ACTIVO})
         Me.dtGridAdmin.Location = New System.Drawing.Point(23, 41)
         Me.dtGridAdmin.Name = "dtGridAdmin"
         Me.dtGridAdmin.ReadOnly = True
         Me.dtGridAdmin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtGridAdmin.Size = New System.Drawing.Size(773, 400)
         Me.dtGridAdmin.TabIndex = 0
-        '
-        'Column6
-        '
-        Me.Column6.DataPropertyName = "IdAdmin"
-        Me.Column6.HeaderText = "IDADMIN"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Visible = False
-        '
-        'Column1
-        '
-        Me.Column1.DataPropertyName = "NomAdmin"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle1
-        Me.Column1.HeaderText = "NOMBRE"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 200
-        '
-        'Column3
-        '
-        Me.Column3.DataPropertyName = "ApeAdmin"
-        Me.Column3.HeaderText = "APELLIDOS"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 200
-        '
-        'Column7
-        '
-        Me.Column7.DataPropertyName = "ApePa"
-        Me.Column7.HeaderText = "APEPATERNO"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Visible = False
-        '
-        'Column8
-        '
-        Me.Column8.DataPropertyName = "ApeMa"
-        Me.Column8.HeaderText = "APEMATERNO"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Visible = False
-        '
-        'Column2
-        '
-        Me.Column2.DataPropertyName = "TipoAdmin"
-        Me.Column2.HeaderText = "PERFIL "
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 200
-        '
-        'ACTIVO
-        '
-        Me.ACTIVO.DataPropertyName = "Estatus"
-        Me.ACTIVO.HeaderText = "ESTATUS"
-        Me.ACTIVO.Name = "ACTIVO"
-        Me.ACTIVO.ReadOnly = True
-        Me.ACTIVO.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ACTIVO.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
-        Me.ACTIVO.Width = 150
         '
         'TabUsuarios
         '
@@ -786,20 +768,6 @@ Partial Class Principal
         Me.Label4.TabIndex = 27
         Me.Label4.Text = "Tipo Serv"
         '
-        'btnPagar
-        '
-        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnPagar.Image = Global.Sistema.My.Resources.Resources.money
-        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(112, 355)
-        Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(105, 36)
-        Me.btnPagar.TabIndex = 26
-        Me.btnPagar.Text = "PAGAR"
-        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnPagar.UseVisualStyleBackColor = True
-        Me.btnPagar.Visible = False
-        '
         'cmbRedUsu
         '
         Me.cmbRedUsu.FormattingEnabled = True
@@ -836,20 +804,6 @@ Partial Class Principal
         Me.Label21.TabIndex = 21
         Me.Label21.Text = "Referencia"
         '
-        'btnCancelarUsu
-        '
-        Me.btnCancelarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnCancelarUsu.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.btnCancelarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelarUsu.Location = New System.Drawing.Point(170, 377)
-        Me.btnCancelarUsu.Name = "btnCancelarUsu"
-        Me.btnCancelarUsu.Size = New System.Drawing.Size(118, 36)
-        Me.btnCancelarUsu.TabIndex = 20
-        Me.btnCancelarUsu.Text = "CANCELAR"
-        Me.btnCancelarUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelarUsu.UseVisualStyleBackColor = True
-        Me.btnCancelarUsu.Visible = False
-        '
         'txtPrecioTomaUsu
         '
         Me.txtPrecioTomaUsu.Location = New System.Drawing.Point(130, 243)
@@ -876,61 +830,6 @@ Partial Class Principal
         Me.Label15.Size = New System.Drawing.Size(35, 20)
         Me.Label15.TabIndex = 16
         Me.Label15.Text = "Red"
-        '
-        'btnSaveUsu
-        '
-        Me.btnSaveUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSaveUsu.Image = Global.Sistema.My.Resources.Resources.add
-        Me.btnSaveUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSaveUsu.Location = New System.Drawing.Point(46, 377)
-        Me.btnSaveUsu.Name = "btnSaveUsu"
-        Me.btnSaveUsu.Size = New System.Drawing.Size(118, 36)
-        Me.btnSaveUsu.TabIndex = 15
-        Me.btnSaveUsu.Text = "GUARDAR"
-        Me.btnSaveUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSaveUsu.UseVisualStyleBackColor = True
-        Me.btnSaveUsu.Visible = False
-        '
-        'btnEliminarUsu
-        '
-        Me.btnEliminarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminarUsu.Enabled = False
-        Me.btnEliminarUsu.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.btnEliminarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminarUsu.Location = New System.Drawing.Point(236, 393)
-        Me.btnEliminarUsu.Name = "btnEliminarUsu"
-        Me.btnEliminarUsu.Size = New System.Drawing.Size(106, 36)
-        Me.btnEliminarUsu.TabIndex = 14
-        Me.btnEliminarUsu.Text = "ELIMINAR"
-        Me.btnEliminarUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEliminarUsu.UseVisualStyleBackColor = True
-        '
-        'btnModUsu
-        '
-        Me.btnModUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnModUsu.Enabled = False
-        Me.btnModUsu.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.btnModUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModUsu.Location = New System.Drawing.Point(112, 393)
-        Me.btnModUsu.Name = "btnModUsu"
-        Me.btnModUsu.Size = New System.Drawing.Size(118, 36)
-        Me.btnModUsu.TabIndex = 13
-        Me.btnModUsu.Text = "MODIFICAR"
-        Me.btnModUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnModUsu.UseVisualStyleBackColor = True
-        '
-        'btnAddUsu
-        '
-        Me.btnAddUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAddUsu.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.btnAddUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAddUsu.Location = New System.Drawing.Point(13, 393)
-        Me.btnAddUsu.Name = "btnAddUsu"
-        Me.btnAddUsu.Size = New System.Drawing.Size(93, 36)
-        Me.btnAddUsu.TabIndex = 5
-        Me.btnAddUsu.Text = "NUEVO"
-        Me.btnAddUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAddUsu.UseVisualStyleBackColor = True
         '
         'Label16
         '
@@ -1047,8 +946,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "NomUsuario"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle34
         Me.DataGridViewTextBoxColumn1.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
@@ -1186,75 +1085,6 @@ Partial Class Principal
         Me.Label22.TabIndex = 21
         Me.Label22.Text = "Referencia"
         '
-        'btnCancelarRed
-        '
-        Me.btnCancelarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnCancelarRed.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.btnCancelarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelarRed.Location = New System.Drawing.Point(192, 332)
-        Me.btnCancelarRed.Name = "btnCancelarRed"
-        Me.btnCancelarRed.Size = New System.Drawing.Size(118, 36)
-        Me.btnCancelarRed.TabIndex = 20
-        Me.btnCancelarRed.Text = "CANCELAR"
-        Me.btnCancelarRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelarRed.UseVisualStyleBackColor = True
-        Me.btnCancelarRed.Visible = False
-        '
-        'btnSaveRed
-        '
-        Me.btnSaveRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSaveRed.Image = Global.Sistema.My.Resources.Resources.add
-        Me.btnSaveRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSaveRed.Location = New System.Drawing.Point(68, 332)
-        Me.btnSaveRed.Name = "btnSaveRed"
-        Me.btnSaveRed.Size = New System.Drawing.Size(118, 36)
-        Me.btnSaveRed.TabIndex = 15
-        Me.btnSaveRed.Text = "GUARDAR"
-        Me.btnSaveRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSaveRed.UseVisualStyleBackColor = True
-        Me.btnSaveRed.Visible = False
-        '
-        'btnEliminaRed
-        '
-        Me.btnEliminaRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminaRed.Enabled = False
-        Me.btnEliminaRed.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.btnEliminaRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminaRed.Location = New System.Drawing.Point(258, 362)
-        Me.btnEliminaRed.Name = "btnEliminaRed"
-        Me.btnEliminaRed.Size = New System.Drawing.Size(106, 36)
-        Me.btnEliminaRed.TabIndex = 14
-        Me.btnEliminaRed.Text = "ELIMINAR"
-        Me.btnEliminaRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEliminaRed.UseVisualStyleBackColor = True
-        '
-        'btnModificarRed
-        '
-        Me.btnModificarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnModificarRed.Enabled = False
-        Me.btnModificarRed.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.btnModificarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificarRed.Location = New System.Drawing.Point(134, 362)
-        Me.btnModificarRed.Name = "btnModificarRed"
-        Me.btnModificarRed.Size = New System.Drawing.Size(118, 36)
-        Me.btnModificarRed.TabIndex = 13
-        Me.btnModificarRed.Text = "MODIFICAR"
-        Me.btnModificarRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnModificarRed.UseVisualStyleBackColor = True
-        '
-        'btnAddRed
-        '
-        Me.btnAddRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAddRed.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.btnAddRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAddRed.Location = New System.Drawing.Point(35, 362)
-        Me.btnAddRed.Name = "btnAddRed"
-        Me.btnAddRed.Size = New System.Drawing.Size(93, 36)
-        Me.btnAddRed.TabIndex = 5
-        Me.btnAddRed.Text = "NUEVO"
-        Me.btnAddRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAddRed.UseVisualStyleBackColor = True
-        '
         'Label25
         '
         Me.Label25.AutoSize = True
@@ -1363,8 +1193,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "NumRed"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle35
         Me.DataGridViewTextBoxColumn6.HeaderText = "NUM RED"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
@@ -1451,75 +1281,6 @@ Partial Class Principal
         Me.Label23.TabIndex = 21
         Me.Label23.Text = "Estatus"
         '
-        'btnCancelarServ
-        '
-        Me.btnCancelarServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnCancelarServ.Image = Global.Sistema.My.Resources.Resources.cancelar
-        Me.btnCancelarServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelarServ.Location = New System.Drawing.Point(183, 296)
-        Me.btnCancelarServ.Name = "btnCancelarServ"
-        Me.btnCancelarServ.Size = New System.Drawing.Size(118, 36)
-        Me.btnCancelarServ.TabIndex = 20
-        Me.btnCancelarServ.Text = "CANCELAR"
-        Me.btnCancelarServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelarServ.UseVisualStyleBackColor = True
-        Me.btnCancelarServ.Visible = False
-        '
-        'btnSaveServ
-        '
-        Me.btnSaveServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSaveServ.Image = Global.Sistema.My.Resources.Resources.add
-        Me.btnSaveServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSaveServ.Location = New System.Drawing.Point(59, 296)
-        Me.btnSaveServ.Name = "btnSaveServ"
-        Me.btnSaveServ.Size = New System.Drawing.Size(118, 36)
-        Me.btnSaveServ.TabIndex = 15
-        Me.btnSaveServ.Text = "GUARDAR"
-        Me.btnSaveServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSaveServ.UseVisualStyleBackColor = True
-        Me.btnSaveServ.Visible = False
-        '
-        'btnEliminaServ
-        '
-        Me.btnEliminaServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminaServ.Enabled = False
-        Me.btnEliminaServ.Image = Global.Sistema.My.Resources.Resources.delete
-        Me.btnEliminaServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminaServ.Location = New System.Drawing.Point(246, 338)
-        Me.btnEliminaServ.Name = "btnEliminaServ"
-        Me.btnEliminaServ.Size = New System.Drawing.Size(106, 36)
-        Me.btnEliminaServ.TabIndex = 14
-        Me.btnEliminaServ.Text = "ELIMINAR"
-        Me.btnEliminaServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEliminaServ.UseVisualStyleBackColor = True
-        '
-        'btnModificaServ
-        '
-        Me.btnModificaServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnModificaServ.Enabled = False
-        Me.btnModificaServ.Image = Global.Sistema.My.Resources.Resources.modifica
-        Me.btnModificaServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificaServ.Location = New System.Drawing.Point(122, 338)
-        Me.btnModificaServ.Name = "btnModificaServ"
-        Me.btnModificaServ.Size = New System.Drawing.Size(118, 36)
-        Me.btnModificaServ.TabIndex = 13
-        Me.btnModificaServ.Text = "MODIFICAR"
-        Me.btnModificaServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnModificaServ.UseVisualStyleBackColor = True
-        '
-        'btnAddServ
-        '
-        Me.btnAddServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAddServ.Image = Global.Sistema.My.Resources.Resources.newuser
-        Me.btnAddServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAddServ.Location = New System.Drawing.Point(23, 338)
-        Me.btnAddServ.Name = "btnAddServ"
-        Me.btnAddServ.Size = New System.Drawing.Size(93, 36)
-        Me.btnAddServ.TabIndex = 5
-        Me.btnAddServ.Text = "NUEVO"
-        Me.btnAddServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAddServ.UseVisualStyleBackColor = True
-        '
         'txtCuotaServ
         '
         Me.txtCuotaServ.Location = New System.Drawing.Point(120, 141)
@@ -1589,8 +1350,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "NomTipo"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle36
         Me.DataGridViewTextBoxColumn12.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
@@ -1683,20 +1444,6 @@ Partial Class Principal
         Me.Label35.Size = New System.Drawing.Size(35, 20)
         Me.Label35.TabIndex = 16
         Me.Label35.Text = "Red"
-        '
-        'btnReactivacion
-        '
-        Me.btnReactivacion.BackgroundImage = Global.Sistema.My.Resources.Resources.add
-        Me.btnReactivacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnReactivacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReactivacion.Location = New System.Drawing.Point(131, 334)
-        Me.btnReactivacion.Name = "btnReactivacion"
-        Me.btnReactivacion.Size = New System.Drawing.Size(118, 36)
-        Me.btnReactivacion.TabIndex = 15
-        Me.btnReactivacion.Text = "REACTIVAR"
-        Me.btnReactivacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnReactivacion.UseVisualStyleBackColor = True
-        Me.btnReactivacion.Visible = False
         '
         'Label36
         '
@@ -1796,8 +1543,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "NomUsuario"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle37
         Me.DataGridViewTextBoxColumn18.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True
@@ -1878,7 +1625,7 @@ Partial Class Principal
         Me.webBrowser.Name = "webBrowser"
         Me.webBrowser.Size = New System.Drawing.Size(1189, 441)
         Me.webBrowser.TabIndex = 0
-        Me.webBrowser.Url = New System.Uri("http://localhost/SistemaAgua/mostrar.php?red=0&ano=0", System.UriKind.Absolute)
+        Me.webBrowser.Url = New System.Uri("C:\Users\corozco\Documents\CV.pdf", System.UriKind.Absolute)
         '
         'TabPagos
         '
@@ -2083,8 +1830,8 @@ Partial Class Principal
         'DataGridViewTextBoxColumn24
         '
         Me.DataGridViewTextBoxColumn24.DataPropertyName = "NomUsuario"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle38
         Me.DataGridViewTextBoxColumn24.HeaderText = "NOMBRE"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
         Me.DataGridViewTextBoxColumn24.ReadOnly = True
@@ -2153,64 +1900,547 @@ Partial Class Principal
         Me.FecInicioPagos.TabIndex = 23
         Me.FecInicioPagos.Value = New Date(2016, 4, 5, 14, 52, 40, 0)
         '
-        'TabCorte
+        'TabPago
         '
-        Me.TabCorte.Controls.Add(Me.btnBuscarCorte)
-        Me.TabCorte.Controls.Add(Me.Label56)
-        Me.TabCorte.Controls.Add(Me.cmbAdminCorte)
-        Me.TabCorte.Controls.Add(Me.Panel9)
-        Me.TabCorte.Controls.Add(Me.dtGridCorte)
-        Me.TabCorte.Location = New System.Drawing.Point(4, 26)
-        Me.TabCorte.Name = "TabCorte"
-        Me.TabCorte.Size = New System.Drawing.Size(1189, 441)
-        Me.TabCorte.TabIndex = 7
-        Me.TabCorte.Text = "CORTE DE CAJA"
-        Me.TabCorte.UseVisualStyleBackColor = True
+        Me.TabPago.Controls.Add(Me.Panel10)
+        Me.TabPago.Controls.Add(Me.Label62)
+        Me.TabPago.Controls.Add(Me.TextBox6)
+        Me.TabPago.Controls.Add(Me.DataGridView1)
+        Me.TabPago.Location = New System.Drawing.Point(4, 26)
+        Me.TabPago.Name = "TabPago"
+        Me.TabPago.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPago.Size = New System.Drawing.Size(1189, 441)
+        Me.TabPago.TabIndex = 8
+        Me.TabPago.Text = "REALIZAR PAGO"
+        Me.TabPago.UseVisualStyleBackColor = True
         '
-        'btnBuscarCorte
+        'Panel10
         '
-        Me.btnBuscarCorte.Location = New System.Drawing.Point(370, 23)
-        Me.btnBuscarCorte.Name = "btnBuscarCorte"
-        Me.btnBuscarCorte.Size = New System.Drawing.Size(75, 23)
-        Me.btnBuscarCorte.TabIndex = 34
-        Me.btnBuscarCorte.Text = "BUSCAR"
-        Me.btnBuscarCorte.UseVisualStyleBackColor = True
+        Me.Panel10.Controls.Add(Me.Button2)
+        Me.Panel10.Controls.Add(Me.Label63)
+        Me.Panel10.Controls.Add(Me.Label64)
+        Me.Panel10.Controls.Add(Me.Label60)
+        Me.Panel10.Controls.Add(Me.Label61)
+        Me.Panel10.Controls.Add(Me.Label58)
+        Me.Panel10.Controls.Add(Me.Label59)
+        Me.Panel10.Controls.Add(Me.Label57)
+        Me.Panel10.Controls.Add(Me.Label53)
+        Me.Panel10.Controls.Add(Me.GroupBox2)
+        Me.Panel10.Controls.Add(Me.GroupBox1)
+        Me.Panel10.Controls.Add(Me.lblFecUsuario)
+        Me.Panel10.Controls.Add(Me.Label37)
+        Me.Panel10.Controls.Add(Me.lblRedUsuario)
+        Me.Panel10.Controls.Add(Me.lbl)
+        Me.Panel10.Controls.Add(Me.lblNombreUsuario)
+        Me.Panel10.Controls.Add(Me.Label31)
+        Me.Panel10.Location = New System.Drawing.Point(552, 9)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Size = New System.Drawing.Size(632, 432)
+        Me.Panel10.TabIndex = 10
         '
-        'Label56
+        'Label62
         '
-        Me.Label56.AutoSize = True
-        Me.Label56.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label56.Location = New System.Drawing.Point(104, 26)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(107, 20)
-        Me.Label56.TabIndex = 33
-        Me.Label56.Text = "Administrador"
+        Me.Label62.AutoSize = True
+        Me.Label62.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label62.Location = New System.Drawing.Point(22, 5)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(44, 20)
+        Me.Label62.TabIndex = 9
+        Me.Label62.Text = "Filtro"
         '
-        'cmbAdminCorte
+        'TextBox6
         '
-        Me.cmbAdminCorte.FormattingEnabled = True
-        Me.cmbAdminCorte.Location = New System.Drawing.Point(217, 23)
-        Me.cmbAdminCorte.Name = "cmbAdminCorte"
-        Me.cmbAdminCorte.Size = New System.Drawing.Size(137, 25)
-        Me.cmbAdminCorte.TabIndex = 32
+        Me.TextBox6.Location = New System.Drawing.Point(72, 1)
+        Me.TextBox6.Multiline = True
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(157, 28)
+        Me.TextBox6.TabIndex = 8
         '
-        'Panel9
+        'DataGridView1
         '
-        Me.Panel9.Controls.Add(Me.Button9)
-        Me.Panel9.Controls.Add(Me.Button10)
-        Me.Panel9.Controls.Add(Me.txtMontoTotal)
-        Me.Panel9.Controls.Add(Me.Label47)
-        Me.Panel9.Controls.Add(Me.txtDescuento)
-        Me.Panel9.Controls.Add(Me.Label50)
-        Me.Panel9.Controls.Add(Me.txtSubMonto)
-        Me.Panel9.Controls.Add(Me.Label52)
-        Me.Panel9.Controls.Add(Me.txtNumPagos)
-        Me.Panel9.Controls.Add(Me.Label54)
-        Me.Panel9.Controls.Add(Me.Label55)
-        Me.Panel9.Location = New System.Drawing.Point(928, 64)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(256, 374)
-        Me.Panel9.TabIndex = 29
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn31})
+        Me.DataGridView1.Location = New System.Drawing.Point(4, 35)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(542, 404)
+        Me.DataGridView1.TabIndex = 7
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "IdUsuario"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Visible = False
+        Me.DataGridViewTextBoxColumn14.Width = 30
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "NomUsuario"
+        DataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle39
+        Me.DataGridViewTextBoxColumn15.HeaderText = "NOMBRE"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        Me.DataGridViewTextBoxColumn15.Width = 150
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "ApeUsuario"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "APELLIDOS"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        Me.DataGridViewTextBoxColumn16.Width = 150
+        '
+        'DataGridViewTextBoxColumn28
+        '
+        Me.DataGridViewTextBoxColumn28.DataPropertyName = "NomRed"
+        Me.DataGridViewTextBoxColumn28.HeaderText = "RED"
+        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        Me.DataGridViewTextBoxColumn28.ReadOnly = True
+        Me.DataGridViewTextBoxColumn28.Width = 90
+        '
+        'DataGridViewTextBoxColumn31
+        '
+        Me.DataGridViewTextBoxColumn31.DataPropertyName = "NomTipo"
+        Me.DataGridViewTextBoxColumn31.HeaderText = "SERVICIO"
+        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
+        Me.DataGridViewTextBoxColumn31.ReadOnly = True
+        Me.DataGridViewTextBoxColumn31.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn31.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
+        Me.DataGridViewTextBoxColumn31.Width = 120
+        '
+        'ACTIVO
+        '
+        Me.ACTIVO.DataPropertyName = "Estatus"
+        Me.ACTIVO.HeaderText = "ESTATUS"
+        Me.ACTIVO.Name = "ACTIVO"
+        Me.ACTIVO.ReadOnly = True
+        Me.ACTIVO.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ACTIVO.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
+        Me.ACTIVO.Width = 150
+        '
+        'Column2
+        '
+        Me.Column2.DataPropertyName = "TipoAdmin"
+        Me.Column2.HeaderText = "PERFIL "
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 200
+        '
+        'Column8
+        '
+        Me.Column8.DataPropertyName = "ApeMa"
+        Me.Column8.HeaderText = "APEMATERNO"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
+        '
+        'Column7
+        '
+        Me.Column7.DataPropertyName = "ApePa"
+        Me.Column7.HeaderText = "APEPATERNO"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Visible = False
+        '
+        'Column3
+        '
+        Me.Column3.DataPropertyName = "ApeAdmin"
+        Me.Column3.HeaderText = "APELLIDOS"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 200
+        '
+        'Column1
+        '
+        Me.Column1.DataPropertyName = "NomAdmin"
+        DataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle40
+        Me.Column1.HeaderText = "NOMBRE"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 200
+        '
+        'Column6
+        '
+        Me.Column6.DataPropertyName = "IdAdmin"
+        Me.Column6.HeaderText = "IDADMIN"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Visible = False
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(3, 16)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(178, 21)
+        Me.Label6.TabIndex = 4
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(14, 44)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(65, 20)
+        Me.Label7.TabIndex = 5
+        '
+        'txtNombre
+        '
+        Me.txtNombre.Location = New System.Drawing.Point(113, 40)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(219, 20)
+        Me.txtNombre.TabIndex = 6
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(14, 81)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(91, 20)
+        Me.Label8.TabIndex = 7
+        '
+        'txtPaterno
+        '
+        Me.txtPaterno.Location = New System.Drawing.Point(113, 81)
+        Me.txtPaterno.Name = "txtPaterno"
+        Me.txtPaterno.Size = New System.Drawing.Size(219, 20)
+        Me.txtPaterno.TabIndex = 8
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(14, 121)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(97, 20)
+        Me.Label9.TabIndex = 9
+        '
+        'txtMaterno
+        '
+        Me.txtMaterno.Location = New System.Drawing.Point(113, 121)
+        Me.txtMaterno.Name = "txtMaterno"
+        Me.txtMaterno.Size = New System.Drawing.Size(219, 20)
+        Me.txtMaterno.TabIndex = 10
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(14, 164)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(89, 20)
+        Me.Label10.TabIndex = 11
+        '
+        'cmbTipoAdmin
+        '
+        Me.cmbTipoAdmin.FormattingEnabled = True
+        Me.cmbTipoAdmin.Location = New System.Drawing.Point(113, 162)
+        Me.cmbTipoAdmin.Name = "cmbTipoAdmin"
+        Me.cmbTipoAdmin.Size = New System.Drawing.Size(121, 21)
+        Me.cmbTipoAdmin.TabIndex = 12
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(14, 255)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(84, 20)
+        Me.Label11.TabIndex = 16
+        '
+        'txtPwd
+        '
+        Me.txtPwd.Location = New System.Drawing.Point(113, 251)
+        Me.txtPwd.Name = "txtPwd"
+        Me.txtPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtPwd.Size = New System.Drawing.Size(121, 20)
+        Me.txtPwd.TabIndex = 17
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(14, 294)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(79, 20)
+        Me.Label12.TabIndex = 18
+        '
+        'txtPwd1
+        '
+        Me.txtPwd1.Location = New System.Drawing.Point(113, 290)
+        Me.txtPwd1.Name = "txtPwd1"
+        Me.txtPwd1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtPwd1.Size = New System.Drawing.Size(121, 20)
+        Me.txtPwd1.TabIndex = 19
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 210)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(106, 20)
+        Me.Label3.TabIndex = 21
+        '
+        'cmbEstatusAdmin
+        '
+        Me.cmbEstatusAdmin.FormattingEnabled = True
+        Me.cmbEstatusAdmin.Items.AddRange(New Object() {"Activo", "Inactivo"})
+        Me.cmbEstatusAdmin.Location = New System.Drawing.Point(113, 205)
+        Me.cmbEstatusAdmin.Name = "cmbEstatusAdmin"
+        Me.cmbEstatusAdmin.Size = New System.Drawing.Size(121, 21)
+        Me.cmbEstatusAdmin.TabIndex = 22
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(28, 11)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(52, 17)
+        Me.Label31.TabIndex = 0
+        Me.Label31.Text = "Usuario"
+        '
+        'lblNombreUsuario
+        '
+        Me.lblNombreUsuario.AutoSize = True
+        Me.lblNombreUsuario.Location = New System.Drawing.Point(103, 11)
+        Me.lblNombreUsuario.Name = "lblNombreUsuario"
+        Me.lblNombreUsuario.Size = New System.Drawing.Size(0, 17)
+        Me.lblNombreUsuario.TabIndex = 1
+        '
+        'lbl
+        '
+        Me.lbl.AutoSize = True
+        Me.lbl.Location = New System.Drawing.Point(31, 44)
+        Me.lbl.Name = "lbl"
+        Me.lbl.Size = New System.Drawing.Size(30, 17)
+        Me.lbl.TabIndex = 2
+        Me.lbl.Text = "Red"
+        '
+        'lblRedUsuario
+        '
+        Me.lblRedUsuario.AutoSize = True
+        Me.lblRedUsuario.Location = New System.Drawing.Point(106, 44)
+        Me.lblRedUsuario.Name = "lblRedUsuario"
+        Me.lblRedUsuario.Size = New System.Drawing.Size(0, 17)
+        Me.lblRedUsuario.TabIndex = 3
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(392, 11)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(67, 17)
+        Me.Label37.TabIndex = 4
+        Me.Label37.Text = "Fecha Nac"
+        '
+        'lblFecUsuario
+        '
+        Me.lblFecUsuario.AutoSize = True
+        Me.lblFecUsuario.Location = New System.Drawing.Point(466, 11)
+        Me.lblFecUsuario.Name = "lblFecUsuario"
+        Me.lblFecUsuario.Size = New System.Drawing.Size(0, 17)
+        Me.lblFecUsuario.TabIndex = 5
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.CheckBox11)
+        Me.GroupBox1.Controls.Add(Me.CheckBox10)
+        Me.GroupBox1.Controls.Add(Me.CheckBox9)
+        Me.GroupBox1.Controls.Add(Me.CheckBox8)
+        Me.GroupBox1.Controls.Add(Me.CheckBox7)
+        Me.GroupBox1.Controls.Add(Me.CheckBox6)
+        Me.GroupBox1.Controls.Add(Me.CheckBox5)
+        Me.GroupBox1.Controls.Add(Me.CheckBox4)
+        Me.GroupBox1.Controls.Add(Me.CheckBox3)
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Controls.Add(Me.chkEnero)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 76)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(590, 99)
+        Me.GroupBox1.TabIndex = 6
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Seleccione los Meses a Pagar"
+        '
+        'chkEnero
+        '
+        Me.chkEnero.AutoSize = True
+        Me.chkEnero.Location = New System.Drawing.Point(15, 23)
+        Me.chkEnero.Name = "chkEnero"
+        Me.chkEnero.Size = New System.Drawing.Size(60, 21)
+        Me.chkEnero.TabIndex = 0
+        Me.chkEnero.Text = "Enero"
+        Me.chkEnero.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(91, 23)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(72, 21)
+        Me.CheckBox1.TabIndex = 1
+        Me.CheckBox1.Text = "Febrero"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(185, 23)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(63, 21)
+        Me.CheckBox2.TabIndex = 2
+        Me.CheckBox2.Text = "Marzo"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(292, 23)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(54, 21)
+        Me.CheckBox3.TabIndex = 3
+        Me.CheckBox3.Text = "Abril"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Location = New System.Drawing.Point(385, 23)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(59, 21)
+        Me.CheckBox4.TabIndex = 4
+        Me.CheckBox4.Text = "Mayo"
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
+        'CheckBox5
+        '
+        Me.CheckBox5.AutoSize = True
+        Me.CheckBox5.Location = New System.Drawing.Point(481, 23)
+        Me.CheckBox5.Name = "CheckBox5"
+        Me.CheckBox5.Size = New System.Drawing.Size(56, 21)
+        Me.CheckBox5.TabIndex = 5
+        Me.CheckBox5.Text = "Junio"
+        Me.CheckBox5.UseVisualStyleBackColor = True
+        '
+        'CheckBox6
+        '
+        Me.CheckBox6.AutoSize = True
+        Me.CheckBox6.Location = New System.Drawing.Point(17, 59)
+        Me.CheckBox6.Name = "CheckBox6"
+        Me.CheckBox6.Size = New System.Drawing.Size(52, 21)
+        Me.CheckBox6.TabIndex = 6
+        Me.CheckBox6.Text = "Julio"
+        Me.CheckBox6.UseVisualStyleBackColor = True
+        '
+        'CheckBox7
+        '
+        Me.CheckBox7.AutoSize = True
+        Me.CheckBox7.Location = New System.Drawing.Point(91, 59)
+        Me.CheckBox7.Name = "CheckBox7"
+        Me.CheckBox7.Size = New System.Drawing.Size(67, 21)
+        Me.CheckBox7.TabIndex = 7
+        Me.CheckBox7.Text = "Agosto"
+        Me.CheckBox7.UseVisualStyleBackColor = True
+        '
+        'CheckBox8
+        '
+        Me.CheckBox8.AutoSize = True
+        Me.CheckBox8.Location = New System.Drawing.Point(185, 59)
+        Me.CheckBox8.Name = "CheckBox8"
+        Me.CheckBox8.Size = New System.Drawing.Size(92, 21)
+        Me.CheckBox8.TabIndex = 8
+        Me.CheckBox8.Text = "Septiembre"
+        Me.CheckBox8.UseVisualStyleBackColor = True
+        '
+        'CheckBox9
+        '
+        Me.CheckBox9.AutoSize = True
+        Me.CheckBox9.Location = New System.Drawing.Point(292, 59)
+        Me.CheckBox9.Name = "CheckBox9"
+        Me.CheckBox9.Size = New System.Drawing.Size(73, 21)
+        Me.CheckBox9.TabIndex = 9
+        Me.CheckBox9.Text = "Octubre"
+        Me.CheckBox9.UseVisualStyleBackColor = True
+        '
+        'CheckBox10
+        '
+        Me.CheckBox10.AutoSize = True
+        Me.CheckBox10.Location = New System.Drawing.Point(385, 59)
+        Me.CheckBox10.Name = "CheckBox10"
+        Me.CheckBox10.Size = New System.Drawing.Size(90, 21)
+        Me.CheckBox10.TabIndex = 10
+        Me.CheckBox10.Text = "Noviembre"
+        Me.CheckBox10.UseVisualStyleBackColor = True
+        '
+        'CheckBox11
+        '
+        Me.CheckBox11.AutoSize = True
+        Me.CheckBox11.Location = New System.Drawing.Point(481, 59)
+        Me.CheckBox11.Name = "CheckBox11"
+        Me.CheckBox11.Size = New System.Drawing.Size(85, 21)
+        Me.CheckBox11.TabIndex = 11
+        Me.CheckBox11.Text = "Diciembre"
+        Me.CheckBox11.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label51)
+        Me.GroupBox2.Controls.Add(Me.RadioButton3)
+        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.RadioButton2)
+        Me.GroupBox2.Controls.Add(Me.RadioButton1)
+        Me.GroupBox2.Location = New System.Drawing.Point(44, 194)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(547, 107)
+        Me.GroupBox2.TabIndex = 7
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Opciones de Usuario"
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(14, 49)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(121, 21)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Medio Consumo "
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(14, 76)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(114, 21)
+        Me.RadioButton2.TabIndex = 1
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Usuario Comite"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'btnRespaldos
+        '
+        Me.btnRespaldos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnRespaldos.Image = Global.Sistema.My.Resources.Resources.icon__2_
+        Me.btnRespaldos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRespaldos.Location = New System.Drawing.Point(1081, 82)
+        Me.btnRespaldos.Name = "btnRespaldos"
+        Me.btnRespaldos.Size = New System.Drawing.Size(112, 50)
+        Me.btnRespaldos.TabIndex = 4
+        Me.btnRespaldos.Text = "RESPALDO"
+        Me.btnRespaldos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnRespaldos.UseVisualStyleBackColor = True
         '
         'Button9
         '
@@ -2240,176 +2470,424 @@ Partial Class Principal
         Me.Button10.UseVisualStyleBackColor = True
         Me.Button10.Visible = False
         '
-        'txtMontoTotal
+        'btnPagar
         '
-        Me.txtMontoTotal.Location = New System.Drawing.Point(117, 191)
-        Me.txtMontoTotal.Name = "txtMontoTotal"
-        Me.txtMontoTotal.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtMontoTotal.Size = New System.Drawing.Size(100, 24)
-        Me.txtMontoTotal.TabIndex = 27
+        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnPagar.Image = Global.Sistema.My.Resources.Resources.money
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPagar.Location = New System.Drawing.Point(112, 355)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(105, 36)
+        Me.btnPagar.TabIndex = 26
+        Me.btnPagar.Text = "PAGAR"
+        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnPagar.UseVisualStyleBackColor = True
+        Me.btnPagar.Visible = False
         '
-        'Label47
+        'btnCancelarUsu
         '
-        Me.Label47.AutoSize = True
-        Me.Label47.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.Location = New System.Drawing.Point(69, 195)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(42, 20)
-        Me.Label47.TabIndex = 26
-        Me.Label47.Text = "Total"
+        Me.btnCancelarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancelarUsu.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.btnCancelarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelarUsu.Location = New System.Drawing.Point(170, 377)
+        Me.btnCancelarUsu.Name = "btnCancelarUsu"
+        Me.btnCancelarUsu.Size = New System.Drawing.Size(118, 36)
+        Me.btnCancelarUsu.TabIndex = 20
+        Me.btnCancelarUsu.Text = "CANCELAR"
+        Me.btnCancelarUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelarUsu.UseVisualStyleBackColor = True
+        Me.btnCancelarUsu.Visible = False
         '
-        'txtDescuento
+        'btnSaveUsu
         '
-        Me.txtDescuento.Location = New System.Drawing.Point(117, 154)
-        Me.txtDescuento.Name = "txtDescuento"
-        Me.txtDescuento.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtDescuento.Size = New System.Drawing.Size(100, 24)
-        Me.txtDescuento.TabIndex = 25
+        Me.btnSaveUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSaveUsu.Image = Global.Sistema.My.Resources.Resources.add
+        Me.btnSaveUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSaveUsu.Location = New System.Drawing.Point(46, 377)
+        Me.btnSaveUsu.Name = "btnSaveUsu"
+        Me.btnSaveUsu.Size = New System.Drawing.Size(118, 36)
+        Me.btnSaveUsu.TabIndex = 15
+        Me.btnSaveUsu.Text = "GUARDAR"
+        Me.btnSaveUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSaveUsu.UseVisualStyleBackColor = True
+        Me.btnSaveUsu.Visible = False
         '
-        'Label50
+        'btnEliminarUsu
         '
-        Me.Label50.AutoSize = True
-        Me.Label50.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label50.Location = New System.Drawing.Point(32, 158)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(79, 20)
-        Me.Label50.TabIndex = 24
-        Me.Label50.Text = "Descuento"
+        Me.btnEliminarUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminarUsu.Enabled = False
+        Me.btnEliminarUsu.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.btnEliminarUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminarUsu.Location = New System.Drawing.Point(236, 393)
+        Me.btnEliminarUsu.Name = "btnEliminarUsu"
+        Me.btnEliminarUsu.Size = New System.Drawing.Size(106, 36)
+        Me.btnEliminarUsu.TabIndex = 14
+        Me.btnEliminarUsu.Text = "ELIMINAR"
+        Me.btnEliminarUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminarUsu.UseVisualStyleBackColor = True
         '
-        'txtSubMonto
+        'btnModUsu
         '
-        Me.txtSubMonto.Location = New System.Drawing.Point(117, 118)
-        Me.txtSubMonto.Name = "txtSubMonto"
-        Me.txtSubMonto.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtSubMonto.Size = New System.Drawing.Size(100, 24)
-        Me.txtSubMonto.TabIndex = 19
+        Me.btnModUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnModUsu.Enabled = False
+        Me.btnModUsu.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.btnModUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModUsu.Location = New System.Drawing.Point(112, 393)
+        Me.btnModUsu.Name = "btnModUsu"
+        Me.btnModUsu.Size = New System.Drawing.Size(118, 36)
+        Me.btnModUsu.TabIndex = 13
+        Me.btnModUsu.Text = "MODIFICAR"
+        Me.btnModUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModUsu.UseVisualStyleBackColor = True
         '
-        'Label52
+        'btnAddUsu
         '
-        Me.Label52.AutoSize = True
-        Me.Label52.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label52.Location = New System.Drawing.Point(32, 122)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(80, 20)
-        Me.Label52.TabIndex = 18
-        Me.Label52.Text = "Submonto"
+        Me.btnAddUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAddUsu.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.btnAddUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAddUsu.Location = New System.Drawing.Point(13, 393)
+        Me.btnAddUsu.Name = "btnAddUsu"
+        Me.btnAddUsu.Size = New System.Drawing.Size(93, 36)
+        Me.btnAddUsu.TabIndex = 5
+        Me.btnAddUsu.Text = "NUEVO"
+        Me.btnAddUsu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAddUsu.UseVisualStyleBackColor = True
         '
-        'txtNumPagos
+        'btnCancelarRed
         '
-        Me.txtNumPagos.Location = New System.Drawing.Point(117, 75)
-        Me.txtNumPagos.Name = "txtNumPagos"
-        Me.txtNumPagos.Size = New System.Drawing.Size(100, 24)
-        Me.txtNumPagos.TabIndex = 6
+        Me.btnCancelarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancelarRed.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.btnCancelarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelarRed.Location = New System.Drawing.Point(192, 332)
+        Me.btnCancelarRed.Name = "btnCancelarRed"
+        Me.btnCancelarRed.Size = New System.Drawing.Size(118, 36)
+        Me.btnCancelarRed.TabIndex = 20
+        Me.btnCancelarRed.Text = "CANCELAR"
+        Me.btnCancelarRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelarRed.UseVisualStyleBackColor = True
+        Me.btnCancelarRed.Visible = False
         '
-        'Label54
+        'btnSaveRed
         '
-        Me.Label54.AutoSize = True
-        Me.Label54.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label54.Location = New System.Drawing.Point(55, 79)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(58, 20)
-        Me.Label54.TabIndex = 5
-        Me.Label54.Text = "# Pagos"
+        Me.btnSaveRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSaveRed.Image = Global.Sistema.My.Resources.Resources.add
+        Me.btnSaveRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSaveRed.Location = New System.Drawing.Point(68, 332)
+        Me.btnSaveRed.Name = "btnSaveRed"
+        Me.btnSaveRed.Size = New System.Drawing.Size(118, 36)
+        Me.btnSaveRed.TabIndex = 15
+        Me.btnSaveRed.Text = "GUARDAR"
+        Me.btnSaveRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSaveRed.UseVisualStyleBackColor = True
+        Me.btnSaveRed.Visible = False
         '
-        'Label55
+        'btnEliminaRed
         '
-        Me.Label55.AutoSize = True
-        Me.Label55.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label55.Location = New System.Drawing.Point(79, 11)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(107, 21)
-        Me.Label55.TabIndex = 4
-        Me.Label55.Text = "Datos de Pago"
+        Me.btnEliminaRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminaRed.Enabled = False
+        Me.btnEliminaRed.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.btnEliminaRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminaRed.Location = New System.Drawing.Point(258, 362)
+        Me.btnEliminaRed.Name = "btnEliminaRed"
+        Me.btnEliminaRed.Size = New System.Drawing.Size(106, 36)
+        Me.btnEliminaRed.TabIndex = 14
+        Me.btnEliminaRed.Text = "ELIMINAR"
+        Me.btnEliminaRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminaRed.UseVisualStyleBackColor = True
         '
-        'dtGridCorte
+        'btnModificarRed
         '
-        Me.dtGridCorte.AllowUserToAddRows = False
-        Me.dtGridCorte.AllowUserToDeleteRows = False
-        Me.dtGridCorte.AllowUserToOrderColumns = True
-        Me.dtGridCorte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtGridCorte.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn32, Me.Column16, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.Column20, Me.Column21, Me.Column22})
-        Me.dtGridCorte.Location = New System.Drawing.Point(4, 64)
-        Me.dtGridCorte.Name = "dtGridCorte"
-        Me.dtGridCorte.ReadOnly = True
-        Me.dtGridCorte.Size = New System.Drawing.Size(919, 372)
-        Me.dtGridCorte.TabIndex = 28
+        Me.btnModificarRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnModificarRed.Enabled = False
+        Me.btnModificarRed.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.btnModificarRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModificarRed.Location = New System.Drawing.Point(134, 362)
+        Me.btnModificarRed.Name = "btnModificarRed"
+        Me.btnModificarRed.Size = New System.Drawing.Size(118, 36)
+        Me.btnModificarRed.TabIndex = 13
+        Me.btnModificarRed.Text = "MODIFICAR"
+        Me.btnModificarRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModificarRed.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn29
+        'btnAddRed
         '
-        Me.DataGridViewTextBoxColumn29.DataPropertyName = "IdPago"
-        Me.DataGridViewTextBoxColumn29.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
-        Me.DataGridViewTextBoxColumn29.ReadOnly = True
-        Me.DataGridViewTextBoxColumn29.Visible = False
-        Me.DataGridViewTextBoxColumn29.Width = 30
+        Me.btnAddRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAddRed.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.btnAddRed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAddRed.Location = New System.Drawing.Point(35, 362)
+        Me.btnAddRed.Name = "btnAddRed"
+        Me.btnAddRed.Size = New System.Drawing.Size(93, 36)
+        Me.btnAddRed.TabIndex = 5
+        Me.btnAddRed.Text = "NUEVO"
+        Me.btnAddRed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAddRed.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn30
+        'btnCancelarServ
         '
-        Me.DataGridViewTextBoxColumn30.DataPropertyName = "NomUsuario"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn30.DefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridViewTextBoxColumn30.HeaderText = "NOMBRE"
-        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
-        Me.DataGridViewTextBoxColumn30.ReadOnly = True
-        Me.DataGridViewTextBoxColumn30.Width = 150
+        Me.btnCancelarServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancelarServ.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.btnCancelarServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelarServ.Location = New System.Drawing.Point(183, 296)
+        Me.btnCancelarServ.Name = "btnCancelarServ"
+        Me.btnCancelarServ.Size = New System.Drawing.Size(118, 36)
+        Me.btnCancelarServ.TabIndex = 20
+        Me.btnCancelarServ.Text = "CANCELAR"
+        Me.btnCancelarServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelarServ.UseVisualStyleBackColor = True
+        Me.btnCancelarServ.Visible = False
         '
-        'DataGridViewTextBoxColumn32
+        'btnSaveServ
         '
-        Me.DataGridViewTextBoxColumn32.DataPropertyName = "FechaPago"
-        Me.DataGridViewTextBoxColumn32.HeaderText = "FECHA PAGO"
-        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
-        Me.DataGridViewTextBoxColumn32.ReadOnly = True
-        Me.DataGridViewTextBoxColumn32.Width = 70
+        Me.btnSaveServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSaveServ.Image = Global.Sistema.My.Resources.Resources.add
+        Me.btnSaveServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSaveServ.Location = New System.Drawing.Point(59, 296)
+        Me.btnSaveServ.Name = "btnSaveServ"
+        Me.btnSaveServ.Size = New System.Drawing.Size(118, 36)
+        Me.btnSaveServ.TabIndex = 15
+        Me.btnSaveServ.Text = "GUARDAR"
+        Me.btnSaveServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSaveServ.UseVisualStyleBackColor = True
+        Me.btnSaveServ.Visible = False
         '
-        'Column16
+        'btnEliminaServ
         '
-        Me.Column16.DataPropertyName = "Meses"
-        Me.Column16.HeaderText = "MESES"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
-        Me.Column16.Width = 250
+        Me.btnEliminaServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminaServ.Enabled = False
+        Me.btnEliminaServ.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.btnEliminaServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminaServ.Location = New System.Drawing.Point(246, 338)
+        Me.btnEliminaServ.Name = "btnEliminaServ"
+        Me.btnEliminaServ.Size = New System.Drawing.Size(106, 36)
+        Me.btnEliminaServ.TabIndex = 14
+        Me.btnEliminaServ.Text = "ELIMINAR"
+        Me.btnEliminaServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminaServ.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn33
+        'btnModificaServ
         '
-        Me.DataGridViewTextBoxColumn33.DataPropertyName = "Anio"
-        Me.DataGridViewTextBoxColumn33.HeaderText = "AÑO PAGADO"
-        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
-        Me.DataGridViewTextBoxColumn33.ReadOnly = True
-        Me.DataGridViewTextBoxColumn33.Width = 70
+        Me.btnModificaServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnModificaServ.Enabled = False
+        Me.btnModificaServ.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.btnModificaServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModificaServ.Location = New System.Drawing.Point(122, 338)
+        Me.btnModificaServ.Name = "btnModificaServ"
+        Me.btnModificaServ.Size = New System.Drawing.Size(118, 36)
+        Me.btnModificaServ.TabIndex = 13
+        Me.btnModificaServ.Text = "MODIFICAR"
+        Me.btnModificaServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModificaServ.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn34
+        'btnAddServ
         '
-        Me.DataGridViewTextBoxColumn34.DataPropertyName = "SubPago"
-        Me.DataGridViewTextBoxColumn34.HeaderText = "SUBTOTAL"
-        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
-        Me.DataGridViewTextBoxColumn34.ReadOnly = True
-        Me.DataGridViewTextBoxColumn34.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn34.ToolTipText = "MUESTRA SI EL USUARIO ESTA ACTIVO"
-        Me.DataGridViewTextBoxColumn34.Width = 80
+        Me.btnAddServ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAddServ.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.btnAddServ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAddServ.Location = New System.Drawing.Point(23, 338)
+        Me.btnAddServ.Name = "btnAddServ"
+        Me.btnAddServ.Size = New System.Drawing.Size(93, 36)
+        Me.btnAddServ.TabIndex = 5
+        Me.btnAddServ.Text = "NUEVO"
+        Me.btnAddServ.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAddServ.UseVisualStyleBackColor = True
         '
-        'Column20
+        'btnReactivacion
         '
-        Me.Column20.DataPropertyName = "DescPago"
-        Me.Column20.HeaderText = "DESCUENTO"
-        Me.Column20.Name = "Column20"
-        Me.Column20.ReadOnly = True
-        Me.Column20.Width = 85
+        Me.btnReactivacion.BackgroundImage = Global.Sistema.My.Resources.Resources.add
+        Me.btnReactivacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnReactivacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnReactivacion.Location = New System.Drawing.Point(131, 334)
+        Me.btnReactivacion.Name = "btnReactivacion"
+        Me.btnReactivacion.Size = New System.Drawing.Size(118, 36)
+        Me.btnReactivacion.TabIndex = 15
+        Me.btnReactivacion.Text = "REACTIVAR"
+        Me.btnReactivacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnReactivacion.UseVisualStyleBackColor = True
+        Me.btnReactivacion.Visible = False
         '
-        'Column21
+        'btnAdd
         '
-        Me.Column21.DataPropertyName = "CantAport"
-        Me.Column21.HeaderText = "APORTACION"
-        Me.Column21.Name = "Column21"
-        Me.Column21.ReadOnly = True
-        Me.Column21.Width = 90
+        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAdd.Image = Global.Sistema.My.Resources.Resources.newuser
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAdd.Location = New System.Drawing.Point(23, 351)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(93, 36)
+        Me.btnAdd.TabIndex = 5
+        Me.btnAdd.Text = "NUEVO"
+        Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
-        'Column22
+        'btnModificar
         '
-        Me.Column22.DataPropertyName = "MontoPago"
-        Me.Column22.HeaderText = "TOTAL"
-        Me.Column22.Name = "Column22"
-        Me.Column22.ReadOnly = True
-        Me.Column22.Width = 90
+        Me.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnModificar.Enabled = False
+        Me.btnModificar.Image = Global.Sistema.My.Resources.Resources.modifica
+        Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModificar.Location = New System.Drawing.Point(122, 351)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(118, 36)
+        Me.btnModificar.TabIndex = 13
+        Me.btnModificar.Text = "MODIFICAR"
+        Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModificar.UseVisualStyleBackColor = True
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminar.Enabled = False
+        Me.btnEliminar.Image = Global.Sistema.My.Resources.Resources.delete
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminar.Location = New System.Drawing.Point(246, 351)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(106, 36)
+        Me.btnEliminar.TabIndex = 14
+        Me.btnEliminar.Text = "ELIMINAR"
+        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnNuevo.Image = Global.Sistema.My.Resources.Resources.add
+        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNuevo.Location = New System.Drawing.Point(63, 320)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(118, 36)
+        Me.btnNuevo.TabIndex = 15
+        Me.btnNuevo.Text = "GUARDAR"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNuevo.UseVisualStyleBackColor = True
+        Me.btnNuevo.Visible = False
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancelar.Image = Global.Sistema.My.Resources.Resources.cancelar
+        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelar.Location = New System.Drawing.Point(187, 320)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(118, 36)
+        Me.btnCancelar.TabIndex = 20
+        Me.btnCancelar.Text = "CANCELAR"
+        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.btnCancelar.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button1.Image = Global.Sistema.My.Resources.Resources.file1
+        Me.Button1.Location = New System.Drawing.Point(442, 38)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(51, 43)
+        Me.Button1.TabIndex = 2
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(14, 23)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(73, 21)
+        Me.RadioButton3.TabIndex = 3
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Ninguno"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(413, 18)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(120, 17)
+        Me.Label51.TabIndex = 4
+        Me.Label51.Text = "Agregar Aportación"
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(31, 330)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(65, 17)
+        Me.Label53.TabIndex = 8
+        Me.Label53.Text = "SubMonto"
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(102, 330)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(65, 17)
+        Me.Label57.TabIndex = 9
+        Me.Label57.Text = "SubMonto"
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(309, 330)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(65, 17)
+        Me.Label58.TabIndex = 11
+        Me.Label58.Text = "SubMonto"
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Location = New System.Drawing.Point(238, 330)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(68, 17)
+        Me.Label59.TabIndex = 10
+        Me.Label59.Text = "Descuento"
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(494, 330)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(65, 17)
+        Me.Label60.TabIndex = 13
+        Me.Label60.Text = "SubMonto"
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(423, 330)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(70, 17)
+        Me.Label61.TabIndex = 12
+        Me.Label61.Text = "Aportación"
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = True
+        Me.Label63.Location = New System.Drawing.Point(309, 367)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(65, 17)
+        Me.Label63.TabIndex = 15
+        Me.Label63.Text = "SubMonto"
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Location = New System.Drawing.Point(238, 367)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(69, 17)
+        Me.Label64.TabIndex = 14
+        Me.Label64.Text = "Saldo Final"
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.Image = Global.Sistema.My.Resources.Resources.money
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(520, 394)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(99, 32)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "PAGAR"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Principal
         '
@@ -2432,10 +2910,13 @@ Partial Class Principal
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
+        Me.TabCorte.ResumeLayout(False)
+        Me.TabCorte.PerformLayout()
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
+        CType(Me.dtGridCorte, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabAdmin.ResumeLayout(False)
         Me.TabAdmin.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         CType(Me.dtGridAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabUsuarios.ResumeLayout(False)
         Me.TabUsuarios.PerformLayout()
@@ -2461,11 +2942,15 @@ Partial Class Principal
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         CType(Me.dtGridPagos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabCorte.ResumeLayout(False)
-        Me.TabCorte.PerformLayout()
-        Me.Panel9.ResumeLayout(False)
-        Me.Panel9.PerformLayout()
-        CType(Me.dtGridCorte, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPago.ResumeLayout(False)
+        Me.TabPago.PerformLayout()
+        Me.Panel10.ResumeLayout(False)
+        Me.Panel10.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2479,29 +2964,6 @@ Partial Class Principal
     Friend WithEvents lblUsuario As System.Windows.Forms.Label
     Friend WithEvents btnRespaldos As System.Windows.Forms.Button
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
-    Friend WithEvents TabAdmin As System.Windows.Forms.TabPage
-    Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents btnCancelar As System.Windows.Forms.Button
-    Friend WithEvents txtPwd1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents txtPwd As System.Windows.Forms.TextBox
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents btnNuevo As System.Windows.Forms.Button
-    Friend WithEvents btnEliminar As System.Windows.Forms.Button
-    Friend WithEvents btnModificar As System.Windows.Forms.Button
-    Friend WithEvents btnAdd As System.Windows.Forms.Button
-    Friend WithEvents cmbTipoAdmin As System.Windows.Forms.ComboBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents txtMaterno As System.Windows.Forms.TextBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents txtPaterno As System.Windows.Forms.TextBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents txtNombre As System.Windows.Forms.TextBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtFiltro As System.Windows.Forms.TextBox
-    Friend WithEvents dtGridAdmin As System.Windows.Forms.DataGridView
     Friend WithEvents TabUsuarios As System.Windows.Forms.TabPage
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents cmbRedUsu As System.Windows.Forms.ComboBox
@@ -2613,9 +3075,6 @@ Partial Class Principal
     Friend WithEvents Label54 As System.Windows.Forms.Label
     Friend WithEvents Label55 As System.Windows.Forms.Label
     Friend WithEvents dtGridCorte As System.Windows.Forms.DataGridView
-    Friend WithEvents btnPagar As System.Windows.Forms.Button
-    Friend WithEvents cmbEstatusAdmin As System.Windows.Forms.ComboBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btnBuscarVerPagos As System.Windows.Forms.Button
     Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents btnBuscarCorte As System.Windows.Forms.Button
@@ -2631,13 +3090,6 @@ Partial Class Principal
     Friend WithEvents Column23 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmbTpoServUsu As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ACTIVO As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn23 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column13 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn24 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -2678,4 +3130,81 @@ Partial Class Principal
     Friend WithEvents DataGridViewTextBoxColumn21 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn22 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column11 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TabAdmin As System.Windows.Forms.TabPage
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtFiltro As System.Windows.Forms.TextBox
+    Friend WithEvents dtGridAdmin As System.Windows.Forms.DataGridView
+    Friend WithEvents ACTIVO As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents txtNombre As System.Windows.Forms.TextBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents txtPaterno As System.Windows.Forms.TextBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents txtMaterno As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents cmbTipoAdmin As System.Windows.Forms.ComboBox
+    Friend WithEvents btnAdd As System.Windows.Forms.Button
+    Friend WithEvents btnModificar As System.Windows.Forms.Button
+    Friend WithEvents btnEliminar As System.Windows.Forms.Button
+    Friend WithEvents btnNuevo As System.Windows.Forms.Button
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents txtPwd As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents txtPwd1 As System.Windows.Forms.TextBox
+    Friend WithEvents btnCancelar As System.Windows.Forms.Button
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents cmbEstatusAdmin As System.Windows.Forms.ComboBox
+    Friend WithEvents TabPago As System.Windows.Forms.TabPage
+    Friend WithEvents Panel10 As System.Windows.Forms.Panel
+    Friend WithEvents Label62 As System.Windows.Forms.Label
+    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn28 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn31 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnPagar As System.Windows.Forms.Button
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents CheckBox11 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox10 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox9 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox8 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox7 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox6 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox5 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents chkEnero As System.Windows.Forms.CheckBox
+    Friend WithEvents lblFecUsuario As System.Windows.Forms.Label
+    Friend WithEvents Label37 As System.Windows.Forms.Label
+    Friend WithEvents lblRedUsuario As System.Windows.Forms.Label
+    Friend WithEvents lbl As System.Windows.Forms.Label
+    Friend WithEvents lblNombreUsuario As System.Windows.Forms.Label
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label51 As System.Windows.Forms.Label
+    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Label63 As System.Windows.Forms.Label
+    Friend WithEvents Label64 As System.Windows.Forms.Label
+    Friend WithEvents Label60 As System.Windows.Forms.Label
+    Friend WithEvents Label61 As System.Windows.Forms.Label
+    Friend WithEvents Label58 As System.Windows.Forms.Label
+    Friend WithEvents Label59 As System.Windows.Forms.Label
+    Friend WithEvents Label57 As System.Windows.Forms.Label
+    Friend WithEvents Label53 As System.Windows.Forms.Label
 End Class

@@ -155,13 +155,15 @@ Public Class clsUsuarios
     End Function
 
     Public Function VerificaExistenciaUsuario(usuario As clsUsuarios)
+        Dim ret As Integer = 0
         Dim dtFolio As New DataTable
         Try
             dtFolio = objSQL.ejecutaProcedimientoTable(sp_VerificaNuevoUsuario, usuario.NombreUsu, usuario.ApePatUsu, usuario.ApeMatUsu)
+            ret = CInt(dtFolio.Rows(0).Item(0))
         Catch ex As Exception
             MsgBox("Problema al verificar Usuario existente: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-        Return dtFolio
+        Return ret
     End Function
 
     Public Sub AgregaModificaEliminaUsuario(strTipo As Integer, usuario As clsUsuarios)

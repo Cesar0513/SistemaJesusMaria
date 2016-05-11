@@ -253,7 +253,9 @@ Public Class Principal
         cmbTpoServUsu.SelectedItem = serv
         txtPrecioTomaUsu.Text = 0
         txtRefUsu.Text = ref
-        btnPagar.Visible = True
+        If RowIdUsuario <> 0 Then
+            btnPagar.Visible = True
+        End If
     End Sub
 
     Public Function VerificaNuevoUsuario()
@@ -338,6 +340,7 @@ Public Class Principal
                 Else
                     Me.dtGridRed.DataSource = dtFolio
                     Me.dtGridRed.CurrentRow.Selected = False
+                    LimpiarCamposRedes()
                 End If
             Catch ex As Exception
                 MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
@@ -401,7 +404,7 @@ Public Class Principal
                 MsgBox("No hay registros", MsgBoxStyle.Information, "Aviso!")
             Else
                 Me.dtGridServicio.DataSource = dtFolio
-                'Me.dtGridServicio.CurrentRow.Selected = False
+                Me.dtGridServicio.CurrentRow.Selected = False
                 LimpiarCamposServicios()
             End If
         Catch ex As Exception
@@ -413,6 +416,7 @@ Public Class Principal
         txtServ.Text = Serv.NombreTipo
         txtCuotaServ.Text = Serv.CuotaTipo
         cmbEstatusServ.SelectedItem = Serv.EstatusTipo
+        BotonesModificaEliminaServ()
     End Sub
 
     Public Function NuevaServicio()
@@ -807,7 +811,25 @@ Public Class Principal
             Exit Sub
         End If
 
-        If VerificaExistenciaUsuarios() = 1 Then
+        If VerificaExistenciaUsuarios() = 0 Then
+            UsuOperacion.IdUsuario = 0
+            UsuOperacion.NombreUsu = Trim(txtNombreUsu.Text)
+            UsuOperacion.ApePatUsu = Trim(txtPaternoUsu.Text)
+            UsuOperacion.ApeMatUsu = Trim(txtMaternoUsu.Text)
+            UsuOperacion.FecNacUsu = Trim(FechaNacUsu.Text)
+            UsuOperacion.RedUsuario = Trim(cmbRedUsu.SelectedItem)
+            UsuOperacion.TipoUsuario = Trim(cmbTpoServUsu.SelectedItem)
+            UsuOperacion.Precio = Trim(txtPrecioTomaUsu.Text)
+            UsuOperacion.RefUsuario = Trim(txtRefUsu.Text)
+            UsuOperacion.EstaUsuario = 1
+            Try
+                UsuOperacion.AgregaModificaEliminaUsuario(1, UsuOperacion)
+                BotonesInicioUsu()
+                CargarUsuarios()
+            Catch ex As Exception
+                MsgBox("Ocurrio el siguiente problema: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        Else
             If MessageBox.Show("Ya Existe un Usuarios con el Nombre y Apellidos Iguales, Si es otra toma presione 'Aceptar', si no presione 'Cancelar'", "INFORMACIÓN", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
                 UsuOperacion.IdUsuario = 0
                 UsuOperacion.NombreUsu = Trim(txtNombreUsu.Text)
@@ -956,10 +978,8 @@ Public Class Principal
 
     Private Sub dtGridServ_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dtGridServicio.CellEnter
         Dim Serv As New clsServicio()
-        Dim clave As Integer = Nothing
         RowIdSer = 0
         If e.RowIndex >= 0 Then
-            BotonesModificaEliminaServ()
             RowIdSer = CInt(dtGridServicio.Rows(e.RowIndex).Cells(0).Value)
             Serv.IdTipo = CInt(dtGridServicio.Rows(e.RowIndex).Cells(0).Value)
             Serv.NombreTipo = CStr(dtGridServicio.Rows(e.RowIndex).Cells(1).Value)
@@ -1294,7 +1314,6 @@ Public Class Principal
         dtGridUsuarios.Enabled = True
         btnSaveUsu.Visible = False
         btnCancelarUsu.Visible = False
-        btnPagar.Visible = True
         btnAddUsu.Enabled = True
         btnModUsu.Enabled = True
         btnEliminarUsu.Enabled = True
@@ -1344,6 +1363,7 @@ Public Class Principal
         btnAddServ.Visible = True
         btnModificaServ.Visible = True
         btnEliminaServ.Visible = True
+        RowIdSer = 0
     End Sub
 
     Public Sub BotonesNuevoServ()
@@ -1390,6 +1410,7 @@ Public Class Principal
         txtPrecioTomaUsu.Text = ""
         txtRefUsu.Text = ""
         RowIdUsuario = 0
+        btnPagar.Visible = False
     End Sub
 
     Public Sub LimpiarCamposRedes()
